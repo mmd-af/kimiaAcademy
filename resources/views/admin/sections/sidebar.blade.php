@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">WebProg.ir</div>
+        <div class="sidebar-brand-text mx-3">kimiaAcademy.ir</div>
     </a>
 
     <!-- Divider -->
@@ -23,104 +23,31 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        کاربران
-    </div>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true"
-            aria-controls="collapsePages">
-            <i class="fas fa-fw fa-users"></i>
-            <span> کاربران </span>
-        </a>
-        <div id="collapseUsers" class="collapse
-        {{ request()->is('admin-panel/management/users*') ? 'show' : ''}}
-        {{ request()->is('admin-panel/management/roles*') ? 'show' : ''}}
-        {{ request()->is('admin-panel/management/permissions*') ? 'show' : ''}}
-        " aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item {{ request()->is('admin-panel/management/users*') ? 'active' : ''}}" href="{{ route('admin.users.index') }}">لیست کاربران</a>
-                <a class="collapse-item {{ request()->is('admin-panel/management/roles*') ? 'active' : ''}}" href="{{ route('admin.roles.index') }}">گروه های کاربری</a>
-                <a class="collapse-item {{ request()->is('admin-panel/management/permissions*') ? 'active' : ''}}" href="{{ route('admin.permissions.index') }}">پرمیژن ها</a>
-            </div>
-        </div>
-    </li>
-
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
         فروشگاه
     </div>
 
     <!-- Nav Item - Brand -->
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.brands.index') }}">
+        <a class="nav-link" href="#">
             <i class="fas fa-store"></i>
             <span> برند ها </span>
         </a>
     </li>
 
-    {{-- @can('user-management') --}}
-    @role('csdc')
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts" aria-expanded="true"
             aria-controls="collapsePages">
             <i class="fas fa-fw fa-cart-plus"></i>
-            <span> محصولات </span>
+            <span> آموزشی ویدئویی </span>
         </a>
         <div id="collapseProducts" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ route('admin.products.index') }}">محصولات</a>
-                <a class="collapse-item" href="{{ route('admin.categories.index') }}">دسته بندی ها</a>
-                <a class="collapse-item" href="{{ route('admin.attributes.index') }}">ویژگی ها</a>
-                <a class="collapse-item" href="{{ route('admin.tags.index') }}">تگ ها</a>
-                <a class="collapse-item" href="{{ route('admin.comments.index') }}">کامنت ها</a>
+                <a class="collapse-item" href="#">محصولات</a>
+                <a class="collapse-item" href="#">دسته بندی ها</a>
+                <a class="collapse-item" href="#">ویژگی ها</a>
+                <a class="collapse-item" href="#">تگ ها</a>
             </div>
         </div>
-    </li>
-    @endrole
-    {{-- @endcan --}}
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        سفارشات
-    </div>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="true"
-            aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
-            <span> سفارشات </span>
-        </a>
-        <div id="collapseOrders" class="collapse
-        {{ request()->is('admin-panel/management/orders*') ? 'show' : ''}}
-        {{ request()->is('admin-panel/management/transactions*') ? 'show' : ''}}
-        {{ request()->is('admin-panel/management/coupons*') ? 'show' : ''}}
-        " aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item {{ request()->is('admin-panel/management/orders*') ? 'active' : ''}}" href="{{ route('admin.orders.index') }}">سفارشات</a>
-                <a class="collapse-item {{ request()->is('admin-panel/management/transactions*') ? 'active' : ''}}" href="{{ route('admin.transactions.index') }}">تراکنش ها</a>
-                <a class="collapse-item {{ request()->is('admin-panel/management/coupons*') ? 'active' : ''}}" href="{{ route('admin.coupons.index') }}">کوپن ها</a>
-            </div>
-        </div>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        تنظیمات
-    </div>
-
-    <!-- Nav Item - Banners -->
-    <li class="nav-item active">
-        <a class="nav-link" href="{{ route('admin.banners.index') }}">
-            <i class="fas fa-fw fa-image"></i>
-            <span> بنرها </span></a>
     </li>
 
 
