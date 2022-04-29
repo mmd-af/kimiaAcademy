@@ -2,10 +2,10 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">kimiaAcademy.ir</div>
+        {{--        <div class="sidebar-brand-icon rotate-n-15">--}}
+        {{--            <i class="fas fa-laugh-wink"></i>--}}
+        {{--        </div>--}}
+        <div class="sidebar-brand-text">kimyagaracademy.com</div>
     </a>
 
     <!-- Divider -->
@@ -23,34 +23,50 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        فروشگاه
+        مدیریت
     </div>
 
     <!-- Nav Item - Brand -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-store"></i>
-            <span> برند ها </span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts" aria-expanded="true"
-            aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts"
+           aria-expanded="true"
+           aria-controls="collapsePages">
             <i class="fas fa-fw fa-cart-plus"></i>
-            <span> آموزشی ویدئویی </span>
+            <span>دوره های آموزشی</span>
         </a>
         <div id="collapseProducts" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">محصولات</a>
-                <a class="collapse-item" href="#">دسته بندی ها</a>
-                <a class="collapse-item" href="#">ویژگی ها</a>
-                <a class="collapse-item" href="#">تگ ها</a>
+                <a class="collapse-item" href="#">تست اول</a>
+                <a class="collapse-item" href="#">تست دوم</a>
             </div>
         </div>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-store"></i>
+            <span>ویدئوهای یوتیوب </span>
+        </a>
+    </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-store"></i>
+            <span> مقالات </span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-store"></i>
+            <span> نظرات </span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-store"></i>
+            <span> پیام ها </span>
+        </a>
+    </li>
 
 
     <!-- Divider -->
