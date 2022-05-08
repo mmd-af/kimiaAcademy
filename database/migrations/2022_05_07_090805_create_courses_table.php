@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -15,37 +14,38 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
 
-            $table->id();
+//            $table->id();
 
-            $table->foreignId('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+//            $table->foreignId('category_id');
+//            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 
-            $table->foreignId('category_id');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+//            $table->string('title');
+//            $table->string('slug');
+//            $table->string('description');
 
-            $table->string('title');
-            $table->string('slug');
-            $table->string('description');
+            // migrate sakhteshavad
+//            $table->foreignId('image_id')->nullable();
+//            $table->foreign('image_id')->references('id')->on('images')->onDelete('cascade');
+            // migrate sakhteshavad
+//            $table->foreignId('video_id')->nullable();
+//            $table->foreign('video_id')->references('id')->on('videos')->onDelete('cascade');
 
-            $table->string('photo')->nullable();
-            $table->string('promo_video')->nullable();
+//            $table->unsignedBigInteger('actual_price');
+//            $table->unsignedBigInteger('discount_price')->nullable();
 
-            $table->unsignedBigInteger('actual_price');
-            $table->unsignedBigInteger('discount_price')->nullable();
+//            $table->BigInteger('view_count')->nullable();
+//            $table->BigInteger('subscriber_count')->nullable();
 
-            $table->BigInteger('view_count')->nullable();
-            $table->BigInteger('subscriber_count')->nullable();
 
-            $table->boolean('creator_status')->default(0);
-            $table->boolean('admin_status')->default(0);
+//            $table->boolean('admin_status')->default(0);
 
-            $table->string('course_lang');
-            $table->string('course_time');
-            $table->string('course_size');
-            $table->string('course_kind');
+//            $table->string('course_lang');
+//            $table->string('course_time');
+//            $table->string('course_size');
+//            $table->string('course_kind');
 
-            $table->softDeletes();
-            $table->timestamps();
+//            $table->softDeletes();
+//            $table->timestamps();
 
         });
     }
