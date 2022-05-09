@@ -9985,18 +9985,22 @@ h3 {
   }
 }
 @font-face {
-  font-family: "Vazir";
-  src: url(/fonts/Vazir.eot?41bd1c264075f3175177c9f000815ab4);
+  font-family: "Yekan";
+  src: url(/fonts/Yekan.eot?c460749cb647df373ecae924fcfc978a);
   /* IE9 Compat Modes */
-  src: url(/fonts/Vazir.eot?41bd1c264075f3175177c9f000815ab4?#iefix) format("embedded-opentype"), url(/fonts/Vazir.woff2?985c9ab3e14d9ef79f1857ea1d4f9f99) format("woff2"), url(/fonts/Vazir.woff?a65f4e15cd1ff802ebc5c2bf92cfd533) format("woff"), url(/fonts/Vazir.ttf?a5069e8a430821ec1756ee9759c853c0) format("truetype");
+  src: url(/fonts/Yekan.eot?c460749cb647df373ecae924fcfc978a?#iefix) format("embedded-opentype"), url(/fonts/Yekan.woff?18af8c75ab1951a5e56d544fb858e766) format("woff"), url(/fonts/Yekan.ttf?f6a0838b6690eaaa2898083eaa3431c1) format("truetype");
   /* Safari, Android, iOS */
 }
 body {
   direction: rtl;
   text-align: right !important;
-  font-family: "Vazir" !important;
+  font-family: "Yekan" !important;
 }
 
-.bg-mine {
+.bg-navbar {
   background-color: #3f54a0 !important;
+}
+
+.bg-header {
+  background-color: #00514a !important;
 }

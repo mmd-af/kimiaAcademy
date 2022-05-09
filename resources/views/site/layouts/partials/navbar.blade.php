@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-mine py-3">
+<nav class="navbar navbar-expand-lg navbar-dark bg-navbar py-3">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">گروه آموزشی دارویی کیمیاگر</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
