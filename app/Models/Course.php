@@ -9,4 +9,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Course extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public function getIsActiveAttribute($is_active)
+    {
+        return $is_active ? 'فعال' : 'غیرفعال' ;
+    }
+
+    
 }
