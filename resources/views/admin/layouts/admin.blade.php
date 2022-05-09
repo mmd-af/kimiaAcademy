@@ -23,7 +23,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-@include('admin.sections.sidebar')
+@include('admin.layouts.partials.sidebar')
 <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -33,7 +33,7 @@
         <div id="content">
 
             <!-- Topbar -->
-        @include('admin.sections.topbar')
+        @include('admin.layouts.partials.topbar')
         <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
@@ -48,7 +48,7 @@
         <!-- End of Main Content -->
 
         <!-- Footer -->
-    @include('admin.sections.footer')
+    @include('admin.layouts.partials.footer')
     <!-- End of Footer -->
 
     </div>
@@ -58,7 +58,7 @@
 <!-- End of Page Wrapper -->
 
 <!-- Scroll to Top Button-->
-@include('admin.sections.scroll_top')
+@include('admin.layouts.partials.scroll_top')
 
 <!-- JavaScript-->
 <script src="{{ asset('/js/admin.js') }}"></script>
