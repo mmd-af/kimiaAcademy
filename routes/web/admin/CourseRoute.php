@@ -8,28 +8,31 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
             Route::get('/', [
                 'as' => 'index',
                 'uses' => 'CourseController@index'
-            ]);           
+            ]);
             Route::get('/create', [
                 'as' => 'create',
                 'uses' => 'CourseController@create'
             ]);
 
 
-//            Route::match(['get', 'head'], 'create', [
-//                'as' => 'create',
-//                'uses' => 'RatingAjaxController@create'
-//            ]);
+            Route::post('/store', [
+                'as' => 'store',
+                'uses' => 'CourseController@store'
+            ]);
+
+
+
 //            Route::match(['put', 'patch'], '{like}/update', [
 //                'as' => 'update',
-//                'uses' => 'RatingAjaxController@update'
+//                'uses' => 'CourseController@update'
 //            ]);
 //            Route::match(['get', 'head'], '{like}/edit', [
 //                'as' => 'edit',
-//                'uses' => 'RatingAjaxController@edit'
+//                'uses' => 'CourseController@edit'
 //            ]);
 //            Route::match(['get', 'head'], '{like}/show', [
 //                'as' => 'show',
-//                'uses' => 'RatingAjaxController@show'
+//                'uses' => 'CourseController@show'
 //            ]);
 //
 

@@ -27,7 +27,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        dd('salam');
+
         return view('admin.courses.create');
 
     }
@@ -40,7 +40,7 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

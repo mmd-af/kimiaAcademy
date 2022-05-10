@@ -7,6 +7,7 @@ require("bootstrap-select");
 require("bootstrap-select/dist/js/i18n/defaults-fa_IR");
 require("./files/jquery.czMore-latest");
 require("md.bootstrappersiandatetimepicker/dist/jquery.md.bootstrap.datetimepicker.js");
+require("./files/ckeditor");
 
 (function($) {
     "use strict"; // Start of use strict
