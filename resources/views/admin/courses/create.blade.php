@@ -92,7 +92,7 @@
 
                     <div class="form-group col-md-12 mt-3">
                         <label for="description">توضیحات:</label>
-                        <textarea name="description" id="editor" cols="30" rows="30"></textarea>
+                        <textarea name="description" id="editor"></textarea>
 
                     </div>
 
