@@ -25,7 +25,7 @@
             <a class="text-light ml-4" data-toggle="modal" data-target="#searchModal"><i class="fa fa-search "
                                                                                          aria-hidden="true"></i></a>
             <button class="btn btn-outline-light text-sm text-gray-700 dark:text-gray-500 underline "
-               href="{{ url('/admin/dashboard') }}"><i class="fa fa-user-o" aria-hidden="true"></i>ناحیه کاربری</button>
+               href="{{ url('/admin/dashboard') }}"><i class="fa fa-user " aria-hidden="true"> </i>    ناحیه کاربری</button>
 
         </div>
     </div>
