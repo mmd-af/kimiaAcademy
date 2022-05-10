@@ -7,7 +7,6 @@
                 <figure class="figure">
                     <img src="holder.js/400x300" class="figure-img img-fluid rounded"
                          alt="A generic square placeholder image with rounded corners in a figure.">
-
                 </figure>
             </div>
             <div class="col-md-7 p-4">
