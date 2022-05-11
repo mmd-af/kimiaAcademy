@@ -77,3 +77,4 @@
     </div>
 </div>
 @include('site.layouts.partials.footer')
+
