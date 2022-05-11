@@ -2,9 +2,11 @@
 
 @section('content')
 <div class="container mb-5 mt-5">
+
     <div class="text-center mb-5">
         <h3>دوره آموزشی داروسازی گیاهی کیمیاگر</h3>
     </div>
+
     <div class="row justify-content-md-center">
 
         <div class="col-md-4 ">
