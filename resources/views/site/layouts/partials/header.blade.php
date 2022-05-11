@@ -5,7 +5,7 @@
         <div class="row gx-5">
             <div class="col-md-5">
                 <figure class="figure">
-                    <img src="holder.js/400x300" class="figure-img img-fluid rounded"
+                    <img src="holder.js/400x400" class="figure-img img-fluid rounded"
                          alt="A generic square placeholder image with rounded corners in a figure.">
                 </figure>
             </div>
@@ -19,8 +19,6 @@
 
                 </p>
             </div>
-            <div class="col-md-4">salamamsamd</div>
-            <div class="col-md-8">نوشته هاا</div>
         </div>
     </div>
 </div>
