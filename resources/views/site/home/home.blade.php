@@ -1,5 +1,5 @@
 @extends('Site.layouts.app')
-
+@section('title','کیمیا آکادمی')
 @section('content')
     <div class="container mb-5 mt-5">
         {{--TODO admin dashbord--}}
@@ -7,7 +7,7 @@
             <h3>دوره آموزشی داروسازی گیاهی کیمیاگر</h3>
         </div>
 
-        <div class="row justify-content-md-center">
+        <div class="row justify-content-md-center slick-console">
 
             <div class="col-md-4 ">
                 <div class="card mt-3 shadow">
