@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mb-5 mt-5">
-
+        {{--TODO admin dashbord--}}
         <div class="text-center mb-5">
             <h3>دوره آموزشی داروسازی گیاهی کیمیاگر</h3>
         </div>
@@ -22,6 +22,7 @@
                             </div>
                         </div>
                     </div>
+                    {{--TODO btn hover--}}
                     <button type="button" class="btn text-light btn-product btn-lg btn-block">خرید</button>
                 </div>
             </div>
