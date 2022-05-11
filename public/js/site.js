@@ -21103,7 +21103,9 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _holder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./holder */ "./resources/js/site/holder.js");
 /* harmony import */ var _holder__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_holder__WEBPACK_IMPORTED_MODULE_0__);
+Object(function webpackMissingModule() { var e = new Error("Cannot find module './lib/slick'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 __webpack_require__(/*! bootstrap/dist/js/bootstrap.bundle */ "./node_modules/bootstrap/dist/js/bootstrap.bundle.js");
+
 
 
 })();
