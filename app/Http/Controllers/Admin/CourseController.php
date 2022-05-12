@@ -6,9 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Http\Requests\Admin\Course\CourseRequest;
+use App\Repositories\Admin\CourseRepository;
 
 class CourseController extends Controller
 {
+    protected $CourseRepository;
+
+    public function __construct(CourseRepository $CourseRepository)
+    {
+        $this->CourseRepository = $CourseRepository;
+    }
 
     public function index()
     {
@@ -28,7 +35,10 @@ class CourseController extends Controller
 
     public function store(CourseRequest $request)
     {
-        dd($request->all());
+        $course = $this->CourseRepository->create($request);
+
+        return redirect()->route('admin.courses.index');
+
     }
 
 

@@ -69,6 +69,7 @@
             <form action="{{ route('admin.courses.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-row">
+                    <input type="hidden" name="category_id" value="1">
                     <div class="form-group col-md-3">
                         <label for="title">نام دوره:</label>
                         <input class="form-control" id="title" name="title" type="text"
@@ -132,8 +133,8 @@
                     </div>
                     <div class="form-group col-md-12 mt-3">
                         <div class="form-group col-md-3">
-                            <label for="course_lind">نوع دوره</label>
-                            <input class="form-control" id="course_lind" name="course_lind" type="text"
+                            <label for="course_kind">نوع دوره</label>
+                            <input class="form-control" id="course_kind" name="course_kind" type="text"
                                    value="{{ old('course_lind') }}">
                         </div>
                     </div>
