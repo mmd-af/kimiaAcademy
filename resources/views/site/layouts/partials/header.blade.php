@@ -1,6 +1,6 @@
 @include('site.layouts.partials.navbar')
 
-<div class="container-fluid bg-header py-5">
+<div class="container-fluid bg-header py-4">
     <div class="container">
         <div class="row gx-5">
             <div class="col-md-5">
