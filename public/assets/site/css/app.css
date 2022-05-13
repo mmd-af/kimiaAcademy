@@ -10333,3 +10333,96 @@ a {
 .section-video a {
   color: gray !important;
 }
+
+.home-hr-text {
+  max-width: 70%;
+  margin: 40px auto;
+  line-height: 0em;
+  outline: 0;
+  border: 0;
+  display: grid;
+  grid-template-columns: 1fr -webkit-max-content 1fr;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-column-gap: 1.2rem;
+  align-items: center;
+  height: 1.5em;
+}
+
+.home-hr-text::before,
+.home-hr-text::after {
+  content: "";
+  display: block;
+  height: 1px;
+  padding: 0 0.5em;
+  line-height: 1.5em;
+  background: linear-gradient(to right, transparent, #818078, transparent);
+}
+
+.btn-article {
+  position: relative;
+  font-size: small;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 6em;
+  transition: all 0.2s;
+  border: none;
+  color: white;
+  background-color: green;
+}
+
+.btn-article:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-article:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-article::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btn-article::after {
+  background-color: green;
+}
+
+.btn-article:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.home-hr-text-green {
+  max-width: 70%;
+  margin: 40px auto;
+  line-height: 0em;
+  outline: 0;
+  border: 0;
+  display: grid;
+  grid-template-columns: 1fr -webkit-max-content 1fr;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-column-gap: 1.2rem;
+  align-items: center;
+  height: 1.5em;
+}
+
+.home-hr-text-green::before,
+.home-hr-text-green::after {
+  content: "";
+  display: block;
+  height: 1px;
+  padding: 0 0.5em;
+  line-height: 1.5em;
+  background: linear-gradient(to right, transparent, green, transparent);
+}

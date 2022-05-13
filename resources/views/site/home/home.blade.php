@@ -136,7 +136,6 @@
 
         </div>
 
-
     </div>
 
     <div class="course-education half-circle ">
@@ -163,11 +162,13 @@
                                     <h5 class="text-center">عنوان اصلی</h5>
 
 
-                                    <div class="mt-3 info px-2"><a href="" class="text-gray"><img class="aparat-icon mx-2"
-                                                                src="{{asset('assets/site/images/svg/aparat-25x25.svg')}}"
-                                                                alt="">
+                                    <div class="mt-3 info px-2"><a href="" class="text-gray"><img
+                                                class="aparat-icon mx-2"
+                                                src="{{asset('assets/site/images/svg/aparat-25x25.svg')}}"
+                                                alt="">
                                             لینک آپارات</a></div>
-                                    <div class="mt-3 info px-2"><a href="" ><i class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a></div>
+                                    <div class="mt-3 info px-2"><a href=""><i
+                                                class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a></div>
 
                                 </div>
 
@@ -187,11 +188,13 @@
                                     <h5 class="text-center">عنوان اصلی</h5>
 
 
-                                    <div class="mt-3 info px-2"><a href="" class="text-gray"><img class="aparat-icon mx-2"
-                                                                                                  src="{{asset('assets/site/images/svg/aparat-25x25.svg')}}"
-                                                                                                  alt="">
+                                    <div class="mt-3 info px-2"><a href="" class="text-gray"><img
+                                                class="aparat-icon mx-2"
+                                                src="{{asset('assets/site/images/svg/aparat-25x25.svg')}}"
+                                                alt="">
                                             لینک آپارات</a></div>
-                                    <div class="mt-3 info px-2"><a href="" ><i class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a></div>
+                                    <div class="mt-3 info px-2"><a href=""><i
+                                                class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a></div>
 
                                 </div>
 
@@ -211,11 +214,13 @@
                                     <h5 class="text-center">عنوان اصلی</h5>
 
 
-                                    <div class="mt-3 info px-2"><a href="" class="text-gray"><img class="aparat-icon mx-2"
-                                                                                                  src="{{asset('assets/site/images/svg/aparat-25x25.svg')}}"
-                                                                                                  alt="">
+                                    <div class="mt-3 info px-2"><a href="" class="text-gray"><img
+                                                class="aparat-icon mx-2"
+                                                src="{{asset('assets/site/images/svg/aparat-25x25.svg')}}"
+                                                alt="">
                                             لینک آپارات</a></div>
-                                    <div class="mt-3 info px-2"><a href="" ><i class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a></div>
+                                    <div class="mt-3 info px-2"><a href=""><i
+                                                class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a></div>
 
                                 </div>
 
@@ -235,11 +240,13 @@
                                     <h5 class="text-center">عنوان اصلی</h5>
 
 
-                                    <div class="mt-3 info px-2"><a href="" class="text-gray"><img class="aparat-icon mx-2"
-                                                                                                  src="{{asset('assets/site/images/svg/aparat-25x25.svg')}}"
-                                                                                                  alt="">
+                                    <div class="mt-3 info px-2"><a href="" class="text-gray"><img
+                                                class="aparat-icon mx-2"
+                                                src="{{asset('assets/site/images/svg/aparat-25x25.svg')}}"
+                                                alt="">
                                             لینک آپارات</a></div>
-                                    <div class="mt-3 info px-2"><a href="" ><i class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a></div>
+                                    <div class="mt-3 info px-2"><a href=""><i
+                                                class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a></div>
 
                                 </div>
 
@@ -256,9 +263,152 @@
             </div>
         </div>
 
-
     </div>
 
+    <div class="container mb-5 mt-5 ">
+        {{--TODO admin dashbord--}}
+
+        <div class="text-center mb-5">
+            <h5 class="home-hr-text ">مقالات آموزشی داروشناسی</h5>
+        </div>
+
+        <div class="row justify-content-center ">
+
+            <div class="col-md-8">
+
+                <div class="col-12 mt-4">
+                    <div class="card border-0 ">
+                        <div class="row ">
+                            <div class="float-right col-3">
+                                <img class="rounded "
+                                     src="holder.js/150x150?auto=yes&bg=666&fg=444&text=picture"
+                                     alt="Second slide">
+                            </div>
+                            <div class="col-9 ">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text ">With supporting text below as a natural lead-in to additional
+                                    content.
+                                </p>
+                                <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 mt-4">
+                    <div class="card border-0 ">
+                        <div class="row ">
+                            <div class="float-right col-3">
+                                <img class="rounded "
+                                     src="holder.js/150x150?auto=yes&bg=666&fg=444&text=picture"
+                                     alt="Second slide">
+                            </div>
+                            <div class="col-9 ">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text ">With supporting text below as a natural lead-in to additional
+                                    content.
+                                </p>
+                                <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 mt-4">
+                    <div class="card border-0 ">
+                        <div class="row ">
+                            <div class="float-right col-3">
+                                <img class="rounded "
+                                     src="holder.js/150x150?auto=yes&bg=666&fg=444&text=picture"
+                                     alt="Second slide">
+                            </div>
+                            <div class="col-9 ">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text ">With supporting text below as a natural lead-in to additional
+                                    content.
+                                </p>
+                                <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="container mb-5 mt-5 ">
+        {{--TODO admin dashbord--}}
+
+        <div class="text-center mb-5">
+            <h5 class="home-hr-text-green">مقالات آموزشی طب سنتی و گیاهان دارویی</h5>
+        </div>
+
+        <div class="row justify-content-center ">
+
+            <div class="col-md-8">
+
+                <div class="col-12 mt-4">
+                    <div class="card border-0 ">
+                        <div class="row ">
+                            <div class="float-right col-3">
+                                <img class="rounded "
+                                     src="holder.js/150x150?auto=yes&bg=666&fg=444&text=picture"
+                                     alt="Second slide">
+                            </div>
+                            <div class="col-9 ">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text ">With supporting text below as a natural lead-in to additional
+                                    content.
+                                </p>
+                                <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 mt-4">
+                    <div class="card border-0 ">
+                        <div class="row ">
+                            <div class="float-right col-3">
+                                <img class="rounded "
+                                     src="holder.js/150x150?auto=yes&bg=666&fg=444&text=picture"
+                                     alt="Second slide">
+                            </div>
+                            <div class="col-9 ">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text ">With supporting text below as a natural lead-in to additional
+                                    content.
+                                </p>
+                                <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 mt-4">
+                    <div class="card border-0 ">
+                        <div class="row ">
+                            <div class="float-right col-3">
+                                <img class="rounded "
+                                     src="holder.js/150x150?auto=yes&bg=666&fg=444&text=picture"
+                                     alt="Second slide">
+                            </div>
+                            <div class="col-9 ">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text ">With supporting text below as a natural lead-in to additional
+                                    content.
+                                </p>
+                                <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
 
 @endsection
 
