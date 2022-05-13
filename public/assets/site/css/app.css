@@ -10333,3 +10333,27 @@ a {
 .section-video a {
   color: gray !important;
 }
+
+.home-hr-text {
+  max-width: 70%;
+  margin: 40px auto;
+  line-height: 0em;
+  outline: 0;
+  border: 0;
+  display: grid;
+  grid-template-columns: 1fr -webkit-max-content 1fr;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-column-gap: 1.2rem;
+  align-items: center;
+  height: 1.5em;
+}
+
+.home-hr-text::before,
+.home-hr-text::after {
+  content: "";
+  display: block;
+  height: 1px;
+  padding: 0 0.5em;
+  line-height: 1.5em;
+  background: linear-gradient(to right, transparent, #818078, transparent);
+}
