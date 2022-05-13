@@ -1,5 +1,4 @@
-
 window.$ = window.jQuery = require("jquery");
 require("bootstrap/dist/js/bootstrap.bundle");
 import "../lib/slick/slick";
-require("holderjs");
+import "./holder";
