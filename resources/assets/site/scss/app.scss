@@ -205,4 +205,26 @@ a {
     opacity: 0;
 }
 
+.home-hr-text-green {
+    max-width: 70%;
+    margin: 40px auto;
+    line-height: 0em;
+    outline: 0;
+    border: 0;
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-column-gap: 1.2rem;
+    align-items: center;
+    height: 1.5em;
 
+}
+
+.home-hr-text-green::before,
+.home-hr-text-green::after {
+    content: "";
+    display: block;
+    height: 1px;
+    padding: 0 .5em;
+    line-height: 1.5em;
+    background: linear-gradient(to right, transparent, green, transparent);
+}
