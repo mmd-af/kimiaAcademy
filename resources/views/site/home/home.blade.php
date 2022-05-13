@@ -267,130 +267,68 @@
     <div class="container mb-5 mt-5 ">
         {{--TODO admin dashbord--}}
         <div class="text-center mb-5">
-            <h3 class="home-hr-text">مقالات آموزشی داروشناسی</h3>
+            <h5 class="home-hr-text ">مقالات آموزشی داروشناسی</h5>
         </div>
 
-        <div class="row  justify-content-center ">
+        <div class="row justify-content-center ">
 
-            <div class=" slick-carousel">
-                <div class="col-md-12 col-sm-6">
-                    <div class="card mt-3 shadow ">
+            <div class="col-md-8">
 
-                        <div class="card-body product-1 align-items-center p-2 text-center">
-                            <div class="image-container">
-                                <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
-                                     alt="Second slide"></div>
-                            <div class="product-description py-2">
-                                <h5>عنوان اصلی</h5>
-                                <div class="mt-3 info"><span class="text1 d-block">توضیحات کوتاه</span></div>
-                                <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
-                                </div>
+
+                <div class="col-12 mt-4">
+                    <div class="card border-0 ">
+                        <div class="row ">
+                            <div class="float-right col-3">
+                                <img class="rounded "
+                                     src="holder.js/150x150?auto=yes&bg=666&fg=444&text=picture"
+                                     alt="Second slide">
                             </div>
-
+                            <div class="col-9 ">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text ">With supporting text below as a natural lead-in to additional
+                                    content.
+                                </p>
+                                <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
+                            </div>
                         </div>
-                        {{--TODO btn hover--}}
-                        <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
                     </div>
                 </div>
-                <div class="col-md-12 col-sm-6 py-4">
-                    <div class="card mt-3 shadow ">
 
-                        <div class="card-body product-1 align-items-center p-2 text-center">
-                            <div class="image-container">
-                                <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
-                                     alt="Second slide"></div>
-                            <div class="product-description py-2">
-                                <h5>عنوان اصلی</h5>
-                                <div class="mt-3 info"><span class="text1 d-block">توضیحات کوتاه</span></div>
-                                <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
-                                </div>
+                <div class="col-12 mt-4">
+                    <div class="card border-0 ">
+                        <div class="row ">
+                            <div class="float-right col-3">
+                                <img class="rounded "
+                                     src="holder.js/150x150?auto=yes&bg=666&fg=444&text=picture"
+                                     alt="Second slide">
                             </div>
-
+                            <div class="col-9 ">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text ">With supporting text below as a natural lead-in to additional
+                                    content.
+                                </p>
+                                <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
+                            </div>
                         </div>
-                        {{--TODO btn hover--}}
-                        <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
                     </div>
                 </div>
-                <div class="col-md-12 col-sm-6 py-4">
-                    <div class="card mt-3 shadow ">
 
-                        <div class="card-body product-1 align-items-center p-2 text-center">
-                            <div class="image-container">
-                                <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
-                                     alt="Second slide"></div>
-                            <div class="product-description py-2">
-                                <h5>عنوان اصلی</h5>
-                                <div class="mt-3 info"><span class="text1 d-block">توضیحات کوتاه</span></div>
-                                <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
-                                </div>
+                <div class="col-12 mt-4">
+                    <div class="card border-0 ">
+                        <div class="row ">
+                            <div class="float-right col-3">
+                                <img class="rounded "
+                                     src="holder.js/150x150?auto=yes&bg=666&fg=444&text=picture"
+                                     alt="Second slide">
                             </div>
-
-                        </div>
-                        {{--TODO btn hover--}}
-                        <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-6 py-4">
-                    <div class="card mt-3 shadow ">
-
-                        <div class="card-body product-1 align-items-center p-2 text-center">
-                            <div class="image-container">
-                                <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
-                                     alt="Second slide"></div>
-                            <div class="product-description py-2">
-                                <h5>عنوان اصلی</h5>
-                                <div class="mt-3 info"><span class="text1 d-block">توضیحات کوتاه</span></div>
-                                <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
-                                </div>
+                            <div class="col-9 ">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text ">With supporting text below as a natural lead-in to additional
+                                    content.
+                                </p>
+                                <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
                             </div>
-
                         </div>
-                        {{--TODO btn hover--}}
-                        <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-6 py-4">
-                    <div class="card mt-3 shadow ">
-
-                        <div class="card-body product-1 align-items-center p-2 text-center">
-                            <div class="image-container">
-                                <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
-                                     alt="Second slide"></div>
-                            <div class="product-description py-2">
-                                <h5>عنوان اصلی</h5>
-                                <div class="mt-3 info"><span class="text1 d-block">توضیحات کوتاه</span></div>
-                                <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        {{--TODO btn hover--}}
-                        <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-6 py-4">
-                    <div class="card mt-3 shadow ">
-
-                        <div class="card-body product-1 align-items-center p-2 text-center">
-                            <div class="image-container">
-                                <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
-                                     alt="Second slide"></div>
-                            <div class="product-description py-2">
-                                <h5>عنوان اصلی</h5>
-                                <div class="mt-3 info"><span class="text1 d-block">توضیحات کوتاه</span></div>
-                                <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        {{--TODO btn hover--}}
-                        <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
                     </div>
                 </div>
 
