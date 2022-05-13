@@ -1,0 +1,139 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css";
+
+// Import Bootstrap
+@import "../../../../node_modules/bootstrap/scss/bootstrap";
+
+
+// import slick carousel
+@import "../lib/slick/slick";
+@import "../lib/slick/slick-theme";
+
+
+
+//@font-face {
+//    font-family: "Vazir";
+//    src: url("../../fonts/Vazir.eot");
+//    /* IE9 Compat Modes */
+//    src: url("../../fonts/Vazir.eot?#iefix") format("embedded-opentype"),
+//    url("../../fonts/Vazir.woff2") format("woff2"),
+//    url("../../fonts/Vazir.woff") format("woff"),
+//    url("../../fonts/Vazir.ttf") format("truetype");
+//    /* Safari, Android, iOS */
+//}
+@font-face {
+    font-family: "Yekan";
+    src: url("../fonts/Yekan.eot");
+    /* IE9 Compat Modes */
+    src: url("../fonts/Yekan.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Yekan.woff") format("woff"),
+    url("../fonts/Yekan.ttf") format("truetype");
+    /* Safari, Android, iOS */
+}
+
+body {
+    direction: rtl;
+    text-align: right !important;
+    font-family: "Yekan" !important;
+}
+
+a{
+    text-decoration: none !important;
+
+}
+
+.bg-navbar {
+    background-color: #3f54a0 !important;
+}
+.bg-header {
+    background-color: #00514a !important;
+}
+.btn-product{
+    background-color: #695cf9 !important;
+}
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: none;
+}
+
+.card-slick{
+    width: 80%;
+
+}
+.slick-carousel{
+    width: 90%;
+    text-align: center !important;
+}
+
+
+@media (min-width: 576px) {
+    .slick-carousel {
+        width: 60%;
+    }
+}
+@media (min-width: 1200px){
+
+    .top-circle {
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+        background-color: #5552FB;
+        z-index: 0;
+        opacity: 1 !important;
+        position: absolute;
+        top: 100px;
+        right: 330px;
+    }
+    .bottom-circle {
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+        background-color: #DAD8FF;
+        z-index: -1;
+        opacity: 1 !important;
+        position: absolute;
+        bottom: 100px;
+        left: 270px;
+    }
+    .half-circle {
+        border-bottom-left-radius: 100%;  /* 100px of height + 10px of border */
+        border-bottom-right-radius: 100%; /* 100px of height + 10px of border */
+        border-top: 0;
+        background-image: linear-gradient( #ffff ,#F2F5FA);
+        position: relative;
+        background-size: 100% auto;
+        height: 700px;
+        z-index: 1;
+        //padding-bottom: 60px;
+        margin-bottom: 30px;
+    }
+}
+
+
+
+
+
+
+
+.radius-video{
+    border-radius: 10px;
+}
+.aparat-icon {
+    display: inline !important;
+    color: #695cf9;
+    width: 25px;
+    height: 25px;
+    filter: brightness(0) saturate(100%) invert(45%) sepia(68%) saturate(6406%) hue-rotate(234deg) brightness(104%) contrast(95%);
+}
+
+.slick-prev:before {
+    color: #bcbcbc;
+}
+.slick-next:before {
+    color: #bcbcbc;
+}
+
+.section-video a{
+    color : gray !important;
+}
