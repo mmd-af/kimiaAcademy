@@ -8,24 +8,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto ">
                 <li class="nav-item active">
-                    <a class="nav-link mr-4" href="#">خانه <span class="sr-only">(current)</span></a>
+                    <a class="nav-link ml-5 " href="#">دوره های آموزشی<span class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link mr-4" href="#">محصولات</a>
+                    <a class="nav-link ml-5" href="#">محصولات</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mr-4" href="#">مقالات آموزشی</a>
+                    <a class="nav-link ml-5" href="#">مقالات آموزشی</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mr-4" href="#">تماس با ما</a>
+                    <a class="nav-link ml-5" href="#">تماس با ما</a>
                 </li>
 
             </ul>
-            <a class="text-light ml-4" data-toggle="modal" data-target="#searchModal"><i class="fa fa-search fa-lg"
+            <a class="text-light ml-4" data-toggle="modal" data-target="#searchModal"><i class="fa fa-search "
                                                                                          aria-hidden="true"></i></a>
-            <a class="btn btn-outline-light" href="{{ url('/admin/dashboard') }}"
-               class="text-sm text-gray-700 dark:text-gray-500 underline">ناحیه کاربری</a>
+            <button class="btn btn-outline-light text-sm text-gray-700 dark:text-gray-500 underline "
+               href="{{ url('/admin/dashboard') }}"><i class="fa fa-user " aria-hidden="true"> </i>    ناحیه کاربری</button>
 
         </div>
     </div>

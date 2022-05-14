@@ -1,6 +1,74 @@
-<script src="{{ asset('/js/site.js') }}"></script>
+
+
+<!--footer section start-->
+<footer class="footer-2 py-4 bg-navbar ">
+    <div class="container">
+        <div class="row text-light">
+            <div class="col-md-12 col-lg-6 mb-4 mb-md-4 mb-sm-4 mb-lg-0">
+                <div class="col-sm">
+                    <h5>ارتباط با ما</h5>
+
+                    <ul class="list-inline social-list-default   social-hover-2 ">
+                        <li class="list-inline-item"><a class="instagram text-light" href="#"><i
+                                    class="fab fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a class="whatsapp text-light" href="#"><i
+                                    class="fab fa-whatsapp"></i></a>
+                        </li>
+
+                        <li class="list-inline-item"><a class="twitter text-light" href="#"><i
+                                    class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a class="youtube text-light" href="#"><i
+                                    class="fab fa-youtube"></i></a></li>
+                        <li class="list-inline-item px-2"><a class="linkedin text-light" href="#"><i
+                                    class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-sm text-light">
+                    <h6>ایمیل پشتیبانی سایت : </h6>
+
+                    <small><a href="mailto:" class="text-light"><i class="fa fa-inbox m-2" aria-hidden="true"></i>
+                            info@gmail.com </a></small>
+
+                </div>
+                <div class="col-sm text-light pt-4">
+                    <h6>شماره واتساپ پشتیبانی سایت : </h6>
+
+                    <small><a href="tel:+98" class="text-light"><i class="fab fa-whatsapp m-2" aria-hidden="true"></i>
+                            +989017707170 </a></small>
+                </div>
+
+            </div>
+            <div class="col-md-12 col-lg-6">
+                <h5>درباره ما</h5>
+                <p>
+                    درباره شما
+                </p>
+
+
+            </div>
+
+        </div>
+        <div class="row mt-5 pt-4 pb-4 border-top">
+            <div class="col-9 align-self-center">
+                <small class="text-muted">کلیه حقوق این سایت محفوظ و متعلق به آکادمی کیمیاگر می باشد.</small>
+            </div>
+            <div class="col-3">
+                <img src="holder.js/80x80" alt="">
+                <img src="holder.js/80x80" alt="">
+            </div>
+        </div>
+
+    </div>
+    <!--end of container-->
+
+</footer>
+<a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i
+        class="fas fa-chevron-up"></i></a>
 
 @yield('script')
 
+
+
 </body>
+
 </html>

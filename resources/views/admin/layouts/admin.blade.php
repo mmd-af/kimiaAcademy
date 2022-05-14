@@ -61,7 +61,7 @@
 @include('admin.layouts.partials.scroll_top')
 
 <!-- JavaScript-->
-<script src="{{ asset('/js/admin.js') }}"></script>
+<script src="{{ asset('/script/admin.script') }}"></script>
 <script>
     ClassicEditor
         .create(document.querySelector('#editor'))
