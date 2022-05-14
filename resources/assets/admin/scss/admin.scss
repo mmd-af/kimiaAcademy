@@ -7,10 +7,13 @@
 @import "../../../../node_modules/bootstrap/scss/bootstrap";
 
 // Import Bootstrap Select
-@import "../../../../node_modules/bootstrap-select/sass/bootstrap-select";
+//@import "../../../../node_modules/bootstrap-select/sass/bootstrap-select";
+
+@import "~bootstrap-select/sass/bootstrap-select";
+
 
 // Import md.bootstrappersiandatetimepicker
-@import "../../../../node_modules/md.bootstrappersiandatetimepicker/dist/jquery.md.bootstrap.datetimepicker.style.css";
+//@import "../../../../node_modules/md.bootstrappersiandatetimepicker/dist/jquery.md.bootstrap.datetimepicker.style.css";
 
 // Import Custom SB Admin 2 Mixins and Components
 @import "mixins";

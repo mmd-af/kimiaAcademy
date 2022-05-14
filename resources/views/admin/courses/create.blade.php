@@ -4,58 +4,6 @@
     create course
 @endsection
 
-@section('script')
-    <script>
-        {{--$('#userSelect').change(function(){--}}
-        {{--    let userId = $(this).val();--}}
-
-        {{--    $.get(`{{ url('/user-days/${userId}') }}`, function(response,--}}
-        {{--                                                        status) {--}}
-        {{--        if (status == 'success') {--}}
-
-        {{--            // console.log(response);--}}
-
-        {{--            $('#days').find('div').remove();--}}
-
-        {{--            let daysformgroup= $('<div/>',{--}}
-        {{--                class : 'form-group col-md-4'--}}
-        {{--            });--}}
-
-        {{--            daysformgroup.append($('<lable/>',{--}}
-        {{--                text : 'انتخاب روز'--}}
-        {{--            }));--}}
-
-
-        {{--            var sel = $('<select>',{--}}
-        {{--                name : 'day_id',--}}
-        {{--                class : 'form-control'--}}
-        {{--            }).appendTo(daysformgroup);--}}
-
-        {{--            response.forEach(day => {--}}
-        {{--                sel.append($("<option>").attr('value',day.id).text(day.day));--}}
-        {{--            });--}}
-        {{--            $('#days').append(daysformgroup);--}}
-        {{--        } else {--}}
-        {{--            alert('مشکل در ایجاد فیلد روز ها');--}}
-        {{--        }--}}
-        {{--    }).fail(function() {--}}
-        {{--        alert('مشکل در دریافت لیست روزه ها');--}}
-        {{--    })--}}
-        {{--});--}}
-
-        // $('#image').change(function() {
-        //     //get the file name
-        //     var fileName = $(this).val();
-        //     //replace the "Choose a file" label
-        //     $(this).next('.custom-file-label').html(fileName);
-        // });
-        // $("#czTag").czMore();
-
-
-    </script>
-
-@endsection
-
 @section('content')
 
     <!-- Content Row -->
@@ -83,7 +31,8 @@
 
                     <div class="form-group col-md-3">
                         <label for="category_id">نوع دسته</label>
-                        <select class="form-control" id="category_id" name="category_id">
+                        <select class="form-control selectpicker" data-live-search="true" id="category_id"
+                                name="category_id">
                             @foreach($categories as $category)
                                 <option value="{{$category->id}}">{{$category->title}}</option>
                             @endforeach
@@ -166,5 +115,22 @@
         </div>
     </div>
 
+
+@endsection
+
+@section('script')
+    <script>
+
+        // $('#image').change(function() {
+        //     //get the file name
+        //     var fileName = $(this).val();
+        //     //replace the "Choose a file" label
+        //     $(this).next('.custom-file-label').html(fileName);
+        // });
+        // $("#czTag").czMore();
+        $(function () {
+            $('.selectpicker').selectpicker();
+        });
+    </script>
 
 @endsection
