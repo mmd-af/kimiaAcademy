@@ -12,7 +12,7 @@
     <title>kimyagaracademy.com - @yield('title')</title>
 
     <!-- Custom styles for this template-->
-    <link href="{{ asset('/assets/admin/css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/admin/css/admin.css') }}" rel="stylesheet">
     @yield('style')
 
 </head>

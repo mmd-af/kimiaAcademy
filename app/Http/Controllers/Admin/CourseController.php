@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
-use App\Http\Requests\Admin\Course\CourseRequest;
+use App\Http\Requests\Admin\Course\CategoryRequest;
 use App\Repositories\Admin\CourseRepository;
 
 class CourseController extends Controller
@@ -33,7 +33,7 @@ class CourseController extends Controller
     }
 
 
-    public function store(CourseRequest $request)
+    public function store(CategoryRequest $request)
     {
         $course = $this->CourseRepository->create($request);
 
@@ -54,7 +54,7 @@ class CourseController extends Controller
     }
 
 
-    public function update(CourseRequest $request, $id)
+    public function update(CategoryRequest $request, $id)
     {
         //
     }
