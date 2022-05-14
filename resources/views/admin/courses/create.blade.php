@@ -81,6 +81,15 @@
                                value="{{ old('slug') }}">
                     </div>
 
+                    <div class="form-group col-md-3">
+                        <label for="category_id">نوع دسته</label>
+                        <select class="form-control" id="category_id" name="category_id">
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}">{{$category->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <div class="form-group col-md-12 mt-3">
                         <div class="form-group col-md-3">
                             <label for="image">تصویر دوره:</label>

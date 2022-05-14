@@ -69,18 +69,20 @@
             <form action="{{ route('admin.categories.store') }}" method="POST">
                 @csrf
                 <div class="form-row">
-                    <input type="hidden" name="category_id" value="1">
-                    <div class="form-group col-md-3">
-                        <label for="Category_title">نام دسته بندی:</label>
-                        <input class="form-control" id="Category_title" name="Category_title" type="text"
-                               value="{{ old('Category_title') }}">
+                    <div class="form-group col-md-12 mt-3">
+                        <div class="form-group col-md-3">
+                            <label for="Category_title">نام دسته بندی:</label>
+                            <input class="form-control" id="Category_title" name="Category_title" type="text"
+                                   value="{{ old('Category_title') }}">
+                        </div>
                     </div>
-                    <div class="form-group col-md-3 mt">
-                        <label for="slug">نام دسته بندی به انگلیسی:</label>
-                        <input class="form-control" id="slug" name="slug" type="text"
-                               value="{{ old('slug') }}">
+                    <div class="form-group col-md-12 mt-3">
+                        <div class="form-group col-md-3 mt">
+                            <label for="slug">نام دسته بندی به انگلیسی:</label>
+                            <input class="form-control" id="slug" name="slug" type="text"
+                                   value="{{ old('slug') }}">
+                        </div>
                     </div>
-
                     <div class="form-group col-md-12 mt-3">
                         <div class="form-group col-md-3">
                             <label for="parent_id">نوع دسته</label>
@@ -92,6 +94,7 @@
                             </select>
                         </div>
                     </div>
+
 
                     <div class="form-group col-md-12 mt-3">
                         <button class="btn btn-outline-primary mt-5" type="submit">ثبت</button>
