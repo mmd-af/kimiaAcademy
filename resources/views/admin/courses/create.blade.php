@@ -108,12 +108,12 @@
 
                     <div class="form-group col-md-3 mt-3">
                         <label for="actual_price">قیمت دوره:</label>
-                        <input class="form-control" id="actual_price" name="actual_price" type="text"
+                        <input class="form-control" id="actual_price" name="actual_price" type="number"
                                value="{{ old('actual_price') }}">
                     </div>
                     <div class="form-group col-md-3 mt-3">
                         <label for="discount_price">تخفیف دوره:</label>
-                        <input class="form-control" id="discount_price" name="discount_price" type="text"
+                        <input class="form-control" id="discount_price" name="discount_price" type="number"
                                value="{{ old('discount_price') }}">
                     </div>
 

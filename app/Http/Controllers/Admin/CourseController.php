@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Course\CourseRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Course;
@@ -35,7 +36,7 @@ class CourseController extends Controller
     }
 
 
-    public function store(CategoryRequest $request)
+    public function store(CourseRequest $request)
     {
         $course = $this->CourseRepository->create($request);
 

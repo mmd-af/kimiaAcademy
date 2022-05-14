@@ -25,6 +25,7 @@ class CourseRequest extends FormRequest
     {
         return [
             'title' => ['required'],
+            'category_id' => ['required'],
             'slug' => ['required'],
             'description' => ['required'],
             'actual_price' => ['required', 'integer'],
