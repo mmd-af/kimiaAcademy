@@ -26,7 +26,14 @@
         مدیریت
     </div>
 
-    <!-- Nav Item - Brand -->
+    <!-- Nav Item - categories -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.categories.index')}}">
+            <i class="fas fa-store"></i>
+            <span>دسته بندی ها </span>
+        </a>
+    </li>
+
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts"
            aria-expanded="true"
@@ -42,12 +49,6 @@
         </div>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-store"></i>
-            <span>ویدئوهای یوتیوب </span>
-        </a>
-    </li>
 
     <li class="nav-item">
         <a class="nav-link" href="#">

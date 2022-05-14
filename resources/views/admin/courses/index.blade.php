@@ -47,7 +47,7 @@
                                 {{ $course->title }}
                             </th>
                             <th>
-                                {{ $course->description }}
+                                {!! $course->description !!}
                             </th>
                             <th>
                                 {{$course->actual_price}}
