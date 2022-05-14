@@ -137,7 +137,7 @@ a {
 }
 
 .home-hr-text {
-    max-width: 70%;
+
     margin: 40px auto;
     line-height: 0em;
     outline: 0;
@@ -206,7 +206,7 @@ a {
 }
 
 .home-hr-text-green {
-    max-width: 70%;
+
     margin: 40px auto;
     line-height: 0em;
     outline: 0;
@@ -227,4 +227,24 @@ a {
     padding: 0 .5em;
     line-height: 1.5em;
     background: linear-gradient(to right, transparent, green, transparent);
+}
+
+
+
+
+
+
+@media (max-width: 567px) {
+
+    .card-mobile-shadow {
+  //      border: 1px solid #dee2e6!important;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+
+    }
+}
+
+
+.social-list-default{
+    padding-inline-start:  0px !important;
+    padding: 5px 0 8px 0;
 }
