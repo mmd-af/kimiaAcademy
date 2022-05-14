@@ -1,5 +1,3 @@
-
-
 <!--footer section start-->
 <footer class="footer-2 py-4 bg-navbar ">
     <div class="container">
@@ -8,19 +6,32 @@
                 <div class="col-sm">
                     <h5>ارتباط با ما</h5>
 
-                    <ul class="list-inline social-list-default   social-hover-2 ">
-                        <li class="list-inline-item"><a class="instagram text-light" href="#"><i
-                                    class="fab fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a class="whatsapp text-light" href="#"><i
-                                    class="fab fa-whatsapp"></i></a>
+                    <ul class="list-inline social-list-default social-hover-2 text-right">
+                        <li class="list-inline-item">
+                            <a class="instagram text-light" href="#">
+                                <i class="fab fa-instagram"></i>
+                            </a>
                         </li>
-
-                        <li class="list-inline-item"><a class="twitter text-light" href="#"><i
-                                    class="fab fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a class="youtube text-light" href="#"><i
-                                    class="fab fa-youtube"></i></a></li>
-                        <li class="list-inline-item px-2"><a class="linkedin text-light" href="#"><i
-                                    class="fab fa-linkedin-in"></i></a></li>
+                        <li class="list-inline-item">
+                            <a class="whatsapp text-light" href="#">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="twitter text-light" href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="youtube text-light" href="#">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item px-2">
+                            <a class="linkedin text-light" href="#">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-sm text-light">
@@ -48,16 +59,22 @@
             </div>
 
         </div>
-        <div class="row mt-5 pt-4 pb-4 border-top">
-            <div class="col-9 align-self-center">
-                <small class="text-muted">کلیه حقوق این سایت محفوظ و متعلق به آکادمی کیمیاگر می باشد.</small>
+        <div class="row mt-5 pt-4 pb-4 border-top justify-content-sm-center ">
+
+            <div class="col-md-3 col-sm-12 text-center order-sm-2 mb-3">
+                <img src="holder.js/80x80" alt="">
+                <img src="holder.js/80x80" alt="">
             </div>
-            <div class="col-3">
-                <img src="holder.js/80x80" alt="">
-                <img src="holder.js/80x80" alt="">
+            <div class="col-md-9 col-sm-12 text-cente align-self-center order-sm-1  mx-auto">
+                <small class="text-muted ">کلیه حقوق این سایت محفوظ و متعلق به آکادمی کیمیاگر می باشد.</small>
             </div>
         </div>
+        <div class="row">
 
+            <div class="col-md-12 order-sm-3 text-center pb-0">
+                <small><a class="text-light" href="">طراحی و اجرا از تیم دراک تک</a></small>
+            </div>
+        </div>
     </div>
     <!--end of container-->
 
@@ -66,7 +83,6 @@
         class="fas fa-chevron-up"></i></a>
 
 @yield('script')
-
 
 
 </body>
