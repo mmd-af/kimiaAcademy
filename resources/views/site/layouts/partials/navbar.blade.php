@@ -27,7 +27,7 @@
                                                                                                  aria-hidden="true"></i></a>
                 </li>
                 <li class="nav-item ">
-                    <button class="btn btn-outline-light text-sm text-gray-700 dark:text-gray-500 underline mt-2 "
+                    <button class="btn btn-outline-light text-sm text-gray-700 dark:text-gray-500 underline "
                             href="{{ url('/admin/dashboard') }}"><i class="fa fa-user " aria-hidden="true"> </i> ناحیه کاربری
                     </button>
                 </li>
