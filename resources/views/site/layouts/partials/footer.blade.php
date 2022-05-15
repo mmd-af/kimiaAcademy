@@ -1,12 +1,14 @@
 <!--footer section start-->
 <footer class="footer-2 py-4 bg-navbar ">
+    <div class="footer-circle"></div>
     <div class="container">
-        <div class="row text-light">
-            <div class="col-md-12 col-lg-6 mb-4 mb-md-4 mb-sm-4 mb-lg-0">
+        <div class="row text-light ">
+            <div class="col-md-12 col-lg-6 mb-4 mb-md-4 mb-sm-4 mb-lg-0 mt-5">
                 <div class="col-sm">
                     <h5>ارتباط با ما</h5>
 
                     <ul class="list-inline social-list-default social-hover-2 text-right">
+
                         <li class="list-inline-item">
                             <a class="instagram text-light" href="#">
                                 <i class="fab fa-instagram"></i>
@@ -49,7 +51,7 @@
                 </div>
 
             </div>
-            <div class="col-md-12 col-lg-6">
+            <div class="col-md-12 col-lg-6 mt-5">
                 <h5>درباره ما</h5>
                 <p>
                     درباره شما
