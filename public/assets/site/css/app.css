@@ -10239,15 +10239,15 @@ a {
 }
 
 .bg-navbar {
-  background-color: #3f54a0 !important;
+  background-color: #2E3E77 !important;
 }
 
 .bg-header {
-  background-color: #00514a !important;
+  background-color: #091B24 !important;
 }
 
 .btn-product {
-  background-color: #695cf9 !important;
+  background-color: #5654C7 !important;
 }
 
 .back-to-top {
@@ -10276,7 +10276,7 @@ a {
     height: 70px;
     width: 70px;
     border-radius: 50%;
-    background-color: #5552FB;
+    background-color: #5654C7;
     z-index: 0;
     opacity: 1 !important;
     position: absolute;
@@ -10302,7 +10302,7 @@ a {
     border-bottom-right-radius: 100%;
     /* 100px of height + 10px of border */
     border-top: 0;
-    background-image: linear-gradient(white, #F2F5FA);
+    background-image: linear-gradient(white, #F5F7FD);
     position: relative;
     background-size: 100% auto;
     height: 700px;
@@ -10316,7 +10316,7 @@ a {
 
 .aparat-icon {
   display: inline !important;
-  color: #695cf9;
+  color: #5654C7;
   width: 25px;
   height: 25px;
   filter: brightness(0) saturate(100%) invert(45%) sepia(68%) saturate(6406%) hue-rotate(234deg) brightness(104%) contrast(95%);
@@ -10335,7 +10335,6 @@ a {
 }
 
 .home-hr-text {
-  max-width: 70%;
   margin: 40px auto;
   line-height: 0em;
   outline: 0;
@@ -10367,8 +10366,8 @@ a {
   border-radius: 6em;
   transition: all 0.2s;
   border: none;
-  color: white;
-  background-color: green;
+  color: #F5F7FD;
+  background-color: #3A8D74;
 }
 
 .btn-article:hover {
@@ -10395,7 +10394,7 @@ a {
 }
 
 .btn-article::after {
-  background-color: green;
+  background-color: #3A8D74;
 }
 
 .btn-article:hover::after {
@@ -10404,7 +10403,6 @@ a {
 }
 
 .home-hr-text-green {
-  max-width: 70%;
   margin: 40px auto;
   line-height: 0em;
   outline: 0;
@@ -10424,5 +10422,28 @@ a {
   height: 1px;
   padding: 0 0.5em;
   line-height: 1.5em;
-  background: linear-gradient(to right, transparent, green, transparent);
+  background: linear-gradient(to right, transparent, #3A8D74, transparent);
+}
+
+@media (max-width: 567px) {
+  .card-mobile-shadow {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  }
+}
+.social-list-default {
+  -webkit-padding-start: 0px !important;
+          padding-inline-start: 0px !important;
+  padding: 5px 0 8px 0;
+}
+
+.footer-circle {
+  height: 110px;
+  width: 110px;
+  -webkit-clip-path: circle(50% at 0 50%);
+          clip-path: circle(50% at 0 50%);
+  background-color: #DAD8FF;
+  z-index: -1;
+  opacity: 1 !important;
+  margin-top: 2%;
+  float: left;
 }
