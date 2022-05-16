@@ -15,5 +15,9 @@ class Course extends Model
         return $is_active ? 'فعال' : 'غیرفعال' ;
     }
 
-    
+    public function categories()
+    {
+        return $this->morphToMany('App\Category', 'categorizable');
+    }
+
 }

@@ -4,58 +4,6 @@
     create category
 @endsection
 
-@section('script')
-    <script>
-        {{--$('#userSelect').change(function(){--}}
-        {{--    let userId = $(this).val();--}}
-
-        {{--    $.get(`{{ url('/user-days/${userId}') }}`, function(response,--}}
-        {{--                                                        status) {--}}
-        {{--        if (status == 'success') {--}}
-
-        {{--            // console.log(response);--}}
-
-        {{--            $('#days').find('div').remove();--}}
-
-        {{--            let daysformgroup= $('<div/>',{--}}
-        {{--                class : 'form-group col-md-4'--}}
-        {{--            });--}}
-
-        {{--            daysformgroup.append($('<lable/>',{--}}
-        {{--                text : 'انتخاب روز'--}}
-        {{--            }));--}}
-
-
-        {{--            var sel = $('<select>',{--}}
-        {{--                name : 'day_id',--}}
-        {{--                class : 'form-control'--}}
-        {{--            }).appendTo(daysformgroup);--}}
-
-        {{--            response.forEach(day => {--}}
-        {{--                sel.append($("<option>").attr('value',day.id).text(day.day));--}}
-        {{--            });--}}
-        {{--            $('#days').append(daysformgroup);--}}
-        {{--        } else {--}}
-        {{--            alert('مشکل در ایجاد فیلد روز ها');--}}
-        {{--        }--}}
-        {{--    }).fail(function() {--}}
-        {{--        alert('مشکل در دریافت لیست روزه ها');--}}
-        {{--    })--}}
-        {{--});--}}
-
-        // $('#image').change(function() {
-        //     //get the file name
-        //     var fileName = $(this).val();
-        //     //replace the "Choose a file" label
-        //     $(this).next('.custom-file-label').html(fileName);
-        // });
-        // $("#czTag").czMore();
-
-
-    </script>
-
-@endsection
-
 @section('content')
 
     <!-- Content Row -->
@@ -83,6 +31,18 @@
                                    value="{{ old('slug') }}">
                         </div>
                     </div>
+
+                    <div class="form-group col-md-12 mt-3">
+                        <label for="type" class="pr-3">انتخاب دسته:</label>
+                        <div class="form-group col-md-3" id="select_category">
+                            <label for="course">دوره های آموزشی</label>
+                            <input id="course" class="category_type" type="radio" value="1" name="cat_type">
+
+                            <label for="post" class="pr-5">مقالات</label>
+                            <input id="post" class="category_type" type="radio" value="2" name="cat_type">
+                        </div>
+                    </div>
+
                     <div class="form-group col-md-12 mt-3">
                         <div class="form-group col-md-3">
                             <label for="parent_id">نوع دسته</label>
@@ -95,7 +55,6 @@
                         </div>
                     </div>
 
-
                     <div class="form-group col-md-12 mt-3">
                         <button class="btn btn-outline-primary mt-5" type="submit">ثبت</button>
                         <a href="{{ route('admin.categories.index') }}" class="btn btn-dark mt-5 mr-3">بازگشت</a>
@@ -105,5 +64,71 @@
         </div>
     </div>
 
+@endsection
 
+@section('script')
+    <script>
+        {{--$(document).ready(function () {--}}
+        {{--    $.ajaxSetup({--}}
+        {{--        headers: {--}}
+        {{--            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+        {{--        }--}}
+        {{--    });--}}
+
+        {{--    let a = $('input[type=radio][name=cat_type]').change(function () {--}}
+
+        {{--        let b = $('.category_type').on('click', function () {--}}
+        {{--            $('.category_type').click().val();--}}
+        {{--        });--}}
+
+        {{--        $.ajax({--}}
+        {{--            type: "POST",--}}
+        {{--            url: "{{ route('admin.categories.ajax.category_type') }}",--}}
+
+        {{--            data: function (a) {--}}
+        {{--                return {--}}
+        {{--                    method: POST,--}}
+        {{--                    type: type,--}}
+        {{--                    data: a,--}}
+        {{--                };--}}
+        {{--            }--}}
+        {{--        });--}}
+
+
+        {{--                console.log(cateId);--}}
+
+
+        {{--            };--}}
+        {{--        });--}}
+
+
+        {{--    });--}}
+
+
+        {{--});--}}
+
+        $('#select_category input').click(function () {
+
+            let val = $(this).val();
+
+            $.ajaxSetup(
+                {
+                    'headers': {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+            $.ajax({
+                url: '{{ route('admin.categories.ajax.category_type') }}',
+                type: 'post',
+                data: {value: val},
+                success: function (data) {
+                    alert();
+                }
+            });
+
+
+        });
+
+    </script>
 @endsection
