@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controllers\Admin'], function () {
+Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controllers\Admin\Category'], function () {
     Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
             Route::get('/', [
@@ -22,7 +22,6 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
             ]);
 
 
-
 //            Route::match(['put', 'patch'], '{like}/update', [
 //                'as' => 'update',
 //                'uses' => 'CourseController@update'
@@ -35,14 +34,16 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
 //                'as' => 'show',
 //                'uses' => 'CourseController@show'
 //            ]);
-//
 
+        });
 
-
-
-
-
-
+        Route::group(['middleware' => ['is.ajax'], 'prefix' => 'categories-ajax', 'as' => 'categories.ajax.'], function () {
+            Route::post('/category_type', [
+                'as' => 'category_type',
+                'uses' => 'CategoryAjaxController@categoryType'
+            ]);
         });
     });
 });
+
+

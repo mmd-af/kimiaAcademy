@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>kimyagaracademy.com - @yield('title')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/admin/css/admin.css') }}" rel="stylesheet">

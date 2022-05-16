@@ -15,7 +15,6 @@ class CourseRepository
     public function create($request)
     {
         $item = new Course();
-        $item->category_id = $request->input('category_id');
         $item->title = $request->input('title');
         $item->slug = $request->input('slug');
         $item->description = $request->input('description');
