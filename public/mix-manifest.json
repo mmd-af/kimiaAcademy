@@ -2,5 +2,6 @@
     "/assets/admin/script/admin.js": "/assets/admin/script/admin.js",
     "/assets/site/script/app.js": "/assets/site/script/app.js",
     "/assets/admin/css/admin.css": "/assets/admin/css/admin.css",
-    "/assets/site/css/app.css": "/assets/site/css/app.css"
+    "/assets/site/css/app.css": "/assets/site/css/app.css",
+    "/assets/site/images/login-page-image.jpg": "/assets/site/images/login-page-image.jpg"
 }
