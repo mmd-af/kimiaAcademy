@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('course_id');
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->boolean('is_free')->default(0);
             $table->unsignedBigInteger('sort');
             $table->softDeletes();

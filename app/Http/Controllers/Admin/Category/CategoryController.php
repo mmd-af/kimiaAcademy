@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Admin\Category;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Category\CategoryRequest;
+use App\Http\Requests\Admin\Category\PostRequest;
 use App\Models\Category\Category;
 use App\Repositories\Admin\CategoryRepository;
 use Illuminate\Http\Request;
-use function redirect;
-use function view;
 
 class CategoryController extends Controller
 {
@@ -35,7 +33,7 @@ class CategoryController extends Controller
 
     }
 
-    public function store(CategoryRequest $request)
+    public function store(PostRequest $request)
     {
         $category = $this->CategoryRepository->store($request);
 
