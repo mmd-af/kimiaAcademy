@@ -46,8 +46,7 @@
                                 {{$category->parent_id}}
                             </th>
                             <th>
-                                <a class="btn btn-sm btn-outline-success"
-                                   href="#" data-toggle="modal" data-target="#productModal-{{$category->id}}">نمایش</a>
+
                                 <a class="btn btn-sm btn-outline-info"
                                    href="{{-- route('categories.edit', ['category' => $category->slug]) --}}">ویرایش</a>
                                 <a class="btn btn-sm btn-outline-danger"

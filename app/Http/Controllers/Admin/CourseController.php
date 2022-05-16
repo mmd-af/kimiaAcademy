@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Course\CourseRequest;
-use App\Models\Category;
-use Illuminate\Http\Request;
-use App\Models\Course;
 use App\Http\Requests\Admin\Course\CategoryRequest;
+use App\Http\Requests\Admin\Course\CourseRequest;
+use App\Models\Category\Category;
+use App\Models\Course;
 use App\Repositories\Admin\CourseRepository;
 
 class CourseController extends Controller
@@ -39,7 +38,6 @@ class CourseController extends Controller
     public function store(CourseRequest $request)
     {
         $course = $this->CourseRepository->create($request);
-
         return redirect()->route('admin.courses.index');
 
     }
