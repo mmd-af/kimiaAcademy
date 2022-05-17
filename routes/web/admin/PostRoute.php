@@ -22,20 +22,25 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
                 'uses' => 'PostController@store'
             ]);
 
-            Route::get('/edit/{id}', [
+            Route::get('/edit/{post}', [
                 'as' => 'edit',
                 'uses' => 'PostController@edit'
+            ]);
+
+            Route::put('{post}/update', [
+                'as' => 'update',
+                'uses' => 'PostController@update'
             ]);
 
 
         });
 
-        Route::group(['middleware' => ['is.ajax'], 'prefix' => 'posts-ajax', 'as' => 'posts.ajax.'], function () {
+//        Route::group(['middleware' => ['is.ajax'], 'prefix' => 'posts-ajax', 'as' => 'posts.ajax.'], function () {
 //            Route::post('/category_type', [
 //                'as' => 'category_type',
 //                'uses' => 'PostAjaxController@categoryType'
 //            ]);
-        });
+//        });
     });
 });
 

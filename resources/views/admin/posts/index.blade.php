@@ -49,7 +49,7 @@
                             </th>
                             <th>
                                 <a class="btn btn-sm btn-outline-info"
-                                   href="{{-- route('posts.edit', ['post' => $post->slug]) --}}">ویرایش</a>
+                                   href=" {{route('admin.posts.edit', ['post' => $post->id])}} ">ویرایش</a>
                                 <a class="btn btn-sm btn-outline-danger"
                                    href="{{-- route('posts.edit', ['post' => $post->slug]) --}}">حذف</a>
                             </th>

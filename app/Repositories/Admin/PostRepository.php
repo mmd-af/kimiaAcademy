@@ -20,6 +20,7 @@ class PostRepository
     {
         return Post::query()
             ->select([
+                'id',
                 'title',
                 'slug',
                 'description',
@@ -34,6 +35,7 @@ class PostRepository
     {
         return Post::query()
             ->select([
+                'id',
                 'title',
                 'slug',
                 'description',
