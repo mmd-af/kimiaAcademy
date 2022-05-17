@@ -20,25 +20,37 @@ class CategoryRepository
                 'slug',
                 'parent_id',
                 'type'
+            ])->get();
+
+    }
+
+    public function getCategoryByType($type)
+    {
+        return Category::query()
+            ->select([
+                'title',
+                'slug',
+                'parent_id',
+                'type'
+            ])
+            ->where('type', $type)
+            ->get();
+
+    }
+
+    public function getLatest()
+    {
+        return Category::query()
+            ->select([
+                'title',
+                'slug',
+                'parent_id'
+
             ])
             ->latest()
             ->paginate(10);
 
     }
-//
-//    public function getAll()
-//    {
-//        return Category::query()
-//            ->select([
-//                'title',
-//                'slug',
-//                'parent_id'
-//
-//            ])
-//            ->latest()
-//            ->paginate(10);
-//
-//    }
 
     public function store($request)
     {

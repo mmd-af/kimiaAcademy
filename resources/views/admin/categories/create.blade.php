@@ -120,14 +120,14 @@
 
             $.ajax({
                 url: '{{ route('admin.categories.ajax.category_type') }}',
-                type: 'post',
+                type: 'POST',
                 data: {value: val},
-                success: function (data) {
-                    alert();
+                success: function (response) {
+                    console.log(response);
+
+
                 }
             });
-
-
         });
 
     </script>
