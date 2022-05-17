@@ -22,6 +22,11 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
                 'uses' => 'PostController@store'
             ]);
 
+            Route::get('/edit/{id}', [
+                'as' => 'edit',
+                'uses' => 'PostController@edit'
+            ]);
+
 
         });
 

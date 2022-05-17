@@ -20,15 +20,15 @@ class PostController extends Controller
     public function index()
     {
 
-        $posts = $this->PostRepository->getAll();
+        $posts = $this->PostRepository->getLatest();
         return view('admin.posts.index', compact('posts'));
 
     }
 
     public function create()
     {
-        $categories = Category::where('parent_id', 0)->where('type', 'Post')->get();
 
+        $categories = $this->PostRepository->getCourseCategory();
         return view('admin.posts.create', compact('categories'));
 
     }
