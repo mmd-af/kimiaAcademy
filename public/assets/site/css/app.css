@@ -10221,23 +10221,6 @@ h3 {
   opacity: 0.75;
 }
 
-@font-face {
-  font-family: "Yekan";
-  src: url(/fonts/Yekan.eot?c460749cb647df373ecae924fcfc978a);
-  /* IE9 Compat Modes */
-  src: url(/fonts/Yekan.eot?c460749cb647df373ecae924fcfc978a?#iefix) format("embedded-opentype"), url(/fonts/Yekan.woff?18af8c75ab1951a5e56d544fb858e766) format("woff"), url(/fonts/Yekan.ttf?f6a0838b6690eaaa2898083eaa3431c1) format("truetype");
-  /* Safari, Android, iOS */
-}
-body {
-  direction: rtl;
-  text-align: right !important;
-  font-family: "Yekan" !important;
-}
-
-a {
-  text-decoration: none !important;
-}
-
 .bg-navbar {
   background-color: #2E3E77 !important;
 }
@@ -10446,4 +10429,45 @@ a {
   opacity: 1 !important;
   margin-top: 2%;
   float: left;
+}
+
+.alert-video {
+  background-color: #DAD8FF;
+}
+
+.svg-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.vr {
+  height: auto;
+  border-left: 1px solid;
+}
+
+.about-teacher {
+  position: relative;
+}
+
+.about-teacher-title {
+  top: -20px;
+  position: absolute;
+  background-color: white;
+}
+
+@font-face {
+  font-family: "Yekan";
+  src: url(/fonts/Yekan.eot?c460749cb647df373ecae924fcfc978a);
+  /* IE9 Compat Modes */
+  src: url(/fonts/Yekan.eot?c460749cb647df373ecae924fcfc978a?#iefix) format("embedded-opentype"), url(/fonts/Yekan.woff?18af8c75ab1951a5e56d544fb858e766) format("woff"), url(/fonts/Yekan.ttf?f6a0838b6690eaaa2898083eaa3431c1) format("truetype");
+  /* Safari, Android, iOS */
+}
+body {
+  direction: rtl;
+  text-align: right !important;
+  font-family: "Yekan" !important;
+}
+
+a {
+  text-decoration: none !important;
 }

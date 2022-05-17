@@ -1,5 +1,5 @@
 <!--footer section start-->
-<footer class="footer-2 py-4 bg-navbar ">
+<footer class="footer-2 py-4 bg-navbar  ">
     <div class="footer-circle"></div>
     <div class="container">
         <div class="row text-light ">

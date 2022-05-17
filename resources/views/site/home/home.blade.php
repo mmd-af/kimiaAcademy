@@ -1,6 +1,8 @@
 @extends('Site.layouts.app')
 @section('title','کیمیا آکادمی')
+
 @section('content')
+    @include('site.layouts.partials.header')
     <div class="container mb-5 mt-5 ">
         {{--TODO admin dashbord--}}
         <div class="text-center mb-2 pt-5">
@@ -16,7 +18,8 @@
                         <div class="card-body product-1 align-items-center p-2 text-center">
                             <div class="image-container">
                                 <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
-                                     alt="Second slide"></div>
+                                     alt="Second slide">
+                            </div>
                             <div class="product-description py-2">
                                 <h5>عنوان اصلی</h5>
                                 <div class="mt-3 info"><span class="text1 d-block">توضیحات کوتاه</span></div>
@@ -165,7 +168,7 @@
                                     <div class="mt-3 info px-2">
                                         <a href="" class="text-gray">
                                             <img class="aparat-icon mx-2"
-                                                src="{{asset('assets/site/images/svg/aparat-25x25.svg')}}" alt="">لینک آپارات
+                                                src="{{asset('assets/site/images/icons/aparat-25x25.icons')}}" alt="">لینک آپارات
                                         </a>
                                     </div>
                                     <div class="mt-3 info px-2"><a href=""><i
@@ -191,7 +194,7 @@
 
                                     <div class="mt-3 info px-2"><a href="" class="text-gray"><img
                                                 class="aparat-icon mx-2"
-                                                src="{{asset('assets/site/images/svg/aparat-25x25.svg')}}"
+                                                src="{{asset('assets/site/images/icons/aparat-25x25.icons')}}"
                                                 alt="">
                                             لینک آپارات</a></div>
                                     <div class="mt-3 info px-2"><a href=""><i
@@ -217,7 +220,7 @@
 
                                     <div class="mt-3 info px-2"><a href="" class="text-gray"><img
                                                 class="aparat-icon mx-2"
-                                                src="{{asset('assets/site/images/svg/aparat-25x25.svg')}}"
+                                                src="{{asset('assets/site/images/icons/aparat-25x25.icons')}}"
                                                 alt="">
                                             لینک آپارات</a></div>
                                     <div class="mt-3 info px-2"><a href=""><i
@@ -243,7 +246,7 @@
 
                                     <div class="mt-3 info px-2"><a href="" class="text-gray"><img
                                                 class="aparat-icon mx-2"
-                                                src="{{asset('assets/site/images/svg/aparat-25x25.svg')}}"
+                                                src="{{asset('assets/site/images/icons/aparat-25x25.icons')}}"
                                                 alt="">
                                             لینک آپارات</a></div>
                                     <div class="mt-3 info px-2"><a href=""><i

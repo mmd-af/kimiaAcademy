@@ -2993,7 +2993,7 @@ License:  MIT
 
       /******/
 
-      function __nested_webpack_require_9080__(moduleId) {
+      function __nested_webpack_require_9070__(moduleId) {
         /******/
         // Check if module is in cache
 
@@ -3023,7 +3023,7 @@ License:  MIT
 
         /******/
 
-        modules[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_9080__);
+        modules[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_9070__);
         /******/
         // Flag the module as loaded
 
@@ -3044,25 +3044,25 @@ License:  MIT
       /******/
 
 
-      __nested_webpack_require_9080__.m = modules;
+      __nested_webpack_require_9070__.m = modules;
       /******/
       // expose the module cache
 
       /******/
 
-      __nested_webpack_require_9080__.c = installedModules;
+      __nested_webpack_require_9070__.c = installedModules;
       /******/
       // __webpack_public_path__
 
       /******/
 
-      __nested_webpack_require_9080__.p = "";
+      __nested_webpack_require_9070__.p = "";
       /******/
       // Load entry module and return exports
 
       /******/
 
-      return __nested_webpack_require_9080__(0);
+      return __nested_webpack_require_9070__(0);
       /******/
     }
     /************************************************************************/
@@ -3072,18 +3072,18 @@ License:  MIT
     /* 0 */
 
     /***/
-    function (module, exports, __nested_webpack_require_10653__) {
+    function (module, exports, __nested_webpack_require_10643__) {
       /*
       Holder.js - client side image placeholders
       (c) 2012-2020 Ivan Malopinsky - https://imsky.co
       */
-      module.exports = __nested_webpack_require_10653__(1);
+      module.exports = __nested_webpack_require_10643__(1);
       /***/
     },
     /* 1 */
 
     /***/
-    function (module, exports, __nested_webpack_require_10921__) {
+    function (module, exports, __nested_webpack_require_10908__) {
       /* WEBPACK VAR INJECTION */
       (function (global) {
         /*
@@ -3091,25 +3091,25 @@ License:  MIT
         (c) 2012-2020 Ivan Malopinsky - http://imsky.co
         */
         //Libraries and functions
-        var onDomReady = __nested_webpack_require_10921__(2);
+        var onDomReady = __nested_webpack_require_10908__(2);
 
-        var querystring = __nested_webpack_require_10921__(3);
+        var querystring = __nested_webpack_require_10908__(3);
 
-        var SceneGraph = __nested_webpack_require_10921__(6);
+        var SceneGraph = __nested_webpack_require_10908__(6);
 
-        var utils = __nested_webpack_require_10921__(7);
+        var utils = __nested_webpack_require_10908__(7);
 
-        var SVG = __nested_webpack_require_10921__(8);
+        var SVG = __nested_webpack_require_10908__(8);
 
-        var DOM = __nested_webpack_require_10921__(9);
+        var DOM = __nested_webpack_require_10908__(9);
 
-        var Color = __nested_webpack_require_10921__(10);
+        var Color = __nested_webpack_require_10908__(10);
 
-        var constants = __nested_webpack_require_10921__(11);
+        var constants = __nested_webpack_require_10908__(11);
 
-        var svgRenderer = __nested_webpack_require_10921__(12);
+        var svgRenderer = __nested_webpack_require_10908__(12);
 
-        var sgCanvasRenderer = __nested_webpack_require_10921__(15);
+        var sgCanvasRenderer = __nested_webpack_require_10908__(15);
 
         var extend = utils.extend;
         var dimensionCheck = utils.dimensionCheck; //Constants and definitions
@@ -3513,7 +3513,7 @@ License:  MIT
           if (flags.font) {
             /*
             If external fonts are used in a <img> placeholder rendered with SVG, Holder falls back to canvas.
-              This is done because Firefox and Chrome disallow embedded SVGs from referencing external assets.
+             This is done because Firefox and Chrome disallow embedded SVGs from referencing external assets.
             The workaround is either to change the placeholder tag from <img> to <object> or to use the canvas renderer.
             */
             theme.font = flags.font;
@@ -3691,7 +3691,7 @@ License:  MIT
             } else if (el.nodeName.toLowerCase() === 'object') {
               DOM.setAttr(el, {
                 'data': image,
-                'type': 'image/svg+xml'
+                'type': 'image/icons+xml'
               });
             }
 
@@ -3711,7 +3711,7 @@ License:  MIT
                 } else if (el.nodeName.toLowerCase() === 'object') {
                   DOM.setAttr(el, {
                     'data': image,
-                    'type': 'image/svg+xml'
+                    'type': 'image/icons+xml'
                   });
                 }
               }, 150);
@@ -4118,9 +4118,9 @@ License:  MIT
                 svg.style.visibility = 'hidden';
                 svg.style.position = 'absolute';
                 svg.style.top = '-100%';
-                svg.style.left = '-100%'; //todo: workaround for zero-dimension <svg> tag in Opera 12
-                //svg.setAttribute('width', 0);
-                //svg.setAttribute('height', 0);
+                svg.style.left = '-100%'; //todo: workaround for zero-dimension <icons> tag in Opera 12
+                //icons.setAttribute('width', 0);
+                //icons.setAttribute('height', 0);
               }
 
               var holderTextGroup = rootNode.children.holderTextGroup;
@@ -4433,7 +4433,7 @@ License:  MIT
     /* 3 */
 
     /***/
-    function (module, exports, __nested_webpack_require_59751__) {
+    function (module, exports, __nested_webpack_require_59650__) {
       //Modified version of component/querystring
       //Changes: updated dependencies, dot notation parsing, JSHint fixes
       //Fork at https://github.com/imsky/querystring
@@ -4444,9 +4444,9 @@ License:  MIT
       var encode = encodeURIComponent;
       var decode = decodeURIComponent;
 
-      var trim = __nested_webpack_require_59751__(4);
+      var trim = __nested_webpack_require_59650__(4);
 
-      var type = __nested_webpack_require_59751__(5);
+      var type = __nested_webpack_require_59650__(5);
 
       var arrayRegex = /(\w+)\[(\d+)\]/;
       var objectRegex = /\w+\.\w+/;
@@ -4930,10 +4930,10 @@ License:  MIT
     /* 8 */
 
     /***/
-    function (module, exports, __nested_webpack_require_72266__) {
+    function (module, exports, __nested_webpack_require_72108__) {
       /* WEBPACK VAR INJECTION */
       (function (global) {
-        var DOM = __nested_webpack_require_72266__(9);
+        var DOM = __nested_webpack_require_72108__(9);
 
         var SVG_NS = 'http://www.w3.org/2000/svg';
         var NODE_TYPE_COMMENT = 8;
@@ -5004,8 +5004,8 @@ License:  MIT
 
 
         exports.svgStringToDataURI = function () {
-          var rawPrefix = 'data:image/svg+xml;charset=UTF-8,';
-          var base64Prefix = 'data:image/svg+xml;charset=UTF-8;base64,';
+          var rawPrefix = 'data:image/icons+xml;charset=UTF-8,';
+          var base64Prefix = 'data:image/icons+xml;charset=UTF-8;base64,';
           return function (svgString, base64) {
             if (base64) {
               return base64Prefix + btoa(global.unescape(encodeURIComponent(svgString)));
@@ -5291,21 +5291,17 @@ License:  MIT
           if (!(color instanceof Color)) {
               color = new Color(color);
           }
-      
-          var r = this.rgb.r;
+      	    var r = this.rgb.r;
           var g = this.rgb.g;
           var b = this.rgb.b;
           var a = this.alpha;
-      
-          var m = typeof multiplier !== 'undefined' ? multiplier : 0.5;
-      
-          //todo: write a lerp function
+      	    var m = typeof multiplier !== 'undefined' ? multiplier : 0.5;
+      	    //todo: write a lerp function
           r = r + m * (color.rgb.r - r);
           g = g + m * (color.rgb.g - g);
           b = b + m * (color.rgb.b - b);
           a = a + m * (color.alpha - a);
-      
-          return new Color(Color.rgbToHex(r, g, b), {
+      	    return new Color(Color.rgbToHex(r, g, b), {
               'alpha': a
           });
       };
@@ -5348,14 +5344,14 @@ License:  MIT
     /* 12 */
 
     /***/
-    function (module, exports, __nested_webpack_require_84212__) {
-      var shaven = __nested_webpack_require_84212__(13);
+    function (module, exports, __nested_webpack_require_83964__) {
+      var shaven = __nested_webpack_require_83964__(13);
 
-      var SVG = __nested_webpack_require_84212__(8);
+      var SVG = __nested_webpack_require_83964__(8);
 
-      var constants = __nested_webpack_require_84212__(11);
+      var constants = __nested_webpack_require_83964__(11);
 
-      var utils = __nested_webpack_require_84212__(7);
+      var utils = __nested_webpack_require_83964__(7);
 
       var SVG_NS = constants.svg_ns;
       var templates = {
@@ -5485,8 +5481,8 @@ License:  MIT
     /* 13 */
 
     /***/
-    function (module, exports, __nested_webpack_require_89132__) {
-      var escape = __nested_webpack_require_89132__(14); // TODO: remove namespace
+    function (module, exports, __nested_webpack_require_88884__) {
+      var escape = __nested_webpack_require_88884__(14); // TODO: remove namespace
 
 
       module.exports = function shaven(array, namespace, returnObject) {
@@ -5686,10 +5682,10 @@ License:  MIT
     /* 15 */
 
     /***/
-    function (module, exports, __nested_webpack_require_95603__) {
-      var DOM = __nested_webpack_require_95603__(9);
+    function (module, exports, __nested_webpack_require_95337__) {
+      var DOM = __nested_webpack_require_95337__(9);
 
-      var utils = __nested_webpack_require_95603__(7);
+      var utils = __nested_webpack_require_95337__(7);
 
       module.exports = function () {
         var canvas = DOM.newEl('canvas');
