@@ -48,7 +48,7 @@
 {{--                </x-button>--}}
 {{--            </div>--}}
 {{--        </form>--}}
-<div class="container col-md-12">
+<div class="container col-md-10">
     <div class="row">
         <div class="col-md-3 col-sm-12 border-1 shadow m-5">
             <div class="text-center pt-4">
@@ -57,12 +57,13 @@
             <form class="px-4 py-3">
                 <div class="form-group">
                     <small for="exampleDropdownFormEmail1 mr-1">شماره موبایل یا ایمیل</small>
-                    <input class="form-control shadow mt-2 " id="exampleDropdownFormEmail1">
-                    <small class="small text-danger">برای ثبت سفارش نیازمند ورود به حساب کاربریتان هستید.</small>
+                    <input class="form-control mt-2 " id="exampleDropdownFormEmail1">
+{{--                    {{TODO اضاف کردن متن بعد از اقدام به خرید اگر ثبت نام نکرده باشد}}--}}
+{{--                    <small class="small text-danger">برای ثبت سفارش نیازمند ورود به حساب کاربریتان هستید.</small>--}}
                 </div>
                 <div class="form-group">
                     <small for="exampleDropdownFormPassword1" class="mr-1">رمز عبور</small>
-                    <input type="password" class="form-control shadow mt-2" id="exampleDropdownFormPassword1 ">
+                    <input type="password" class="form-control mt-2" id="exampleDropdownFormPassword1 ">
                 </div>
                 <div class="form-check pb-3">
                     <a class="form-check-label small text-primary " href="">رمز عبور خود را فراموش کرده اید؟</a>
@@ -77,10 +78,10 @@
             {{--        </button>--}}
             {{--    </div>--}}
             <div class="text-center pb-3">
-                <span class="small">هنوز عضو نشده اید؟</span><a class="small text-primary">ثبت نام کنید</a>
+                <span class="small">هنوز عضو نشده اید؟ </span><a class="small text-primary">ثبت نام کنید</a>
             </div>
         </div>
-        <div class="col-md-8 mt-5 text-center">
+        <div class="col-md-7 mt-5 text-center">
             <img class=""  src="{{asset('assets/site/images/login-page-image.jpg')}}" alt="">
         </div>
     </div>
