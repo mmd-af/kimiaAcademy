@@ -28,7 +28,7 @@ class CourseController extends Controller
 
     public function create()
     {
-        $categories = $this->CourseRepository->getCourseCategory();
+        $categories = $this->CourseRepository->getCategory();
         return view('admin.courses.create', compact('categories'));
 
     }

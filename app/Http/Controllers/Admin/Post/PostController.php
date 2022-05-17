@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin\Post;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Post\PostRequest;
+use App\Http\Requests\Admin\Post\StorePostRequest;
+use App\Http\Requests\Admin\Post\UpdatePostRequest;
 use App\Models\Category\Category;
 use App\Models\Post\Post;
 use App\Repositories\Admin\PostRepository;
@@ -29,12 +30,12 @@ class PostController extends Controller
     public function create()
     {
 
-        $categories = $this->PostRepository->getCourseCategory();
+        $categories = $this->PostRepository->getCategory();
         return view('admin.posts.create', compact('categories'));
 
     }
 
-    public function store(PostRequest $request)
+    public function store(StorePostRequest $request)
     {
         $category = $this->PostRepository->store($request);
 
@@ -48,12 +49,16 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $postCatgory = $post->categories->first();
+        $categories = $this->PostRepository->getCategory();
+        return view('admin.posts.edit', compact('post', 'categories', 'postCatgory'));
     }
 
-    public function update(Request $request, $post)
+    public function update(UpdatePostRequest $request, Post $post)
     {
-        dd($request->all());
+        dd("hanooz sakhte mashode");
+        $category = $this->PostRepository->update($request, $post);
+        return redirect()->route('admin.posts.index');
     }
 
     public function destroy($id)

@@ -18,7 +18,7 @@
                 @csrf
                 @method('put')
                 <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                         <label for="title">عنوان:</label>
                         <input class="form-control" id="title" name="title" type="text"
                                value="{{$post->title}}">
@@ -28,6 +28,17 @@
                         <label for="slug">نام انگلیسی:</label>
                         <input class="form-control" id="slug" name="slug" type="text"
                                value="{{ $post->slug }}">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="category_id">نوع دسته</label>
+                        <select class="form-control selectpicker" data-live-search="true" id="category_id"
+                                name="category_id">
+                            <option value="{{$postCatgory->id}}">{{$postCatgory->title}}</option>
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}">{{$category->title}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="form-group col-md-12">
@@ -57,6 +68,10 @@
 
 @section('script')
     <script>
+        $(function () {
+            $('.selectpicker').selectpicker();
+        });
+
         ClassicEditor
             .create(document.querySelector('#editor'))
             .catch(error => {

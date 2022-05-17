@@ -53,7 +53,7 @@ class CourseRepository
 
     }
 
-    public function getCourseCategory()
+    public function getCategory()
     {
         return Category::query()
             ->select([

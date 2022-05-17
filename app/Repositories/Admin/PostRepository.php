@@ -47,7 +47,7 @@ class PostRepository
 
     }
 
-    public function getCourseCategory()
+    public function getCategory()
     {
         return Category::query()
             ->select([
