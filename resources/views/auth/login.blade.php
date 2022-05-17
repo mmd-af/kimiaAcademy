@@ -1,6 +1,7 @@
-@include('site.layouts.partials.head')
-@include('site.layouts.partials.navbar')
+@extends('Site.layouts.app')
 
+@section('content')
+{{--    @include('site.layouts.partials.header')--}}
 
 {{--        <!-- Session Status -->--}}
 {{--        <x-auth-session-status class="mb-4" :status="session('status')" />--}}
@@ -50,7 +51,7 @@
 {{--        </form>--}}
 <div class="container col-md-10">
     <div class="row">
-        <div class="col-md-3 col-sm-12 border-1 shadow m-5">
+        <div class="col-md-4 col-sm-12 border-1 shadow m-5">
             <div class="text-center pt-4">
                 ورود به حساب کاربری
             </div>
@@ -81,9 +82,12 @@
                 <span class="small">هنوز عضو نشده اید؟ </span><a class="small text-primary">ثبت نام کنید</a>
             </div>
         </div>
-        <div class="col-md-7 mt-5 text-center">
-            <img class=""  src="{{asset('assets/site/images/login-page-image.jpg')}}" alt="">
+        <div class="col-md-6 mt-5  text-center">
+            <img class="" src="{{asset('assets/site/images/login-page-image.jpg')}}" alt="">
         </div>
     </div>
 </div>
-@include('site.layouts.partials.footer')
+@endsection
+
+{{--@include('site.layouts.partials.footer')--}}
+
