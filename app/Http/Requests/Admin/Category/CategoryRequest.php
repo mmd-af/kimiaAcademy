@@ -26,9 +26,8 @@ class CategoryRequest extends FormRequest
         return [
             'Category_title' => ['required'],
             'slug' => ['required'],
-            'category_type' => ['required'],
+            'cat_type' => ['required'],
             'parent_id' => ['required'],
-
         ];
     }
 }

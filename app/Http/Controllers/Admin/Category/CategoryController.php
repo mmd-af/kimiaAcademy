@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Category;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Category\PostRequest;
+use App\Http\Requests\Admin\Category\CategoryRequest;
 use App\Models\Category\Category;
 use App\Repositories\Admin\CategoryRepository;
 use Illuminate\Http\Request;
@@ -33,7 +33,7 @@ class CategoryController extends Controller
 
     }
 
-    public function store(PostRequest $request)
+    public function store(CategoryRequest $request)
     {
         $category = $this->CategoryRepository->store($request);
 

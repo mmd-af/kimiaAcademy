@@ -23,6 +23,20 @@ class CategoryRepository
             ])->get();
 
     }
+    public function getLatest()
+    {
+        return Category::query()
+            ->select([
+                'title',
+                'slug',
+                'type',
+                'parent_id'
+
+            ])
+            ->latest()
+            ->paginate(10);
+
+    }
 
     public function getCategoryByType($type)
     {
@@ -36,21 +50,6 @@ class CategoryRepository
             ])
             ->where('type', $type)
             ->get();
-
-    }
-
-    public function getLatest()
-    {
-        return Category::query()
-            ->select([
-                'title',
-                'slug',
-                'parent_id'
-
-            ])
-            ->latest()
-            ->paginate(10);
-
     }
 
     public function store($request)
@@ -58,12 +57,10 @@ class CategoryRepository
         $item = new Category();
         $item->title = $request->input('Category_title');
         $item->slug = $request->input('slug');
+        $item->type = $request->input('cat_type');
         $item->parent_id = $request->input('parent_id');
-        $item->type = $request->input('type');
         $item->save();
-
         return $item;
-
     }
 
 }

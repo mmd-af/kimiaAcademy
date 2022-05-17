@@ -10,10 +10,10 @@
     <div class="row">
         <div class="col-xl-12 col-md-12 mb-4 p-4 bg-white">
             <div class="d-flex flex-column text-center flex-md-row justify-content-md-between mb-4">
-                <h5 class="font-weight-bold mb-3 mb-md-0">لیست دوره ها: ({{ $categories->total() }})</h5>
+                <h5 class="font-weight-bold mb-3 mb-md-0">لیست دسته بندی ها: ({{ $categories->total() }})</h5>
                 <a class="btn btn-sm btn-outline-primary" href="{{ route('admin.categories.create') }}">
                     <i class="fa fa-plus"></i>
-                    ایجاد دوره
+                    ایجاد دسته بندی
                 </a>
             </div>
 
@@ -25,6 +25,7 @@
                         <th>#</th>
                         <th>نام دسته بندی</th>
                         <th>نام انگلیسی</th>
+                        <th>مرتبط</th>
                         <th>نوع دسته</th>
                         <th>عملیات</th>
                     </tr>
@@ -41,6 +42,9 @@
 
                             <th>
                                 {{ $category->slug }}
+                            </th>
+                            <th>
+                                {{ $category->type }}
                             </th>
                             <th>
                                 {{$category->parent_id}}

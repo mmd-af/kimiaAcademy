@@ -37,7 +37,6 @@
                         <div class="form-group col-md-3" id="select_category">
                             <label for="course">دوره های آموزشی</label>
                             <input id="course" class="category_type" type="radio" value="1" name="cat_type">
-
                             <label for="post" class="pr-5">مقالات</label>
                             <input id="post" class="category_type" type="radio" value="2" name="cat_type">
                         </div>
