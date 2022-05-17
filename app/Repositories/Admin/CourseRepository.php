@@ -2,7 +2,8 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Course;
+use App\Models\Category\Category;
+use App\Models\Course\Course;
 
 class CourseRepository
 //    extends BaseRepository
@@ -11,6 +12,56 @@ class CourseRepository
 //    {
 //        $this->setModel($model);
 //    }
+
+    public function getAll()
+    {
+        return Course::query()
+            ->select([
+                'title',
+                'slug',
+                'description',
+                'actual_price',
+                'discount_price',
+                'is_active',
+                'course_lang',
+                'course_time',
+                'course_size',
+                'course_kind'
+
+            ])->get();
+
+    }
+    public function getLatest()
+    {
+        return Course::query()
+            ->select([
+                'title',
+                'slug',
+                'description',
+                'actual_price',
+                'discount_price',
+                'is_active',
+                'course_lang',
+                'course_time',
+                'course_size',
+                'course_kind'
+            ])
+            ->latest()
+            ->paginate(10);
+
+    }
+
+    public function getCourseCategory()
+    {
+        return Category::query()
+            ->select([
+                'id',
+                'title',
+                'type'
+            ])
+            ->where('type', 1)
+            ->get();
+    }
 
     public function create($request)
     {

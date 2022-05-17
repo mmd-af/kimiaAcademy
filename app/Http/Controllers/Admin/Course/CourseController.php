@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Course;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Course\CategoryRequest;
 use App\Http\Requests\Admin\Course\CourseRequest;
 use App\Models\Category\Category;
-use App\Models\Course;
+use App\Models\Course\Course;
 use App\Repositories\Admin\CourseRepository;
+use function redirect;
+use function view;
 
 class CourseController extends Controller
 {
@@ -20,16 +21,14 @@ class CourseController extends Controller
 
     public function index()
     {
-        $courses = Course::latest()->paginate(10);
-
+        $courses = $this->CourseRepository->getLatest();
         return view('admin.courses.index', compact('courses'));
     }
 
 
     public function create()
     {
-        $categories = Category::all();
-
+        $categories = $this->CourseRepository->getCourseCategory();
         return view('admin.courses.create', compact('categories'));
 
     }
@@ -37,6 +36,7 @@ class CourseController extends Controller
 
     public function store(CourseRequest $request)
     {
+        dd($request->all());
         $course = $this->CourseRepository->create($request);
         return redirect()->route('admin.courses.index');
 
