@@ -8,16 +8,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Course extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory,
+        SoftDeletes,
+        CourseRelationships,
+        CourseModifiers;
 
     public function getIsActiveAttribute($is_active)
     {
         return $is_active ? 'فعال' : 'غیرفعال' ;
     }
 
-    public function categories()
-    {
-        return $this->morphToMany('App\Category', 'categorizable');
-    }
+
 
 }

@@ -36,8 +36,7 @@ class CourseController extends Controller
 
     public function store(CourseRequest $request)
     {
-        dd($request->all());
-        $course = $this->CourseRepository->create($request);
+        $course = $this->CourseRepository->store($request);
         return redirect()->route('admin.courses.index');
 
     }
