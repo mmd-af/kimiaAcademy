@@ -46,11 +46,9 @@
                     <div class="form-group col-md-12 mt-3">
                         <div class="form-group col-md-3">
                             <label for="parent_id">نوع دسته</label>
-                            <select class="form-control" id="parent_id" name="parent_id">
-                                <option value="0" selected>دسته ی مادر</option>
-                                @foreach($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->title}}</option>
-                                @endforeach
+                            <select class="form-control category-select" id="parent_id" name="parent_id">
+
+                                <option value="" selected>ابتدا نوع دسته بندی را مشخص کنید ...</option>
                             </select>
                         </div>
                     </div>
@@ -106,29 +104,41 @@
 
 
         {{--});--}}
+        $(document).ready(function () {
+            $('#select_category input').click(function () {
 
-        $('#select_category input').click(function () {
+                let val = $(this).val();
+                $('.category-select').empty();
+                $('.category-select').append('<option value="0" selected>دسته ی مادر</option>');
 
-            let val = $(this).val();
+                $.ajaxSetup(
+                    {
+                        'headers': {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
 
-            $.ajaxSetup(
-                {
-                    'headers': {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                $.ajax({
+                    url: '{{ route('admin.categories.ajax.category_type') }}',
+                    type: 'POST',
+                    data: {value: val},
+                    success: function (response) {
+
+                        response.data.forEach(function (item, index) {
+                            let option = `<option value=${item.id}>${item.title}</option>`;
+                            $('.category-select').append(option);
+                            });
+
+
+
+                        // console.log(response.data)
+
                     }
                 });
-
-            $.ajax({
-                url: '{{ route('admin.categories.ajax.category_type') }}',
-                type: 'POST',
-                data: {value: val},
-                success: function (response) {
-                    console.log(response);
-
-
-                }
             });
         });
+
+
 
     </script>
 @endsection

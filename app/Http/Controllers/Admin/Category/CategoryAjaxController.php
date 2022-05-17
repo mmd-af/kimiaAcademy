@@ -20,7 +20,7 @@ class CategoryAjaxController extends Controller
     public function categoryType(Request $request)
     {
         return response()->json([
-            $this->categoryRepository->getCategoryByType($request->value)
+            'data' => $this->categoryRepository->getCategoryByType($request->value)
         ]);
 //        return $this->categoryRepository->getCategoryByType($request->value);
     }
