@@ -4,58 +4,6 @@
     create course
 @endsection
 
-@section('script')
-    <script>
-        {{--$('#userSelect').change(function(){--}}
-        {{--    let userId = $(this).val();--}}
-
-        {{--    $.get(`{{ url('/user-days/${userId}') }}`, function(response,--}}
-        {{--                                                        status) {--}}
-        {{--        if (status == 'success') {--}}
-
-        {{--            // console.log(response);--}}
-
-        {{--            $('#days').find('div').remove();--}}
-
-        {{--            let daysformgroup= $('<div/>',{--}}
-        {{--                class : 'form-group col-md-4'--}}
-        {{--            });--}}
-
-        {{--            daysformgroup.append($('<lable/>',{--}}
-        {{--                text : 'انتخاب روز'--}}
-        {{--            }));--}}
-
-
-        {{--            var sel = $('<select>',{--}}
-        {{--                name : 'day_id',--}}
-        {{--                class : 'form-control'--}}
-        {{--            }).appendTo(daysformgroup);--}}
-
-        {{--            response.forEach(day => {--}}
-        {{--                sel.append($("<option>").attr('value',day.id).text(day.day));--}}
-        {{--            });--}}
-        {{--            $('#days').append(daysformgroup);--}}
-        {{--        } else {--}}
-        {{--            alert('مشکل در ایجاد فیلد روز ها');--}}
-        {{--        }--}}
-        {{--    }).fail(function() {--}}
-        {{--        alert('مشکل در دریافت لیست روزه ها');--}}
-        {{--    })--}}
-        {{--});--}}
-
-        // $('#image').change(function() {
-        //     //get the file name
-        //     var fileName = $(this).val();
-        //     //replace the "Choose a file" label
-        //     $(this).next('.custom-file-label').html(fileName);
-        // });
-        // $("#czTag").czMore();
-
-
-    </script>
-
-@endsection
-
 @section('content')
 
     <!-- Content Row -->
@@ -80,6 +28,16 @@
                                value="{{ old('slug') }}">
                     </div>
 
+                    <div class="form-group col-md-3">
+                        <label for="category_id">نوع دسته</label>
+                        <select class="form-control selectpicker" data-live-search="true" id="category_id"
+                                name="category_id">
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}">{{$category->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <div class="form-group col-md-12 mt-3">
                         <div class="form-group col-md-3">
                             <label for="image">تصویر دوره:</label>
@@ -98,12 +56,12 @@
 
                     <div class="form-group col-md-3 mt-3">
                         <label for="actual_price">قیمت دوره:</label>
-                        <input class="form-control" id="actual_price" name="actual_price" type="text"
+                        <input class="form-control" id="actual_price" name="actual_price" type="number"
                                value="{{ old('actual_price') }}">
                     </div>
                     <div class="form-group col-md-3 mt-3">
                         <label for="discount_price">تخفیف دوره:</label>
-                        <input class="form-control" id="discount_price" name="discount_price" type="text"
+                        <input class="form-control" id="discount_price" name="discount_price" type="number"
                                value="{{ old('discount_price') }}">
                     </div>
 
@@ -132,8 +90,8 @@
                     </div>
                     <div class="form-group col-md-12 mt-3">
                         <div class="form-group col-md-3">
-                            <label for="course_lind">نوع دوره</label>
-                            <input class="form-control" id="course_lind" name="course_lind" type="text"
+                            <label for="course_kind">نوع دوره</label>
+                            <input class="form-control" id="course_kind" name="course_kind" type="text"
                                    value="{{ old('course_lind') }}">
                         </div>
                     </div>
@@ -156,5 +114,28 @@
         </div>
     </div>
 
+
+@endsection
+
+@section('script')
+    <script>
+
+        // $('#image').change(function() {
+        //     //get the file name
+        //     var fileName = $(this).val();
+        //     //replace the "Choose a file" label
+        //     $(this).next('.custom-file-label').html(fileName);
+        // });
+        // $("#czTag").czMore();
+        $(function () {
+            $('.selectpicker').selectpicker();
+        });
+
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 
 @endsection

@@ -6,7 +6,7 @@
         </div>
         <div class="row">
             @php
-            use App\Models\Course;
+            use App\Models\Course\Course;
                 $courses= Course::latest()->paginate(10);
             @endphp
             @foreach ($courses as $course)
