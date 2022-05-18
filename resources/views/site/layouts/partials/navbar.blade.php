@@ -18,7 +18,7 @@
                     <a class="nav-link ml-5" href="{{route('blog')}}">مقالات آموزشی</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link ml-5" href="">تماس با ما</a>
+                    <a class="nav-link ml-5" href="{{route('contact-us')}}">تماس با ما</a>
                 </li>
 
             </ul>
