@@ -11,7 +11,7 @@ Route::get('/blog', function () {
 })->name('blog');
 
 Route::get('/contact-us', function () {
-    return view('site.blog.blog');
+    return view('site.contact-us.contact-us');
 })->name('contact-us');
 
 require __DIR__ . '/auth.php';
