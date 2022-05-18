@@ -47,7 +47,7 @@
                             <label for="parent_id">نوع دسته</label>
                             <select class="form-control category-select" id="parent_id" name="parent_id">
 
-                                <option value="" selected>ابتدا نوع دسته بندی را مشخص کنید ...</option>
+                                <option value="0" selected>ابتدا نوع دسته بندی را مشخص کنید ...</option>
                             </select>
                         </div>
                     </div>
