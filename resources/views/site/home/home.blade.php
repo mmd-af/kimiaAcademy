@@ -30,7 +30,7 @@
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
+                           href="{{route('video')}}">خرید</a>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-6 py-4">
@@ -50,7 +50,7 @@
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
+                           href="{{route('video')}}">خرید</a>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-6 py-4">
@@ -70,7 +70,7 @@
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
+                           href="{{route('video')}}">خرید</a>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-6 py-4">
@@ -90,7 +90,7 @@
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
+                           href="{{route('video')}}">خرید</a>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-6 py-4">
@@ -110,7 +110,7 @@
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
+                           href="{{route('video')}}">خرید</a>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-6 py-4">
@@ -130,7 +130,7 @@
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
+                           href="{{route('video')}}">خرید</a>
                     </div>
                 </div>
 
@@ -168,7 +168,7 @@
                                     <div class="mt-3 info px-2">
                                         <a href="" class="text-gray">
                                             <img class="aparat-icon mx-2"
-                                                src="{{asset('assets/site/images/icons/aparat-25x25.icons')}}" alt="">لینک آپارات
+                                                src="{{asset('assets/site/images/icons/aparat-25x25.svg')}}" alt="">لینک آپارات
                                         </a>
                                     </div>
                                     <div class="mt-3 info px-2"><a href=""><i
@@ -194,7 +194,7 @@
 
                                     <div class="mt-3 info px-2"><a href="" class="text-gray"><img
                                                 class="aparat-icon mx-2"
-                                                src="{{asset('assets/site/images/icons/aparat-25x25.icons')}}"
+                                                src="{{asset('assets/site/images/icons/aparat-25x25.svg')}}"
                                                 alt="">
                                             لینک آپارات</a></div>
                                     <div class="mt-3 info px-2"><a href=""><i
@@ -220,7 +220,7 @@
 
                                     <div class="mt-3 info px-2"><a href="" class="text-gray"><img
                                                 class="aparat-icon mx-2"
-                                                src="{{asset('assets/site/images/icons/aparat-25x25.icons')}}"
+                                                src="{{asset('assets/site/images/icons/aparat-25x25.svg')}}"
                                                 alt="">
                                             لینک آپارات</a></div>
                                     <div class="mt-3 info px-2"><a href=""><i
@@ -246,7 +246,7 @@
 
                                     <div class="mt-3 info px-2"><a href="" class="text-gray"><img
                                                 class="aparat-icon mx-2"
-                                                src="{{asset('assets/site/images/icons/aparat-25x25.icons')}}"
+                                                src="{{asset('assets/site/images/icons/aparat-25x25.svg')}}"
                                                 alt="">
                                             لینک آپارات</a></div>
                                     <div class="mt-3 info px-2"><a href=""><i

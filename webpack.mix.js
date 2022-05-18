@@ -16,5 +16,6 @@ mix.sass('resources/assets/admin/scss/admin.scss', 'public/assets/admin/css')
     .js('resources/assets/site/script/app.js', 'public/assets/site/script')
 /// images
 
-.copy('resources/assets/site/images/', 'public/assets/site/images/');
+.copy('resources/assets/site/images/', 'public/assets/site/images/')
+.copy('resources/assets/site/videos/', 'public/assets/site/videos/');
 // mix.copyDirectory('resources/assets/site/images/', 'public/assets/site/images/');
