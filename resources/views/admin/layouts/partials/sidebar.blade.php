@@ -56,6 +56,12 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.educationalvideos.index')}}">
+            <i class="fas fa-store"></i>
+            <span> ویدئو های آموزشی </span>
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="#">
             <i class="fas fa-store"></i>
             <span> نظرات </span>
