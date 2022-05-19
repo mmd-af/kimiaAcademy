@@ -1,13 +1,14 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css";
 
 // Import Bootstrap
-@import "../../../../node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap";
 
 // import slick carousel
 @import "../lib/slick/slick";
 @import "../lib/slick/slick-theme";
 @import "./home";
 @import "./video";
+@import "./contact-us";
 
 //@font-face {
 //    font-family: "Vazir";
@@ -37,5 +38,6 @@ body {
 
 a {
     text-decoration: none !important;
+
 }
 

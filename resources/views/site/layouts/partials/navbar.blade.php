@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-navbar py-3 shadow   ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">گروه آموزشی دارویی کیمیاگر</a>
+        <a class="navbar-brand" href="{{route('home')}}">گروه آموزشی دارویی کیمیاگر</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,17 +8,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto ">
                 <li class="nav-item active">
-                    <a class="nav-link ml-5 " href="#">دوره های آموزشی<span class="sr-only">(current)</span></a>
+                    <a class="nav-link ml-5 " href="{{route('video')}}">دوره های آموزشی<span class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link ml-5" href="#">محصولات</a>
+                    <a class="nav-link ml-5" href="">محصولات</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link ml-5" href="#">مقالات آموزشی</a>
+                    <a class="nav-link ml-5" href="{{route('blog')}}">مقالات آموزشی</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link ml-5" href="#">تماس با ما</a>
+                    <a class="nav-link ml-5" href="{{route('contact-us')}}">تماس با ما</a>
                 </li>
 
             </ul>

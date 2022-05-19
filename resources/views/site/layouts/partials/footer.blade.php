@@ -3,7 +3,7 @@
     <div class="footer-circle"></div>
     <div class="container">
         <div class="row text-light ">
-            <div class="col-md-12 col-lg-6 mb-4 mb-md-4 mb-sm-4 mb-lg-0 mt-5">
+            <div class="col-md-12 col-lg-6 mb-4 mb-md-4 mb-sm-4 mb-lg-0 mt-5 order-2 order-sm-1">
                 <div class="col-sm">
                     <h5>ارتباط با ما</h5>
 
@@ -51,7 +51,7 @@
                 </div>
 
             </div>
-            <div class="col-md-12 col-lg-6 mt-5">
+            <div class="col-md-12 col-lg-5 mt-5 order-sm-1 px-4">
                 <h5>درباره ما</h5>
                 <p>
                     درباره شما
@@ -61,9 +61,9 @@
             </div>
 
         </div>
-        <div class="row mt-5 pt-4 pb-4 border-top justify-content-sm-center ">
+        <div class="row mt-5 pt-4 pb-4 border-top justify-content-sm-center mx-md-0 mx-2">
 
-            <div class="col-md-3 col-sm-12 text-center order-sm-2 mb-3">
+            <div class="col-md-3 col-sm-12 text-center order-1 order-sm-2 mb-3">
                 <img src="holder.js/80x80" alt="">
                 <img src="holder.js/80x80" alt="">
             </div>

@@ -4,7 +4,10 @@
 }
 
 .bg-header {
-    background-color: #091B24 !important;
+    //background-color: #091B24 !important;
+    background: rgb(9,27,36);
+    background: linear-gradient(69deg, rgba(9,27,36,1) 33%, rgba(24,113,157,1) 100%);
+
 }
 
 .btn-product {
