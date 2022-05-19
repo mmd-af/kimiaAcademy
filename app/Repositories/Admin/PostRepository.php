@@ -80,4 +80,23 @@ class PostRepository
             return $error;
         }
     }
+
+    public function update($request, $post)
+    {
+        DB::beginTransaction();
+        try {
+            $post->title = $request->input('title');
+            $post->slug = $request->input('slug');
+            $post->description = $request->input('description');
+            $post->view_count = $request->input('view_count');
+            $post->is_active = $request->input('is_active');
+            $post->save();
+            $post->categories()->sync($request->input('category_id'));
+            DB::commit();
+            return $post;
+        } catch (\Exception $error) {
+            DB::rollback();
+            return $error;
+        }
+    }
 }

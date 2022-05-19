@@ -21,7 +21,6 @@ class UpdatePostRequest extends FormRequest
             'slug' => ['required'],
             'description' => ['required'],
             'is_active' => ['required'],
-
         ];
     }
 }
