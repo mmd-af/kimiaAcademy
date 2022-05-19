@@ -67,7 +67,7 @@
                                 <a class="btn btn-sm btn-outline-success"
                                    href="#" data-toggle="modal" data-target="#productModal-{{$course->id}}">نمایش</a>
                                 <a class="btn btn-sm btn-outline-info"
-                                   href="{{-- route('courses.edit', ['course' => $course->slug]) --}}">ویرایش</a>
+                                   href="{{ route('admin.courses.edit', ['course' => $course->id]) }}">ویرایش</a>
                                 <a class="btn btn-sm btn-outline-danger"
                                    href="{{-- route('courses.edit', ['course' => $course->slug]) --}}">حذف</a>
                             </th>

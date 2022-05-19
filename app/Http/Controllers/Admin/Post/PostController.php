@@ -57,7 +57,7 @@ class PostController extends Controller
     public function update(UpdatePostRequest $request, Post $post)
     {
 
-        $category = $this->PostRepository->update($request, $post);
+        $posts = $this->PostRepository->update($request, $post);
         return redirect()->route('admin.posts.index');
     }
 

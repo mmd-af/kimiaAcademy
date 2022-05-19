@@ -18,6 +18,7 @@ class CourseRepository
     {
         return Course::query()
             ->select([
+                'id',
                 'title',
                 'slug',
                 'description',
@@ -37,6 +38,7 @@ class CourseRepository
     {
         return Course::query()
             ->select([
+                'id',
                 'title',
                 'slug',
                 'description',
@@ -84,6 +86,30 @@ class CourseRepository
             $item->categories()->attach($request->input('category_id'));
             DB::commit();
             return $item;
+        } catch (\Exception $error) {
+            DB::rollback();
+            return $error;
+        }
+    }
+
+    public function update($request, $course)
+    {
+        DB::beginTransaction();
+        try {
+            $course->title = $request->input('title');
+            $course->slug = $request->input('slug');
+            $course->description = $request->input('description');
+            $course->actual_price = $request->input('actual_price');
+            $course->discount_price = $request->input('discount_price');
+            $course->is_active = $request->input('is_active');
+            $course->course_lang = $request->input('course_lang');
+            $course->course_time = $request->input('course_time');
+            $course->course_size = $request->input('course_size');
+            $course->course_kind = $request->input('course_kind');
+            $course->save();
+            $course->categories()->sync($request->input('category_id'));
+            DB::commit();
+            return $course;
         } catch (\Exception $error) {
             DB::rollback();
             return $error;

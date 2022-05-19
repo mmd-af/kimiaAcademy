@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Course;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Course\CourseRequest;
+use App\Http\Requests\Admin\Post\UpdatePostRequest;
 use App\Models\Category\Category;
 use App\Models\Course\Course;
 use App\Repositories\Admin\CourseRepository;
@@ -48,15 +49,18 @@ class CourseController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit(Course $course)
     {
-        //
+        $courseCatgory = $course->categories->first();
+        $categories = $this->CourseRepository->getCategory();
+        return view('admin.courses.edit', compact('course', 'categories', 'courseCatgory'));
     }
 
 
-    public function update(CategoryRequest $request, $id)
+    public function update(UpdatePostRequest $request, Course $course)
     {
-        //
+        $courses = $this->CourseRepository->update($request, $course);
+        return redirect()->route('admin.courses.index');
     }
 
 

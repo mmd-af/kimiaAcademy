@@ -20,6 +20,15 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
                 'uses' => 'CourseController@store'
             ]);
 
+            Route::get('/edit/{course}', [
+                'as' => 'edit',
+                'uses' => 'CourseController@edit'
+            ]);
+
+            Route::put('{course}/update', [
+                'as' => 'update',
+                'uses' => 'CourseController@update'
+            ]);
 
 
 //            Route::match(['put', 'patch'], '{like}/update', [
