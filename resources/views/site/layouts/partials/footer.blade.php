@@ -85,7 +85,9 @@
         class="fas fa-chevron-up"></i></a>
 
 @yield('script')
+<script>
 
+</script>
 
 </body>
 
