@@ -24,6 +24,7 @@ class CourseRequest extends FormRequest
     public function rules()
     {
         return [
+            'category_id' => ['required'],
             'title' => ['required'],
             'slug' => ['required'],
             'description' => ['required'],

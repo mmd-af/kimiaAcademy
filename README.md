@@ -55,16 +55,16 @@ Sort
 Soft_delete
 timestamps
 
-# **Posts** 
-Id
-Cat_id
-User_id
-Title
-Slug
-description
-Img_id
-View_count
-Status
+# **Posts**  -> done
+Id <br>
+Cat_id <br>
+User_id <br>
+Title <br>
+Slug <br>
+description <br>
+Img_id <br>
+View_count <br>
+Status <br>
 
 # **Comments**
 Id

@@ -26,7 +26,14 @@
         مدیریت
     </div>
 
-    <!-- Nav Item - Brand -->
+    <!-- Nav Item - categories -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.categories.index')}}">
+            <i class="fas fa-store"></i>
+            <span>دسته بندی ها </span>
+        </a>
+    </li>
+
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts"
            aria-expanded="true"
@@ -37,20 +44,13 @@
         <div id="collapseProducts" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{route('admin.courses.index')}}">همه ی دوره ها</a>
-                <a class="collapse-item" href="#">تست دوم</a>
+                <a class="collapse-item" href="#">آیتم ها</a>
             </div>
         </div>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-store"></i>
-            <span>ویدئوهای یوتیوب </span>
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{route('admin.posts.index')}}">
             <i class="fas fa-store"></i>
             <span> مقالات </span>
         </a>

@@ -10,9 +10,10 @@
     <meta name="author" content="">
 
     <title>kimyagaracademy.com - @yield('title')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- Custom styles for this template-->
-    <link href="{{ asset('/css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/admin/css/admin.css') }}" rel="stylesheet">
     @yield('style')
 
 </head>
@@ -61,13 +62,9 @@
 @include('admin.layouts.partials.scroll_top')
 
 <!-- JavaScript-->
-<script src="{{ asset('/script/admin.script') }}"></script>
+<script src="{{ asset('assets/admin/script/admin.js') }}"></script>
 <script>
-    ClassicEditor
-        .create(document.querySelector('#editor'))
-        .catch(error => {
-            console.error(error);
-        });
+
 </script>
 {{--@include('sweet::alert')--}}
 

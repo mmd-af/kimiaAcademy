@@ -147,15 +147,16 @@ return [
     */
 
     'attributes' => [
-         "title" => "نام دوره",
-         "description" => "توضیحات",
-         "slug" => "نام انگلیسی",
-         "actual_price" => "قیمت دوره",
-         "course_lang" => "زیان دوره",
-         "course_time" => "مدت زمان دوره",
-         "course_size" => "حجم دوره",
-         "course_kind" => "نوع دوره",
-         "" => ""
+        "title" => "نام دوره",
+        "description" => "توضیحات",
+        "slug" => "نام انگلیسی",
+        "actual_price" => "قیمت دوره",
+        "course_lang" => "زیان دوره",
+        "course_time" => "مدت زمان دوره",
+        "course_size" => "حجم دوره",
+        "course_kind" => "نوع دوره",
+        "Category_title" => "نام دسته بندی",
+        "" => ""
 
 
     ],
