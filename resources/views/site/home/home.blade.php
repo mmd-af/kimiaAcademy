@@ -489,4 +489,16 @@
             ]
         });
     </script>
+
+{{--    <script>--}}
+{{--        $( '#topNavbar .nav-item a' ).on( 'click', function () {--}}
+
+
+{{--            // $( '#topNavbar' ).find( 'li.active' ).removeClass( 'active' );--}}
+{{--            // $( this ).addClass( 'active' );--}}
+
+{{--            // $( '#topNavbar' ).find( 'li.active' ).removeClass( 'active' );--}}
+{{--            $( this ).parent( 'li' ).addClass( 'active' );--}}
+{{--        });--}}
+{{--    </script>--}}
 @endsection

@@ -2692,6 +2692,23 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 /***/ }),
 
+/***/ "./resources/assets/site/script/custom.js":
+/*!************************************************!*\
+  !*** ./resources/assets/site/script/custom.js ***!
+  \************************************************/
+/***/ (() => {
+
+// acive nav-item in navbar
+$(document).ready(function () {
+  var url = window.location;
+  $('#topNavbar .nav-item a[href="' + url + '"]').parent().addClass('active');
+  $('#topNavbar .nav-item a').filter(function () {
+    return $(this).attr('href') == url;
+  }).parent().addClass('active');
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.bundle.js":
 /*!************************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.bundle.js ***!
@@ -25331,6 +25348,8 @@ __webpack_require__(/*! bootstrap/dist/js/bootstrap.bundle */ "./node_modules/bo
 
 
 
+
+__webpack_require__(/*! ./custom */ "./resources/assets/site/script/custom.js");
 })();
 
 /******/ })()
