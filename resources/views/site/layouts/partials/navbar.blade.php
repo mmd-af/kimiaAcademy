@@ -20,7 +20,6 @@
                 <li class="nav-item ">
                     <a class="nav-link ml-5" href="{{route('contact-us')}}">تماس با ما</a>
                 </li>
-
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item align-self-lg-center"><a class="text-light ml-4" data-toggle="modal" data-target="#searchModal"><i class="fa fa-search "
