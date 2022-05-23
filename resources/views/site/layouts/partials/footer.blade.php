@@ -74,7 +74,7 @@
         <div class="row">
 
             <div class="col-md-12 order-sm-3 text-center pb-0">
-                <small><a class="text-light" href="">طراحی و اجرا از تیم دراک تک</a></small>
+                <small><a class="text-light" href="https://derakweb.com">طراحی و اجرا از تیم دراک وب</a></small>
             </div>
         </div>
     </div>
