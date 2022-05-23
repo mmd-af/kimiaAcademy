@@ -22,8 +22,10 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
-                <li class="nav-item align-self-lg-center"><a class="text-light ml-4" data-toggle="modal" data-target="#searchModal"><i class="fa fa-search "
-                                                                                                 aria-hidden="true"></i></a>
+                <li class="nav-item align-self-lg-center">
+                    <a class="text-light ml-4" data-toggle="modal" data-target="#searchModal">
+                        <i class="fa fa-search " aria-hidden="true"></i>
+                    </a>
                 </li>
                 <li class="nav-item ">
                     <button class="btn btn-outline-light text-sm text-gray-700 dark:text-gray-500 underline "
