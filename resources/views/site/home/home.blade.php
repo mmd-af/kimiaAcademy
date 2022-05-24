@@ -226,43 +226,21 @@
             <h4 class="font-weight-bold">مقالات آموزشی <span class="text-article-pharmacology">داروشناسی</span></h4>
         </div>
         <div class="row justify-content-center ">
-            <div class="col-md-8  mt-4">
-                <div class="card border-0 mb-4 card-mobile-shadow ">
-                    <div class="card-body row justify-content-between">
-                        <div class="col-12 col-sm-3">
-                            <img class="rounded text-sm-center img-fluid"
-                                 src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
-                                 alt="Responsive image">
-                        </div>
-                        <div class="col-12 col-sm-9 align-self-center">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">
-                                With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
-                                content.
-                            </p>
-                            <div class="align-self-end mt-2">
-                                <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card border-0 mb-4 card-mobile-shadow ">
-                    <div class="card-body row justify-content-between">
-                        <div class="col-12 col-sm-3">
-                            <img class="rounded text-sm-center img-fluid"
-                                 src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
-                                 alt="Responsive image">
-                        </div>
-                        <div class="col-12 col-sm-9 align-self-center">
+            <div class="col-md-8 mt-4">
 
+                <div class="card border-0 mb-4 ">
+                    <div class="card-body row justify-content-between">
+                        <div class="col-3">
+                            <img class="rounded img-fluid"
+                                 src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
+                                 alt="Responsive image">
+                        </div>
+                        <div class="col-9 ">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
                                 content.
+
                             </p>
                             <div class="align-self-end mt-2">
                                 <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
@@ -270,20 +248,40 @@
                         </div>
                     </div>
                 </div>
-                <div class="card border-0 mb-4 card-mobile-shadow ">
+
+                <div class="card border-0 mb-4 ">
                     <div class="card-body row justify-content-between">
-                        <div class="col-12 col-sm-3">
-                            <img class="rounded text-sm-center img-fluid"
+                        <div class="col-3">
+                            <img class="rounded img-fluid"
                                  src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
                                  alt="Responsive image">
                         </div>
-                        <div class="col-12 col-sm-9 align-self-center">
+                        <div class="col-9 ">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
                                 content.
+
+                            </p>
+                            <div class="align-self-end mt-2">
+                                <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card border-0 mb-4 ">
+                    <div class="card-body row justify-content-between">
+                        <div class="col-3">
+                            <img class="rounded img-fluid"
+                                 src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
+                                 alt="Responsive image">
+                        </div>
+                        <div class="col-9 ">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">
+                                With supporting text below as a natural lead-in to additional
+                                content.
+
                             </p>
                             <div class="align-self-end mt-2">
                                 <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
@@ -297,24 +295,24 @@
     <div class="container mb-3 mt-5">
         {{--TODO admin dashbord--}}
         <div class="text-center mb-4 home-hr-text-green  col-md-8 py-4">
-            <h4 class="font-weight-bold">مقالات آموزشی <span class="span-block text-success">طب سنتی و گیاهان دارویی</span></h4>
+            <h4 class="font-weight-bold">مقالات آموزشی <span
+                    class="span-block text-success">طب سنتی و گیاهان دارویی</span></h4>
         </div>
         <div class="row justify-content-center ">
             <div class="col-md-8  mt-4">
-                <div class="card border-0 mb-4 card-mobile-shadow ">
+                <div class="card border-0 mb-4 ">
                     <div class="card-body row justify-content-between">
-                        <div class="col-12 col-sm-3">
-                            <img class="rounded text-sm-center img-fluid"
+                        <div class="col-3">
+                            <img class="rounded img-fluid"
                                  src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
                                  alt="Responsive image">
                         </div>
-                        <div class="col-12 col-sm-9 align-self-center">
+                        <div class="col-9 ">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
                                 content.
+
                             </p>
                             <div class="align-self-end mt-2">
                                 <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
@@ -322,20 +320,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="card border-0 mb-4 card-mobile-shadow ">
+                <div class="card border-0 mb-4 ">
                     <div class="card-body row justify-content-between">
-                        <div class="col-12 col-sm-3">
-                            <img class="rounded text-sm-center img-fluid"
+                        <div class="col-3">
+                            <img class="rounded img-fluid"
                                  src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
                                  alt="Responsive image">
                         </div>
-                        <div class="col-12 col-sm-9 align-self-center">
+                        <div class="col-9 ">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
                                 content.
+
                             </p>
                             <div class="align-self-end mt-2">
                                 <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
@@ -343,20 +340,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="card border-0 mb-4 card-mobile-shadow ">
+                <div class="card border-0 mb-4 ">
                     <div class="card-body row justify-content-between">
-                        <div class="col-12 col-sm-3">
-                            <img class="rounded text-sm-center img-fluid"
+                        <div class="col-3">
+                            <img class="rounded img-fluid"
                                  src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
                                  alt="Responsive image">
                         </div>
-                        <div class="col-12 col-sm-9 align-self-center">
+                        <div class="col-9 ">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
                                 content.
+
                             </p>
                             <div class="align-self-end mt-2">
                                 <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
