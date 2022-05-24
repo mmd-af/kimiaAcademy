@@ -7,13 +7,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto " id="topNavbar">
-                <li class="nav-item ">
-                    <a class="nav-link ml-5 " href="{{route('video')}}">دوره های آموزشی<span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link ml-5" href="{{route('video')}}">دوره های آموزشی<span class="sr-only">(current)</span></a>
                 </li>
-
-                <li class="nav-item ">
-                    <a class="nav-link ml-5" href="">محصولات</a>
-                </li>
+{{--                <li class="nav-item ">--}}
+{{--                    <a class="nav-link ml-5" href="">محصولات</a>--}}
+{{--                </li>--}}
                 <li class="nav-item ">
                     <a class="nav-link ml-5" href="{{route('blog')}}">مقالات آموزشی</a>
                 </li>
