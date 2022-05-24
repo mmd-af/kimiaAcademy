@@ -10221,10 +10221,6 @@ h3 {
   opacity: 0.75;
 }
 
-.bg-navbar {
-  background-color: #2E3E77 !important;
-}
-
 .bg-header {
   background: rgb(9, 27, 36);
   background: linear-gradient(69deg, rgb(9, 27, 36) 33%, rgb(24, 113, 157) 100%);
@@ -10331,6 +10327,14 @@ h3 {
   height: 1.5em;
 }
 
+.text-article-pharmacology {
+  color: #5654C7;
+}
+
+.text-article-medicine {
+  color: #16dba6;
+}
+
 .home-hr-text::before,
 .home-hr-text::after {
   content: "";
@@ -10357,6 +10361,7 @@ h3 {
 .btn-article:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  color: #fff;
 }
 
 .btn-article:active {
@@ -10409,11 +10414,6 @@ h3 {
   background: linear-gradient(to right, transparent, #3A8D74, transparent);
 }
 
-@media (max-width: 567px) {
-  .card-mobile-shadow {
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-  }
-}
 .social-list-default {
   -webkit-padding-start: 0px !important;
           padding-inline-start: 0px !important;
@@ -10432,6 +10432,15 @@ h3 {
   float: left;
 }
 
+@media (max-width: 567px) {
+  .card-mobile-shadow {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  }
+
+  .span-block {
+    display: block;
+  }
+}
 .alert-video {
   background-color: #DAD8FF;
 }
@@ -10513,4 +10522,12 @@ body {
 
 a {
   text-decoration: none !important;
+}
+
+.bg-navbar {
+  background-color: #2E3E77 !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.8);
 }
