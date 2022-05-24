@@ -124,7 +124,7 @@
     <div class="course-education half-circle mb-3">
         <div class="container mb-5 mt-5 ">
             <div class="top-circle"></div>
-            <div class="text-center pt-md-2 pb-md-2">
+            <div class="text-center pt-md-4 pb-md-2">
                 <h3 class="font-weight-bold">ویدیو های آموزشی</h3>
             </div>
             <div class="row  justify-content-center ">
