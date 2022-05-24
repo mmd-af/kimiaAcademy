@@ -309,7 +309,6 @@
                                  alt="Responsive image">
                         </div>
                         <div class="col-12 col-sm-9 align-self-center">
-
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional
@@ -323,7 +322,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="card border-0 mb-4 card-mobile-shadow ">
                     <div class="card-body row justify-content-between">
                         <div class="col-12 col-sm-3">
@@ -346,10 +344,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
-
         </div>
     </div>
 
@@ -486,16 +481,4 @@
             ]
         });
     </script>
-
-{{--    <script>--}}
-{{--        $( '#topNavbar .nav-item a' ).on( 'click', function () {--}}
-
-
-{{--            // $( '#topNavbar' ).find( 'li.active' ).removeClass( 'active' );--}}
-{{--            // $( this ).addClass( 'active' );--}}
-
-{{--            // $( '#topNavbar' ).find( 'li.active' ).removeClass( 'active' );--}}
-{{--            $( this ).parent( 'li' ).addClass( 'active' );--}}
-{{--        });--}}
-{{--    </script>--}}
 @endsection
