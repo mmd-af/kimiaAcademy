@@ -38,6 +38,12 @@ body {
 
 a {
     text-decoration: none !important;
-
 }
 
+.bg-navbar {
+    background-color: #2E3E77 !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+}
