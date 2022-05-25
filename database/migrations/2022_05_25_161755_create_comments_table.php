@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->Integer('imagable_id');
-            $table->string('imagable_type');
+            $table->foreignId('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('body');
+            $table->Integer('Commentable_id');
+            $table->string('Commentable_type');
+            $table->Integer('parent_id')->default(0);
+            $table->boolean('is_active')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -30,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('comments');
     }
 };

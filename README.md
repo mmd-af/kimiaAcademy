@@ -66,13 +66,13 @@ Img_id <br>
 View_count <br>
 Status <br>
 
-# **Comments**
-Id
-Body
-Commentable_id
-Commentable_type
-Status
-Parent_id
+# **Comments** -> done
+Id <br>
+Body <br>
+Commentable_id <br>
+Commentable_type <br>
+Status <br>
+Parent_id <br>
 User_id
 
 # **Image** -> done
