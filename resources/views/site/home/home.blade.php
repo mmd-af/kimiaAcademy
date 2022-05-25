@@ -230,12 +230,12 @@
 
                 <div class="card border-0 mb-4 ">
                     <div class="card-body row justify-content-between">
-                        <div class="col-3">
-                            <img class="rounded img-fluid"
+                        <div class="col-4 col-md-3">
+                            <img class="rounded img-fluid img-thumbnail"
                                  src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
                                  alt="Responsive image">
                         </div>
-                        <div class="col-9 ">
+                        <div class="col-8 col-md-9">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional
@@ -251,12 +251,12 @@
 
                 <div class="card border-0 mb-4 ">
                     <div class="card-body row justify-content-between">
-                        <div class="col-3">
-                            <img class="rounded img-fluid"
+                        <div class="col-4 col-md-3">
+                            <img class="rounded img-fluid img-thumbnail"
                                  src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
                                  alt="Responsive image">
                         </div>
-                        <div class="col-9 ">
+                        <div class="col-8 col-md-9">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional
@@ -269,14 +269,15 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="card border-0 mb-4 ">
                     <div class="card-body row justify-content-between">
-                        <div class="col-3">
-                            <img class="rounded img-fluid"
+                        <div class="col-4 col-md-3">
+                            <img class="rounded img-fluid img-thumbnail"
                                  src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
                                  alt="Responsive image">
                         </div>
-                        <div class="col-9 ">
+                        <div class="col-8 col-md-9">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional
@@ -289,6 +290,8 @@
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </div>
@@ -300,14 +303,15 @@
         </div>
         <div class="row justify-content-center ">
             <div class="col-md-8  mt-4">
+
                 <div class="card border-0 mb-4 ">
                     <div class="card-body row justify-content-between">
-                        <div class="col-3">
-                            <img class="rounded img-fluid"
+                        <div class="col-4 col-md-3">
+                            <img class="rounded img-fluid img-thumbnail"
                                  src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
                                  alt="Responsive image">
                         </div>
-                        <div class="col-9 ">
+                        <div class="col-8 col-md-9">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional
@@ -320,14 +324,16 @@
                         </div>
                     </div>
                 </div>
+
+
                 <div class="card border-0 mb-4 ">
                     <div class="card-body row justify-content-between">
-                        <div class="col-3">
-                            <img class="rounded img-fluid"
+                        <div class="col-4 col-md-3">
+                            <img class="rounded img-fluid img-thumbnail"
                                  src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
                                  alt="Responsive image">
                         </div>
-                        <div class="col-9 ">
+                        <div class="col-8 col-md-9">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional
@@ -340,14 +346,16 @@
                         </div>
                     </div>
                 </div>
+
+
                 <div class="card border-0 mb-4 ">
                     <div class="card-body row justify-content-between">
-                        <div class="col-3">
-                            <img class="rounded img-fluid"
+                        <div class="col-4 col-md-3">
+                            <img class="rounded img-fluid img-thumbnail"
                                  src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
                                  alt="Responsive image">
                         </div>
-                        <div class="col-9 ">
+                        <div class="col-8 col-md-9">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional

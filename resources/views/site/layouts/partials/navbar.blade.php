@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-navbar py-3 shadow  " >
+<nav class="navbar navbar-expand-lg navbar-dark bg-navbar py-3 shadow  ">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{route('home')}}">گروه آموزشی دارویی کیمیاگر</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -8,11 +8,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto " id="topNavbar">
                 <li class="nav-item">
-                    <a class="nav-link ml-5" href="{{route('video')}}">دوره های آموزشی<span class="sr-only">(current)</span></a>
+                    <a class="nav-link ml-5" href="{{route('video')}}">دوره های آموزشی<span
+                            class="sr-only">(current)</span></a>
                 </li>
-{{--                <li class="nav-item ">--}}
-{{--                    <a class="nav-link ml-5" href="">محصولات</a>--}}
-{{--                </li>--}}
+                {{--                <li class="nav-item ">--}}
+                {{--                    <a class="nav-link ml-5" href="">محصولات</a>--}}
+                {{--                </li>--}}
                 <li class="nav-item ">
                     <a class="nav-link ml-5" href="{{route('blog')}}">مقالات آموزشی</a>
                 </li>
@@ -21,14 +22,16 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
-                <li class="nav-item align-self-lg-center">
-                    <a class="text-light ml-4" data-toggle="modal" data-target="#searchModal">
-                        <i class="fa fa-search " aria-hidden="true"></i>
-                    </a>
+                <li class="nav-item">
+                    <span class="searchbar"><input type="text" placeholder="جستجو..."></span>
+                    <span class="searchbar mx-md-3">
+                        <i class="fas fa-search text-light"></i>
+                    </span>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item mt-sm-2">
                     <button class="btn btn-outline-light text-sm text-gray-700 dark:text-gray-500 underline "
-                            href="{{ url('/admin/dashboard') }}"><i class="fa fa-user " aria-hidden="true"> </i> ناحیه کاربری
+                            href="{{ url('/admin/dashboard') }}"><i class="fa fa-user " aria-hidden="true"> </i> ناحیه
+                        کاربری
                     </button>
                 </li>
             </ul>

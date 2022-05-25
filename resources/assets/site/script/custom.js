@@ -6,3 +6,9 @@ $(document).ready(function () {
         return $(this).attr('href') == url;
     }).parent().addClass('active');
 });
+$(document).ready(function() {
+    $(".fa-search").click(function() {
+        $(".icon").toggleClass("active");
+        $("input[type='text']").toggleClass("active");
+    });
+});
