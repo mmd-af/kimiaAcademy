@@ -96,14 +96,14 @@
                         </div>
                     </div>
                     <div class="form-group col-md-12 mt-3">
-                        <div class="form-group col-md-3">
-                            <label for="is_active">وضعیت</label>
-                            <select class="form-control" id="is_active" name="is_active">
-                                <option value="1" {{ $post->getRawOriginal('is_active') ? 'selected' : '' }}>فعال
-                                </option>
-                                <option value="0" {{ $post->getRawOriginal('is_active') ? '' : 'selected' }} >غیرفعال
-                                </option>
-                            </select>
+                        <div class="form-group col-md-12 mt-3">
+                            <div class="form-group col-md-3">
+                                <label for="is_active">وضعیت</label>
+                                <select class="form-control" id="is_active" name="is_active">
+                                    <option value="1" selected>فعال</option>
+                                    <option value="0">غیرفعال</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
