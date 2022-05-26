@@ -1,9 +1,9 @@
 <!--footer section start-->
-<footer class="footer-2 py-4 bg-navbar ">
+<footer class="footer-2 py-4 bg-navbar  ">
     <div class="footer-circle"></div>
     <div class="container">
         <div class="row text-light ">
-            <div class="col-md-12 col-lg-6 mb-4 mb-md-4 mb-sm-4 mb-lg-0 mt-5">
+            <div class="col-md-12 col-lg-6 mb-4 mb-md-4 mb-sm-4 mb-lg-0 mt-5 order-2 order-sm-1">
                 <div class="col-sm">
                     <h5>ارتباط با ما</h5>
 
@@ -51,7 +51,7 @@
                 </div>
 
             </div>
-            <div class="col-md-12 col-lg-6 mt-5">
+            <div class="col-md-12 col-lg-5 mt-5 order-sm-1 px-4">
                 <h5>درباره ما</h5>
                 <p>
                     درباره شما
@@ -61,9 +61,9 @@
             </div>
 
         </div>
-        <div class="row mt-5 pt-4 pb-4 border-top justify-content-sm-center ">
+        <div class="row mt-5 pt-4 pb-4 border-top justify-content-sm-center mx-md-0 mx-2">
 
-            <div class="col-md-3 col-sm-12 text-center order-sm-2 mb-3">
+            <div class="col-md-3 col-sm-12 text-center order-1 order-sm-2 mb-3">
                 <img src="holder.js/80x80" alt="">
                 <img src="holder.js/80x80" alt="">
             </div>
@@ -74,7 +74,7 @@
         <div class="row">
 
             <div class="col-md-12 order-sm-3 text-center pb-0">
-                <small><a class="text-light" href="">طراحی و اجرا از تیم دراک تک</a></small>
+                <small><a class="text-light" href="https://derakweb.com">طراحی و اجرا از تیم دراک وب</a></small>
             </div>
         </div>
     </div>
@@ -85,7 +85,9 @@
         class="fas fa-chevron-up"></i></a>
 
 @yield('script')
+<script>
 
+</script>
 
 </body>
 

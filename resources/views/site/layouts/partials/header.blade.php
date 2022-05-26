@@ -1,4 +1,3 @@
-@include('site.layouts.partials.navbar')
 
 <div class="container-fluid bg-header py-4">
     <div class="container">

@@ -1,18 +1,17 @@
 @extends('Site.layouts.app')
 @section('title','کیمیا آکادمی')
+
 @section('content')
+    @include('site.layouts.partials.header')
     <div class="container mb-5 mt-5 ">
         {{--TODO admin dashbord--}}
-        <div class="text-center mb-2 pt-5">
-            <h4>دوره آموزشی داروسازی گیاهی کیمیاگر</h4>
+        <div class="text-center mb-2 pt-md-2">
+            <h4 class="font-weight-bold">دوره آموزشی داروسازی گیاهی کیمیاگر</h4>
         </div>
-
         <div class="row  justify-content-center ">
-
             <div class=" slick-carousel">
-                <div class="col-md-12 col-sm-6">
+                <div class="col-md-12 col-sm-6 py-4">
                     <div class="card mt-3 shadow ">
-
                         <div class="card-body product-1 align-items-center p-2 text-center">
                             <div class="image-container">
                                 <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
@@ -23,16 +22,14 @@
                                 <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
                                 </div>
                             </div>
-
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
+                           href="{{route('video')}}">خرید</a>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-6 py-4">
                     <div class="card mt-3 shadow ">
-
                         <div class="card-body product-1 align-items-center p-2 text-center">
                             <div class="image-container">
                                 <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
@@ -43,16 +40,14 @@
                                 <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
                                 </div>
                             </div>
-
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
+                           href="{{route('video')}}">خرید</a>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-6 py-4">
                     <div class="card mt-3 shadow ">
-
                         <div class="card-body product-1 align-items-center p-2 text-center">
                             <div class="image-container">
                                 <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
@@ -63,16 +58,14 @@
                                 <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
                                 </div>
                             </div>
-
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
+                           href="{{route('video')}}">خرید</a>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-6 py-4">
                     <div class="card mt-3 shadow ">
-
                         <div class="card-body product-1 align-items-center p-2 text-center">
                             <div class="image-container">
                                 <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
@@ -83,16 +76,14 @@
                                 <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
                                 </div>
                             </div>
-
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
+                           href="{{route('video')}}">خرید</a>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-6 py-4">
                     <div class="card mt-3 shadow ">
-
                         <div class="card-body product-1 align-items-center p-2 text-center">
                             <div class="image-container">
                                 <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
@@ -103,16 +94,14 @@
                                 <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
                                 </div>
                             </div>
-
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
+                           href="{{route('video')}}">خرید</a>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-6 py-4">
                     <div class="card mt-3 shadow ">
-
                         <div class="card-body product-1 align-items-center p-2 text-center">
                             <div class="image-container">
                                 <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
@@ -123,176 +112,135 @@
                                 <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
                                 </div>
                             </div>
-
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="/home">خرید</a>
+                           href="{{route('video')}}">خرید</a>
                     </div>
                 </div>
-
-
             </div>
-
         </div>
-
     </div>
-
     <div class="course-education half-circle mb-3">
-
         <div class="container mb-5 mt-5 ">
-            <div class="top-circle">
-
+            <div class="top-circle"></div>
+            <div class="text-center pt-md-4 pb-md-2">
+                <h3 class="font-weight-bold">ویدیو های آموزشی</h3>
             </div>
-            <div class="text-center  pt-5">
-                <h3>ویدیو های آموزشی</h3>
-            </div>
-
             <div class="row  justify-content-center ">
-
                 <div class=" slick-carousel section-video">
                     <div class="col-md-12 col-sm-6 py-4">
                         <div class="card mt-3 shadow radius-video">
-
                             <div class="card-body product-1 align-items-center p-2 text-center">
                                 <div class="image-container radius-video">
                                     <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
                                          alt="Second slide"></div>
                                 <div class="product-description py-2 text-right">
                                     <h5 class="text-center">عنوان اصلی</h5>
-
-
                                     <div class="mt-3 info px-2">
                                         <a href="" class="text-gray">
                                             <img class="aparat-icon mx-2"
-                                                src="{{asset('assets/site/images/svg/aparat-25x25.svg')}}" alt="">لینک آپارات
+                                                 src="{{asset('assets/site/images/icons/aparat-25x25.svg')}}" alt="">لینک
+                                            آپارات
                                         </a>
                                     </div>
                                     <div class="mt-3 info px-2"><a href=""><i
-                                                class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a></div>
-
+                                                class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a>
+                                    </div>
                                 </div>
-
                             </div>
                             {{--TODO btn hover--}}
-
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-6 py-4">
                         <div class="card mt-3 shadow radius-video">
-
                             <div class="card-body product-1 align-items-center p-2 text-center">
                                 <div class="image-container radius-video">
                                     <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
                                          alt="Second slide"></div>
                                 <div class="product-description py-2 text-right">
                                     <h5 class="text-center">عنوان اصلی</h5>
-
-
                                     <div class="mt-3 info px-2"><a href="" class="text-gray"><img
                                                 class="aparat-icon mx-2"
-                                                src="{{asset('assets/site/images/svg/aparat-25x25.svg')}}"
+                                                src="{{asset('assets/site/images/icons/aparat-25x25.svg')}}"
                                                 alt="">
                                             لینک آپارات</a></div>
                                     <div class="mt-3 info px-2"><a href=""><i
-                                                class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a></div>
-
+                                                class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a>
+                                    </div>
                                 </div>
-
                             </div>
                             {{--TODO btn hover--}}
-
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-6 py-4">
                         <div class="card mt-3 shadow radius-video">
-
                             <div class="card-body product-1 align-items-center p-2 text-center">
                                 <div class="image-container radius-video">
                                     <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
                                          alt="Second slide"></div>
                                 <div class="product-description py-2 text-right">
                                     <h5 class="text-center">عنوان اصلی</h5>
-
-
                                     <div class="mt-3 info px-2"><a href="" class="text-gray"><img
                                                 class="aparat-icon mx-2"
-                                                src="{{asset('assets/site/images/svg/aparat-25x25.svg')}}"
+                                                src="{{asset('assets/site/images/icons/aparat-25x25.svg')}}"
                                                 alt="">
-                                            لینک آپارات</a></div>
-                                    <div class="mt-3 info px-2"><a href=""><i
-                                                class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a></div>
-
+                                            لینک آپارات</a>
+                                    </div>
+                                    <div class="mt-3 info px-2"><a href="">
+                                            <i class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a>
+                                    </div>
                                 </div>
-
                             </div>
                             {{--TODO btn hover--}}
-
                         </div>
                     </div>
                     <div class="col-md-12 col-sm-6 py-4">
                         <div class="card mt-3 shadow radius-video">
-
                             <div class="card-body product-1 align-items-center p-2 text-center">
                                 <div class="image-container radius-video">
                                     <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
                                          alt="Second slide"></div>
                                 <div class="product-description py-2 text-right">
                                     <h5 class="text-center">عنوان اصلی</h5>
-
-
                                     <div class="mt-3 info px-2"><a href="" class="text-gray"><img
                                                 class="aparat-icon mx-2"
-                                                src="{{asset('assets/site/images/svg/aparat-25x25.svg')}}"
+                                                src="{{asset('assets/site/images/icons/aparat-25x25.svg')}}"
                                                 alt="">
                                             لینک آپارات</a></div>
                                     <div class="mt-3 info px-2"><a href=""><i
                                                 class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a></div>
-
                                 </div>
-
                             </div>
                             {{--TODO btn hover--}}
-
                         </div>
                     </div>
                 </div>
-
             </div>
-            <div class="bottom-circle">
-
-            </div>
+            <div class="bottom-circle"></div>
         </div>
-
     </div>
-
     <div class="container mb-5 mt-5 ">
         {{--TODO admin dashbord--}}
-
-        <div class="text-center mb-2 home-hr-text col-md-8 pt-4">
-            <h6>مقالات آموزشی داروشناسی</h6>
+        <div class="text-center mb-4 home-hr-text col-md-8 pt-md-4">
+            <h4 class="font-weight-bold">مقالات آموزشی <span class="text-article-pharmacology">داروشناسی</span></h4>
         </div>
-
         <div class="row justify-content-center ">
+            <div class="col-md-8 mt-4">
 
-
-            <div class="col-md-8  mt-4">
-
-                <div class="card border-0 mb-4 card-mobile-shadow ">
+                <div class="card border-0 mb-4 ">
                     <div class="card-body row justify-content-between">
-                        <div class="col-12 col-sm-3">
-                            <img class="rounded text-sm-center img-fluid"
+                        <div class="col-4 col-md-3">
+                            <img class="rounded img-fluid img-thumbnail"
                                  src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
                                  alt="Responsive image">
                         </div>
-                        <div class="col-12 col-sm-9 align-self-center">
-
+                        <div class="col-8 col-md-9">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
                                 content.
+
                             </p>
                             <div class="align-self-end mt-2">
                                 <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
@@ -301,21 +249,19 @@
                     </div>
                 </div>
 
-                <div class="card border-0 mb-4 card-mobile-shadow ">
+                <div class="card border-0 mb-4 ">
                     <div class="card-body row justify-content-between">
-                        <div class="col-12 col-sm-3">
-                            <img class="rounded text-sm-center img-fluid"
+                        <div class="col-4 col-md-3">
+                            <img class="rounded img-fluid img-thumbnail"
                                  src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
                                  alt="Responsive image">
                         </div>
-                        <div class="col-12 col-sm-9 align-self-center">
-
+                        <div class="col-8 col-md-9">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
                                 content.
+
                             </p>
                             <div class="align-self-end mt-2">
                                 <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
@@ -324,21 +270,19 @@
                     </div>
                 </div>
 
-                <div class="card border-0 mb-4 card-mobile-shadow ">
+                <div class="card border-0 mb-4 ">
                     <div class="card-body row justify-content-between">
-                        <div class="col-12 col-sm-3">
-                            <img class="rounded text-sm-center img-fluid"
+                        <div class="col-4 col-md-3">
+                            <img class="rounded img-fluid img-thumbnail"
                                  src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
                                  alt="Responsive image">
                         </div>
-                        <div class="col-12 col-sm-9 align-self-center">
-
+                        <div class="col-8 col-md-9">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
                                 content.
+
                             </p>
                             <div class="align-self-end mt-2">
                                 <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
@@ -346,41 +290,33 @@
                         </div>
                     </div>
                 </div>
+
 
             </div>
-
-
         </div>
     </div>
-
-
-    <div class="container mb-3 mt-5 ">
+    <div class="container mb-3 mt-5">
         {{--TODO admin dashbord--}}
-
-
-        <div class="text-center mb-2 home-hr-text-green  col-md-8 pt-4">
-            <h6>مقالات آموزشی طب سنتی و گیاهان دارویی</h6>
+        <div class="text-center mb-4 home-hr-text-green  col-md-8 py-4">
+            <h4 class="font-weight-bold">مقالات آموزشی <span
+                    class="span-block text-success">طب سنتی و گیاهان دارویی</span></h4>
         </div>
         <div class="row justify-content-center ">
-
-
             <div class="col-md-8  mt-4">
 
-                <div class="card border-0 mb-4 card-mobile-shadow ">
+                <div class="card border-0 mb-4 ">
                     <div class="card-body row justify-content-between">
-                        <div class="col-12 col-sm-3">
-                            <img class="rounded text-sm-center img-fluid"
+                        <div class="col-4 col-md-3">
+                            <img class="rounded img-fluid img-thumbnail"
                                  src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
                                  alt="Responsive image">
                         </div>
-                        <div class="col-12 col-sm-9 align-self-center">
-
+                        <div class="col-8 col-md-9">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
                                 content.
+
                             </p>
                             <div class="align-self-end mt-2">
                                 <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
@@ -389,21 +325,20 @@
                     </div>
                 </div>
 
-                <div class="card border-0 mb-4 card-mobile-shadow ">
+
+                <div class="card border-0 mb-4 ">
                     <div class="card-body row justify-content-between">
-                        <div class="col-12 col-sm-3">
-                            <img class="rounded text-sm-center img-fluid"
+                        <div class="col-4 col-md-3">
+                            <img class="rounded img-fluid img-thumbnail"
                                  src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
                                  alt="Responsive image">
                         </div>
-                        <div class="col-12 col-sm-9 align-self-center">
-
+                        <div class="col-8 col-md-9">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
                                 content.
+
                             </p>
                             <div class="align-self-end mt-2">
                                 <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
@@ -412,21 +347,20 @@
                     </div>
                 </div>
 
-                <div class="card border-0 mb-4 card-mobile-shadow ">
+
+                <div class="card border-0 mb-4 ">
                     <div class="card-body row justify-content-between">
-                        <div class="col-12 col-sm-3">
-                            <img class="rounded text-sm-center img-fluid"
+                        <div class="col-4 col-md-3">
+                            <img class="rounded img-fluid img-thumbnail"
                                  src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
                                  alt="Responsive image">
                         </div>
-                        <div class="col-12 col-sm-9 align-self-center">
-
+                        <div class="col-8 col-md-9">
                             <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">
                                 With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
-                                content. With supporting text below as a natural lead-in to additional
                                 content.
+
                             </p>
                             <div class="align-self-end mt-2">
                                 <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
@@ -434,17 +368,10 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
-
         </div>
     </div>
-
-
 @endsection
-
-
 @section('script')
     <script>
         $('.slick-carousel').slick({

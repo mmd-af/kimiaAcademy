@@ -1,6 +1,5 @@
 @include('site.layouts.partials.head')
-
-@include('site.layouts.partials.header')
+@include('site.layouts.partials.navbar')
 
 @yield('content')
 
