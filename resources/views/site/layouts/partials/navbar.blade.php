@@ -2,8 +2,9 @@
     <div class="container-fluid">
         <ul class="navbar-nav pr-0">
             <li class="navbar navbar-light ">
-                <a class="navbar-brand mt-2" href="#">
-                    <img src="{{asset('assets/site/images/icons/logo.png')}}" class="img-fluid" style="height:50px;" alt="">
+                <a class="navbar-brand mt-2" href="{{route('home')}}">
+                    <img src="{{asset('assets/site/images/icons/logo.png')}}" class="img-fluid" style="height:50px;"
+                         alt="">
                 </a>
             </li>
         </ul>
@@ -36,10 +37,10 @@
                     </span>
                 </li>
                 <li class="nav-item mt-sm-2">
-                    <button class="btn btn-outline-light text-sm text-gray-700 dark:text-gray-500 underline "
-                            href="{{ url('/admin/dashboard') }}"><i class="fa fa-user " aria-hidden="true"> </i> ناحیه
+                    <a class="btn btn-outline-light text-sm text-gray-700 dark:text-gray-500 underline "
+                            href="{{ route('admin.dashboard') }}"><i class="fa fa-user " aria-hidden="true"> </i> ناحیه
                         کاربری
-                    </button>
+                    </a>
                 </li>
             </ul>
         </div>
