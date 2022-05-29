@@ -19,14 +19,14 @@
                 <div class="form-row">
                     <div class="form-group col-md-12 mt-3">
                         <div class="form-group col-md-3">
-                            <label for="youtube_link">لینک یوتیوب</label>
+                            <label for="youtube_link">لینک یوتیوب:</label>
                             <input class="form-control" id="youtube_link" name="youtube_link" type="text"
                                    value="{{ old('youtube_link') }}">
                         </div>
                     </div>
                     <div class="form-group col-md-12 mt-3">
                         <div class="form-group col-md-3 mt">
-                            <label for="aparat_link">عنوان پست به انگلیسی:</label>
+                            <label for="aparat_link">لینک آپارات:</label>
                             <input class="form-control" id="aparat_link" name="aparat_link" type="text"
                                    value="{{ old('aparat_link') }}">
                         </div>

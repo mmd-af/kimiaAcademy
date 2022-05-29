@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
     <!-- Content Row -->
     <div class="row">
         <div class="col-xl-12 col-md-12 mb-4 p-4 bg-white">
@@ -16,17 +15,15 @@
                     ایجاد دسته بندی
                 </a>
             </div>
-
             <div class="table-responsive">
                 <table class="table table-bordered table-striped text-center">
-
                     <thead>
                     <tr>
                         <th>#</th>
                         <th>نام دسته بندی</th>
                         <th>نام انگلیسی</th>
-                        <th>مرتبط</th>
                         <th>نوع دسته</th>
+                        <th>نام دسته مادر</th>
                         <th>عملیات</th>
                     </tr>
                     </thead>
@@ -50,7 +47,6 @@
                                 {{$category->parent_id}}
                             </th>
                             <th>
-
                                 <a class="btn btn-sm btn-outline-info"
                                    href="{{-- route('categories.edit', ['category' => $category->slug]) --}}">ویرایش</a>
                                 <a class="btn btn-sm btn-outline-danger"
@@ -61,13 +57,10 @@
                     </tbody>
                 </table>
             </div>
-
             <div class="d-flex justify-content-center mt-5">
                 {{ $categories->render() }}
             </div>
         </div>
     </div>
-
-
 
 @endsection

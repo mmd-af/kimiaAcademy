@@ -13,11 +13,4 @@ class Course extends Model
         CourseRelationships,
         CourseModifiers;
 
-    public function getIsActiveAttribute($is_active)
-    {
-        return $is_active ? 'فعال' : 'غیرفعال' ;
-    }
-
-
-
 }
