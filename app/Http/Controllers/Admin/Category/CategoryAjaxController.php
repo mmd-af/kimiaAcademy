@@ -17,6 +17,11 @@ class CategoryAjaxController extends Controller
         $this->categoryRepository = $categoryRepository;
     }
 
+    public function getDatatableData(Request $request)
+    {
+        return $this->categoryRepository->getDatatableData($request);
+    }
+
     public function categoryType(Request $request)
     {
         return response()->json([

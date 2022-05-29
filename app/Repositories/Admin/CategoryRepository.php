@@ -3,6 +3,7 @@
 namespace App\Repositories\Admin;
 
 use App\Models\Category\Category;
+use Yajra\DataTables\Facades\DataTables;
 
 class CategoryRepository
 //    extends BaseRepository
@@ -23,6 +24,7 @@ class CategoryRepository
             ])->get();
 
     }
+
     public function getLatest()
     {
         return Category::query()
@@ -63,4 +65,18 @@ class CategoryRepository
         return $item;
     }
 
+    public function getDatatableData($request)
+    {
+        if ($request->ajax()) {
+            $data = $this->getAll();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">ویرایش</a>';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
 }
