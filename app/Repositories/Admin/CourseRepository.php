@@ -5,6 +5,7 @@ namespace App\Repositories\Admin;
 use App\Models\Category\Category;
 use App\Models\Course\Course;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\Facades\DataTables;
 
 class CourseRepository
 //    extends BaseRepository
@@ -65,6 +66,21 @@ class CourseRepository
             ])
             ->where('type', 1)
             ->get();
+    }
+
+    public function getDatatableData($request)
+    {
+        if ($request->ajax()) {
+            $data = $this->getAll();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">ویرایش</a>';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
     }
 
     public function store($request)

@@ -22,8 +22,7 @@ class CourseController extends Controller
 
     public function index()
     {
-        $courses = $this->CourseRepository->getLatest();
-        return view('admin.courses.index', compact('courses'));
+        return view('admin.courses.index');
     }
 
 

@@ -9,9 +9,9 @@
     <div class="row">
         <div class="col-xl-12 col-md-12 p-4">
             <div class="card shadow-lg mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-primary">
-                    <h5 class="font-weight-bold mb-3 mb-md-0 text-light">لیست دسته بندی ها:</h5>
-                    <a class="btn btn-sm btn-outline-light" href="{{ route('admin.categories.create') }}">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between ">
+                    <h5 class="mb-3 mb-md-0">لیست دسته بندی ها</h5>
+                    <a class="btn btn-sm btn-outline-primary" href="{{ route('admin.categories.create') }}">
                         <i class="fa fa-plus"></i>
                         ایجاد دسته بندی
                     </a>
@@ -21,11 +21,11 @@
                         <thead>
                         <tr>
                             {{--                            <th>#</th>--}}
-                            <th>نام دسته بندی</th>
-                            <th>نام انگلیسی</th>
-                            <th>نوع دسته</th>
-                            <th>نام دسته مادر</th>
-                            <th>عملیات</th>
+                            <td>نام دسته بندی</td>
+                            <td>نام انگلیسی</td>
+                            <td>نوع دسته</td>
+                            <td>نام دسته مادر</td>
+                            <td>عملیات</td>
                         </tr>
                         </thead>
                         <tbody>

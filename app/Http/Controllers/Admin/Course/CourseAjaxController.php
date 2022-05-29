@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Course;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\Admin\CourseRepository;
+use Illuminate\Http\Request;
 
 class CourseAjaxController extends Controller
 {
@@ -13,11 +14,8 @@ class CourseAjaxController extends Controller
     {
         $this->categoryRepository = $categoryRepository;
     }
-
-//    public function categoryType(Request $request)
-//    {
-//        return response()->json([
-//            'data' => $this->categoryRepository->getCourseByType($request->value)
-//        ]);
-//    }
+    public function getDatatableData(Request $request)
+    {
+        return $this->categoryRepository->getDatatableData($request);
+    }
 }

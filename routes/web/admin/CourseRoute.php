@@ -43,14 +43,13 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
 //                'as' => 'show',
 //                'uses' => 'CourseController@show'
 //            ]);
-//
 
-
-
-
-
-
-
+        });
+        Route::group(['middleware' => ['is.ajax'], 'prefix' => 'courses-ajax', 'as' => 'courses.ajax.'], function () {
+            Route::get('/getDatatableData', [
+                'as' => 'getDatatableData',
+                'uses' => 'CourseAjaxController@getDatatableData'
+            ]);
         });
     });
 });
