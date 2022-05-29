@@ -43,6 +43,11 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
                 'as' => 'category_type',
                 'uses' => 'CategoryAjaxController@categoryType'
             ]);
+
+            Route::get('/getDatatableData', [
+                'as' => 'getDatatableData',
+                'uses' => 'CategoryAjaxController@getDatatableData'
+            ]);
         });
     });
 });

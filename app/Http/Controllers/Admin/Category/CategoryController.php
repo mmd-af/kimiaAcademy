@@ -7,53 +7,57 @@ use App\Http\Requests\Admin\Category\CategoryRequest;
 use App\Models\Category\Category;
 use App\Repositories\Admin\CategoryRepository;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class CategoryController extends Controller
 {
-    protected $CategoryRepository;
+    protected $categoryRepository;
 
-    public function __construct(CategoryRepository $CategoryRepository)
+    public function __construct(CategoryRepository $categoryRepository)
     {
-        $this->CategoryRepository = $CategoryRepository;
+        $this->categoryRepository = $categoryRepository;
     }
 
     public function index()
     {
-
-        $categories = $this->CategoryRepository->getLatest();
-        return view('admin.categories.index', compact('categories'));
-
+        return view('admin.categories.index');
     }
 
-    public function create()
+    public
+    function create()
     {
         return view('admin.categories.create');
 
     }
 
-    public function store(CategoryRequest $request)
+    public
+    function store(CategoryRequest $request)
     {
-        $category = $this->CategoryRepository->store($request);
+        $category = $this->categoryRepository->store($request);
 
         return redirect()->route('admin.categories.index');
     }
 
-    public function show($id)
+    public
+    function show($id)
     {
         //
     }
 
-    public function edit($id)
+    public
+    function edit($id)
     {
         //
     }
 
-    public function update(Request $request, $id)
+    public
+    function update(Request $request, $id)
     {
         //
     }
 
-    public function destroy($id)
+    public
+    function destroy($id)
     {
         //
     }
