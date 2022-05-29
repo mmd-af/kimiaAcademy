@@ -2,21 +2,21 @@
 
 namespace App\Models\Category;
 
+use App\Enums\ECategoryType;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
+
 trait CategoryModifiers
 {
-//    public function getLinkAttribute()
-//    {
-//        return route('site.categories.show', ['slug' => slugify($this->slug)]);
-//    }
-
-    public function getTypeAttribute($type)
+    protected function type(): Attribute
     {
-        if ($type == 1) {
-            return "دوره ی آموزشی";
-        } elseif ($type == 2) {
-            return "مقالات";
-
-        }
+        return Attribute::get(function ($value) {
+            if ($value == ECategoryType::COURSE->value) {
+                return 'دوره های آموزشی ';
+            } elseif ($value == ECategoryType::POST->value) {
+                return 'مقالات';
+            }
+        });
     }
 
     public function getParentIdAttribute($parent_id)
