@@ -29,7 +29,6 @@
                         </tr>
                         </thead>
                         <tbody>
-
                         </tbody>
                     </table>
                 </div>
@@ -39,18 +38,11 @@
 
 @endsection
 @section('script')
-
-{{--    TODO change the route of fa.json to the lang folder --}}
-
-<script>
+    <script>
         $(function () {
             let languages = {
-                // 'fa': 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/fa.json'
-                'fa': "{{url('fa.json')}}"
+                'fa': "{{url('assets/admin/script/datatables-translates/fa.json')}}"
             };
-            // let file = require('/lang/fa.json');
-            // let languages = file;
-
             var table = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
@@ -65,10 +57,8 @@
                     {data: 'type', name: 'type'},
                     {data: 'parent_id', name: 'parent_id'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
-
                 ]
             });
         });
     </script>
-
 @endsection

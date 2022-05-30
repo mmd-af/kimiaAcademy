@@ -7,6 +7,8 @@ mix.sass('resources/assets/admin/scss/admin.scss', 'public/assets/admin/css')
 //JS
     .js('resources/assets/admin/script/admin.js', 'public/assets/admin/script')
 
+    .copy('resources/assets/admin/script/datatables-translates', 'public/assets/admin/script/datatables-translates')
+
 
 //Site
 //CSS
