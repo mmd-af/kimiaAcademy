@@ -72,7 +72,8 @@ class CategoryRepository
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">ویرایش</a>';
+                    $edit = route('admin.categories.edit',$row->id) ;
+                    $btn = "<a class='btn btn-info btn-sm mr-2' href='{$edit}' >ویرایش</a>";
                     return $btn;
                 })
                 ->rawColumns(['action'])
