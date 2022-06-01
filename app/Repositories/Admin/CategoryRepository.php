@@ -17,6 +17,7 @@ class CategoryRepository
     {
         return Category::query()
             ->select([
+                'id',
                 'title',
                 'slug',
                 'parent_id',

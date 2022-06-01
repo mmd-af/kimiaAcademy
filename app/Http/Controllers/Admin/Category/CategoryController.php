@@ -45,15 +45,16 @@ class CategoryController extends Controller
     }
 
     public
-    function edit($id)
+    function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit', compact('category'));
+
     }
 
     public
-    function update(Request $request, $id)
+    function update(Request $request, $category)
     {
-        //
+        dd($category);
     }
 
     public
