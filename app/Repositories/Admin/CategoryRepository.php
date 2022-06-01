@@ -34,7 +34,6 @@ class CategoryRepository
                 'slug',
                 'type',
                 'parent_id'
-
             ])
             ->latest()
             ->paginate(10);

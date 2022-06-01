@@ -2,9 +2,9 @@
 
 namespace App\Enums;
 
-enum ECategoryType :int
+class ECategoryType extends BaseEnum
 {
-    case COURSE = 1;
-    case POST = 2;
+    const COURSE = 1;
+    const POST = 2;
 
 }

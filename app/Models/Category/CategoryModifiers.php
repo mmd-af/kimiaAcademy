@@ -8,16 +8,6 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 
 trait CategoryModifiers
 {
-    protected function type(): Attribute
-    {
-        return Attribute::get(function ($value) {
-            if ($value == ECategoryType::COURSE->value) {
-                return 'دوره های آموزشی ';
-            } elseif ($value == ECategoryType::POST->value) {
-                return 'مقالات';
-            }
-        });
-    }
 
     public function getParentIdAttribute($parent_id)
     {
@@ -26,5 +16,15 @@ trait CategoryModifiers
             return $parent_id->title;
         }
         return "دسته ی مادر";
+    }
+
+    public function getTypeAttribute($type)
+    {
+        if ($type == ECategoryType::COURSE) {
+            return 'دوره های آموزشی ';
+        } elseif ($type == ECategoryType::POST) {
+            return 'مقالات';
+        }
+
     }
 }

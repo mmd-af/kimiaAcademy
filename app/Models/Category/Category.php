@@ -16,8 +16,4 @@ class Category extends Model
 
     protected $table = 'categories';
 
-    protected $casts = [
-        'type' => ECategoryType::class
-    ];
-
 }
