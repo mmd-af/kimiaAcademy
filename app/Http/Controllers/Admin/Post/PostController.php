@@ -5,10 +5,8 @@ namespace App\Http\Controllers\Admin\Post;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Post\StorePostRequest;
 use App\Http\Requests\Admin\Post\UpdatePostRequest;
-use App\Models\Category\Category;
 use App\Models\Post\Post;
 use App\Repositories\Admin\PostRepository;
-use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -61,8 +59,9 @@ class PostController extends Controller
         return redirect()->route('admin.posts.index');
     }
 
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $this->PostRepository->destroy($post);
+        return redirect()->route('admin.posts.index');
     }
 }

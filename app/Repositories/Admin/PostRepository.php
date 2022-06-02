@@ -7,6 +7,7 @@ use App\Models\Category\Category;
 use App\Models\Post\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\Facades\DataTables;
 
 class PostRepository
 //    extends BaseRepository
@@ -28,7 +29,6 @@ class PostRepository
                 'is_active'
             ])
             ->get();
-
     }
 
     public function getLatest()
@@ -58,6 +58,35 @@ class PostRepository
             ->where('type', 2)
             ->get();
     }
+
+    public function getDatatableData($request)
+    {
+        if ($request->ajax()) {
+            $data = $this->getAll();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $edit = route('admin.posts.edit', $row->id);
+                    $destroy = route('admin.posts.destroy', $row->id);
+                    $c = csrf_field();
+                    $m = method_field('DELETE');
+                    return
+                        "
+                    <div class='d-flex justify-content-center'>
+                    <a href='{$edit}' class='btn btn-outline-info btn-sm mx-2'>ویرایش</a>
+                    <form action='{$destroy}' method='POST'>
+                    $c
+                    $m
+                    <button type='submit' class='btn btn-sm btn-outline-danger'>حذف</button>
+                    </form>
+                    </div>
+                    ";
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
+
 
     public function store($request)
     {
@@ -99,4 +128,10 @@ class PostRepository
             return $error;
         }
     }
+
+    public function destroy($category)
+    {
+        $category->delete();
+    }
+
 }

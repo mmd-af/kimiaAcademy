@@ -1,53 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Category;
-
+namespace App\Http\Controllers\Admin\Post;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category\Category;
-use App\Repositories\Admin\CategoryRepository;
+use App\Repositories\Admin\PostRepository;
 use Illuminate\Http\Request;
 
 class PostAjaxController extends Controller
 {
-    protected $postRepository;
+    protected $PostRepository;
 
-    public function __construct(CategoryRepository $postRepository)
+    public function __construct(PostRepository $PostRepository)
     {
-        $this->postRepository = $postRepository;
+        $this->PostRepository = $PostRepository;
     }
-
-    public function postType(Request $request)
+    public function getDatatableData(Request $request)
     {
-
-//        dd($request->value);
-
-        if ($request->value == 1) {
-//            return $this->postRepository->getAll()->where('type',1);
-            $data = Category::query()
-                ->select([
-                    'id',
-                    'title',
-                    'parent_id',
-                    'type'
-                ])
-                ->where('type', 'course')
-                ->where('parent_id' <> 0)
-                ->get();
-
-        } elseif ($request->value == 2) {
-            $data = Category::query()
-                ->select([
-                    'id',
-                    'title',
-                    'parent_id',
-                    'type'
-                ])
-                ->where('type', 'post')
-                ->where('parent_id' <> 0)
-                ->get();
-        }
-//        return $this->postRepository->searchItems($request);
-        return $data;
+        return $this->PostRepository->getDatatableData($request);
     }
 }

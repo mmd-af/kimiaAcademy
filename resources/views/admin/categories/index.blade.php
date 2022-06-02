@@ -28,7 +28,7 @@
                             <td>عملیات</td>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="ml-5">
                         </tbody>
                     </table>
                 </div>
