@@ -95,6 +95,16 @@ class CategoryRepository
         }
     }
 
+    public function update($request, $category)
+    {
+        $category->title = $request->input('title');
+        $category->slug = $request->input('slug');
+        $category->type = $request->input('cat_type');
+        $category->parent_id = $request->input('parent_id');
+        $category->save();
+        return $category;
+    }
+
     public function destroy($category)
     {
         $category->delete();

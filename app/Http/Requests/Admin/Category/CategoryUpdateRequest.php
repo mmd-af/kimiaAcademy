@@ -24,7 +24,7 @@ class CategoryUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'Category_title' => ['required'],
+            'title' => ['required'],
             'slug' => ['required'],
             'cat_type' => ['required'],
             'parent_id' => ['required'],

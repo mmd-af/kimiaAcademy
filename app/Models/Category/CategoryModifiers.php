@@ -12,10 +12,12 @@ trait CategoryModifiers
     public function getParentIdAttribute($parent_id)
     {
 // TODO in moshkel dare
-        if (isset($parent_id->title)) {
-            return $parent_id->title;
+
+        if ($parent_id == 0) {
+            return "دسته ی مادر";
+        } else {
+            return "زیر دسته";
         }
-        return "دسته ی مادر";
     }
 
     public function getTypeAttribute($type)
