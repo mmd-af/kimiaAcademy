@@ -26,6 +26,11 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
                 'uses' => 'CategoryController@update'
             ]);
 
+            Route::delete('{category}/destroy', [
+                'as' => 'destroy',
+                'uses' => 'CategoryController@destroy'
+            ]);
+
         });
 
         Route::group(['middleware' => ['is.ajax'], 'prefix' => 'categories-ajax', 'as' => 'categories.ajax.'], function () {

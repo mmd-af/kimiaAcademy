@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin\Category;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Category\CategoryRequest;
+use App\Http\Requests\Admin\Category\CategoryStoreRequest;
+use App\Http\Requests\Admin\Category\CategoryUpdateRequest;
 use App\Models\Category\Category;
 use App\Repositories\Admin\CategoryRepository;
-use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\DataTables;
 
 class CategoryController extends Controller
 {
@@ -23,43 +22,34 @@ class CategoryController extends Controller
         return view('admin.categories.index');
     }
 
-    public
-    function create()
+    public function create()
     {
         return view('admin.categories.create');
 
     }
 
-    public
-    function store(CategoryRequest $request)
+    public function store(CategoryStoreRequest $request)
     {
         $category = $this->categoryRepository->store($request);
 
         return redirect()->route('admin.categories.index');
     }
 
-    public
-    function show($id)
-    {
-        //
-    }
-
-    public
-    function edit(Category $category)
+    public function edit(Category $category)
     {
         return view('admin.categories.edit', compact('category'));
 
     }
 
-    public
-    function update(Request $request, $category)
+    public function update(CategoryUpdateRequest $request, Category $category)
     {
-        dd($category);
+        $courses = $this->categoryRepository->update($request, $category);
+        return redirect()->route('admin.categories.index');
     }
 
-    public
-    function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $this->categoryRepository->destroy($category);
+        return redirect()->route('admin.categories.index');
     }
 }

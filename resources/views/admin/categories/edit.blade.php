@@ -4,7 +4,6 @@
     edit categories
 @endsection
 
-
 @section('content')
     <!-- Content Row -->
     <div class="row">
@@ -13,7 +12,6 @@
                 <h5 class="font-weight-bold">ویرایش: {{ $category->title }}</h5>
             </div>
             <hr>
-{{dd($category->type)}}
             @include('admin.layouts.partials.errors')
             <form action="{{ route('admin.categories.update' , ['category' => $category->id])}}"
                   method="POST">
@@ -35,10 +33,10 @@
                         <div class="form-group col-md-3" id="select_category">
                             <label for="course">دوره های آموزشی</label>
                             <input id="course" class="category_type" type="radio" value="1" name="cat_type"
-                                   @if($category->type=1) checked @endif>
+                                   @if($category->getRawOriginal('type') == \App\Enums\ECategoryType::COURSE) checked @endif>
                             <label for="post" class="pr-5">مقالات</label>
                             <input id="post" class="category_type" type="radio" value="2" name="cat_type"
-                                   @if($category->type=2) checked @endif>
+                                   @if($category->getRawOriginal('type') == \App\Enums\ECategoryType::POST) checked @endif>
                         </div>
                     </div>
 

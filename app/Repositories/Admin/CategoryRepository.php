@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Admin;
 
+use App\Enums\ECategoryType;
 use App\Models\Category\Category;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -72,12 +73,33 @@ class CategoryRepository
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $edit = route('admin.categories.edit',$row->id) ;
+                    $edit = route('admin.categories.edit', $row->id);
+                    $destroy = route('admin.categories.destroy', $row->id);
+                    $token = csrf_token();
                     $btn = "<a class='btn btn-info btn-sm mr-2' href='{$edit}' >ویرایش</a>";
+                    $btn = $btn . "<a class='btn btn-danger btn-sm mr-2 cat-destroy' href='' id='$row->id' >حذف</a>";
+//                    $btn = $btn . "<form method='post' action='{$destroy}'><button type='submit' class='btn btn-danger btn-sm mr-2' href='{$destroy}' >ddd</button></form/>";
                     return $btn;
+
                 })
                 ->rawColumns(['action'])
                 ->make(true);
         }
     }
+
+    public function update($request, $category)
+    {
+        dd("dar hale anjam");
+        $category->title = $request->input('title');
+        $category->slug = $request->input('slug');
+        $category->save();
+        return $category;
+
+    }
+
+    public function destroy($category)
+    {
+        $category->delete();
+    }
+
 }
