@@ -13,14 +13,14 @@
                     <h5 class="mb-3 mb-md-0">لیست دسته بندی ها</h5>
                     <a class="btn btn-sm btn-outline-primary" href="{{ route('admin.categories.create') }}">
                         <i class="fa fa-plus"></i>
-                        ایجاد دسته بندی
+                        <span>ایجاد دسته بندی</span>
                     </a>
                 </div>
                 <div class="table-responsive p-3">
                     <table class="table table-bordered table-striped text-center data-table">
                         <thead>
                         <tr>
-                            {{--                            <th>#</th>--}}
+{{--                            <th>no</th>--}}
                             <td>نام دسته بندی</td>
                             <td>نام انگلیسی</td>
                             <td>نوع دسته</td>

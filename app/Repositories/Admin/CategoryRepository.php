@@ -2,7 +2,6 @@
 
 namespace App\Repositories\Admin;
 
-use App\Enums\ECategoryType;
 use App\Models\Category\Category;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -32,9 +31,11 @@ class CategoryRepository
         return Category::query()
             ->select([
                 'title',
+                'title',
                 'slug',
                 'type',
                 'parent_id'
+
             ])
             ->latest()
             ->paginate(10);
@@ -75,26 +76,23 @@ class CategoryRepository
                 ->addColumn('action', function ($row) {
                     $edit = route('admin.categories.edit', $row->id);
                     $destroy = route('admin.categories.destroy', $row->id);
-                    $token = csrf_token();
-                    $btn = "<a class='btn btn-info btn-sm mr-2' href='{$edit}' >ویرایش</a>";
-                    $btn = $btn . "<a class='btn btn-danger btn-sm mr-2 cat-destroy' href='' id='$row->id' >حذف</a>";
-//                    $btn = $btn . "<form method='post' action='{$destroy}'><button type='submit' class='btn btn-danger btn-sm mr-2' href='{$destroy}' >ddd</button></form/>";
-                    return $btn;
-
+                    $c = csrf_field();
+                    $m = method_field('DELETE');
+                    return
+                    "
+                    <div class='d-flex justify-content-center'>
+                    <a href='{$edit}' class='btn btn-outline-info btn-sm mx-2'>ویرایش</a>
+                    <form action='{$destroy}' method='POST'>
+                    $c
+                    $m
+                    <button type='submit' class='btn btn-sm btn-outline-danger'>حذف</button>
+                    </form>
+                    </div>
+                    ";
                 })
                 ->rawColumns(['action'])
                 ->make(true);
         }
-    }
-
-    public function update($request, $category)
-    {
-        dd("dar hale anjam");
-        $category->title = $request->input('title');
-        $category->slug = $request->input('slug');
-        $category->save();
-        return $category;
-
     }
 
     public function destroy($category)

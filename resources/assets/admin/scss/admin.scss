@@ -11,7 +11,6 @@
 
 @import "~bootstrap-select/sass/bootstrap-select";
 
-
 // Import md.bootstrappersiandatetimepicker
 //@import "../../../../node_modules/md.bootstrappersiandatetimepicker/dist/jquery.md.bootstrap.datetimepicker.style.css";
 
@@ -31,27 +30,27 @@
 @import "footer";
 
 @font-face {
-  font-family: "Vazir";
-  src: url("../fonts/Vazir.eot");
-  /* IE9 Compat Modes */
-  src: url("../fonts/Vazir.eot?#iefix") format("embedded-opentype"),
+    font-family: "Vazir";
+    src: url("../fonts/Vazir.eot");
+    /* IE9 Compat Modes */
+    src: url("../fonts/Vazir.eot?#iefix") format("embedded-opentype"),
     url("../fonts/Vazir.woff2") format("woff2"),
     url("../fonts/Vazir.woff") format("woff"),
     url("../fonts/Vazir.ttf") format("truetype");
-  /* Safari, Android, iOS */
+    /* Safari, Android, iOS */
 }
 
 body {
-  direction: rtl;
-  text-align: right !important;
-  font-family: "Vazir" !important;
+    direction: rtl;
+    text-align: right !important;
+    font-family: "Vazir" !important;
 }
 
-#registerCheckBox::before{
+#registerCheckBox::before {
     right: -1.5rem;
 }
 
-#registerCheckBox::after{
+#registerCheckBox::after {
     right: -1.5rem;
 }
 
@@ -103,17 +102,18 @@ body {
     text-align: right;
 }
 
-.bootstrap-select.show-tick .dropdown-menu li a span.text{
+.bootstrap-select.show-tick .dropdown-menu li a span.text {
     margin-right: 10px;
 }
 
-.div-disabled{
+.div-disabled {
     background-color: #eaecf4;
 }
 
 .custom-file-label::after {
     content: "فایل";
 }
+
 .custom-file-label:after {
     right: unset;
     left: 0;
@@ -122,6 +122,23 @@ body {
     border-radius: 0.35rem 0 0 0.35rem;
 }
 
-.mds-bootstrap-persian-datetime-picker-popover{
+.mds-bootstrap-persian-datetime-picker-popover {
     max-width: fit-content !important;
+}
+
+.dataTables_filter label {
+    display: inline-flex !important;
+    line-height: 2;
+}
+.dataTables_filter input{
+    margin-right: 1rem;
+}
+
+.dataTables_length label {
+    display: inline-flex !important;
+    line-height: 2;
+}
+.dataTables_length select{
+    margin-right: 1rem;
+    margin-left: 1rem;
 }
