@@ -62,9 +62,9 @@ class CourseController extends Controller
         return redirect()->route('admin.courses.index');
     }
 
-
-    public function destroy($id)
+    public function destroy(Course $course)
     {
-        //
+        $this->CourseRepository->destroy($course);
+        return redirect()->route('admin.courses.index');
     }
 }

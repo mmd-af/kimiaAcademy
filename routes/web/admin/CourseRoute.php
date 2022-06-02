@@ -20,29 +20,19 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
                 'uses' => 'CourseController@store'
             ]);
 
-            Route::get('/edit/{course}', [
+            Route::get('/{course}/edit', [
                 'as' => 'edit',
                 'uses' => 'CourseController@edit'
             ]);
-
             Route::put('{course}/update', [
                 'as' => 'update',
                 'uses' => 'CourseController@update'
             ]);
 
-
-//            Route::match(['put', 'patch'], '{like}/update', [
-//                'as' => 'update',
-//                'uses' => 'CourseController@update'
-//            ]);
-//            Route::match(['get', 'head'], '{like}/edit', [
-//                'as' => 'edit',
-//                'uses' => 'CourseController@edit'
-//            ]);
-//            Route::match(['get', 'head'], '{like}/show', [
-//                'as' => 'show',
-//                'uses' => 'CourseController@show'
-//            ]);
+            Route::delete('{course}/destroy', [
+                'as' => 'destroy',
+                'uses' => 'CourseController@destroy'
+            ]);
 
         });
         Route::group(['middleware' => ['is.ajax'], 'prefix' => 'courses-ajax', 'as' => 'courses.ajax.'], function () {

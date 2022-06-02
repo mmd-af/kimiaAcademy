@@ -75,8 +75,21 @@ class CourseRepository
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">ویرایش</a>';
-                    return $btn;
+                    $edit = route('admin.courses.edit', $row->id);
+                    $destroy = route('admin.courses.destroy', $row->id);
+                    $c = csrf_field();
+                    $m = method_field('DELETE');
+                    return
+                        "
+                    <div class='d-flex justify-content-center'>
+                    <a href='{$edit}' class='btn btn-outline-info btn-sm mx-2'>ویرایش</a>
+                    <form action='{$destroy}' method='POST'>
+                    $c
+                    $m
+                    <button type='submit' class='btn btn-sm btn-outline-danger'>حذف</button>
+                    </form>
+                    </div>
+                    ";
                 })
                 ->rawColumns(['action'])
                 ->make(true);
@@ -130,5 +143,10 @@ class CourseRepository
             DB::rollback();
             return $error;
         }
+    }
+
+    public function destroy($course)
+    {
+        $course->delete();
     }
 }
