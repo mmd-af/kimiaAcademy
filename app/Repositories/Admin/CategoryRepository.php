@@ -17,6 +17,7 @@ class CategoryRepository
     {
         return Category::query()
             ->select([
+                'id',
                 'title',
                 'slug',
                 'parent_id',
@@ -29,6 +30,7 @@ class CategoryRepository
     {
         return Category::query()
             ->select([
+                'title',
                 'title',
                 'slug',
                 'type',
@@ -72,12 +74,30 @@ class CategoryRepository
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $edit = route('admin.categories.edit',$row->id) ;
-                    $btn = "<a class='btn btn-info btn-sm mr-2' href='{$edit}' >ویرایش</a>";
-                    return $btn;
+                    $edit = route('admin.categories.edit', $row->id);
+                    $destroy = route('admin.categories.destroy', $row->id);
+                    $c = csrf_field();
+                    $m = method_field('DELETE');
+                    return
+                    "
+                    <div class='d-flex justify-content-center'>
+                    <a href='{$edit}' class='btn btn-outline-info btn-sm mx-2'>ویرایش</a>
+                    <form action='{$destroy}' method='POST'>
+                    $c
+                    $m
+                    <button type='submit' class='btn btn-sm btn-outline-danger'>حذف</button>
+                    </form>
+                    </div>
+                    ";
                 })
                 ->rawColumns(['action'])
                 ->make(true);
         }
     }
+
+    public function destroy($category)
+    {
+        $category->delete();
+    }
+
 }
