@@ -6,9 +6,9 @@ require("sweetalert");
 require("bootstrap-select");
 require("bootstrap-select/dist/js/i18n/defaults-fa_IR");
 require("./jquery.czMore-latest");
+require("./ckeditor");
 require("datatables.net-bs4")();
 // require("md.bootstrappersiandatetimepicker/dist/jquery.md.bootstrap.datetimepicker.js");
-require("./ckeditor");
 // require("bootstrap-select");
 
 (function ($) {
