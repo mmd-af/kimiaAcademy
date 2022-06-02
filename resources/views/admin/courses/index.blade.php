@@ -19,6 +19,7 @@
                     <table class="table table-bordered table-striped text-center data-table">
                         <thead>
                         <tr>
+                            <th>ردیف</th>
                             <th>نام دوره</th>
                             <th>قیمت</th>
                             <th>با تخفیف</th>
@@ -48,6 +49,7 @@
                 },
                 ajax: "{{ route('admin.courses.ajax.getDatatableData') }}",
                 columns: [
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'title', name: 'title'},
                     {data: 'actual_price', name: 'actual_price'},
                     {data: 'discount_price', name: 'discount_price'},

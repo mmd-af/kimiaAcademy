@@ -22,7 +22,7 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
                 'uses' => 'EducationalVideoController@store'
             ]);
 
-            Route::get('/edit/{educational}', [
+            Route::get('/{educational}/edit', [
                 'as' => 'edit',
                 'uses' => 'EducationalVideoController@edit'
             ]);
@@ -32,15 +32,20 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
                 'uses' => 'EducationalVideoController@update'
             ]);
 
+            Route::delete('{educational}/destroy', [
+                'as' => 'destroy',
+                'uses' => 'EducationalVideoController@destroy'
+            ]);
 
         });
 
-//        Route::group(['middleware' => ['is.ajax'], 'prefix' => 'posts-ajax', 'as' => 'posts.ajax.'], function () {
-//            Route::post('/category_type', [
-//                'as' => 'category_type',
-//                'uses' => 'EducationalVideoAjaxController@categoryType'
-//            ]);
-//        });
+        Route::group(['middleware' => ['is.ajax'], 'prefix' => 'educationalvideos-ajax', 'as' => 'educationalvideos.ajax.'], function () {
+
+            Route::get('/getDatatableData', [
+                'as' => 'getDatatableData',
+                'uses' => 'EducationalVideoAjaxController@getDatatableData'
+            ]);
+        });
     });
 });
 

@@ -20,12 +20,12 @@
                     <table class="table table-bordered table-striped text-center data-table">
                         <thead>
                         <tr>
-{{--                            <th>no</th>--}}
-                            <td>نام دسته بندی</td>
-                            <td>نام انگلیسی</td>
-                            <td>نوع دسته</td>
-                            <td>نام دسته مادر</td>
-                            <td>عملیات</td>
+                            <th>ردیف</th>
+                            <th>نام دسته بندی</th>
+                            <th>نام انگلیسی</th>
+                            <th>نوع دسته</th>
+                            <th>نام دسته مادر</th>
+                            <th>عملیات</th>
                         </tr>
                         </thead>
                         <tbody class="ml-5">
@@ -52,6 +52,7 @@
                 },
                 ajax: "{{ route('admin.categories.ajax.getDatatableData') }}",
                 columns: [
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'title', name: 'title'},
                     {data: 'slug', name: 'slug'},
                     {data: 'type', name: 'type'},

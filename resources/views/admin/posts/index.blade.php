@@ -12,13 +12,14 @@
                     <h5 class="mb-3 mb-md-0">لیست مقالات ها</h5>
                     <a class="btn btn-sm btn-outline-primary" href="{{ route('admin.posts.create') }}">
                         <i class="fa fa-plus"></i>
-                        ایجاد دوره
+                        ایجاد مقاله
                     </a>
                 </div>
                 <div class="table-responsive p-3">
                     <table class="table table-bordered table-striped text-center data-table">
                         <thead>
                         <tr>
+                            <th>ردیف</th>
                             <th>عنوان</th>
                             <th>وضعیت</th>
                             <th>عملیات</th>
@@ -49,6 +50,7 @@
                 },
                 ajax: "{{ route('admin.posts.ajax.getDatatableData') }}",
                 columns: [
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'title', name: 'title'},
                     {data: 'is_active', name: 'is_active'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},

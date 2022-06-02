@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Category;
-
+namespace App\Http\Controllers\Admin\EducationalVideo;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category\Category;
-use App\Repositories\Admin\CategoryRepository;
+use App\Repositories\Admin\EducationalVideoRepository;
 use Illuminate\Http\Request;
 
-class PostAjaxController extends Controller
+class EducationalVideoAjaxController extends Controller
 {
-    protected $postRepository;
+    protected $EducationalVideoRepository;
 
-    public function __construct(CategoryRepository $postRepository)
+    public function __construct(EducationalVideoRepository $EducationalVideoRepository)
     {
-        $this->postRepository = $postRepository;
+        $this->EducationalVideoRepository = $EducationalVideoRepository;
     }
 
-
+    public function getDatatableData(Request $request)
+    {
+        return $this->EducationalVideoRepository->getDatatableData($request);
+    }
 }

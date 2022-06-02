@@ -11,17 +11,17 @@ use App\Repositories\Admin\EducationalVideoRepository;
 
 class EducationalVideoController extends Controller
 {
-    protected $educationalVideoRepository;
+    protected $EducationalVideoRepository;
 
-    public function __construct(EducationalVideoRepository $educationalVideoRepository)
+    public function __construct(EducationalVideoRepository $EducationalVideoRepository)
     {
-        $this->educationalVideoRepository = $educationalVideoRepository;
+        $this->EducationalVideoRepository = $EducationalVideoRepository;
     }
 
     public function index()
     {
 
-        $educationalvideos = $this->educationalVideoRepository->getLatest();
+        $educationalvideos = $this->EducationalVideoRepository->getLatest();
         return view('admin.educationalvideos.index', compact('educationalvideos'));
 
     }
@@ -35,7 +35,7 @@ class EducationalVideoController extends Controller
 
     public function store(StoreEducationalVideoRequest $request)
     {
-        $category = $this->educationalVideoRepository->store($request);
+        $category = $this->EducationalVideoRepository->store($request);
 
         return redirect()->route('admin.educationalvideos.index');
     }
@@ -53,12 +53,13 @@ class EducationalVideoController extends Controller
 
     public function update(UpdateEducationalVideoRequest $request, EducationalVideo $educational)
     {
-        $educationalVideos = $this->educationalVideoRepository->update($request, $educational);
+        $educationalVideos = $this->EducationalVideoRepository->update($request, $educational);
         return redirect()->route('admin.educationalvideos.index');
     }
 
-    public function destroy($id)
+    public function destroy(EducationalVideo $educational)
     {
-        //
+        $this->EducationalVideoRepository->destroy($educational);
+        return redirect()->route('admin.educationalvideos.index');
     }
 }
