@@ -9,7 +9,7 @@
         <div class="col-xl-12 col-md-12 p-4">
             <div class="card shadow-lg mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between ">
-                    <h5 class="mb-3 mb-md-0">لیست ویدئو ها ها</h5>
+                    <h5 class="mb-3 mb-md-0">لیست ویدئو ها</h5>
                     <a class="btn btn-sm btn-outline-primary" href="{{ route('admin.educationalvideos.create') }}">
                         <i class="fa fa-plus"></i>
                         ایجاد ویدئو
