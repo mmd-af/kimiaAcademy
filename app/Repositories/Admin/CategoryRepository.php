@@ -30,7 +30,7 @@ class CategoryRepository
     {
         return Category::query()
             ->select([
-                'title',
+                'id',
                 'title',
                 'slug',
                 'type',

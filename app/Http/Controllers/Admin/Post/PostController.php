@@ -47,9 +47,9 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        $postCatgory = $post->categories->first();
+        $postCategory = $post->categories->first();
         $categories = $this->PostRepository->getCategory();
-        return view('admin.posts.edit', compact('post', 'categories', 'postCatgory'));
+        return view('admin.posts.edit', compact('post', 'categories', 'postCategory'));
     }
 
     public function update(UpdatePostRequest $request, Post $post)
