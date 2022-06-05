@@ -126,31 +126,14 @@
 @section('script')
 
     <script>
-        // $('#image').change(function() {
-        //     //get the file name
-        //     var fileName = $(this).val();
-        //     //replace the "Choose a file" label
-        //     $(this).next('.custom-file-label').html(fileName);
-        // });
         // $("#czTag").czMore();
-        // $(function () {
-        //     $('.selectpicker').selectpicker();
-        // });
-        //
-        // ClassicEditor
-        //     .create(document.querySelector('#editor'))
-        //     .catch(error => {
-        //         console.error(error);
-        //     });
-
         var options = {
             filebrowserImageBrowseUrl: '/filemanager?type=Images',
             filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
             filebrowserBrowseUrl: '/filemanager?type=Files',
             filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
         };
-    </script>
-    <script>
+
         CKEDITOR.replace('editor', options);
 
         $('#lfm').filemanager('file');
