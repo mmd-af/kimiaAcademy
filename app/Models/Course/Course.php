@@ -13,4 +13,5 @@ class Course extends Model
         CourseRelationships,
         CourseModifiers;
 
+    protected $table = 'courses';
 }

@@ -4,6 +4,7 @@ namespace App\Repositories\Admin;
 
 use App\Models\Category\Category;
 use App\Models\Course\Course;
+use App\Models\Video\Video;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -98,6 +99,7 @@ class CourseRepository
 
     public function store($request)
     {
+
         DB::beginTransaction();
         try {
             $item = new Course();
@@ -112,8 +114,15 @@ class CourseRepository
             $item->course_size = $request->input('course_size');
             $item->course_kind = $request->input('course_kind');
             $item->save();
+
             $item->categories()->attach($request->input('category_id'));
+
+            $videoId = new Video();
+            $videoId->url = $request->input('url');
+            $videoId->save();
             DB::commit();
+            $item->videos()->attach($videoId->id);
+
             return $item;
         } catch (\Exception $error) {
             DB::rollback();

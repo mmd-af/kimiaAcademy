@@ -22,10 +22,11 @@ trait CategoryRelationships
     {
         return $this->morphedByMany(Course::class, 'categorizable');
     }
-    public function posts()
-    {
-        return $this->morphedByMany(Post::class, 'categorizable');
-    }
+
+//    public function posts()
+//    {
+//        return $this->morphedByMany(Post::class, 'categorizable');
+//    }
 //
 //    public function posts()
 //    {
