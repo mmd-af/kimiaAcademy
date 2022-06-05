@@ -11,5 +11,9 @@ trait CourseRelationships
     {
         return $this->morphToMany(Category::class, 'categorizable');
     }
+    public function videos()
+    {
+        return $this->morphToMany(Video::class, 'videoable');
+    }
 
 }

@@ -22,7 +22,7 @@
                         <input class="form-control" id="title" name="title" type="text"
                                value="{{ old('title') }}">
                     </div>
-                    <div class="form-group col-md-3 mt">
+                    <div class="form-group col-md-3">
                         <label for="slug">نام دوره به انگلیسی:</label>
                         <input class="form-control" id="slug" name="slug" type="text"
                                value="{{ old('slug') }}">
@@ -38,17 +38,21 @@
                         </select>
                     </div>
 
-                    <div class="form-group col-md-12 mt-3">
+                    <div class="form-group col-md-12 mt-5">
                         <div class="form-group col-md-3">
-                            <label for="image">تصویر دوره:</label>
-                            {{--                        <div class="custom-file">--}}
-                            {{--                            <input type="file" name="image" class="custom-file-input" id="image">--}}
-                            {{--                            <label class="custom-file-label" for="image"> انتخاب فایل </label>--}}
-                            {{--                        </div>--}}
+                            <label for="url">ویدئو دوره:</label>
+                            <div class="input-group">
+                                <input id="thumbnail" class="form-control" type="text" name="url">
+                                <a id="lfm" data-input="thumbnail" data-preview="holder"
+                                   class="btn btn-primary text-light">
+                                    انتخاب
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="form-group col-md-12 mt-3">
+
+                    <div class="form-group col-md-12 mt-4">
                         <label for="description">توضیحات:</label>
                         <textarea name="description" id="editor"></textarea>
 
@@ -120,8 +124,8 @@
 @endsection
 
 @section('script')
-    <script>
 
+    <script>
         // $('#image').change(function() {
         //     //get the file name
         //     var fileName = $(this).val();
@@ -129,15 +133,27 @@
         //     $(this).next('.custom-file-label').html(fileName);
         // });
         // $("#czTag").czMore();
-        $(function () {
-            $('.selectpicker').selectpicker();
-        });
+        // $(function () {
+        //     $('.selectpicker').selectpicker();
+        // });
+        //
+        // ClassicEditor
+        //     .create(document.querySelector('#editor'))
+        //     .catch(error => {
+        //         console.error(error);
+        //     });
 
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .catch(error => {
-                console.error(error);
-            });
+        var options = {
+            filebrowserImageBrowseUrl: '/filemanager?type=Images',
+            filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
+            filebrowserBrowseUrl: '/filemanager?type=Files',
+            filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
+        };
+    </script>
+    <script>
+        CKEDITOR.replace('editor', options);
+
+        $('#lfm').filemanager('file');
     </script>
 
 @endsection

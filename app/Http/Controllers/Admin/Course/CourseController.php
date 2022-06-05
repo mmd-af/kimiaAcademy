@@ -3,13 +3,10 @@
 namespace App\Http\Controllers\Admin\Course;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Course\CourseRequest;
+use App\Http\Requests\Admin\Course\CourseStoreRequest;
 use App\Http\Requests\Admin\Post\UpdatePostRequest;
-use App\Models\Category\Category;
 use App\Models\Course\Course;
 use App\Repositories\Admin\CourseRepository;
-use function redirect;
-use function view;
 
 class CourseController extends Controller
 {
@@ -34,7 +31,7 @@ class CourseController extends Controller
     }
 
 
-    public function store(CourseRequest $request)
+    public function store(CourseStoreRequest $request)
     {
         $course = $this->CourseRepository->store($request);
         return redirect()->route('admin.courses.index');

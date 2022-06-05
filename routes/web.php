@@ -14,6 +14,11 @@ Route::get('/contact-us', function () {
     return view('site.contact-us.contact-us');
 })->name('contact-us');
 
+Route::group(['prefix' => 'filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
+
 // test guery for attach category to fake posts
 
 //Route::get('/query', function () {

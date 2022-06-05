@@ -156,6 +156,7 @@ return [
         "course_size" => "حجم دوره",
         "course_kind" => "نوع دوره",
         "Category_title" => "نام دسته بندی",
+        "url" => "انتخاب فایل",
         "" => ""
 
 

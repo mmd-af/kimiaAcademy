@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <title>kimyagaracademy.com - @yield('title')</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/admin/css/admin.css') }}" rel="stylesheet">
@@ -63,9 +63,9 @@
 
 <!-- JavaScript-->
 <script src="{{ asset('assets/admin/script/admin.js') }}"></script>
-<script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
 
-</script>
 {{--@include('sweet::alert')--}}
 
 @yield('script')

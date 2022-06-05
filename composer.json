@@ -12,6 +12,7 @@
         "laravel/tinker": "^2.7",
         "myclabs/php-enum": "^1.8",
         "snapappointments/bootstrap-select": "^1.13",
+        "unisharp/laravel-filemanager": "^2.5",
         "yajra/laravel-datatables-oracle": "^10.0"
     },
     "require-dev": {
