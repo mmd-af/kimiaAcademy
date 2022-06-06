@@ -42,7 +42,8 @@
                         <div class="form-group col-md-3">
                             <label for="url">ویدئو دوره:</label>
                             <div class="input-group">
-                                <input id="thumbnail" class="form-control" type="text" name="url">
+                                <input id="thumbnail" class="form-control" type="text" name="url"
+                                       value="{{ old('url') }}">
                                 <a id="lfm" data-input="thumbnail" data-preview="holder"
                                    class="btn btn-primary text-light">
                                     انتخاب
@@ -54,7 +55,7 @@
 
                     <div class="form-group col-md-12 mt-4">
                         <label for="description">توضیحات:</label>
-                        <textarea name="description" id="editor"></textarea>
+                        <textarea name="description" id="editor">{{ old('description') }}</textarea>
 
                     </div>
 
