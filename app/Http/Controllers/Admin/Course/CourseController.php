@@ -48,8 +48,9 @@ class CourseController extends Controller
     public function edit(Course $course)
     {
         $courseCatgory = $course->categories->first();
+        $courseVideo = $course->videos();
         $categories = $this->CourseRepository->getCategory();
-        return view('admin.courses.edit', compact('course', 'categories', 'courseCatgory'));
+        return view('admin.courses.edit', compact('course', 'categories', 'courseCatgory', 'courseVideo'));
     }
 
 

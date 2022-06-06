@@ -6,7 +6,7 @@
 
 @section('content')
     <!-- Content Row -->
-
+    {{dd($courseVideo)}}
     <div class="row">
         <div class="col-xl-12 col-md-12 mb-4 p-4 bg-white">
             <div class="mb-4 text-center text-md-right">
@@ -40,14 +40,17 @@
                         </select>
                     </div>
 
-
-                    <div class="form-group col-md-12 mt-3">
+                    <div class="form-group col-md-12 mt-5">
                         <div class="form-group col-md-3">
-                            <label for="image">تصویر دوره:</label>
-                            {{--                        <div class="custom-file">--}}
-                            {{--                            <input type="file" name="image" class="custom-file-input" id="image">--}}
-                            {{--                            <label class="custom-file-label" for="image"> انتخاب فایل </label>--}}
-                            {{--                        </div>--}}
+                            <label for="url">ویدئو دوره:</label>
+                            <div class="input-group">
+                                <input id="thumbnail" class="form-control" type="text" name="url"
+                                       value="{{$course->videos->url}}">
+                                <a id="lfm" data-input="thumbnail" data-preview="holder"
+                                   class="btn btn-primary text-light">
+                                    انتخاب
+                                </a>
+                            </div>
                         </div>
                     </div>
 

@@ -13,6 +13,6 @@ trait CourseRelationships
     }
     public function videos()
     {
-        return $this->morphToMany(Video::class, 'videoable');
+        return $this->morphOne(Video::class, 'videoable');
     }
 }

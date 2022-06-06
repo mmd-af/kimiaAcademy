@@ -52,7 +52,6 @@
                         </div>
                     </div>
 
-
                     <div class="form-group col-md-12 mt-4">
                         <label for="description">توضیحات:</label>
                         <textarea name="description" id="editor">{{ old('description') }}</textarea>

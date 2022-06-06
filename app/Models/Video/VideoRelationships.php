@@ -11,10 +11,10 @@ trait VideoRelationships
 //    {
 //        return $this->morphToMany(Category::class, 'categorizable');
 //    }
-//    public function videos()
-//    {
-//        return $this->morphToMany(Video::class, 'videoable');
-//    }
+    public function videos()
+    {
+        return $this->morphOne(Video::class, 'videoable');
+    }
 
 //    public function videoable()
 //    {
