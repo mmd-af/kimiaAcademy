@@ -97,30 +97,6 @@ class CourseRepository
         }
     }
 
-    public function getVideoUrl($request)
-    {
-        return Video::query()
-            ->select([
-                'id',
-                'url'
-            ])
-            ->where('url', 'like', $request->url)
-            ->first();
-    }
-
-    public function attachVideo($item, $request)
-    {
-        $checkVideo = $this->getVideoUrl($request);
-        if ($checkVideo == null) {
-            $videoId = new Video();
-            $videoId->url = $request->input('url');
-            $videoId->save();
-            $item->videos()->attach($videoId->id);
-        } else {
-            $item->videos()->attach($checkVideo->id);
-        }
-    }
-
     public function store($request)
     {
         DB::beginTransaction();
@@ -138,8 +114,10 @@ class CourseRepository
             $item->course_kind = $request->input('course_kind');
             $item->save();
             $item->categories()->attach($request->input('category_id'));
+            $video = new Video();
+            $video->url = $request->input('url');
+            $item->video()->save($video);
             DB::commit();
-            $this->attachVideo($item, $request);
         } catch (\Exception $error) {
             DB::rollback();
             return $error;
