@@ -44,7 +44,7 @@
         <div id="collapseProducts" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{route('admin.courses.index')}}">دوره ها</a>
-                <a class="collapse-item" href="#">سر فصل ها</a>
+                <a class="collapse-item" href="{{route('admin.items.index')}}">سر فصل ها</a>
             </div>
         </div>
     </li>
