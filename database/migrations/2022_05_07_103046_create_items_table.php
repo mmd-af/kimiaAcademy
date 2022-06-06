@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('title');
             $table->longText('description');
             $table->boolean('is_free')->default(0);
+            $table->unsignedInteger('parent_id')->default(0);
             $table->unsignedBigInteger('sort');
             $table->softDeletes();
             $table->timestamps();
