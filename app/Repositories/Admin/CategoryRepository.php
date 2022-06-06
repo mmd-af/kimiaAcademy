@@ -5,13 +5,12 @@ namespace App\Repositories\Admin;
 use App\Models\Category\Category;
 use Yajra\DataTables\Facades\DataTables;
 
-class CategoryRepository
-//    extends BaseRepository
+class CategoryRepository extends BaseRepository
 {
-//    public function __construct(Course $model)
-//    {
-//        $this->setModel($model);
-//    }
+    public function __construct(Category $model)
+    {
+        $this->setModel($model);
+    }
 
     public function getAll()
     {
