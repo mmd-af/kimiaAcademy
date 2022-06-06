@@ -8,13 +8,12 @@ use App\Models\Video\Video;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
-class CourseRepository
-//    extends BaseRepository
+class CourseRepository extends BaseRepository
 {
-//    public function __construct(Course $model)
-//    {
-//        $this->setModel($model);
-//    }
+    public function __construct(Course $model)
+    {
+        $this->setModel($model);
+    }
 
     public function getAll()
     {

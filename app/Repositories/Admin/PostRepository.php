@@ -9,13 +9,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
-class PostRepository
-//    extends BaseRepository
+class PostRepository extends BaseRepository
 {
-//    public function __construct(Course $model)
-//    {
-//        $this->setModel($model);
-//    }
+    public function __construct(Post $model)
+    {
+        $this->setModel($model);
+    }
 
     public function getAll()
     {

@@ -5,13 +5,12 @@ namespace App\Repositories\Admin;
 use App\Models\EducationalVideo\EducationalVideo;
 use Yajra\DataTables\Facades\DataTables;
 
-class EducationalVideoRepository
-//    extends BaseRepository
+class EducationalVideoRepository extends BaseRepository
 {
-//    public function __construct(Course $model)
-//    {
-//        $this->setModel($model);
-//    }
+    public function __construct(EducationalVideo $model)
+    {
+        $this->setModel($model);
+    }
 
     public function getAll()
     {
