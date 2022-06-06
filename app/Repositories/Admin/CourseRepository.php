@@ -140,6 +140,7 @@ class CourseRepository
             $course->course_kind = $request->input('course_kind');
             $course->save();
             $course->categories()->sync($request->input('category_id'));
+            $course->videos()->update(['url' =>$request->input('url')]);
             DB::commit();
             return $course;
         } catch (\Exception $error) {
