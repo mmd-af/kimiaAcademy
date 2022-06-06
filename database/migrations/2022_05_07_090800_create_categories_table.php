@@ -16,7 +16,7 @@ return new class extends Migration {
 
             $table->id();
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->unsignedInteger('parent_id')->default(0);
             $table->tinyInteger('type');
             $table->softDeletes();

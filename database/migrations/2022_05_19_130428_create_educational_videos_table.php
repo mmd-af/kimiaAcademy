@@ -14,6 +14,7 @@ return new class extends Migration {
     {
         Schema::create('educational_videos', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->string('youtube_link')->nullable();
             $table->string('aparat_link')->nullable();
             $table->boolean('is_active')->default(0);

@@ -16,7 +16,7 @@ return new class extends Migration {
 
             $table->id();
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->longText('description');
             $table->unsignedBigInteger('actual_price');
             $table->unsignedBigInteger('discount_price')->nullable();
