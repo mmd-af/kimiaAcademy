@@ -11,4 +11,18 @@ class ItemRepository extends BaseRepository
     {
         $this->setModel($model);
     }
+    public function getAll()
+    {
+        return Item::query()
+            ->select([
+                'id',
+                'course_id',
+                'title',
+                'description',
+                'is_free',
+                'parent_id',
+                'sort'
+            ])->get();
+
+    }
 }
