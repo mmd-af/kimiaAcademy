@@ -13,18 +13,18 @@ class ItemController extends Controller
 //        $this->ItemRepository = $ItemRepository;
 //    }
 //
-//    public function index()
-//    {
-//        return view('admin.items.index');
-//    }
+    public function index()
+    {
+        return view('admin.items.index');
+    }
 //
 //
-//    public function create()
-//    {
-//        $categories = $this->ItemRepository->getCategory();
-//        return view('admin.items.create', compact('categories'));
-//
-//    }
+    public function create()
+    {
+        $items = $this->ItemRepository->getCategory();
+        return view('admin.items.create', compact('items'));
+
+    }
 //
 //
 //    public function store(ItemStoreRequest $request)
@@ -43,10 +43,10 @@ class ItemController extends Controller
 //
 //    public function edit(Item $item)
 //    {
-//        $itemCatgory = $item->categories->first();
+//        $itemCatgory = $item->items->first();
 //        $itemVideo = $item->videos();
-//        $categories = $this->ItemRepository->getCategory();
-//        return view('admin.items.edit', compact('item', 'categories', 'itemCatgory', 'itemVideo'));
+//        $items = $this->ItemRepository->getCategory();
+//        return view('admin.items.edit', compact('item', 'items', 'itemCatgory', 'itemVideo'));
 //    }
 //
 //
