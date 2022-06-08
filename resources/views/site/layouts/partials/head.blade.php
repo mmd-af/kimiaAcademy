@@ -10,4 +10,4 @@
     <script src="{{ asset('assets/site/script/app.js') }}"></script>
 
 </head>
-<body>
+<body id="page-top">
