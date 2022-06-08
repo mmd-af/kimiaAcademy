@@ -55,7 +55,7 @@
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'title', name: 'title'},
                     {data: 'course_type', name: 'course_type'},
-                    {data: 'item_type', name: 'item_type'},
+                    {data: 'ParentId', name: 'ParentId'},
                     {data: 'is_free', name: 'is_free'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
