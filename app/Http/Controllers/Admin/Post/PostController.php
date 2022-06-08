@@ -19,9 +19,7 @@ class PostController extends Controller
 
     public function index()
     {
-
-        $posts = $this->PostRepository->getLatest();
-        return view('admin.posts.index', compact('posts'));
+        return view('admin.posts.index');
 
     }
 

@@ -70,9 +70,9 @@
             <form method="POST" action="{{ route('register')}}" class="px-4 py-3">
                 @csrf
                 <div class="form-group">
-                    <small for="first_name" class="mr-1">نام</small>
-                    <input type="text" name="first_name" class="form-control mt-2" id="first_name"
-                           value="{{old('first_name')}}">
+                    <small for="firstname" class="mr-1">نام</small>
+                    <input type="text" name="firstname" class="form-control mt-2" id="firstname"
+                           value="{{old('firstname')}}">
                 </div>
                 <div class="form-group">
                     <small for="email" class="mr-1">ایمیل</small>
