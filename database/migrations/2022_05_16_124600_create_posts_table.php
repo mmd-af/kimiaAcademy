@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
-            $table->string('slug')->unique();
+            $table->string('slug');
             $table->longText('description');
             $table->string('view_count')->nullable();
             $table->boolean('is_active')->default(0);
