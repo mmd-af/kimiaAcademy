@@ -115,7 +115,7 @@ class CourseRepository extends BaseRepository
             $item->categories()->attach($request->input('category_id'));
             $video = new Video();
             $video->url = $request->input('url');
-            $item->video()->save($video);
+            $item->videos()->save($video);
             DB::commit();
         } catch (\Exception $error) {
             DB::rollback();
