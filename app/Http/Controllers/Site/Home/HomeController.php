@@ -3,12 +3,21 @@
 namespace App\Http\Controllers\Site\Home;
 
 use App\Http\Controllers\Controller;
-
+use App\Repositories\Site\HomeRepository;
 
 class HomeController extends Controller
 {
+
+    protected $HomeRepository;
+
+    public function __construct(HomeRepository $HomeRepository)
+    {
+        $this->HomeRepository = $HomeRepository;
+    }
+
     public function index()
     {
-        return view('site.home.home');
+        $educationalvideos = $this->HomeRepository->getEducatinalVideo();
+        return view('site.home.home', compact('educationalvideos'));
     }
 }
