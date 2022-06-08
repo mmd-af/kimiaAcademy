@@ -63,7 +63,7 @@
 
 <!-- JavaScript-->
 <script src="{{ asset('assets/admin/script/admin.js') }}"></script>
-<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('assets/admin/libs/ckeditor/ckeditor.js') }}"></script>
 <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
 
 {{--@include('sweet::alert')--}}
