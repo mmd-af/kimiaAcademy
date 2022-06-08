@@ -1,10 +1,4 @@
-@include('admin.layouts.partials.copyright')
 
-</div>
-<!-- End of Content Wrapper -->
-
-</div>
-<!-- End of Page Wrapper -->
 
 <!-- Scroll to Top Button-->
 @include('admin.layouts.partials.scroll_top')
