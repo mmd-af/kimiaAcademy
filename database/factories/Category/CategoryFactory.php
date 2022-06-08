@@ -19,7 +19,7 @@ class CategoryFactory extends Factory
             'title' => $this->faker->realTextBetween(5, 15),
             'slug' => $this->faker->realTextBetween(5, 15),
             'parent_id' => 0,
-            'type' => rand(1, 2),
+            'type' => rand(1, 3),
         ];
     }
 

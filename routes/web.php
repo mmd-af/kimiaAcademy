@@ -22,36 +22,37 @@ Route::group(['prefix' => 'filemanager', 'middleware' => ['web', 'auth']], funct
 
 //  guery for attach category to fake posts
 
-//Route::get('/query', function () {
-//    $posts = \App\Models\Post\Post::all();
-//    foreach ($posts as $post) {
-//        $post->categories()->attach(8);
-//    }
-//    return "query is finished";
-//});
+Route::get('/query', function () {
+    $posts = \App\Models\Post\Post::all();
+    foreach ($posts as $post) {
+        $post->categories()->attach(rand(1, 15));
+    }
+    return "query is finished";
+});
 
 //  guery for attach video to fake educationalVideo
 
-//Route::get('/query1', function () {
-//    $educationals = App\Models\EducationalVideo\EducationalVideo::all();
-//    foreach ($educationals as $educational) {
-//        $video = new Video();
-//        $video->url = "/storage/photos/51/111111 (1).jpg";
-//        $educational->videos()->save($video);
-//    }
-//    return "query is finished";
-//});
+Route::get('/query1', function () {
+    $educationals = App\Models\EducationalVideo\EducationalVideo::all();
+    foreach ($educationals as $educational) {
+        $video = new Video();
+        $video->url = "/storage/photos/51/111111 (1).jpg";
+        $educational->videos()->save($video);
+    }
+    return "query is finished1";
+});
 
-//Route::get('/query2', function () {
-//    $educationals = App\Models\EducationalVideo\EducationalVideo::all();
-//    foreach ($educationals as $educational) {
-//        $educational->aparat_link = "https://www.aparat.com/v/uGFzx";
-//        $educational->youtube_link = "https://www.youtube.com/watch?v=G2ikFVP8csw";
-//        $educational->save();
-//
-//    }
-//    return "query is finished";
-//});
+//  add youtube and aparat video link to educationalVideo
+
+Route::get('/query2', function () {
+    $educationals = App\Models\EducationalVideo\EducationalVideo::all();
+    foreach ($educationals as $educational) {
+        $educational->aparat_link = "https://www.aparat.com/v/uGFzx";
+        $educational->youtube_link = "https://www.youtube.com/watch?v=G2ikFVP8csw";
+        $educational->save();
+    }
+    return "query is finished2";
+});
 
 
 require __DIR__ . '/auth.php';
