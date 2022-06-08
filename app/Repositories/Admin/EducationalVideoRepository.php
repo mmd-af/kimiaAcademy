@@ -18,6 +18,7 @@ class EducationalVideoRepository
         return EducationalVideo::query()
             ->select([
                 'id',
+                'title',
                 'youtube_link',
                 'aparat_link',
                 'is_active'
@@ -31,6 +32,7 @@ class EducationalVideoRepository
         return EducationalVideo::query()
             ->select([
                 'id',
+                'title',
                 'youtube_link',
                 'aparat_link',
                 'is_active'
@@ -71,6 +73,7 @@ class EducationalVideoRepository
     public function store($request)
     {
         $item = new EducationalVideo();
+        $item->title = $request->input('title');
         $item->youtube_link = $request->input('youtube_link');
         $item->aparat_link = $request->input('aparat_link');
         $item->is_active = $request->input('is_active');
@@ -80,6 +83,7 @@ class EducationalVideoRepository
 
     public function update($request, $educational)
     {
+        $educational->title = $request->input('title');
         $educational->youtube_link = $request->input('youtube_link');
         $educational->aparat_link = $request->input('aparat_link');
         $educational->is_active = $request->input('is_active');

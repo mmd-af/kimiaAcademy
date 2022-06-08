@@ -20,6 +20,7 @@
                         <thead>
                         <tr>
                             <th>ردیف</th>
+                            <th>عنوان</th>
                             <th>لینک یوتیوب</th>
                             <th>لینک آپارات</th>
                             <th>وضعیت</th>
@@ -52,6 +53,7 @@
                 ajax: "{{ route('admin.educationalvideos.ajax.getDatatableData') }}",
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                    {data: 'title', name: 'title'},
                     {data: 'youtube_link', name: 'youtube_link'},
                     {data: 'aparat_link', name: 'aparat_link'},
                     {data: 'is_active', name: 'is_active'},

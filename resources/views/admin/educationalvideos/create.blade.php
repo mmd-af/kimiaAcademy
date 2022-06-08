@@ -19,6 +19,13 @@
                 <div class="form-row">
                     <div class="form-group col-md-12 mt-3">
                         <div class="form-group col-md-3">
+                            <label for="title">عنوان:</label>
+                            <input class="form-control" id="title" name="title" type="text"
+                                   value="{{ old('title') }}">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 mt-3">
+                        <div class="form-group col-md-3">
                             <label for="youtube_link">لینک یوتیوب:</label>
                             <input class="form-control" id="youtube_link" name="youtube_link" type="text"
                                    value="{{ old('youtube_link') }}">
