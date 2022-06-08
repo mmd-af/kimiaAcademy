@@ -61,32 +61,37 @@
 {{--    </x-auth-card>--}}
 {{--</x-guest-layout>--}}
 
-<div class="container col-md-10">
+<div class="container py-5">
     <div class="row">
-        <div class="col-md-4 col-sm-12 border-1 shadow m-5">
+        <div class="col-md-5 col-sm-12 border-1 shadow m-4">
             <div class="text-center pt-4">
                 ثبت نام حساب کاربری
             </div>
-            <form class="px-4 py-3">
+            <form method="POST" action="{{ route('register')}}" class="px-4 py-3">
+                @csrf
                 <div class="form-group">
-                    <small for="" class="mr-1">نام</small>
-                    <input type="" class="form-control mt-2" id=" ">
+                    <small for="first_name" class="mr-1">نام</small>
+                    <input type="text" name="first_name" class="form-control mt-2" id="first_name"
+                           value="{{old('first_name')}}">
                 </div>
                 <div class="form-group">
-                    <small for="" class="mr-1">ایمیل</small>
-                    <input class="form-control mt-2" id=" ">
+                    <small for="email" class="mr-1">ایمیل</small>
+                    <input type="email" name="email" class="form-control mt-2" id="email" value="{{old('email')}}">
                 </div>
                 <div class="form-group">
-                    <small for="" class="mr-1">شماره موبایل</small>
-                    <input  class="form-control mt-2" id=" ">
+                    <small for="mobile_number" class="mr-1">شماره موبایل</small>
+                    <input type="number" name="mobile_number" class="form-control mt-2" id="mobile_number"
+                           value="{{old('mobile_number')}}">
                 </div>
                 <div class="form-group">
-                    <small for="" class="mr-1">رمز عبور</small>
-                    <input  class="form-control mt-2" id=" ">
+                    <small for="password" class="mr-1">رمز عبور</small>
+                    <input type="password" name="password" class="form-control mt-2" id="password"
+                           autocomplete="new-password">
                 </div>
                 <div class="form-group">
-                    <small for="" class="mr-1">تایید رمز عبور</small>
-                    <input  class="form-control mt-2" id=" ">
+                    <small for="password_confirmation" class="mr-1">تایید رمز عبور</small>
+                    <input type="password" name="password_confirmation" class="form-control mt-2"
+                           id="password_confirmation">
                 </div>
                 <button type="submit" class="btn btn-light col-12 mt-5">ثبت نام</button>
             </form>
@@ -100,7 +105,7 @@
 
         </div>
         <div class="col-md-6 mt-5 pt-5 text-center">
-            <img class=""  src="{{asset('assets/site/images/login-page-image.jpg')}}" alt="">
+            <img class="" src="{{asset('assets/site/images/login-page-image.jpg')}}" alt="">
         </div>
     </div>
 </div>
