@@ -22,7 +22,8 @@
                             <th>ردیف</th>
                             <th>نام دوره</th>
                             <th>قیمت</th>
-                            <th>با تخفیف</th>
+                            <th>تخفیف</th>
+                            <th>وضعیت</th>
                             <th>عملیات</th>
                         </tr>
                         </thead>
@@ -53,6 +54,7 @@
                     {data: 'title', name: 'title'},
                     {data: 'actual_price', name: 'actual_price'},
                     {data: 'discount_price', name: 'discount_price'},
+                    {data: 'is_active', name: 'is_active'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
 
                 ]

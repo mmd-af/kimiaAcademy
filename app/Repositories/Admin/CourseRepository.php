@@ -26,35 +26,35 @@ class CourseRepository extends BaseRepository
                 'actual_price',
                 'discount_price',
                 'is_active',
-                'course_lang',
-                'course_time',
-                'course_size',
-                'course_kind'
+//                'course_lang',
+//                'course_time',
+//                'course_size',
+//                'course_kind'
 
             ])->get();
 
     }
 
-    public function getLatest()
-    {
-        return Course::query()
-            ->select([
-                'id',
-                'title',
-                'slug',
-                'description',
-                'actual_price',
-                'discount_price',
-                'is_active',
-                'course_lang',
-                'course_time',
-                'course_size',
-                'course_kind'
-            ])
-            ->latest()
-            ->paginate(10);
-
-    }
+//    public function getLatest()
+//    {
+//        return Course::query()
+//            ->select([
+//                'id',
+//                'title',
+//                'slug',
+//                'description',
+//                'actual_price',
+//                'discount_price',
+//                'is_active',
+//                'course_lang',
+//                'course_time',
+//                'course_size',
+//                'course_kind'
+//            ])
+//            ->latest()
+//            ->paginate(10);
+//
+//    }
 
     public function getCategory()
     {
