@@ -56,6 +56,7 @@ class PostRepository
                 'type'
             ])
             ->where('type', 2)
+            ->orWhere('type', 3)
             ->get();
     }
 

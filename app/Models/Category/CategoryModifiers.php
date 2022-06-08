@@ -24,8 +24,11 @@ trait CategoryModifiers
     {
         if ($type == ECategoryType::COURSE) {
             return 'دوره های آموزشی ';
-        } elseif ($type == ECategoryType::POST) {
-            return 'مقالات';
+        } elseif ($type == ECategoryType::POST2) {
+            return 'مقالات داروشناسی';
+        }
+        elseif ($type == ECategoryType::POST3) {
+            return ' مقالات گیاه شناسی';
         }
 
     }

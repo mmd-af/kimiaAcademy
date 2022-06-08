@@ -38,8 +38,11 @@
                                         <label for="course">دوره های آموزشی</label>
                                         <input id="course" class="category_type" type="radio" value="1"
                                                name="cat_type">
-                                        <label for="post" class="mr-2">مقالات</label>
-                                        <input id="post" class="category_type" type="radio" value="2"
+                                        <label for="post2" class="mr-2">مقالات داروشناسی</label>
+                                        <input id="post2" class="category_type" type="radio" value="2"
+                                               name="cat_type">
+                                    <label for="post3" class="mr-2">مقالات گیاه شناسی</label>
+                                        <input id="post3" class="category_type" type="radio" value="3"
                                                name="cat_type">
                                 </div>
                             </div>
