@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-outline-primary mt-5" type="submit">ویرایش</button>
+                <button class="btn btn-success mt-5" type="submit">ویرایش</button>
                 <a href="{{ route('admin.categories.index') }}" class="btn btn-dark mt-5 mr-3">بازگشت</a>
             </form>
         </div>

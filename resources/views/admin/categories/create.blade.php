@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-12 mt-3 mr-3">
-                                <button class="btn btn-outline-success px-4" type="submit">ثبت</button>
+                                <button class="btn btn-success px-4" type="submit">ثبت</button>
                                 <a href="{{ route('admin.categories.index') }}"
                                    class="btn btn-outline-dark mr-3">بازگشت</a>
                             </div>

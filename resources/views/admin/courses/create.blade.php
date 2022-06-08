@@ -112,7 +112,7 @@
                     </div>
 
                     <div class="form-group col-md-12 mt-3">
-                        <button class="btn btn-outline-primary mt-5" type="submit">ثبت</button>
+                        <button class="btn btn-success mt-5" type="submit">ثبت</button>
                         <a href="{{ route('admin.courses.index') }}" class="btn btn-dark mt-5 mr-3">بازگشت</a>
                     </div>
                 </div>
