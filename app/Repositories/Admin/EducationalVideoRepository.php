@@ -3,6 +3,7 @@
 namespace App\Repositories\Admin;
 
 use App\Models\EducationalVideo\EducationalVideo;
+use App\Models\Video\Video;
 use Yajra\DataTables\Facades\DataTables;
 
 class EducationalVideoRepository
@@ -78,6 +79,9 @@ class EducationalVideoRepository
         $item->aparat_link = $request->input('aparat_link');
         $item->is_active = $request->input('is_active');
         $item->save();
+        $video = new Video();
+        $video->url = $request->input('url');
+        $item->videos()->save($video);
         return $item;
     }
 
