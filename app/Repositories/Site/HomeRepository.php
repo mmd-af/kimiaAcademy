@@ -27,7 +27,7 @@ class HomeRepository
                 'aparat_link',
                 'is_active'
             ])
-            ->with('videos')
+            ->with('images')
             ->where('is_active', 1)
             ->orderBy('id', 'ASC')
             ->get();
@@ -45,6 +45,7 @@ class HomeRepository
             ->whereHas('categories', function (Builder $query) {
                 $query->where('type', ECategoryType::PHARMACOLOGY_POST);
             })
+            ->with('images')
             ->limit(3)
             ->get();
     }
@@ -61,6 +62,7 @@ class HomeRepository
             ->whereHas('categories', function (Builder $query) {
                 $query->where('type', ECategoryType::MEDICINAL_PLANTS_POST);
             })
+            ->with('images')
             ->limit(3)
             ->get();
     }

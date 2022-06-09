@@ -79,9 +79,9 @@ class EducationalVideoRepository
         $item->aparat_link = $request->input('aparat_link');
         $item->is_active = $request->input('is_active');
         $item->save();
-        $video = new Video();
-        $video->url = $request->input('url');
-        $item->videos()->save($video);
+        $image = new Image();
+        $image->url = $request->input('url');
+        $item->images()->save($image);
         return $item;
     }
 

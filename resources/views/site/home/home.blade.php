@@ -135,7 +135,7 @@
                                 <div class="card-body product-1 align-items-center p-2 text-center">
                                     <div class="image-container radius-video">
                                         <img class="d-block w-100"
-                                             src="{{asset($educationalvideo->videos->url)}}"
+                                             src="{{asset($educationalvideo->images->url)}}"
                                              alt="Second slide"></div>
                                     <div class="product-description py-2 text-right">
                                         <h5 class="text-center">{{$educationalvideo->title}}</h5>
@@ -178,7 +178,7 @@
                         <div class="card-body row justify-content-between">
                             <div class="col-4 col-md-3">
                                 <img class="rounded img-fluid img-thumbnail"
-                                     src="{{asset($post->videos->url)}}"
+                                     src="{{asset($post->images->url)}}"
                                      alt="Responsive image">
                             </div>
                             <div class="col-8 col-md-9">
@@ -209,7 +209,7 @@
                         <div class="card-body row justify-content-between">
                             <div class="col-4 col-md-3">
                                 <img class="rounded img-fluid img-thumbnail"
-                                     src="{{asset($post->videos->url)}}"
+                                     src="{{asset($post->images->url)}}"
                                      alt="Responsive image">
                             </div>
                             <div class="col-8 col-md-9">

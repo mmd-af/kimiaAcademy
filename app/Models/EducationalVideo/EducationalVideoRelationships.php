@@ -2,12 +2,12 @@
 
 namespace App\Models\EducationalVideo;
 
-use App\Models\Video\Video;
+use App\Models\Image\Image;
 
 trait EducationalVideoRelationships
 {
-    public function videos()
+    public function images()
     {
-        return $this->morphOne(Video::class, 'videoable');
+        return $this->morphOne(Image::class, 'imageable');
     }
 }

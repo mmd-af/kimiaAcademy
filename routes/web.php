@@ -36,9 +36,9 @@ Route::get('/query', function () {
 Route::get('/query1', function () {
     $educationals = App\Models\EducationalVideo\EducationalVideo::all();
     foreach ($educationals as $educational) {
-        $video = new Video();
-        $video->url = "/storage/photos/51/111111 (1).jpg";
-        $educational->videos()->save($video);
+        $image = new Image();
+        $image->url = "/storage/photos/51/111111 (1).jpg";
+        $educational->images()->save($image);
     }
     return "query is finished1";
 });
@@ -60,9 +60,9 @@ Route::get('/query2', function () {
 Route::get('/query3', function () {
     $posts = App\Models\Post\Post::all();
     foreach ($posts as $post) {
-        $video = new Image();
-        $video->url = "/storage/photos/51/111111 (1).jpg";
-        $post->images()->save($video);
+        $image = new Image();
+        $image->url = "/storage/photos/51/111111 (1).jpg";
+        $post->images()->save($image);
     }
     return "query is finished3";
 });
