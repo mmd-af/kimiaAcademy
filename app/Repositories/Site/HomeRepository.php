@@ -6,6 +6,8 @@ namespace App\Repositories\Site;
 use App\Enums\ECategoryType;
 use App\Models\Category\Category;
 use App\Models\EducationalVideo\EducationalVideo;
+use App\Models\Post\Post;
+use Illuminate\Database\Eloquent\Builder;
 
 class HomeRepository
 //    extends BaseRepository
@@ -31,15 +33,35 @@ class HomeRepository
             ->get();
     }
 
-    public function getPharmacologyCat()
+    public function getPharmacologyPost()
     {
-        return Category::query()
+        return Post::query()
             ->select([
                 'id',
-                'type'
+                'title',
+                'description'
             ])
-            ->with('posts')
-            ->where('type', ECategoryType::PHARMACOLOGY_POST)
+            ->where('is_active', 1)
+            ->whereHas('categories', function (Builder $query) {
+                $query->where('type', ECategoryType::PHARMACOLOGY_POST);
+            })
+            ->limit(3)
+            ->get();
+    }
+
+    public function getMedicinalPost()
+    {
+        return Post::query()
+            ->select([
+                'id',
+                'title',
+                'description'
+            ])
+            ->where('is_active', 1)
+            ->whereHas('categories', function (Builder $query) {
+                $query->where('type', ECategoryType::MEDICINAL_PLANTS_POST);
+            })
+            ->limit(3)
             ->get();
     }
 

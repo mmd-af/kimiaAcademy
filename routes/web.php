@@ -54,5 +54,16 @@ Route::get('/query2', function () {
     return "query is finished2";
 });
 
+//  add video link to posts
+
+Route::get('/query3', function () {
+    $posts = App\Models\Post\Post::all();
+    foreach ($posts as $post) {
+        $video = new Video();
+        $video->url = "/storage/photos/51/111111 (1).jpg";
+        $post->videos()->save($video);
+    }
+    return "query is finished3";
+});
 
 require __DIR__ . '/auth.php';

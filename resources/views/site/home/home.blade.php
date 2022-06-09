@@ -121,9 +121,6 @@
             </div>
         </div>
     </div>
-
-    <hr>
-
     <div class="course-education half-circle mb-3">
         <div class="container mb-5 mt-5 ">
             <div class="top-circle"></div>
@@ -142,7 +139,6 @@
                                              alt="Second slide"></div>
                                     <div class="product-description py-2 text-right">
                                         <h5 class="text-center">{{$educationalvideo->title}}</h5>
-                                        {{--                                        @if($educationalvideo->aparat_link)--}}
                                         <div class="mt-3 info px-2">
                                             <a href="{{$educationalvideo->aparat_link}}" class="text-gray"
                                                target="_blank">
@@ -152,15 +148,12 @@
                                                 لینک آپارات
                                             </a>
                                         </div>
-                                        {{--                                        @endif--}}
-                                        {{--                                        @if($educationalvideo->youtube_link)--}}
                                         <div class="mt-3 info px-2">
                                             <a href="{{$educationalvideo->youtube_link}}" target="_blank"><i
                                                     class="fab fa-youtube mx-2 aparat-icon fa-lg"></i>
                                                 لینک یوتیوب
                                             </a>
                                         </div>
-                                        {{--                                        @endif--}}
                                     </div>
                                 </div>
                                 {{--TODO btn hover--}}
@@ -172,9 +165,6 @@
             <div class="bottom-circle"></div>
         </div>
     </div>
-
-    <hr>
-
     <div class="container mb-5 mt-5 ">
         {{--TODO admin dashbord--}}
         <div class="text-center mb-4 home-hr-text col-md-8 pt-md-4">
@@ -182,30 +172,27 @@
         </div>
         <div class="row justify-content-center ">
             <div class="col-md-8 mt-4">
-                @foreach($pharmacologyCat as $category)
-                    @foreach($category->posts as $post)
-                        <div class="card border-0 mb-4 ">
-                            <div class="card-body row justify-content-between">
-                                <div class="col-4 col-md-3">
-                                    <img class="rounded img-fluid img-thumbnail"
-                                         src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
-                                         alt="Responsive image">
-                                </div>
-                                <div class="col-8 col-md-9">
-                                    <h5 class="card-title">{{$post->title}}</h5>
-                                    <p class="card-text">
-                                        {{--                                        {!! $post->description !!}--}}
-                                        {{ Str::limit($post->description, 250)}}
-                                    </p>
-                                    <div class="align-self-end mt-2">
-                                        <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
-                                    </div>
+
+                @foreach($pharmacologyPost as $post)
+                    <div class="card border-0 mb-4 ">
+                        <div class="card-body row justify-content-between">
+                            <div class="col-4 col-md-3">
+                                <img class="rounded img-fluid img-thumbnail"
+                                     src="{{asset($post->videos->url)}}"
+                                     alt="Responsive image">
+                            </div>
+                            <div class="col-8 col-md-9">
+                                <h5 class="card-title">{{$post->title}}</h5>
+                                <p class="card-text">
+                                    {{ Str::limit($post->description, 250)}}
+                                </p>
+                                <div class="align-self-end mt-2">
+                                    <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
                 @endforeach
-
             </div>
         </div>
     </div>
@@ -217,71 +204,26 @@
         </div>
         <div class="row justify-content-center ">
             <div class="col-md-8  mt-4">
-
-                <div class="card border-0 mb-4 ">
-                    <div class="card-body row justify-content-between">
-                        <div class="col-4 col-md-3">
-                            <img class="rounded img-fluid img-thumbnail"
-                                 src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
-                                 alt="Responsive image">
-                        </div>
-                        <div class="col-8 col-md-9">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">
-                                With supporting text below as a natural lead-in to additional
-                                content.
-
-                            </p>
-                            <div class="align-self-end mt-2">
-                                <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
+                @foreach($medicinalPost as $post)
+                    <div class="card border-0 mb-4 ">
+                        <div class="card-body row justify-content-between">
+                            <div class="col-4 col-md-3">
+                                <img class="rounded img-fluid img-thumbnail"
+                                     src="{{asset($post->videos->url)}}"
+                                     alt="Responsive image">
+                            </div>
+                            <div class="col-8 col-md-9">
+                                <h5 class="card-title">{{$post->title}}</h5>
+                                <p class="card-text">
+                                    {{ Str::limit($post->description, 250)}}
+                                </p>
+                                <div class="align-self-end mt-2">
+                                    <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-
-                <div class="card border-0 mb-4 ">
-                    <div class="card-body row justify-content-between">
-                        <div class="col-4 col-md-3">
-                            <img class="rounded img-fluid img-thumbnail"
-                                 src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
-                                 alt="Responsive image">
-                        </div>
-                        <div class="col-8 col-md-9">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">
-                                With supporting text below as a natural lead-in to additional
-                                content.
-
-                            </p>
-                            <div class="align-self-end mt-2">
-                                <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="card border-0 mb-4 ">
-                    <div class="card-body row justify-content-between">
-                        <div class="col-4 col-md-3">
-                            <img class="rounded img-fluid img-thumbnail"
-                                 src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
-                                 alt="Responsive image">
-                        </div>
-                        <div class="col-8 col-md-9">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">
-                                With supporting text below as a natural lead-in to additional
-                                content.
-
-                            </p>
-                            <div class="align-self-end mt-2">
-                                <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
