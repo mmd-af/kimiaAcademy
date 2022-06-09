@@ -24,12 +24,11 @@ trait CategoryModifiers
     {
         if ($type == ECategoryType::COURSE) {
             return 'دوره های آموزشی ';
-        } elseif ($type == ECategoryType::POST2) {
+        } elseif ($type == ECategoryType::PHARMACOLOGY_POST) {
             return 'مقالات داروشناسی';
         }
-        elseif ($type == ECategoryType::POST3) {
+        elseif ($type == ECategoryType::MEDICINAL_PLANTS_POST) {
             return ' مقالات گیاه شناسی';
         }
-
     }
 }
