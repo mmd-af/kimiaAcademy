@@ -3,6 +3,7 @@
 namespace App\Models\Category;
 
 use App\Models\Course\Course;
+use App\Models\Post\Post;
 
 trait CategoryRelationships
 {
@@ -23,11 +24,11 @@ trait CategoryRelationships
         return $this->morphedByMany(Course::class, 'categorizable');
     }
 
-//    public function posts()
-//    {
-//        return $this->morphedByMany(Post::class, 'categorizable');
-//    }
-//
+    public function posts()
+    {
+        return $this->morphedByMany(Post::class, 'categorizable');
+    }
+
 //    public function posts()
 //    {
 //        return $this->morphedByMany('App\Post', 'categorizable');

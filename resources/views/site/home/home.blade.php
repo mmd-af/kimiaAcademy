@@ -132,8 +132,6 @@
             </div>
             <div class="row  justify-content-center ">
                 <div class=" slick-carousel section-video">
-
-
                     @foreach($educationalvideos as $educationalvideo)
                         <div class="col-md-12 col-sm-6 py-4">
                             <div class="card mt-3 shadow radius-video">
@@ -144,105 +142,31 @@
                                              alt="Second slide"></div>
                                     <div class="product-description py-2 text-right">
                                         <h5 class="text-center">{{$educationalvideo->title}}</h5>
-{{--                                        @if($educationalvideo->aparat_link)--}}
-                                            <div class="mt-3 info px-2">
-                                                <a href="{{$educationalvideo->aparat_link}}" class="text-gray"
-                                                   target="_blank">
-                                                    <img class="aparat-icon mx-2"
-                                                         src="{{asset('assets/site/images/icons/aparat-25x25.svg')}}"
-                                                         alt="">
-                                                    لینک آپارات
-                                                </a>
-                                            </div>
-{{--                                        @endif--}}
-{{--                                        @if($educationalvideo->youtube_link)--}}
-                                            <div class="mt-3 info px-2">
-                                                <a href="{{$educationalvideo->youtube_link}}" target="_blank"><i
-                                                        class="fab fa-youtube mx-2 aparat-icon fa-lg"></i>
-                                                    لینک یوتیوب
-                                                </a>
-                                            </div>
-{{--                                        @endif--}}
+                                        {{--                                        @if($educationalvideo->aparat_link)--}}
+                                        <div class="mt-3 info px-2">
+                                            <a href="{{$educationalvideo->aparat_link}}" class="text-gray"
+                                               target="_blank">
+                                                <img class="aparat-icon mx-2"
+                                                     src="{{asset('assets/site/images/icons/aparat-25x25.svg')}}"
+                                                     alt="">
+                                                لینک آپارات
+                                            </a>
+                                        </div>
+                                        {{--                                        @endif--}}
+                                        {{--                                        @if($educationalvideo->youtube_link)--}}
+                                        <div class="mt-3 info px-2">
+                                            <a href="{{$educationalvideo->youtube_link}}" target="_blank"><i
+                                                    class="fab fa-youtube mx-2 aparat-icon fa-lg"></i>
+                                                لینک یوتیوب
+                                            </a>
+                                        </div>
+                                        {{--                                        @endif--}}
                                     </div>
                                 </div>
                                 {{--TODO btn hover--}}
                             </div>
                         </div>
                     @endforeach
-
-                    {{--                    <div class="col-md-12 col-sm-6 py-4">--}}
-                    {{--                        <div class="card mt-3 shadow radius-video">--}}
-                    {{--                            <div class="card-body product-1 align-items-center p-2 text-center">--}}
-                    {{--                                <div class="image-container radius-video">--}}
-                    {{--                                    <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"--}}
-                    {{--                                         alt="Second slide"></div>--}}
-                    {{--                                <div class="product-description py-2 text-right">--}}
-                    {{--                                    <h5 class="text-center">عنوان اصلی</h5>--}}
-                    {{--                                    <div class="mt-3 info px-2"><a href="" class="text-gray">--}}
-                    {{--                                            <img class="aparat-icon mx-2"--}}
-                    {{--                                                src="{{asset('assets/site/images/icons/aparat-25x25.svg')}}"--}}
-                    {{--                                                alt="">--}}
-                    {{--                                            لینک آپارات</a></div>--}}
-                    {{--                                    <div class="mt-3 info px-2"><a href=""><i--}}
-                    {{--                                                class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a>--}}
-                    {{--                                    </div>--}}
-                    {{--                                </div>--}}
-                    {{--                            </div>--}}
-                    {{--                            --}}{{--TODO btn hover--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-                    {{--                    --}}
-
-
-
-                    {{--                    <div class="col-md-12 col-sm-6 py-4">--}}
-                    {{--                        <div class="card mt-3 shadow radius-video">--}}
-                    {{--                            <div class="card-body product-1 align-items-center p-2 text-center">--}}
-                    {{--                                <div class="image-container radius-video">--}}
-                    {{--                                    <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"--}}
-                    {{--                                         alt="Second slide"></div>--}}
-                    {{--                                <div class="product-description py-2 text-right">--}}
-                    {{--                                    <h5 class="text-center">عنوان اصلی</h5>--}}
-                    {{--                                    <div class="mt-3 info px-2"><a href="" class="text-gray"><img--}}
-                    {{--                                                class="aparat-icon mx-2"--}}
-                    {{--                                                src="{{asset('assets/site/images/icons/aparat-25x25.svg')}}"--}}
-                    {{--                                                alt="">--}}
-                    {{--                                            لینک آپارات</a>--}}
-                    {{--                                    </div>--}}
-                    {{--                                    <div class="mt-3 info px-2"><a href="">--}}
-                    {{--                                            <i class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a>--}}
-                    {{--                                    </div>--}}
-                    {{--                                </div>--}}
-                    {{--                            </div>--}}
-                    {{--                            --}}{{--TODO btn hover--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-                    {{--                    --}}
-
-
-
-                    {{--                    <div class="col-md-12 col-sm-6 py-4">--}}
-                    {{--                        <div class="card mt-3 shadow radius-video">--}}
-                    {{--                            <div class="card-body product-1 align-items-center p-2 text-center">--}}
-                    {{--                                <div class="image-container radius-video">--}}
-                    {{--                                    <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"--}}
-                    {{--                                         alt="Second slide"></div>--}}
-                    {{--                                <div class="product-description py-2 text-right">--}}
-                    {{--                                    <h5 class="text-center">عنوان اصلی</h5>--}}
-                    {{--                                    <div class="mt-3 info px-2"><a href="" class="text-gray"><img--}}
-                    {{--                                                class="aparat-icon mx-2"--}}
-                    {{--                                                src="{{asset('assets/site/images/icons/aparat-25x25.svg')}}"--}}
-                    {{--                                                alt="">--}}
-                    {{--                                            لینک آپارات</a></div>--}}
-                    {{--                                    <div class="mt-3 info px-2"><a href=""><i--}}
-                    {{--                                                class="fab fa-youtube mx-2 aparat-icon fa-lg"></i> لینک یوتیوب</a></div>--}}
-                    {{--                                </div>--}}
-                    {{--                            </div>--}}
-                    {{--                            --}}{{--TODO btn hover--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-
-
                 </div>
             </div>
             <div class="bottom-circle"></div>
@@ -258,70 +182,29 @@
         </div>
         <div class="row justify-content-center ">
             <div class="col-md-8 mt-4">
-
-                <div class="card border-0 mb-4 ">
-                    <div class="card-body row justify-content-between">
-                        <div class="col-4 col-md-3">
-                            <img class="rounded img-fluid img-thumbnail"
-                                 src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
-                                 alt="Responsive image">
-                        </div>
-                        <div class="col-8 col-md-9">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">
-                                With supporting text below as a natural lead-in to additional
-                                content.
-
-                            </p>
-                            <div class="align-self-end mt-2">
-                                <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
+                @foreach($pharmacologyCat as $category)
+                    @foreach($category->posts as $post)
+                        <div class="card border-0 mb-4 ">
+                            <div class="card-body row justify-content-between">
+                                <div class="col-4 col-md-3">
+                                    <img class="rounded img-fluid img-thumbnail"
+                                         src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
+                                         alt="Responsive image">
+                                </div>
+                                <div class="col-8 col-md-9">
+                                    <h5 class="card-title">{{$post->title}}</h5>
+                                    <p class="card-text">
+                                        {{--                                        {!! $post->description !!}--}}
+                                        {{ Str::limit($post->description, 250)}}
+                                    </p>
+                                    <div class="align-self-end mt-2">
+                                        <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="card border-0 mb-4 ">
-                    <div class="card-body row justify-content-between">
-                        <div class="col-4 col-md-3">
-                            <img class="rounded img-fluid img-thumbnail"
-                                 src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
-                                 alt="Responsive image">
-                        </div>
-                        <div class="col-8 col-md-9">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">
-                                With supporting text below as a natural lead-in to additional
-                                content.
-
-                            </p>
-                            <div class="align-self-end mt-2">
-                                <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card border-0 mb-4 ">
-                    <div class="card-body row justify-content-between">
-                        <div class="col-4 col-md-3">
-                            <img class="rounded img-fluid img-thumbnail"
-                                 src="holder.js/500x500?auto=yes&bg=666&fg=444&text=picture"
-                                 alt="Responsive image">
-                        </div>
-                        <div class="col-8 col-md-9">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">
-                                With supporting text below as a natural lead-in to additional
-                                content.
-
-                            </p>
-                            <div class="align-self-end mt-2">
-                                <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                    @endforeach
+                @endforeach
 
             </div>
         </div>

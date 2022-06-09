@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Site\Home;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category\Category;
+use App\Models\Post\Post;
 use App\Repositories\Site\HomeRepository;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class HomeController extends Controller
 {
@@ -18,6 +21,8 @@ class HomeController extends Controller
     public function index()
     {
         $educationalvideos = $this->HomeRepository->getEducatinalVideo();
-        return view('site.home.home', compact('educationalvideos'));
+        $pharmacologyCat = $this->HomeRepository->getPharmacologyCat();
+        return view('site.home.home', compact('educationalvideos', 'pharmacologyCat'));
+
     }
 }
