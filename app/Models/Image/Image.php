@@ -13,6 +13,6 @@ class Image extends Model
         ImageRelationships,
         ImageModifiers;
 
-    protected $table = 'videos';
+    protected $table = 'images';
 
 }

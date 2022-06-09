@@ -4,6 +4,7 @@ namespace App\Repositories\Admin;
 ;
 
 use App\Models\Category\Category;
+use App\Models\Image\Image;
 use App\Models\Post\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -91,24 +92,24 @@ class PostRepository
 
     public function store($request)
     {
-        DB::beginTransaction();
-        try {
-            $id = Auth::id();
-            $item = new Post();
-            $item->user_id = $id;
-            $item->title = $request->input('title');
-            $item->slug = $request->input('slug');
-            $item->description = $request->input('description');
-            $item->view_count = $request->input('view_count');
-            $item->is_active = $request->input('is_active');
-            $item->save();
-            $item->categories()->attach($request->input('category_id'));
-            DB::commit();
-            return $item;
-        } catch (\Exception $error) {
-            DB::rollback();
-            return $error;
-        }
+
+        $id = Auth::id();
+        $item = new Post();
+        $item->user_id = $id;
+        $item->title = $request->input('title');
+        $item->slug = $request->input('slug');
+        $item->description = $request->input('description');
+        $item->view_count = $request->input('view_count');
+        $item->is_active = $request->input('is_active');
+        $item->save();
+
+        $item->categories()->attach($request->input('category_id'));
+
+        $image = new Image();
+        $image->url = $request->input('url');
+        $item->images()->save($image);
+
+
     }
 
     public function update($request, $post)

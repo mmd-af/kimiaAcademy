@@ -3,7 +3,7 @@
 namespace App\Models\Post;
 
 use App\Models\Category\Category;
-use App\Models\Video\Video;
+use App\Models\Image\Image;
 
 trait PostRelationships
 {
@@ -13,8 +13,8 @@ trait PostRelationships
         return $this->morphToMany(Category::class, 'categorizable');
     }
 
-    public function videos()
+    public function images()
     {
-        return $this->morphOne(Video::class, 'videoable');
+        return $this->morphOne(Image::class, 'imageable');
     }
 }

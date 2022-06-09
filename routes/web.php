@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Image\Image;
 use App\Models\Video\Video;
 use Illuminate\Support\Facades\Route;
 
@@ -59,9 +60,9 @@ Route::get('/query2', function () {
 Route::get('/query3', function () {
     $posts = App\Models\Post\Post::all();
     foreach ($posts as $post) {
-        $video = new Video();
+        $video = new Image();
         $video->url = "/storage/photos/51/111111 (1).jpg";
-        $post->videos()->save($video);
+        $post->images()->save($video);
     }
     return "query is finished3";
 });

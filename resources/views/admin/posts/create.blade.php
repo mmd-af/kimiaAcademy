@@ -31,7 +31,19 @@
                                    value="{{ old('slug') }}">
                         </div>
                     </div>
-
+                    <div class="form-group col-md-12 mt-3">
+                        <div class="form-group col-md-3">
+                            <label for="url">تصویر:</label>
+                            <div class="input-group">
+                                <input id="thumbnail" class="form-control" type="text" name="url"
+                                       value="{{ old('url') }}">
+                                <a id="images" data-input="thumbnail" data-preview="holder"
+                                   class="btn btn-primary text-light">
+                                    انتخاب
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group col-md-3">
                         <label for="category_id">نوع دسته</label>
                         <select class="form-control selectpicker" data-live-search="true" id="category_id"
@@ -69,15 +81,16 @@
 
 @section('script')
     <script>
-        $(function () {
-            $('.selectpicker').selectpicker();
-        });
+        var options = {
+            filebrowserImageBrowseUrl: '/filemanager?type=Images',
+            filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
+            filebrowserBrowseUrl: '/filemanager?type=Files',
+            filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
+        };
 
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .catch(error => {
-                console.error(error);
-            });
+        CKEDITOR.replace('editor', options);
+
+        $('#images').filemanager('image');
     </script>
 
 @endsection

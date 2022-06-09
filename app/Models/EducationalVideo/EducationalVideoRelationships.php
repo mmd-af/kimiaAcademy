@@ -2,7 +2,6 @@
 
 namespace App\Models\EducationalVideo;
 
-use App\Models\Category\Category;
 use App\Models\Video\Video;
 
 trait EducationalVideoRelationships
