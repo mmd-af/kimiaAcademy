@@ -11,8 +11,8 @@ class EducationalVideoFactory extends Factory
     {
         return [
             'title' => $this->faker->realTextBetween(5, 15),
-            'youtube_link' => $this->faker->realTextBetween(10, 15),
-            'aparat_link' => $this->faker->realTextBetween(10, 15),
+            'youtube_link' => "https://www.youtube.com/watch?v=G2ikFVP8csw",
+            'aparat_link' => "https://www.aparat.com/v/uGFzx",
             'is_active' => 1,
         ];
     }

@@ -39,40 +39,17 @@ Route::get('/query1', function () {
     return "query is finished1";
 });
 
-//  add youtube and aparat video link to educationalVideo
-
-Route::get('/query2', function () {
-    $educationals = App\Models\EducationalVideo\EducationalVideo::all();
-    foreach ($educationals as $educational) {
-        $educational->aparat_link = "https://www.aparat.com/v/uGFzx";
-        $educational->youtube_link = "https://www.youtube.com/watch?v=G2ikFVP8csw";
-        $educational->save();
-    }
-    return "query is finished2";
-});
-
 //  add video link to posts
 
-Route::get('/query3', function () {
+Route::get('/query2', function () {
     $posts = App\Models\Post\Post::all();
     foreach ($posts as $post) {
         $image = new Image();
         $image->url = "/storage/photos/51/111111 (1).jpg";
         $post->images()->save($image);
     }
-    return "query is finished3";
+    return "query is finished2";
 });
 
-
-
-Route::get('/query4', function () {
-    $posts = \App\Models\User::all();
-    foreach ($posts as $post) {
-        $post->firstname = "gholi";
-        $post->lastname = "gholiZade";
-        $post->save();
-    }
-    return "query is finished4";
-});
 
 require __DIR__ . '/auth.php';

@@ -2,22 +2,19 @@
 
 namespace Database\Factories\Category;
 
-use Faker\Core\Number;
+use App\Models\Category\Category;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class CategoryFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
+
     public function definition()
     {
+        $title = $this->faker->realTextBetween(5, 15);
         return [
-            'title' => $this->faker->realTextBetween(5, 15),
-            'slug' => $this->faker->realTextBetween(5, 15),
+            'title' => $title,
+            'slug' => SlugService::createSlug(Category::class, 'slug', $title),
             'parent_id' => 0,
             'type' => rand(1, 3),
         ];
