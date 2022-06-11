@@ -41,6 +41,20 @@
                         </select>
                     </div>
 
+                    <div class="form-group col-md-12 mt-5">
+                        <div class="form-group col-md-3">
+                            <label for="url">ویرایش تصویر:</label>
+                            <div class="input-group">
+                                <input id="thumbnail" class="form-control" type="text" name="url"
+                                       value="{{$post->images->url}}">
+                                <a id="images" data-input="thumbnail" data-preview="holder"
+                                   class="btn btn-primary text-light">
+                                    انتخاب
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group col-md-12">
                         <label for="description">توضیحات</label>
                         <textarea class="form-control" id="editor"
@@ -71,11 +85,5 @@
         $(function () {
             $('.selectpicker').selectpicker();
         });
-
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .catch(error => {
-                console.error(error);
-            });
     </script>
 @endsection

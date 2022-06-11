@@ -123,6 +123,7 @@ class PostRepository
             $post->is_active = $request->input('is_active');
             $post->save();
             $post->categories()->sync($request->input('category_id'));
+            $post->images()->update(['url' => $request->input('url')]);
             DB::commit();
             return $post;
         } catch (\Exception $error) {

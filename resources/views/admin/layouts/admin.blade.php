@@ -66,6 +66,21 @@
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
 
+
+<script>
+    var options = {
+        filebrowserImageBrowseUrl: '/filemanager?type=Images',
+        filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl: '/filemanager?type=Files',
+        filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
+    };
+
+    CKEDITOR.replace('editor', options);
+
+    $('#lfm').filemanager('file');
+    $('#images').filemanager('image');
+
+</script>
 {{--@include('sweet::alert')--}}
 
 @yield('script')
