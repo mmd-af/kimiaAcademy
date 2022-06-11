@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
     <!-- Content Row -->
     <div class="row">
         <div class="col-xl-12 col-md-12 mb-4 p-4 bg-white">
@@ -119,24 +118,4 @@
             </form>
         </div>
     </div>
-
-
-@endsection
-
-@section('script')
-
-    <script>
-        // $("#czTag").czMore();
-        var options = {
-            filebrowserImageBrowseUrl: '/filemanager?type=Images',
-            filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
-            filebrowserBrowseUrl: '/filemanager?type=Files',
-            filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
-        };
-
-        CKEDITOR.replace('editor', options);
-
-        $('#lfm').filemanager('file');
-    </script>
-
 @endsection

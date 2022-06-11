@@ -55,19 +55,5 @@
             </form>
         </div>
     </div>
-
 @endsection
 
-@section('script')
-    <script>
-        $(function () {
-            $('.selectpicker').selectpicker();
-        });
-
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
-@endsection

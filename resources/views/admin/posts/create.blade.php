@@ -76,21 +76,5 @@
             </form>
         </div>
     </div>
-
 @endsection
 
-@section('script')
-    <script>
-        var options = {
-            filebrowserImageBrowseUrl: '/filemanager?type=Images',
-            filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
-            filebrowserBrowseUrl: '/filemanager?type=Files',
-            filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
-        };
-
-        CKEDITOR.replace('editor', options);
-
-        $('#images').filemanager('image');
-    </script>
-
-@endsection
