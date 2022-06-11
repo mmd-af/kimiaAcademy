@@ -95,4 +95,24 @@ class HomeRepository
             ->get();
     }
 
+    public function getCategoryFilter($category)
+    {
+        return Post::query()
+            ->select([
+                'id',
+                'user_id',
+                'title',
+                'description'
+            ])
+            ->where('is_active', 1)
+            ->whereHas('categories', function (Builder $query) use ($category) {
+                $query->where('categories.id', $category);
+            })
+            ->with(['images', 'users'])
+            ->latest()
+            ->paginate(10);
+
+
+    }
+
 }

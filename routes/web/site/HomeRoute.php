@@ -13,5 +13,10 @@ Route::group(['middleware' => ['web'], 'namespace' => 'App\Http\Controllers\Site
         'as' => 'blog',
         'uses' => 'HomeController@blog'
     ]);
+    Route::post('/blog/categoryfilter/{category}', [
+        'as' => 'blog.categoryfilter',
+        'uses' => 'HomeController@categoryFilter'
+    ]);
+
 
 });
