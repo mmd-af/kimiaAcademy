@@ -27,6 +27,7 @@ class HomeController extends Controller
     public function blog()
     {
         $posts = $this->HomeRepository->getPosts();
-        return view('site.blog.blog', compact('posts'));
+        $postCategories = $this->HomeRepository->postCategories();
+        return view('site.blog.blog', compact('posts', 'postCategories'));
     }
 }

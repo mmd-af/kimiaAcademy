@@ -32,6 +32,19 @@ class HomeRepository
             ->paginate(10);
     }
 
+    public function postCategories()
+    {
+        return Category::query()
+            ->select([
+                'id',
+                'title',
+                'type'
+            ])
+            ->where('type', ECategoryType::PHARMACOLOGY_POST)
+            ->orWhere('type', ECategoryType::MEDICINAL_PLANTS_POST)
+            ->get();
+    }
+
     public function getEducatinalVideo()
     {
         return EducationalVideo::query()

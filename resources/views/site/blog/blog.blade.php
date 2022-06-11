@@ -49,56 +49,53 @@
                 <div class="col-lg-4">
 
                     <div class="sidebar">
-
                         <h3 class="sidebar-title">جستجو</h3>
                         <div class="sidebar-item search-form">
                             <form action="">
-
                                 <input type="text" class="form-control">
                                 <button type="submit" class=""><i class="fa fa-search"></i></button>
-
                             </form>
                         </div><!-- End sidebar search formn-->
-
                         <h3 class="sidebar-title">دسته بندی ها</h3>
                         <div class="sidebar-item categories">
                             <ul>
-                                <li><a href="#">دسته اول <span>(25)</span></a></li>
-                                <li><a href="#">دسته دوم <span>(12)</span></a></li>
-                                <li><a href="#">دسته سوم <span>(5)</span></a></li>
-                                <li><a href="#">دسته چهارم <span>(22)</span></a></li>
-                                <li><a href="#">دسته پنجم <span>(8)</span></a></li>
-                            </ul>
+                                @foreach($postCategories as $category)
+                                <li><a href="">{{$category->title}}
+{{--                                        <span>(25)</span>--}}
+                                    </a></li>
+                                @endforeach
+                                                  </ul>
                         </div><!-- End sidebar categories-->
 
-                        <h3 class="sidebar-title">مطالب اخیر</h3>
-                        <div class="sidebar-item recent-posts">
-                            <div class="post-item clearfix">
-                                <img src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture" alt="">
-                                <h4><a href="blog-single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                <time datetime="2020-01-01">2 روز قبل</time>
-                            </div>
+{{--                        <h3 class="sidebar-title">مطالب اخیر</h3>--}}
+{{--                        <div class="sidebar-item recent-posts">--}}
+{{--                            <div class="post-item clearfix">--}}
+{{--                                <img src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture" alt="">--}}
+{{--                                <h4><a href="blog-single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>--}}
+{{--                                <time datetime="2020-01-01">2 روز قبل</time>--}}
+{{--                            </div>--}}
 
-                            <div class="post-item clearfix">
-                                <img src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture" alt="">
-                                <h4><a href="blog-single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                <time datetime="2020-01-01">3 روز قبل</time>
-                            </div>
+{{--                            <div class="post-item clearfix">--}}
+{{--                                <img src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture" alt="">--}}
+{{--                                <h4><a href="blog-single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>--}}
+{{--                                <time datetime="2020-01-01">3 روز قبل</time>--}}
+{{--                            </div>--}}
 
-                            <div class="post-item clearfix">
-                                <img src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture" alt="">
-                                <h4><a href="blog-single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                <time datetime="2020-01-01">14 روز قبل</time>
-                            </div>
+{{--                            <div class="post-item clearfix">--}}
+{{--                                <img src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture" alt="">--}}
+{{--                                <h4><a href="blog-single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>--}}
+{{--                                <time datetime="2020-01-01">14 روز قبل</time>--}}
+{{--                            </div>--}}
 
-                            <div class="post-item clearfix">
-                                <img src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture" alt="">
-                                <h4><a href="blog-single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                <time datetime="2020-01-01">2 ماه پیش</time>
-                            </div>
+{{--                            <div class="post-item clearfix">--}}
+{{--                                <img src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture" alt="">--}}
+{{--                                <h4><a href="blog-single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>--}}
+{{--                                <time datetime="2020-01-01">2 ماه پیش</time>--}}
+{{--                            </div>--}}
 
 
-                        </div><!-- End sidebar recent posts-->
+{{--                        </div>--}}
+                        <!-- End sidebar recent posts-->
 
                         {{--                        <h3 class="sidebar-title">Tags</h3>--}}
                         {{--                        <div class="sidebar-item tags">--}}
