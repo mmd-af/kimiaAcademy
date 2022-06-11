@@ -5,6 +5,7 @@ namespace App\Repositories\Admin;
 use App\Models\Category\Category;
 use App\Models\Course\Course;
 use App\Models\Video\Video;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -103,7 +104,7 @@ class CourseRepository
         try {
             $item = new Course();
             $item->title = $request->input('title');
-            $item->slug = $request->input('slug');
+            $item->slug = SlugService::createSlug(Course::class, 'slug', $request->input('slug'));
             $item->description = $request->input('description');
             $item->actual_price = $request->input('actual_price');
             $item->discount_price = $request->input('discount_price');
@@ -140,7 +141,7 @@ class CourseRepository
             $course->course_kind = $request->input('course_kind');
             $course->save();
             $course->categories()->sync($request->input('category_id'));
-            $course->videos()->update(['url' =>$request->input('url')]);
+            $course->videos()->update(['url' => $request->input('url')]);
             DB::commit();
             return $course;
         } catch (\Exception $error) {
