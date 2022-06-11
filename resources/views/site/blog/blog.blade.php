@@ -61,7 +61,7 @@
                             <ul>
                                 @foreach($postCategories as $category)
                                     <li>
-                                        <form action="{{route('blog.categoryfilter', ['category' => $category->id])}}"
+                                        <form action="{{route('blog.categoryfilter', ['category' => $category->slug])}}"
                                               method="post">
                                             @csrf
                                             <button type="submit" class="btn btn-link">{{$category->title}}

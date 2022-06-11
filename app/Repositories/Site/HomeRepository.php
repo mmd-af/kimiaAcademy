@@ -21,6 +21,7 @@ class HomeRepository
         return Post::query()
             ->select([
                 'id',
+                'slug',
                 'user_id',
                 'title',
                 'description',
@@ -37,6 +38,7 @@ class HomeRepository
         return Category::query()
             ->select([
                 'id',
+                'slug',
                 'title',
                 'type'
             ])
@@ -106,7 +108,7 @@ class HomeRepository
             ])
             ->where('is_active', 1)
             ->whereHas('categories', function (Builder $query) use ($category) {
-                $query->where('categories.id', $category);
+                $query->where('categories.slug', $category);
             })
             ->with(['images', 'users'])
             ->latest()
