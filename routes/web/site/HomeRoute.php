@@ -9,4 +9,9 @@ Route::group(['middleware' => ['web'], 'namespace' => 'App\Http\Controllers\Site
         'uses' => 'HomeController@index'
     ]);
 
+    Route::get('/blog', [
+        'as' => 'blog',
+        'uses' => 'HomeController@blog'
+    ]);
+
 });

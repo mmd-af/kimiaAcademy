@@ -16,6 +16,21 @@ class HomeRepository
 //    {
 //        $this->setModel($model);
 //    }
+    public function getPosts()
+    {
+        return Post::query()
+            ->select([
+                'id',
+                'user_id',
+                'title',
+                'description',
+                'created_at'
+            ])
+            ->where('is_active', 1)
+            ->with(['images', 'users'])
+            ->latest()
+            ->paginate(10);
+    }
 
     public function getEducatinalVideo()
     {

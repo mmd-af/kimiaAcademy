@@ -23,4 +23,10 @@ class HomeController extends Controller
         return view('site.home.home', compact('educationalvideos', 'pharmacologyPost', 'medicinalPost'));
 
     }
+
+    public function blog()
+    {
+        $posts = $this->HomeRepository->getPosts();
+        return view('site.blog.blog', compact('posts'));
+    }
 }

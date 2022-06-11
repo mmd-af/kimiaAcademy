@@ -8,10 +8,6 @@ Route::get('/videos', function () {
     return view('site.video.video');
 })->name('video');
 
-Route::get('/blog', function () {
-    return view('site.blog.blog');
-})->name('blog');
-
 Route::get('/contact-us', function () {
     return view('site.contact-us.contact-us');
 })->name('contact-us');
@@ -65,6 +61,18 @@ Route::get('/query3', function () {
         $post->images()->save($image);
     }
     return "query is finished3";
+});
+
+
+
+Route::get('/query4', function () {
+    $posts = \App\Models\User::all();
+    foreach ($posts as $post) {
+        $post->firstname = "gholi";
+        $post->lastname = "gholiZade";
+        $post->save();
+    }
+    return "query is finished4";
 });
 
 require __DIR__ . '/auth.php';
