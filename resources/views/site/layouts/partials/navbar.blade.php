@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <ul class="navbar-nav pr-0">
             <li class="navbar navbar-light ">
-                <a class="navbar-brand mt-2" href="{{route('home')}}">
+                <a class="navbar-brand mt-2" href="{{route('site.home.index')}}">
                     <img src="{{asset('assets/site/images/icons/logo.png')}}" class="img-fluid" style="height:50px;"
                          alt="">
                 </a>
@@ -23,7 +23,7 @@
                 {{--                    <a class="nav-link ml-5" href="">محصولات</a>--}}
                 {{--                </li>--}}
                 <li class="nav-item ">
-                    <a class="nav-link ml-5" href="{{route('blog')}}">مقالات آموزشی</a>
+                    <a class="nav-link ml-5" href="{{route('site.blog.index')}}">مقالات آموزشی</a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link ml-5" href="{{route('contact-us')}}">تماس با ما</a>

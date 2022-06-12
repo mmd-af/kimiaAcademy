@@ -21,20 +21,20 @@ class HomeController extends Controller
         $educationalvideos = $this->HomeRepository->getEducatinalVideo();
         $pharmacologyPost = $this->HomeRepository->getPharmacologyPost();
         $medicinalPost = $this->HomeRepository->getMedicinalPost();
-        return view('site.home.home', compact('educationalvideos', 'pharmacologyPost', 'medicinalPost'));
+        return view('site.home.index', compact('educationalvideos', 'pharmacologyPost', 'medicinalPost'));
     }
 
     public function blog()
     {
         $posts = $this->HomeRepository->getPosts();
         $postCategories = $this->HomeRepository->postCategories();
-        return view('site.blog.blog', compact('posts', 'postCategories'));
+        return view('site.blog.index', compact('posts', 'postCategories'));
     }
 
     public function categoryFilter($category)
     {
         $posts = $this->HomeRepository->getCategoryFilter($category);
         $postCategories = $this->HomeRepository->postCategories();
-        return view('site.blog.blog', compact('posts', 'postCategories'));
+        return view('site.blog.index', compact('posts', 'postCategories'));
     }
 }

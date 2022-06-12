@@ -20,7 +20,7 @@
                             <div class="entry-meta ">
                                 <ul class="">
                                     <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                            href="blog-single.html"> نویسنده: {{$post->users->firstname}}</a></li>
+                                            href="blog-single.html"> نویسنده: {{$post->users->firstname .' '. $post->users->lastname}}</a></li>
                                     <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
                                             href="blog-single.html">
                                             <time> تاریخ : {{verta($post->created_at)->format('j-n-Y')}}</time>
@@ -61,7 +61,7 @@
                             <ul>
                                 @foreach($postCategories as $category)
                                     <li>
-                                        <form action="{{route('blog.categoryfilter', ['category' => $category->slug])}}"
+                                        <form action="{{route('site.blog.categoryfilter', ['category' => $category->slug])}}"
                                               method="post">
                                             @csrf
                                             <button type="submit" class="btn btn-link">{{$category->title}}
