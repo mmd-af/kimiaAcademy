@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin\Item;
 
 use App\Http\Controllers\Controller;
+
+use App\Http\Requests\Admin\Item\ItemStoreRequest;
 use App\Models\Item\Item;
 use App\Repositories\Admin\ItemRepository;
+use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
@@ -26,12 +29,26 @@ class ItemController extends Controller
         return view('admin.items.create', compact('courses'));
     }
 
-//    public function store(ItemStoreRequest $request)
-//    {
+    public function store(Request $request)
+    {
+
+
+            $a = $this->ItemRepository->store($request);
+           dd ($a);
+
+////        dd($request->lesson[1]);
+//        $items= $request->except(['_token']);
+//        foreach ($items as $key => $item){
+//dd($key);
+//            $item->lesson = $item->lesson[$key];
+//            $item->is_free = $item->is_free[$key];
+//                $item->save();
+//        }
+
 //        $item = $this->ItemRepository->store($request);
 //        return redirect()->route('admin.items.index');
-//
-//    }
+
+    }
 //
 //
 //    public function show($id)
@@ -49,7 +66,7 @@ class ItemController extends Controller
     }
 //
 //
-//    public function update(UpdatePostRequest $request, Item $item)
+//    public function update(PostUpdateRequest $request, Item $item)
 //    {
 //        $items = $this->ItemRepository->update($request, $item);
 //        return redirect()->route('admin.items.index');
