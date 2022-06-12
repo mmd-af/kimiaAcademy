@@ -2,20 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['middleware' => ['web'], 'namespace' => 'App\Http\Controllers\Site\Home'], function () {
+Route::group(['middleware' => ['web'], 'namespace' => 'App\Http\Controllers\Site\Post'], function () {
     Route::group(['as' => 'site.'], function () {
-        Route::group(['prefix' => 'blog', 'as' => 'blog.'], function () {
+        Route::group(['prefix' => 'blog', 'as' => 'posts.'], function () {
             Route::get('/', [
                 'as' => 'index',
-                'uses' => 'HomeController@blog'
+                'uses' => 'PostController@index'
             ]);
             Route::post('/categoryfilter/{category:slug}', [
                 'as' => 'categoryfilter',
-                'uses' => 'HomeController@categoryFilter'
+                'uses' => 'PostController@categoryFilter'
             ]);
-            Route::get('/categoryfilter/{category:slug}', [
+            Route::get('/{category:slug}', [
                 'as' => 'show',
-                'uses' => 'HomeController@show'
+                'uses' => 'PostController@show'
             ]);
         });
     });

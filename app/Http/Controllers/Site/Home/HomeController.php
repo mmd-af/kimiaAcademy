@@ -3,38 +3,22 @@
 namespace App\Http\Controllers\Site\Home;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category\Category;
 use App\Repositories\Site\HomeRepository;
 
 class HomeController extends Controller
 {
+    protected $homeRepository;
 
-    protected $HomeRepository;
-
-    public function __construct(HomeRepository $HomeRepository)
+    public function __construct(HomeRepository $homeRepository)
     {
-        $this->HomeRepository = $HomeRepository;
+        $this->homeRepository = $homeRepository;
     }
 
     public function index()
     {
-        $educationalvideos = $this->HomeRepository->getEducatinalVideo();
-        $pharmacologyPost = $this->HomeRepository->getPharmacologyPost();
-        $medicinalPost = $this->HomeRepository->getMedicinalPost();
+        $educationalvideos = $this->homeRepository->getEducatinalVideo();
+        $pharmacologyPost = $this->homeRepository->getPharmacologyPost();
+        $medicinalPost = $this->homeRepository->getMedicinalPost();
         return view('site.home.index', compact('educationalvideos', 'pharmacologyPost', 'medicinalPost'));
-    }
-
-    public function blog()
-    {
-        $posts = $this->HomeRepository->getPosts();
-        $postCategories = $this->HomeRepository->postCategories();
-        return view('site.blog.index', compact('posts', 'postCategories'));
-    }
-
-    public function categoryFilter($category)
-    {
-        $posts = $this->HomeRepository->getCategoryFilter($category);
-        $postCategories = $this->HomeRepository->postCategories();
-        return view('site.blog.index', compact('posts', 'postCategories'));
     }
 }

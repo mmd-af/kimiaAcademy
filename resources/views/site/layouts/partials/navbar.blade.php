@@ -23,7 +23,7 @@
                 {{--                    <a class="nav-link ml-5" href="">محصولات</a>--}}
                 {{--                </li>--}}
                 <li class="nav-item ">
-                    <a class="nav-link ml-5" href="{{route('site.blog.index')}}">مقالات آموزشی</a>
+                    <a class="nav-link ml-5" href="{{route('site.posts.index')}}">مقالات آموزشی</a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link ml-5" href="{{route('contact-us')}}">تماس با ما</a>

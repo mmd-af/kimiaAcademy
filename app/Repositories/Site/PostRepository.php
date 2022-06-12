@@ -4,11 +4,12 @@ namespace App\Repositories\Site;
 
 
 use App\Enums\ECategoryType;
+use App\Models\Category\Category;
 use App\Models\EducationalVideo\EducationalVideo;
 use App\Models\Post\Post;
 use Illuminate\Database\Eloquent\Builder;
 
-class HomeRepository
+class PostRepository
 //    extends BaseRepository
 {
 //    public function __construct(Course $model)
@@ -20,13 +21,32 @@ class HomeRepository
         return Post::query()
             ->select([
                 'id',
+                'slug',
                 'user_id',
                 'title',
-                'description'
+                'description',
+                'created_at'
             ])
-            ->where('is_active', 1);
-
+            ->where('is_active', 1)
+            ->with(['images', 'users'])
+            ->latest()
+            ->paginate(10);
     }
+
+    public function postCategories()
+    {
+        return Category::query()
+            ->select([
+                'id',
+                'slug',
+                'title',
+                'type'
+            ])
+            ->where('type', ECategoryType::PHARMACOLOGY_POST)
+            ->orWhere('type', ECategoryType::MEDICINAL_PLANTS_POST)
+            ->get();
+    }
+
     public function getEducatinalVideo()
     {
         return EducationalVideo::query()
@@ -42,9 +62,15 @@ class HomeRepository
             ->orderBy('id', 'ASC')
             ->get();
     }
+
     public function getPharmacologyPost()
     {
-        return $this->getPosts()
+        return Post::query()
+            ->select([
+                'id',
+                'title',
+                'description'
+            ])
             ->where('is_active', 1)
             ->whereHas('categories', function (Builder $query) {
                 $query->where('type', ECategoryType::PHARMACOLOGY_POST);
@@ -53,9 +79,15 @@ class HomeRepository
             ->limit(3)
             ->get();
     }
+
     public function getMedicinalPost()
     {
-        return $this->getPosts()
+        return Post::query()
+            ->select([
+                'id',
+                'title',
+                'description'
+            ])
             ->where('is_active', 1)
             ->whereHas('categories', function (Builder $query) {
                 $query->where('type', ECategoryType::MEDICINAL_PLANTS_POST);
@@ -63,6 +95,26 @@ class HomeRepository
             ->with('images')
             ->limit(3)
             ->get();
+    }
+
+    public function getCategoryFilter($category)
+    {
+        return Post::query()
+            ->select([
+                'id',
+                'user_id',
+                'title',
+                'description'
+            ])
+            ->where('is_active', 1)
+            ->whereHas('categories', function (Builder $query) use ($category) {
+                $query->where('categories.slug', $category);
+            })
+            ->with(['images', 'users'])
+            ->latest()
+            ->paginate(10);
+
+
     }
 
 }
