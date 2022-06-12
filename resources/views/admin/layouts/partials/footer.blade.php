@@ -16,9 +16,10 @@
         filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
     };
 
-    CKEDITOR.replace('editor', options);
+    // CKEDITOR.replace('editor', options);
 
-    $('#lfm').filemanager('file');
+
+
 </script>
 {{--@include('sweet::alert')--}}
 
