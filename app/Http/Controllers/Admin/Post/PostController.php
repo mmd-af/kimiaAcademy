@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin\Post;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Post\StorePostRequest;
-use App\Http\Requests\Admin\Post\UpdatePostRequest;
+use App\Http\Requests\Admin\Post\PostStoreRequest;
+use App\Http\Requests\Admin\Post\PostUpdateRequest;
 use App\Models\Post\Post;
 use App\Repositories\Admin\PostRepository;
 
@@ -33,7 +33,7 @@ class PostController extends Controller
 
     }
 
-    public function store(StorePostRequest $request)
+    public function store(PostStoreRequest $request)
     {
         $category = $this->PostRepository->store($request);
 
@@ -52,7 +52,7 @@ class PostController extends Controller
         return view('admin.posts.edit', compact('post', 'categories', 'postCategory'));
     }
 
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(PostUpdateRequest $request, Post $post)
     {
 
         $posts = $this->PostRepository->update($request, $post);
