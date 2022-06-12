@@ -16,7 +16,7 @@
         filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
     };
 
-    // CKEDITOR.replace('editor', options);
+    CKEDITOR.replace('editor', options);
 
 
 
