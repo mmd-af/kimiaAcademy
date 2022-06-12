@@ -6,58 +6,98 @@
 
 @section('content')
 
+
+
+
     <!-- Content Row -->
-    <div class="row">
+    <div class="row ">
         <div class="col-xl-12 col-md-12 p-4">
-            <div class="card shadow-lg mb-4">
+            <div class="card shadow-lg mb-4 ">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between ">
-                    <h5 class="mb-3 mb-md-0">ایجاد درس / فصل</h5>
+                    <h5 class="mb-3 mb-md-0">ایجاد فصل جدید</h5>
                 </div>
-                <div>
+                <div class="p-3">
                     @include('admin.layouts.partials.errors')
                     <form action="{{ route('admin.items.store') }}" method="POST">
                         @csrf
-                        <div class="form-row p-4">
-                            <div class="form-group col-md-12 mt-3">
-                                <div class="form-group col-md-3">
-                                    <label for="Category_title">عنوان :</label>
-                                    <input class="form-control" id="Category_title" name="Category_title" type="text"
-                                           value="{{ old('Category_title') }}">
+
+                        <div class="form-row mb-3">
+                            <div class="col">
+                                <label for="">عنوان فصل</label>
+                                <input type="text" class="form-control" name="season" id="season_title">
+                            </div>
+                            <div class="col">
+                                <label for="course_1_id">انتخاب دوره</label>
+                                <select class="form-control selectpicker" data-live-search="true" id="course"
+                                        name="course">
+                                    @foreach($courses as $course)
+                                        <option value="{{$course->id}}">{{$course->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div id="czContainer">
+                                <div id="first">
+                                    <div class="recordset  mt-3">
+                                        <div class="card p-3">
+                                            <div class="form-group pt-2">
+                                                <span>درس شماره <strong id="lesson_1_number"></strong></span>
+
+                                            </div>
+
+                                            <div class="form-row py-2">
+
+
+                                                <div class="col">
+                                                    <input type="text" class="form-control" placeholder="عنوان درس"
+                                                           id="lesson_1_cz" name="lesson[]">
+                                                </div>
+
+                                                <div class="col">
+
+                                                    <div class="input-group" dir="ltr">
+                                                               <span class="input-group-btn">
+                                                                 <a id="lfm_1_number" data-input="filepath_1_cz" data-preview="holder" class="btn btn-dark text-light">
+                                                                   <i class="fa fa-picture-o"></i> آپلود فایل
+                                                                 </a>
+                                                               </span>
+                                                        <input id="filepath_1_cz" class="form-control" type="text" name="filepath[]" >
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <select class="custom-select" id="is_free_1_cz" name="is_free[]">
+                                                        <option selected>نوع دوره</option>
+                                                        <option value="1">رایگان</option>
+                                                        <option value="2">غیر رایگان</option>
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            <div class=" form-group">
+                                                <textarea name="editor[]" id="editor_1_ck"></textarea>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group col-md-12 mt-3">
-                                <div class="form-group mt">
-                                    <label for="slug">توضیحات :</label>
-                                    <textarea name="description" id="editor"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12 mt-3">
-                                <label for="type" class="pr-3">نوع :</label>
-                                <div class="form-group col-md-3" id="select_item">
-                                        <label for="course">غیر رایگان</label>
-                                        <input id="course" class="item_type" type="radio" value="1"
-                                               name="cat_type" checked>
-                                        <label for="post" class="mr-2">رایگان</label>
-                                        <input id="post" class="item_type" type="radio" value="2"
-                                               name="cat_type">
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12 mt-3">
-                                <div class="form-group col-md-3">
-                                    <label for="parent_id">انتخاب دوره</label>
-                                    <select class="form-control selectpicker" data-live-search="true" id="course_id" name="course_id">
-                                        @foreach($courses as $course)
-                                            <option value="{{$course->id}}">{{$course->title}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
+                        </div>
+
+
+                        <div class="form-row mt-3">
                             <div class="form-group col-md-12 mt-3 mr-3">
                                 <button class="btn btn-success px-4" type="submit">ثبت</button>
                                 <a href="{{ route('admin.items.index') }}"
                                    class="btn btn-outline-dark mr-3">بازگشت</a>
                             </div>
                         </div>
+
+
                     </form>
                 </div>
             </div>
@@ -67,84 +107,23 @@
 
 @section('script')
     <script>
-        {{--$(document).ready(function () {--}}
-        {{--    $.ajaxSetup({--}}
-        {{--        headers: {--}}
-        {{--            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-        {{--        }--}}
-        {{--    });--}}
 
-        {{--    let a = $('input[type=radio][name=cat_type]').change(function () {--}}
-
-        {{--        let b = $('.item_type').on('click', function () {--}}
-        {{--            $('.item_type').click().val();--}}
-        {{--        });--}}
-
-        {{--        $.ajax({--}}
-        {{--            type: "POST",--}}
-        {{--            url: "{{ route('admin.items.ajax.item_type') }}",--}}
-
-        {{--            data: function (a) {--}}
-        {{--                return {--}}
-        {{--                    method: POST,--}}
-        {{--                    type: type,--}}
-        {{--                    data: a,--}}
-        {{--                };--}}
-        {{--            }--}}
-        {{--        });--}}
-
-
-        {{--                console.log(cateId);--}}
-
-
-        {{--            };--}}
-        {{--        });--}}
-
-
-        {{--    });--}}
-
-
-{{--        --}}{{--});--}}
-{{--        $(document).ready(function () {--}}
-{{--            $('#select_item input').click(function () {--}}
-
-{{--                let val = $(this).val();--}}
-{{--                $('.item-select').empty();--}}
-{{--                $('.item-select').append('<option value="0" selected>دسته ی مادر</option>');--}}
-
-{{--                $.ajaxSetup(--}}
-{{--                    {--}}
-{{--                        'headers': {--}}
-{{--                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-{{--                        }--}}
-{{--                    });--}}
-
-{{--                $.ajax({--}}
-{{--                    url: '{{ route('admin.items.ajax.item_type') }}',--}}
-{{--                    type: 'POST',--}}
-{{--                    data: {value: val},--}}
-{{--                    success: function (response) {--}}
-
-{{--                        response.data.forEach(function (item, index) {--}}
-{{--                            let option = `<option value=${item.id}>${item.title}</option>`;--}}
-{{--                            $('.item-select').append(option);--}}
-{{--                        });--}}
-
-
-{{--                        // console.log(response.data)--}}
-
-{{--                    }--}}
-{{--                });--}}
-{{--            });--}}
-{{--        });--}}
         $(function () {
             $('.selectpicker').selectpicker();
         });
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .catch(error => {
-                console.error(error);
-            });
+
+        $("#czContainer").czMore({
+            onAdd: function (index) {
+                $('#lesson_' + index + '_number').html(index);
+                CKEDITOR.replace('editor_' + index + '_ck', options);
+
+                $('#lfm_' + index + '_number').filemanager('file');
+
+            }
+        });
+
 
     </script>
+
+
 @endsection
