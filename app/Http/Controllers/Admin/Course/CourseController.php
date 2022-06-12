@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Course;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Course\CourseStoreRequest;
-use App\Http\Requests\Admin\Post\UpdatePostRequest;
+use App\Http\Requests\Admin\Post\PostUpdateRequest;
 use App\Models\Course\Course;
 use App\Repositories\Admin\CourseRepository;
 
@@ -54,7 +54,7 @@ class CourseController extends Controller
     }
 
 
-    public function update(UpdatePostRequest $request, Course $course)
+    public function update(PostUpdateRequest $request, Course $course)
     {
         $courses = $this->CourseRepository->update($request, $course);
         return redirect()->route('admin.courses.index');
