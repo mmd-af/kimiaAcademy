@@ -13,7 +13,7 @@ Route::group(['middleware' => ['web'], 'namespace' => 'App\Http\Controllers\Site
                 'as' => 'categoryfilter',
                 'uses' => 'PostController@categoryFilter'
             ]);
-            Route::get('/{category:slug}', [
+            Route::get('/{post:slug}', [
                 'as' => 'show',
                 'uses' => 'PostController@show'
             ]);

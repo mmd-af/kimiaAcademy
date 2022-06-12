@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site\Post;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post\Post;
 use App\Repositories\Site\PostRepository;
 
 class PostController extends Controller
@@ -27,5 +28,11 @@ class PostController extends Controller
         $posts = $this->postRepository->getCategoryFilter($category);
         $postCategories = $this->postRepository->postCategories();
         return view('site.posts.index', compact('posts', 'postCategories'));
+    }
+
+    public function show(Post $post)
+    {
+        $postCategories = $this->postRepository->postCategories();
+        return view('site.posts.single', compact('post', 'postCategories'));
     }
 }

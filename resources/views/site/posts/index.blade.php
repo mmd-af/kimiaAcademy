@@ -13,41 +13,39 @@
                                      class="img-thumbnail">
                             </div>
                             <h2 class="entry-title">
-                                <a href="blog-single.html">
+                                <a href="{{route('site.posts.show', ['post' => $post->slug])}}">
                                     {{$post->title}}
                                 </a>
                             </h2>
                             <div class="entry-meta ">
                                 <ul class="">
-                                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                            href="blog-single.html"> نویسنده: {{$post->users->firstname .' '. $post->users->lastname}}</a></li>
-                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
-                                            href="blog-single.html">
-                                            <time> تاریخ : {{verta($post->created_at)->format('j-n-Y')}}</time>
-                                        </a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-person"></i>
+                                        نویسنده: {{$post->users->firstname .' '. $post->users->lastname}}</li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i>
+                                        <time> تاریخ : {{verta($post->created_at)->format('j-n-Y')}}</time>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="entry-content">
                                 {!!  Str::limit($post->description,150) !!}
                                 <div class="align-self-end pb-3">
-                                    <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
+                                    <a href="{{route('site.posts.show', ['post' => $post->slug])}}"
+                                       class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
                                 </div>
                             </div>
                         </article><!-- End blog entry -->
                 @endforeach
                 <!-- End blog entry -->
-                    <div class="blog-pagination">
-                        <ul class="justify-content-center">
-                            <li><a href="#">1</a></li>
-                            <li class="active"><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                        </ul>
+                    <div class="justify-content-center">
+                        {{$posts->links()}}
+
+                        {{--                            <li><a href="#">1</a></li>--}}
+                        {{--                            <li class="active"><a href="#">2</a></li>--}}
+                        {{--                            <li><a href="#">3</a></li>--}}
                     </div>
 
                 </div><!-- End blog entries list -->
-
                 <div class="col-lg-4">
-
                     <div class="sidebar">
                         <h3 class="sidebar-title">جستجو</h3>
                         <div class="sidebar-item search-form">
@@ -61,8 +59,9 @@
                             <ul>
                                 @foreach($postCategories as $category)
                                     <li>
-                                        <form action="{{route('site.posts.categoryfilter', ['category' => $category->slug])}}"
-                                              method="post">
+                                        <form
+                                            action="{{route('site.posts.categoryfilter', ['category' => $category->slug])}}"
+                                            method="post">
                                             @csrf
                                             <button type="submit" class="btn btn-link">{{$category->title}}
                                                 {{--                                        <span>(25)</span>--}}

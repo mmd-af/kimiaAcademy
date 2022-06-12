@@ -6,48 +6,46 @@
         <div class="container" data-aos="fade-up">
             <div class="row">
                 <div class="col-lg-8 entries">
-                    @foreach($posts as $post)
-                        <article class="entry shadow-lg">
-                            <div class="entry-img">
-                                <img src="{{asset($post->images->url)}}" alt="{{$post->title}}"
-                                     class="img-thumbnail">
+
+                    <article class="entry shadow-lg">
+
+                        <h1 class="entry-title">
+                            <a href="{{route('site.posts.show', ['post' => $post->slug])}}">
+                                {{$post->title}}
+                            </a>
+                        </h1>
+                        <div class="entry-img my-3">
+                            <img src="{{asset($post->images->url)}}" alt="{{$post->title}}"
+                                 class="img-thumbnail">
+                        </div>
+                        <div class="entry-meta ">
+                            <ul class="">
+                                <li class="d-flex align-items-center"><i class="bi bi-person"></i>
+                                    نویسنده: {{$post->users->firstname .' '. $post->users->lastname}}</li>
+                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i>
+                                    <time> تاریخ : {{verta($post->created_at)->format('j-n-Y')}}</time>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="entry-content">
+                            {!!  $post->description !!}
+                            <div class="align-self-end pb-3">
+                                <a href="{{route('site.posts.index')}}" class="btn btn-article float-left align-bottom">همه
+                                    ی مقالات</a>
                             </div>
-                            <h2 class="entry-title">
-                                <a href="blog-single.html">
-                                    {{$post->title}}
-                                </a>
-                            </h2>
-                            <div class="entry-meta ">
-                                <ul class="">
-                                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                            href="blog-single.html"> نویسنده: {{$post->users->firstname .' '. $post->users->lastname}}</a></li>
-                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
-                                            href="blog-single.html">
-                                            <time> تاریخ : {{verta($post->created_at)->format('j-n-Y')}}</time>
-                                        </a></li>
-                                </ul>
-                            </div>
-                            <div class="entry-content">
-                                {!!  Str::limit($post->description,150) !!}
-                                <div class="align-self-end pb-3">
-                                    <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
-                                </div>
-                            </div>
-                        </article><!-- End blog entry -->
-                @endforeach
-                <!-- End blog entry -->
-                    <div class="blog-pagination">
-                        <ul class="justify-content-center">
-                            <li><a href="#">1</a></li>
-                            <li class="active"><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                        </ul>
+                        </div>
+                    </article><!-- End blog entry -->
+
+                    <!-- End blog entry -->
+                    <div class="justify-content-center">
+
+                        {{--                            <li><a href="#">1</a></li>--}}
+                        {{--                            <li class="active"><a href="#">2</a></li>--}}
+                        {{--                            <li><a href="#">3</a></li>--}}
                     </div>
 
                 </div><!-- End blog entries list -->
-
                 <div class="col-lg-4">
-
                     <div class="sidebar">
                         <h3 class="sidebar-title">جستجو</h3>
                         <div class="sidebar-item search-form">
@@ -61,8 +59,9 @@
                             <ul>
                                 @foreach($postCategories as $category)
                                     <li>
-                                        <form action="{{route('blog.categoryfilter', ['category' => $category->slug])}}"
-                                              method="post">
+                                        <form
+                                            action="{{route('site.posts.categoryfilter', ['category' => $category->slug])}}"
+                                            method="post">
                                             @csrf
                                             <button type="submit" class="btn btn-link">{{$category->title}}
                                                 {{--                                        <span>(25)</span>--}}

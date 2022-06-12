@@ -2,10 +2,8 @@
 
 namespace App\Repositories\Site;
 
-
 use App\Enums\ECategoryType;
 use App\Models\Category\Category;
-use App\Models\EducationalVideo\EducationalVideo;
 use App\Models\Post\Post;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -47,56 +45,6 @@ class PostRepository
             ->get();
     }
 
-    public function getEducatinalVideo()
-    {
-        return EducationalVideo::query()
-            ->select([
-                'id',
-                'title',
-                'youtube_link',
-                'aparat_link',
-                'is_active'
-            ])
-            ->with('images')
-            ->where('is_active', 1)
-            ->orderBy('id', 'ASC')
-            ->get();
-    }
-
-    public function getPharmacologyPost()
-    {
-        return Post::query()
-            ->select([
-                'id',
-                'title',
-                'description'
-            ])
-            ->where('is_active', 1)
-            ->whereHas('categories', function (Builder $query) {
-                $query->where('type', ECategoryType::PHARMACOLOGY_POST);
-            })
-            ->with('images')
-            ->limit(3)
-            ->get();
-    }
-
-    public function getMedicinalPost()
-    {
-        return Post::query()
-            ->select([
-                'id',
-                'title',
-                'description'
-            ])
-            ->where('is_active', 1)
-            ->whereHas('categories', function (Builder $query) {
-                $query->where('type', ECategoryType::MEDICINAL_PLANTS_POST);
-            })
-            ->with('images')
-            ->limit(3)
-            ->get();
-    }
-
     public function getCategoryFilter($category)
     {
         return Post::query()
@@ -104,6 +52,7 @@ class PostRepository
                 'id',
                 'user_id',
                 'title',
+                'slug',
                 'description'
             ])
             ->where('is_active', 1)
@@ -113,8 +62,6 @@ class PostRepository
             ->with(['images', 'users'])
             ->latest()
             ->paginate(10);
-
-
     }
 
 }
