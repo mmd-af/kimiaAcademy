@@ -41,6 +41,75 @@ class ItemRepository extends BaseRepository
     }
 
 
+    public function store($request)
+    {
+
+
+//        $col = collect($request->all())->filter(function ($value, $key) {
+//            return is_array($value);
+//        })->toArray();
+//
+//
+//
+//
+//        $season = new Item();
+//        $season->title = $request->season;
+//        $season->course_id = $request->course;
+//        $season->description ='salam';
+//        $season->sort = 0;
+//        $season->save();
+//        $item = new Item();
+
+
+
+//        $item = new Item();
+//        $l = collect($col)->filter(function ($items,$keys) use ($request,$season){
+//
+//            return      $items;
+//        })->toArray();
+//        var_dump($l);
+
+//            $l = collect($col)->map(function ($item,$keys){
+//
+//            });
+//
+//
+//            return $l;
+//        $a = $col->map(function ($item , $key){
+//
+//            return  collect($key)->map(function ($i,$k){
+//                return  $k;
+//            });
+
+//                foreach ($item as $k => $v ){
+//                    return $v;
+//                }
+//                return $key;
+//                $item->map(function ($i , $k ){
+//                    return $i;
+//                });
+//        });
+
+//        DB::beginTransaction();
+//        try {
+//            $season = new Item();
+//            $season->title = $request->season;
+//            $season->course_id = $request->course;
+//            $season->description ='salam';
+//            $season->sort = 0;
+//            $season->save();
+//
+//            foreach ()
+//            $item = new Item();
+//            $item->title = $request->lesson
+//            $item->parent = $season->id;
+//
+//            DB::commit();
+//        } catch (\Exception $error) {
+//            DB::rollback();
+//            return $error;
+//        }
+    }
     public function getDatatableData($request)
     {
         if ($request->ajax()) {
