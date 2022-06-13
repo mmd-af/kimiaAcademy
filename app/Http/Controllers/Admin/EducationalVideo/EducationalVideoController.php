@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin\EducationalVideo;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\EducationalVideo\StoreEducationalVideoRequest;
-use App\Http\Requests\Admin\EducationalVideo\UpdateEducationalVideoRequest;
+use App\Http\Requests\Admin\EducationalVideo\EducationalVideoStoreRequest;
+use App\Http\Requests\Admin\EducationalVideo\EducationalVideoUpdateRequest;
 use App\Models\EducationalVideo\EducationalVideo;
-use App\Models\Post\Post;
 use App\Repositories\Admin\EducationalVideoRepository;
 
 class EducationalVideoController extends Controller
@@ -33,7 +32,7 @@ class EducationalVideoController extends Controller
 
     }
 
-    public function store(StoreEducationalVideoRequest $request)
+    public function store(EducationalVideoStoreRequest $request)
     {
         $category = $this->EducationalVideoRepository->store($request);
 
@@ -51,7 +50,7 @@ class EducationalVideoController extends Controller
         return view('admin.educationalvideos.edit', compact('educational'));
     }
 
-    public function update(UpdateEducationalVideoRequest $request, EducationalVideo $educational)
+    public function update(EducationalVideoUpdateRequest $request, EducationalVideo $educational)
     {
         $educationalVideos = $this->EducationalVideoRepository->update($request, $educational);
         return redirect()->route('admin.educationalvideos.index');

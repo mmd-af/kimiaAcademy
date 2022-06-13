@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin\EducationalVideo;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateEducationalVideoRequest extends FormRequest
+class EducationalVideoStoreRequest extends FormRequest
 {
 
     public function authorize()
@@ -15,8 +15,8 @@ class UpdateEducationalVideoRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'string'],
-            'url' => ['required', 'string'],
+            'title' => ['required'],
+            'url' => ['required'],
             'youtube_link' => ['nullable', 'string'],
             'aparat_link' => ['nullable', 'string'],
             'is_active' => ['required'],
