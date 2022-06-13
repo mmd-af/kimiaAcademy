@@ -3,6 +3,7 @@
 namespace App\Models\Course;
 
 use App\Models\Category\Category;
+use App\Models\Item\Item;
 use App\Models\Video\Video;
 
 trait CourseRelationships
@@ -15,5 +16,10 @@ trait CourseRelationships
     public function videos()
     {
         return $this->morphOne(Video::class, 'videoable');
+    }
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
     }
 }
