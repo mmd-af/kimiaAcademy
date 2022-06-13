@@ -35,12 +35,27 @@
                             <div class="form-group col-md-12 mt-3">
                                 <label for="type" class="pr-3">انتخاب دسته:</label>
                                 <div class="form-group col-md-3" id="select_category">
-                                        <label for="course">دوره های آموزشی</label>
-                                        <input id="course" class="category_type" type="radio" value="1"
-                                               name="cat_type">
-                                        <label for="post" class="mr-2">مقالات</label>
-                                        <input id="post" class="category_type" type="radio" value="2"
-                                               name="cat_type">
+                                    <div class="py-3 card shadow">
+                                        <div class="justify-content-center p-3">
+                                            <label for="course">دوره های آموزشی</label>
+                                            <input id="course" class="category_type" type="radio" value="1"
+                                                   name="cat_type">
+                                        </div>
+                                    </div>
+                                    <div class="py-3 card shadow">
+                                        <div class="justify-content-center p-3">
+                                            <label for="post2">مقالات داروشناسی</label>
+                                            <input id="post2" class="category_type" type="radio" value="2"
+                                                   name="cat_type">
+                                        </div>
+                                    </div>
+                                    <div class="py-3 card shadow">
+                                        <div class="justify-content-center p-3">
+                                            <label for="post3">مقالات گیاه شناسی</label>
+                                            <input id="post3" class="category_type" type="radio" value="3"
+                                                   name="cat_type">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-12 mt-3">

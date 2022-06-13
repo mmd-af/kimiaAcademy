@@ -21,6 +21,11 @@
                 @method('put')
                 <div class="form-row">
                     <div class="form-group col-md-3">
+                        <label for="title">عنوان:</label>
+                        <input class="form-control" id="title" name="title" type="text"
+                               value="{{$educational->title}}">
+                    </div>
+                    <div class="form-group col-md-3">
                         <label for="youtube_link">لینک یوتیوب:</label>
                         <input class="form-control" id="youtube_link" name="youtube_link" type="text"
                                value="{{$educational->youtube_link}}">
@@ -50,19 +55,5 @@
             </form>
         </div>
     </div>
-
 @endsection
 
-@section('script')
-    <script>
-        $(function () {
-            $('.selectpicker').selectpicker();
-        });
-
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
-@endsection

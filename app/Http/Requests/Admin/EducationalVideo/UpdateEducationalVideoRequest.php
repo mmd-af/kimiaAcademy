@@ -15,10 +15,11 @@ class UpdateEducationalVideoRequest extends FormRequest
     public function rules()
     {
         return [
+            'title' => ['required', 'string'],
+            'url' => ['required', 'string'],
             'youtube_link' => ['nullable', 'string'],
             'aparat_link' => ['nullable', 'string'],
             'is_active' => ['required'],
-
         ];
     }
 }

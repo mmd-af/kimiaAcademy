@@ -4,7 +4,9 @@ namespace App\Repositories\Admin;
 ;
 
 use App\Models\Category\Category;
+use App\Models\Image\Image;
 use App\Models\Post\Post;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
@@ -55,6 +57,7 @@ class PostRepository extends BaseRepository
                 'type'
             ])
             ->where('type', 2)
+            ->orWhere('type', 3)
             ->get();
     }
 
@@ -89,24 +92,24 @@ class PostRepository extends BaseRepository
 
     public function store($request)
     {
-        DB::beginTransaction();
-        try {
-            $id = Auth::id();
-            $item = new Post();
-            $item->user_id = $id;
-            $item->title = $request->input('title');
-            $item->slug = $request->input('slug');
-            $item->description = $request->input('description');
-            $item->view_count = $request->input('view_count');
-            $item->is_active = $request->input('is_active');
-            $item->save();
-            $item->categories()->attach($request->input('category_id'));
-            DB::commit();
-            return $item;
-        } catch (\Exception $error) {
-            DB::rollback();
-            return $error;
-        }
+
+        $id = Auth::id();
+        $item = new Post();
+        $item->user_id = $id;
+        $item->title = $request->input('title');
+        $item->slug = SlugService::createSlug(Post::class, 'slug', $request->input('slug'));
+        $item->description = $request->input('description');
+        $item->view_count = $request->input('view_count');
+        $item->is_active = $request->input('is_active');
+        $item->save();
+
+        $item->categories()->attach($request->input('category_id'));
+
+        $image = new Image();
+        $image->url = $request->input('url');
+        $item->images()->save($image);
+
+
     }
 
     public function update($request, $post)
@@ -120,6 +123,7 @@ class PostRepository extends BaseRepository
             $post->is_active = $request->input('is_active');
             $post->save();
             $post->categories()->sync($request->input('category_id'));
+            $post->images()->update(['url' => $request->input('url')]);
             DB::commit();
             return $post;
         } catch (\Exception $error) {

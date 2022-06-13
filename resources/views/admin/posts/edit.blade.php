@@ -4,7 +4,6 @@
     edit posts
 @endsection
 
-
 @section('content')
     <!-- Content Row -->
     <div class="row">
@@ -23,13 +22,11 @@
                         <input class="form-control" id="title" name="title" type="text"
                                value="{{$post->title}}">
                     </div>
-
                     <div class="form-group col-md-3">
                         <label for="slug">نام انگلیسی:</label>
                         <input class="form-control" id="slug" name="slug" type="text"
                                value="{{ $post->slug }}">
                     </div>
-
                     <div class="form-group col-md-3">
                         <label for="category_id">نوع دسته</label>
                         <select class="form-control selectpicker" data-live-search="true" id="category_id"
@@ -40,13 +37,24 @@
                             @endforeach
                         </select>
                     </div>
-
+                    <div class="form-group col-md-12 mt-5">
+                        <div class="form-group col-md-3">
+                            <label for="url">ویرایش تصویر:</label>
+                            <div class="input-group">
+                                <input id="thumbnail" class="form-control" type="text" name="url"
+                                       value="{{$post->images->url}}">
+                                <a id="images" data-input="thumbnail" data-preview="holder"
+                                   class="btn btn-primary text-light">
+                                    انتخاب
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group col-md-12">
                         <label for="description">توضیحات</label>
                         <textarea class="form-control" id="editor"
                                   name="description">{!! $post->description !!} </textarea>
                     </div>
-
                     <div class="form-group col-md-3">
                         <label for="is_active">وضعیت</label>
                         <select class="form-control" id="is_active" name="is_active">
@@ -55,7 +63,6 @@
                             </option>
                         </select>
                     </div>
-
                 </div>
 
                 <button class="btn btn-success mt-5" type="submit">ویرایش</button>
@@ -63,19 +70,5 @@
             </form>
         </div>
     </div>
-
 @endsection
 
-@section('script')
-    <script>
-        $(function () {
-            $('.selectpicker').selectpicker();
-        });
-
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
-@endsection

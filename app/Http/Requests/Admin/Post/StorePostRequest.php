@@ -18,6 +18,7 @@ class PostStoreRequest extends FormRequest
             'category_id' => ['required'],
             'title' => ['required'],
             'slug' => ['required'],
+            'url' => ['required'],
             'description' => ['required'],
             'is_active' => ['required'],
 

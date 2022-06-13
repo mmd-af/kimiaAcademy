@@ -10,6 +10,15 @@ trait CourseModifiers
 //    }
     public function getIsActiveAttribute($is_active)
     {
-        return $is_active ? 'فعال' : 'غیرفعال' ;
+        return $is_active ? 'فعال' : 'غیرفعال';
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'slug'
+            ]
+        ];
     }
 }

@@ -31,7 +31,19 @@
                                    value="{{ old('slug') }}">
                         </div>
                     </div>
-
+                    <div class="form-group col-md-12 mt-3">
+                        <div class="form-group col-md-3">
+                            <label for="url">تصویر:</label>
+                            <div class="input-group">
+                                <input id="thumbnail" class="form-control" type="text" name="url"
+                                       value="{{ old('url') }}">
+                                <a id="images" data-input="thumbnail" data-preview="holder"
+                                   class="btn btn-primary text-light">
+                                    انتخاب
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group col-md-3">
                         <label for="category_id">نوع دسته</label>
                         <select class="form-control selectpicker" data-live-search="true" id="category_id"
@@ -57,17 +69,12 @@
                         </div>
                     </div>
                     <div class="form-group col-md-12 mt-3">
-                        <button class="btn btn-success mt-5" type="submit">ثبت</button>
+                        <button class="btn btn-outline-primary mt-5" type="submit">ثبت</button>
                         <a href="{{ route('admin.posts.index') }}" class="btn btn-dark mt-5 mr-3">بازگشت</a>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-
 @endsection
 
-@section('script')
-
-
-@endsection

@@ -2,22 +2,28 @@
 
 namespace Database\Factories\Post;
 
+use App\Models\Post\Post;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class PostFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
+
     public function definition()
     {
+//        $title = $this->faker->realTextBetween(5, 45);
+        $title = $this->faker->sentence;
+        $slug = Str::slug($title);
+//        $user = User::count() >= 20 ? User::inRandomOrder()->first()->id: User::factory();
+//        $category = Category::count() >= 7 ? Category::inRandomOrder()->first()->id: Category::factory();
+
+
         return [
             'user_id' => 1,
-            'title' => $this->faker->realTextBetween(5, 15),
-            'slug' => $this->faker->realTextBetween(5, 15),
-            'description' => $this->faker->realTextBetween(500, 1000),
+            'title' => $title,
+            'slug' =>  $slug,
+            'description' => $this->faker->realTextBetween(500, 2000),
             'is_active' => 1,
         ];
     }

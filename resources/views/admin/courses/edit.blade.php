@@ -122,23 +122,3 @@
     </div>
 @endsection
 
-@section('script')
-    <script>
-
-        $(function () {
-            $('.selectpicker').selectpicker();
-        });
-
-        var options = {
-            filebrowserImageBrowseUrl: '/filemanager?type=Images',
-            filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
-            filebrowserBrowseUrl: '/filemanager?type=Files',
-            filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
-        };
-
-        CKEDITOR.replace('editor', options);
-
-        $('#lfm').filemanager('file');
-
-    </script>
-@endsection

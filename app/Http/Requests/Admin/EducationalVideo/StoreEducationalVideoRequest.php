@@ -15,6 +15,8 @@ class StoreEducationalVideoRequest extends FormRequest
     public function rules()
     {
         return [
+            'title' => ['required'],
+            'url' => ['required'],
             'youtube_link' => ['nullable', 'string'],
             'aparat_link' => ['nullable', 'string'],
             'is_active' => ['required'],

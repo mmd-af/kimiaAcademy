@@ -55,20 +55,25 @@
         <div class="row justify-content-center my-2 my-sm-5">
             <div class="container mt-0 mt-sm-5">
                 <div class="col-10 col-sm-4 border mx-auto  p-3 rounded ">
-                    <form action="">
+                    <form action="{{route('site.messages.store')}}" method="post">
+                        @csrf
                         <div class="form-group pt-4 ">
-                            <input type="text" name="fullname" placeholder="نام و نام خانوادگی" class="form-control">
+                            <input type="text" name="name" placeholder="نام و نام خانوادگی" class="form-control"
+                                   value="{{old('name')}}">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="fullname" placeholder="شماره تلفن همراه" class="form-control">
+                            <input type="text" name="mobile_number" placeholder="شماره تلفن همراه" class="form-control"
+                                   value="{{old('mobile_number')}}">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="fullname" placeholder="آدرس ایمیل" class="form-control">
+                            <input type="text" name="email" placeholder="آدرس ایمیل" class="form-control"
+                                   value="{{old('email')}}">
                         </div>
                         <div class="form-group">
-                            <textarea name="" id="" class="form-control" rows="4" placeholder="درخواستتان را اینجا بنویسید ..."></textarea>
+                            <textarea name="description" class="form-control" rows="4"
+                                      placeholder="درخواستتان را اینجا بنویسید ...">{{old('description')}}</textarea>
                         </div>
-                        <div class="form-group ">
+                        <div class="form-group">
 
                             <button type="submit" class="btn btn-product mb-2 px-3 text-light">ارسال درخواست</button>
                         </div>

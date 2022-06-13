@@ -3,6 +3,7 @@
 namespace App\Repositories\Admin;
 
 use App\Models\EducationalVideo\EducationalVideo;
+use App\Models\Video\Video;
 use Yajra\DataTables\Facades\DataTables;
 
 class EducationalVideoRepository extends BaseRepository
@@ -17,6 +18,7 @@ class EducationalVideoRepository extends BaseRepository
         return EducationalVideo::query()
             ->select([
                 'id',
+                'title',
                 'youtube_link',
                 'aparat_link',
                 'is_active'
@@ -30,6 +32,7 @@ class EducationalVideoRepository extends BaseRepository
         return EducationalVideo::query()
             ->select([
                 'id',
+                'title',
                 'youtube_link',
                 'aparat_link',
                 'is_active'
@@ -70,15 +73,20 @@ class EducationalVideoRepository extends BaseRepository
     public function store($request)
     {
         $item = new EducationalVideo();
+        $item->title = $request->input('title');
         $item->youtube_link = $request->input('youtube_link');
         $item->aparat_link = $request->input('aparat_link');
         $item->is_active = $request->input('is_active');
         $item->save();
+        $image = new Image();
+        $image->url = $request->input('url');
+        $item->images()->save($image);
         return $item;
     }
 
     public function update($request, $educational)
     {
+        $educational->title = $request->input('title');
         $educational->youtube_link = $request->input('youtube_link');
         $educational->aparat_link = $request->input('aparat_link');
         $educational->is_active = $request->input('is_active');

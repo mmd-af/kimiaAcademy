@@ -68,7 +68,7 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{route('admin.messages.index')}}">
             <i class="fas fa-store"></i>
             <span> پیام ها </span>
         </a>

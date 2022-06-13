@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 
 trait CategoryModifiers
 {
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'slug'
+            ]
+        ];
+    }
 
     public function getParentIdAttribute($parent_id)
     {
@@ -24,9 +32,10 @@ trait CategoryModifiers
     {
         if ($type == ECategoryType::COURSE) {
             return 'دوره های آموزشی ';
-        } elseif ($type == ECategoryType::POST) {
-            return 'مقالات';
+        } elseif ($type == ECategoryType::PHARMACOLOGY_POST) {
+            return 'مقالات داروشناسی';
+        } elseif ($type == ECategoryType::MEDICINAL_PLANTS_POST) {
+            return ' مقالات گیاه شناسی';
         }
-
     }
 }

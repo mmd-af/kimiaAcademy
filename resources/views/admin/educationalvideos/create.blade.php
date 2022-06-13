@@ -19,6 +19,26 @@
                 <div class="form-row">
                     <div class="form-group col-md-12 mt-3">
                         <div class="form-group col-md-3">
+                            <label for="title">عنوان:</label>
+                            <input class="form-control" id="title" name="title" type="text"
+                                   value="{{ old('title') }}">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 mt-3">
+                        <div class="form-group col-md-3">
+                            <label for="url">تصویر:</label>
+                            <div class="input-group">
+                                <input id="thumbnail" class="form-control" type="text" name="url"
+                                       value="{{ old('url') }}">
+                                <a id="images" data-input="thumbnail" data-preview="holder"
+                                   class="btn btn-primary text-light">
+                                    انتخاب
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 mt-3">
+                        <div class="form-group col-md-3">
                             <label for="youtube_link">لینک یوتیوب:</label>
                             <input class="form-control" id="youtube_link" name="youtube_link" type="text"
                                    value="{{ old('youtube_link') }}">
@@ -49,5 +69,4 @@
             </form>
         </div>
     </div>
-
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Repositories\Admin;
 
 use App\Models\Category\Category;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Yajra\DataTables\Facades\DataTables;
 
 class CategoryRepository extends BaseRepository
@@ -59,7 +60,7 @@ class CategoryRepository extends BaseRepository
     {
         $item = new Category();
         $item->title = $request->input('Category_title');
-        $item->slug = $request->input('slug');
+        $item->slug = SlugService::createSlug(Category::class, 'slug', $request->input('slug'));
         $item->type = $request->input('cat_type');
         $item->parent_id = $request->input('parent_id');
         $item->save();

@@ -2,13 +2,12 @@
 
 namespace App\Models\EducationalVideo;
 
-use App\Models\Category\Category;
+use App\Models\Image\Image;
 
 trait EducationalVideoRelationships
 {
-
-    public function categories()
+    public function images()
     {
-        return $this->morphToMany(Category::class, 'categorizable');
+        return $this->morphOne(Image::class, 'imageable');
     }
 }
