@@ -187,7 +187,8 @@
                                     {{ Str::limit($post->description, 250)}}
                                 </p>
                                 <div class="align-self-end mt-2">
-                                    <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
+                                    <a href="{{route('site.posts.show', ['post' => $post->slug])}}"
+                                       class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
                                 </div>
                             </div>
                         </div>
@@ -218,7 +219,7 @@
                                     {{ Str::limit($post->description, 250)}}
                                 </p>
                                 <div class="align-self-end mt-2">
-                                    <a href="#" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
+                                    <a href="{{route('site.posts.show', ['post' => $post->slug])}}" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
                                 </div>
                             </div>
                         </div>
