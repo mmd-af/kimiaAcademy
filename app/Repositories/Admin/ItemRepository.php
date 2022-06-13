@@ -5,6 +5,7 @@ namespace App\Repositories\Admin;
 use App\Models\Category\Category;
 use App\Models\Course\Course;
 use App\Models\Item\Item;
+use Illuminate\Database\Eloquent\Model;
 use Yajra\DataTables\Facades\DataTables;
 
 
@@ -14,17 +15,22 @@ class ItemRepository extends BaseRepository
     {
         $this->setModel($model);
     }
+
     public function getAll()
     {
         return Item::query()
             ->select([
+                'id',
                 'course_id',
                 'title',
                 'description',
                 'is_free',
                 'parent_id',
             ])
-            ->orderBy('sort','desc')
+            ->with('course')
+            ->with('parent')
+            ->latest()
+//            ->orderBy('sort', 'desc')
             ->get();
 
     }
@@ -40,76 +46,63 @@ class ItemRepository extends BaseRepository
             ->get();
     }
 
+    public function storeSeason($request)
+    {
+        $course_id = $request->course;
+        $latestSeason = count($this->getLatesSeason($course_id));
+        $season = new Item();
+        $season->title = $request->season;
+        $season->course_id = $course_id;
+        $season->sort = $latestSeason +1;
+        $season->save();
+        return $season;
+    }
+
+    public function getLatesSeason($course)
+    {
+        return Item::query()
+            ->where('parent_id', 0)
+            ->Where('course_id', $course)
+            ->orderBy('sort')
+            ->get();
+    }
+
 
     public function store($request)
     {
 
+        $course_id = $request->course;
+        $count = $request->czContainer_czMore_txtCount;
 
-//        $col = collect($request->all())->filter(function ($value, $key) {
-//            return is_array($value);
-//        })->toArray();
-//
-//
-//
-//
-//        $season = new Item();
-//        $season->title = $request->season;
-//        $season->course_id = $request->course;
-//        $season->description ='salam';
-//        $season->sort = 0;
-//        $season->save();
-//        $item = new Item();
+        // return items in request that are arrays
+        $items = collect($request->all())->filter(function ($value) {
+            return is_array($value);
+        })->toArray();
 
+        // first store season
+        $season = $this->storeSeason($request);
 
+        //then store lessons
+        if (isset($season)) {
+            for($i=0; $i < $count ;$i++) {
+                $lesson = new Item();
+                $lesson->course_id = $course_id;
+                $lesson->title = $items['lesson'][$i];
+                $lesson->description = $items['editor'][$i];
+                $lesson->is_free = $items['is_free'][$i];
+                $lesson->parent_id = $season->id;
+                $lesson->sort = $i+1;
+                $lesson->save();
 
-//        $item = new Item();
-//        $l = collect($col)->filter(function ($items,$keys) use ($request,$season){
-//
-//            return      $items;
-//        })->toArray();
-//        var_dump($l);
+            }
+            return $lesson;
 
-//            $l = collect($col)->map(function ($item,$keys){
-//
-//            });
-//
-//
-//            return $l;
-//        $a = $col->map(function ($item , $key){
-//
-//            return  collect($key)->map(function ($i,$k){
-//                return  $k;
-//            });
+        }else{
+            return false;
+        }
 
-//                foreach ($item as $k => $v ){
-//                    return $v;
-//                }
-//                return $key;
-//                $item->map(function ($i , $k ){
-//                    return $i;
-//                });
-//        });
-
-//        DB::beginTransaction();
-//        try {
-//            $season = new Item();
-//            $season->title = $request->season;
-//            $season->course_id = $request->course;
-//            $season->description ='salam';
-//            $season->sort = 0;
-//            $season->save();
-//
-//            foreach ()
-//            $item = new Item();
-//            $item->title = $request->lesson
-//            $item->parent = $season->id;
-//
-//            DB::commit();
-//        } catch (\Exception $error) {
-//            DB::rollback();
-//            return $error;
-//        }
     }
+
     public function getDatatableData($request)
     {
         if ($request->ajax()) {
@@ -136,5 +129,10 @@ class ItemRepository extends BaseRepository
                 ->rawColumns(['action'])
                 ->make(true);
         }
+    }
+
+    public function destroy($item)
+    {
+        return $item;
     }
 }
