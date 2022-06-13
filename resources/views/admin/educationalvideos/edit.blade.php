@@ -25,6 +25,19 @@
                         <input class="form-control" id="title" name="title" type="text"
                                value="{{$educational->title}}">
                     </div>
+                    <div class="form-group col-md-12 mt-5">
+                        <div class="form-group col-md-3">
+                            <label for="url">ویرایش تصویر:</label>
+                            <div class="input-group">
+                                <input id="thumbnail" class="form-control" type="text" name="url"
+                                       value="{{$educational->images->url}}">
+                                <a id="images" data-input="thumbnail" data-preview="holder"
+                                   class="btn btn-primary text-light">
+                                    انتخاب
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group col-md-3">
                         <label for="youtube_link">لینک یوتیوب:</label>
                         <input class="form-control" id="youtube_link" name="youtube_link" type="text"

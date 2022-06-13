@@ -1,7 +1,7 @@
 .bg-header {
     //background-color: #091B24 !important;
-    background: rgb(9,27,36);
-    background: linear-gradient(69deg, rgba(9,27,36,1) 33%, rgba(24,113,157,1) 100%);
+    background: rgb(9, 27, 36);
+    background: linear-gradient(69deg, rgba(9, 27, 36, 1) 33%, rgba(24, 113, 157, 1) 100%);
 
 }
 
@@ -24,6 +24,11 @@
     width: 90%;
     text-align: center !important;
 }
+
+.fix-edu-img {
+    max-height: 150px;
+}
+
 
 @media (min-width: 576px) {
     .slick-carousel {
@@ -104,12 +109,15 @@
     height: 1.5em;
 
 }
+
 .text-article-pharmacology {
     color: #5654C7;
 }
-.text-article-medicine{
+
+.text-article-medicine {
     color: #16dba6;
 }
+
 .home-hr-text::before,
 .home-hr-text::after {
     content: "";
@@ -189,6 +197,7 @@
     line-height: 1.5em;
     background: linear-gradient(to right, transparent, #3A8D74, transparent);
 }
+
 .social-list-default {
     padding-inline-start: 0px !important;
     padding: 5px 0 8px 0;
@@ -204,6 +213,7 @@
     margin-top: 2%;
     float: left;
 }
+
 // mobile version
 
 @media (max-width: 567px) {
@@ -211,7 +221,7 @@
     .card-mobile-shadow {
         box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
     }
-    .span-block{
+    .span-block {
         display: block;
     }
 }

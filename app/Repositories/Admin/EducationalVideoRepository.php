@@ -91,6 +91,7 @@ class EducationalVideoRepository extends BaseRepository
         $educational->aparat_link = $request->input('aparat_link');
         $educational->is_active = $request->input('is_active');
         $educational->save();
+        $educational->images()->update(['url' => $request->input('url')]);
         return $educational;
     }
 

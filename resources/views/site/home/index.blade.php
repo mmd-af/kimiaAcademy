@@ -134,7 +134,7 @@
                             <div class="card mt-3 shadow radius-video">
                                 <div class="card-body product-1 align-items-center p-2 text-center">
                                     <div class="image-container radius-video">
-                                        <img class="d-block w-100"
+                                        <img class="d-block w-100 fix-edu-img"
                                              src="{{asset($educationalvideo->images->url)}}"
                                              alt="Second slide"></div>
                                     <div class="product-description py-2 text-right">
