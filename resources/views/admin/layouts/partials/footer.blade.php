@@ -18,7 +18,8 @@
 
     CKEDITOR.replace('editor', options);
 
-
+    $('#files').filemanager('file');
+    $('#images').filemanager('image');
 
 </script>
 {{--@include('sweet::alert')--}}

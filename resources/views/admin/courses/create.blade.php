@@ -43,7 +43,7 @@
                             <div class="input-group">
                                 <input id="thumbnail" class="form-control" type="text" name="url"
                                        value="{{ old('url') }}">
-                                <a id="lfm" data-input="thumbnail" data-preview="holder"
+                                <a id="files" data-input="thumbnail" data-preview="holder"
                                    class="btn btn-primary text-light">
                                     انتخاب
                                 </a>
