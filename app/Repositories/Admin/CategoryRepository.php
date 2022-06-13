@@ -3,7 +3,9 @@
 namespace App\Repositories\Admin;
 
 use App\Models\Category\Category;
+use App\Models\Post\Post;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Database\Eloquent\Builder;
 use Yajra\DataTables\Facades\DataTables;
 
 class CategoryRepository extends BaseRepository
@@ -79,7 +81,7 @@ class CategoryRepository extends BaseRepository
                     $c = csrf_field();
                     $m = method_field('DELETE');
                     return
-                    "
+                        "
                     <div class='d-flex justify-content-center'>
                     <a href='{$edit}' class='btn btn-outline-info btn-sm mx-2'>ویرایش</a>
                     <form action='{$destroy}' method='POST'>
@@ -107,6 +109,15 @@ class CategoryRepository extends BaseRepository
 
     public function destroy($category)
     {
+        // TODO in ravesh eshtebah hast, be dalil inke baraye har CRUD bayad foreach zad
+        $posts = Post::query()
+            ->whereHas('categories', function (Builder $query) use ($category) {
+                $query->where('category_id', $category->id);
+            })->get();
+        foreach ($posts as $post) {
+            $post->images()->delete();
+            $post->delete();
+        }
         $category->delete();
     }
 
