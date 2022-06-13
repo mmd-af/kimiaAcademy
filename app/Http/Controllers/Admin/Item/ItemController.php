@@ -31,22 +31,9 @@ class ItemController extends Controller
 
     public function store(Request $request)
     {
+        $items = $this->ItemRepository->store($request);
+        return to_route('admin.items.index');
 
-
-            $a = $this->ItemRepository->store($request);
-           dd ($a);
-
-////        dd($request->lesson[1]);
-//        $items= $request->except(['_token']);
-//        foreach ($items as $key => $item){
-//dd($key);
-//            $item->lesson = $item->lesson[$key];
-//            $item->is_free = $item->is_free[$key];
-//                $item->save();
-//        }
-
-//        $item = $this->ItemRepository->store($request);
-//        return redirect()->route('admin.items.index');
 
     }
 //
@@ -74,7 +61,7 @@ class ItemController extends Controller
 //
     public function destroy(Item $item)
     {
-//        $this->ItemRepository->destroy($item);
-//        return redirect()->route('admin.items.index');
+        $this->ItemRepository->destroy($item);
+        return redirect()->route('admin.items.index');
     }
 }
