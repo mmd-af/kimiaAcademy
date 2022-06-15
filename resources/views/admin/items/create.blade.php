@@ -36,7 +36,7 @@
                                     <div class="recordset  mt-3">
                                         <div class="card p-3">
                                             <div class="form-group pt-2">
-                                                <span>درس شماره <strong id="lesson_1_number"></strong></span>
+                                                <span>درس شماره <strong id="title_1_number"></strong></span>
                                                 </div>
                                                 <div class="form-row py-2">
                                                     <div class="col">
@@ -45,11 +45,11 @@
                                                 <div class="col">
                                                     <div class="input-group" dir="ltr">
                                                                <span class="input-group-btn">
-                                                                 <a id="lfm_1_number" data-input="filepath_1_cz" data-preview="holder" class="btn btn-dark text-light">
+                                                                 <a id="lfm_1_number" data-input="url_1_cz" data-preview="holder" class="btn btn-dark text-light">
                                                                    <i class="fa fa-picture-o"></i> آپلود فایل
                                                                  </a>
                                                                </span>
-                                                        <input id="filepath_1_cz" class="form-control" type="text" name="filepath[]" >
+                                                        <input id="url_1_cz" class="form-control" type="text" name="url[]" >
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
