@@ -147,7 +147,7 @@ return [
     */
 
     'attributes' => [
-        "title" => "نام دوره",
+        "title" => "عنوان",
         "description" => "توضیحات",
         "slug" => "نام انگلیسی",
         "actual_price" => "قیمت دوره",
@@ -155,7 +155,6 @@ return [
         "course_time" => "مدت زمان دوره",
         "course_size" => "حجم دوره",
         "course_kind" => "نوع دوره",
-        "Category_title" => "نام دسته بندی",
         "url" => "انتخاب فایل",
         "" => ""
 

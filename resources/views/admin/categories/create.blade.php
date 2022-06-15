@@ -20,9 +20,9 @@
                         <div class="form-row p-4">
                             <div class="form-group col-md-12 mt-3">
                                 <div class="form-group col-md-3">
-                                    <label for="Category_title">نام دسته بندی:</label>
-                                    <input class="form-control" id="Category_title" name="Category_title" type="text"
-                                           value="{{ old('Category_title') }}">
+                                    <label for="title">نام دسته بندی:</label>
+                                    <input class="form-control" id="title" name="title" type="text"
+                                           value="{{ old('title') }}">
                                 </div>
                             </div>
                             <div class="form-group col-md-12 mt-3">

@@ -59,7 +59,7 @@ class CategoryRepository extends BaseRepository
     public function store($request)
     {
         $item = new Category();
-        $item->title = $request->input('Category_title');
+        $item->title = $request->input('title');
         $item->slug = SlugService::createSlug(Category::class, 'slug', $request->input('slug'));
         $item->type = $request->input('cat_type');
         $item->parent_id = $request->input('parent_id');
