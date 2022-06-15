@@ -28,7 +28,7 @@ class ItemUpdateRequest extends FormRequest
             'title' => ['required'],
             'description' => ['required'],
             'is_free' => ['required', 'integer'],
-            'parent_id' => ['nullable', 'integer'],
+            'parent_id' => ['nullable'],
             'sort' => ['required'],
         ];
     }

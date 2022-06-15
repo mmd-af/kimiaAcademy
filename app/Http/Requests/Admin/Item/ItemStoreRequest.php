@@ -26,12 +26,12 @@ class ItemStoreRequest extends FormRequest
         return [
             'season' => ['required'],
             'course' => ['required'],
-            'filepath.*' => ['required'],
+            'title.*' => ['required'],
+            'description.*' => ['nullable'],
             'is_free.*' => ['required', 'integer'],
-            'editor.*' => ['nullable', 'integer'],
-            'sort.*' => ['required'],
-            'lesson.*' => ['required'],
+            'filepath.*' => ['required'],
 //TODO add request persian translate
+            'sort.*' => ['required'],
         ];
     }
 }
