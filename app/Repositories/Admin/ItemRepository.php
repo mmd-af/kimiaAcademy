@@ -2,10 +2,11 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Category\Category;
 use App\Models\Course\Course;
 use App\Models\Item\Item;
+use App\Models\Video\Video;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
 
@@ -30,9 +31,7 @@ class ItemRepository extends BaseRepository
             ->with('course')
             ->with('parent')
             ->latest()
-//            ->orderBy('sort', 'desc')
             ->get();
-
     }
 
     public function getCourse()
@@ -53,7 +52,7 @@ class ItemRepository extends BaseRepository
         $season = new Item();
         $season->title = $request->season;
         $season->course_id = $course_id;
-        $season->sort = $latestSeason +1;
+        $season->sort = $latestSeason + 1;
         $season->save();
         return $season;
     }
@@ -70,36 +69,41 @@ class ItemRepository extends BaseRepository
 
     public function store($request)
     {
-
-        $course_id = $request->course;
-        $count = $request->czContainer_czMore_txtCount;
-
-        // return items in request that are arrays
-        $items = collect($request->all())->filter(function ($value) {
-            return is_array($value);
-        })->toArray();
-
-        // first store season
-        $season = $this->storeSeason($request);
-
-        //then store lessons
-        if (isset($season)) {
-            for($i=0; $i < $count ;$i++) {
-                $lesson = new Item();
-                $lesson->course_id = $course_id;
-                $lesson->title = $items['lesson'][$i];
-                $lesson->description = $items['editor'][$i];
-                $lesson->is_free = $items['is_free'][$i];
-                $lesson->parent_id = $season->id;
-                $lesson->sort = $i+1;
-                $lesson->save();
-
+        DB::beginTransaction();
+        try {
+            $course_id = $request->course;
+            $count = $request->czContainer_czMore_txtCount;
+            // return items in request that are arrays
+            $items = collect($request->all())->filter(function ($value) {
+                return is_array($value);
+            })->toArray();
+            // first store season
+            $season = $this->storeSeason($request);
+            //then store lessons
+            if (isset($season)) {
+                for ($i = 0; $i < $count; $i++) {
+                    $lesson = new Item();
+                    $lesson->course_id = $course_id;
+                    $lesson->title = $items['title'][$i];
+                    $lesson->description = $items['description'][$i];
+                    $lesson->is_free = $items['is_free'][$i];
+                    $lesson->parent_id = $season->id;
+                    $lesson->sort = $i + 1;
+                    $lesson->save();
+                    $video = new Video();
+                    $video->url =$items['url'][$i];
+                    $lesson->videos()->save($video);
+                }
+                DB::commit();
             }
-            return $lesson;
-
-        }else{
-            return false;
+        } catch (\Exception $error) {
+            DB::rollback();
+            return $error;
         }
+    }
+
+    public function update($item, $request)
+    {
 
     }
 

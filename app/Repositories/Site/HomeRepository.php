@@ -21,6 +21,7 @@ class HomeRepository
             ->select([
                 'id',
                 'user_id',
+                'slug',
                 'title',
                 'description'
             ])

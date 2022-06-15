@@ -5,10 +5,6 @@
 @endsection
 
 @section('content')
-
-
-
-
     <!-- Content Row -->
     <div class="row ">
         <div class="col-xl-12 col-md-12 p-4">
@@ -20,55 +16,42 @@
                     @include('admin.layouts.partials.errors')
                     <form action="{{ route('admin.items.store') }}" method="POST">
                         @csrf
-
                         <div class="form-row mb-3">
                             <div class="col">
-                                <label for="">عنوان فصل</label>
+                                <label for="season_title">عنوان فصل</label>
                                 <input type="text" class="form-control" name="season" id="season_title">
                             </div>
                             <div class="col">
-                                <label for="course_1_id">انتخاب دوره</label>
-                                <select class="form-control selectpicker" data-live-search="true" id="course"
-                                        name="course">
+                                <label for="course">انتخاب دوره</label>
+                                <select class="form-control selectpicker" data-live-search="true" id="course" name="course">
                                     @foreach($courses as $course)
                                         <option value="{{$course->id}}">{{$course->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-
                         <div class="form-row">
                             <div id="czContainer">
                                 <div id="first">
                                     <div class="recordset  mt-3">
                                         <div class="card p-3">
                                             <div class="form-group pt-2">
-                                                <span>درس شماره <strong id="lesson_1_number"></strong></span>
-
-                                            </div>
-
-                                            <div class="form-row py-2">
-
-
-                                                <div class="col">
-                                                    <input type="text" class="form-control" placeholder="عنوان درس"
-                                                           id="lesson_1_cz" name="lesson[]">
+                                                <span>درس شماره <strong id="title_1_number"></strong></span>
                                                 </div>
-
+                                                <div class="form-row py-2">
+                                                    <div class="col">
+                                                    <input type="text" class="form-control" placeholder="عنوان درس" id="title_1_cz" name="title[]">
+                                                     </div>
                                                 <div class="col">
-
                                                     <div class="input-group" dir="ltr">
                                                                <span class="input-group-btn">
-                                                                 <a id="lfm_1_number" data-input="filepath_1_cz" data-preview="holder" class="btn btn-dark text-light">
+                                                                 <a id="lfm_1_number" data-input="url_1_cz" data-preview="holder" class="btn btn-dark text-light">
                                                                    <i class="fa fa-picture-o"></i> آپلود فایل
                                                                  </a>
                                                                </span>
-                                                        <input id="filepath_1_cz" class="form-control" type="text" name="filepath[]" >
+                                                        <input id="url_1_cz" class="form-control" type="text" name="url[]" >
                                                     </div>
-
-
                                                 </div>
-
                                                 <div class="col-md-2">
                                                     <select class="custom-select" id="is_free_1_cz" name="is_free[]">
                                                         <option selected>نوع دوره</option>
@@ -76,10 +59,9 @@
                                                         <option value="2">غیر رایگان</option>
                                                     </select>
                                                 </div>
-
                                             </div>
                                             <div class=" form-group">
-                                                <textarea name="editor[]" id="editor_1_ck"></textarea>
+                                                <textarea name="description[]" id="description_1_ck"></textarea>
                                             </div>
                                         </div>
 
@@ -87,8 +69,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                         <div class="form-row mt-3">
                             <div class="form-group col-md-12 mt-3 mr-3">
                                 <button class="btn btn-success px-4" type="submit">ثبت</button>
@@ -96,8 +76,6 @@
                                    class="btn btn-outline-dark mr-3">بازگشت</a>
                             </div>
                         </div>
-
-
                     </form>
                 </div>
             </div>
@@ -114,8 +92,8 @@
 
         $("#czContainer").czMore({
             onAdd: function (index) {
-                $('#lesson_' + index + '_number').html(index);
-                CKEDITOR.replace('editor_' + index + '_ck', options);
+                $('#title_' + index + '_number').html(index);
+                CKEDITOR.replace('description_' + index + '_ck', options);
 
                 $('#lfm_' + index + '_number').filemanager('file');
 
