@@ -29,27 +29,20 @@ class ItemController extends Controller
         return view('admin.items.create', compact('courses'));
     }
 
-    public function store(Request $request)
+    public function store(ItemStoreRequest $request)
     {
         $items = $this->ItemRepository->store($request);
         return to_route('admin.items.index');
-
-
     }
-//
-//
+
 //    public function show($id)
 //    {
 //        //
 //    }
-//
-//
+
     public function edit(Item $item)
     {
-//        $itemCatgory = $item->items->first();
-//        $itemVideo = $item->videos();
-//        $items = $this->ItemRepository->getCategory();
-//        return view('admin.items.edit', compact('item', 'items', 'itemCatgory', 'itemVideo'));
+        return view('admin.items.edit', compact('item'));
     }
 //
 //
