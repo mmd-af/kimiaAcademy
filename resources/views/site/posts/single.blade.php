@@ -27,7 +27,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="entry-content">
+                        <div class="entry-content post-line-height">
                             {!!  $post->description !!}
                             <div class="align-self-end pb-3">
                                 <a href="{{route('site.posts.index')}}" class="btn btn-article float-left align-bottom">همه
