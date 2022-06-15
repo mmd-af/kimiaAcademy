@@ -31,14 +31,12 @@ class CategoryController extends Controller
     public function store(CategoryStoreRequest $request)
     {
         $category = $this->categoryRepository->store($request);
-
         return redirect()->route('admin.categories.index');
     }
 
     public function edit(Category $category)
     {
         return view('admin.categories.edit', compact('category'));
-
     }
 
     public function update(CategoryUpdateRequest $request, Category $category)
