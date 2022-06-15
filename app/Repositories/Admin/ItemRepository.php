@@ -95,9 +95,6 @@ class ItemRepository extends BaseRepository
                     $lesson->videos()->save($video);
                 }
                 DB::commit();
-
-            } else {
-                return false;
             }
         } catch (\Exception $error) {
             DB::rollback();
