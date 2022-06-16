@@ -19,23 +19,18 @@ class EducationalVideoController extends Controller
 
     public function index()
     {
-
-        $educationalvideos = $this->EducationalVideoRepository->getLatest();
-        return view('admin.educationalvideos.index', compact('educationalvideos'));
-
+        return view('admin.educationalvideos.index');
     }
 
     public function create()
     {
-
         return view('admin.educationalvideos.create');
-
     }
 
     public function store(EducationalVideoStoreRequest $request)
     {
-        $category = $this->EducationalVideoRepository->store($request);
-
+        $this->EducationalVideoRepository->store($request);
+        alert()->success("با تشکر", 'ویدئو مورد نظر با موفقیت ثبت شد');
         return redirect()->route('admin.educationalvideos.index');
     }
 
@@ -52,7 +47,8 @@ class EducationalVideoController extends Controller
 
     public function update(EducationalVideoUpdateRequest $request, EducationalVideo $educational)
     {
-        $educationalVideos = $this->EducationalVideoRepository->update($request, $educational);
+        $this->EducationalVideoRepository->update($request, $educational);
+        alert()->success("با تشکر", 'ویدئو مورد نظر با موفقیت ویرایش شد');
         return redirect()->route('admin.educationalvideos.index');
     }
 

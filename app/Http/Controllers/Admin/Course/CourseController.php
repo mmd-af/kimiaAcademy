@@ -33,7 +33,8 @@ class CourseController extends Controller
 
     public function store(CourseStoreRequest $request)
     {
-        $course = $this->CourseRepository->store($request);
+        $this->CourseRepository->store($request);
+        alert()->success("با تشکر", 'دوره ی مورد نظر با موفقیت ثبت شد');
         return redirect()->route('admin.courses.index');
 
     }
@@ -56,7 +57,8 @@ class CourseController extends Controller
 
     public function update(PostUpdateRequest $request, Course $course)
     {
-        $courses = $this->CourseRepository->update($request, $course);
+        $this->CourseRepository->update($request, $course);
+        alert()->success("با تشکر", 'دوره ی مورد نظر با موفقیت ویرایش شد');
         return redirect()->route('admin.courses.index');
     }
 

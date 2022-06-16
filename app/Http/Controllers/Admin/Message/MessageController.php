@@ -19,9 +19,7 @@ class MessageController extends Controller
 
     public function index()
     {
-
-        $messages = $this->MessageRepository->getLatest();
-        return view('admin.messages.index', compact('messages'));
+        return view('admin.messages.index');
 
     }
 

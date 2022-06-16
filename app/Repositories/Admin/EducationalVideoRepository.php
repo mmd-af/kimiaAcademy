@@ -3,6 +3,7 @@
 namespace App\Repositories\Admin;
 
 use App\Models\EducationalVideo\EducationalVideo;
+use App\Models\Image\Image;
 use App\Models\Video\Video;
 use Yajra\DataTables\Facades\DataTables;
 

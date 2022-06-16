@@ -30,8 +30,8 @@ class CategoryController extends Controller
 
     public function store(CategoryStoreRequest $request)
     {
-        $category = $this->categoryRepository->store($request);
-
+        $this->categoryRepository->store($request);
+        alert()->success("با تشکر", 'دسته بندی با موفقیت ثبت شد');
         return redirect()->route('admin.categories.index');
     }
 
@@ -43,7 +43,8 @@ class CategoryController extends Controller
 
     public function update(CategoryUpdateRequest $request, Category $category)
     {
-        $courses = $this->categoryRepository->update($request, $category);
+        $this->categoryRepository->update($request, $category);
+        alert()->success("با تشکر", 'دسته بندی با موفقیت ویرایش شد');
         return redirect()->route('admin.categories.index');
     }
 

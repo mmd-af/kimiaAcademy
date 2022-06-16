@@ -33,8 +33,8 @@ class PostController extends Controller
 
     public function store(PostStoreRequest $request)
     {
-        $category = $this->PostRepository->store($request);
-
+        $this->PostRepository->store($request);
+        alert()->success("با تشکر", 'مقاله ی مورد نظر با موفقیت ثبت شد');
         return redirect()->route('admin.posts.index');
     }
 
@@ -53,7 +53,8 @@ class PostController extends Controller
     public function update(PostUpdateRequest $request, Post $post)
     {
 
-        $posts = $this->PostRepository->update($request, $post);
+        $this->PostRepository->update($request, $post);
+        alert()->success("با تشکر", 'مقاله ی مورد نظر با موفقیت ویرایش شد');
         return redirect()->route('admin.posts.index');
     }
 
