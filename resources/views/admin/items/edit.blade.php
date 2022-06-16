@@ -13,24 +13,16 @@
             </div>
             <hr>
             @include('admin.layouts.partials.errors')
-
-
-
             <form action="{{ route('admin.items.update' , ['item' => $item->id])}}"
                   method="POST">
                 @csrf
                 @method('put')
-
                 @if($item->getRawOriginal('parent_id') == \App\Enums\EItemType::SEASON)
-
-
-
                     <div class="form-row mb-3">
                         <div class="col">
-                            <label for="season_title">عنوان فصل</label>
-                            <input type="text" class="form-control" name="season" id="season_title" value="{{$item->title}}">
+                            <label for="title">عنوان فصل</label>
+                            <input type="text" class="form-control" name="title" id="title" value="{{$item->title}}">
                         </div>
-
                     </div>
                 @else
                 <div class="form-row mb-3">
@@ -41,7 +33,6 @@
                     <div class="col">
                         <label for="course"> دوره</label>
                         <input class="form-control selectpicker" data-live-search="true" id="course" name="course" value="{{$item->course->title}}" disabled>
-
                     </div>
                 </div>
                 <div class="form-row py-2 mt-3">
@@ -52,28 +43,24 @@
                     <div class="col">
                         <div class="input-group" dir="ltr">
                             <span class="input-group-btn">
-                                <a id="lfm_1_number" data-input="filepath_1_cz" data-preview="holder"
+                                <a id="files" data-input="url_1_cz" data-preview="holder"
                                    class="btn btn-dark text-light"><i class="fa fa-picture-o">
                                     </i> آپلود فایل</a>
                             </span>
-                            <input id="filepath_1_cz" class="form-control" type="text" name="filepath" value="">
+                            <input id="url_1_cz" class="form-control" type="text" name="url" value="{{$item->video->url}}">
                         </div>
                     </div>
-
                     <div class="col-md-2">
-                        <select class="custom-select" id="is_free_1_cz" name="is_free">
-                            <option selected>{{$item->is_free}}</option>
-                            <option value="1">رایگان</option>
-                            <option value="2">غیر رایگان</option>
+                        <select class="custom-select" id="is_free_1_cz" name="is_free" >
+                            <option value="1" {{ $item->getRawOriginal('is_free')==\App\Enums\EItemIsFree::PAID ? 'selected' : '' }}>غیر رایگان</option>
+                            <option value="2" {{ $item->getRawOriginal('is_free')==\App\Enums\EItemIsFree::FREE ? 'selected' : '' }}>رایگان</option>
                         </select>
                     </div>
-
                 </div>
                 <div class=" form-group">
                     <textarea name="description" id="description">{{$item->description}}</textarea>
                 </div>
                 @endif
-
                 <button class="btn btn-success mt-5" type="submit">ویرایش</button>
                 <a href="{{ route('admin.items.index') }}" class="btn btn-dark mt-5 mr-3">بازگشت</a>
             </form>
