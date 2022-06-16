@@ -12,7 +12,7 @@ trait CourseRelationships
     {
         return $this->morphToMany(Category::class, 'categorizable');
     }
-
+//TODO Edit videos to video
     public function videos()
     {
         return $this->morphOne(Video::class, 'videoable');
