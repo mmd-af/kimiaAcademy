@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Item;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\Admin\Item\ItemStoreRequest;
+use App\Http\Requests\Admin\Item\ItemUpdateRequest;
 use App\Models\Item\Item;
 use App\Repositories\Admin\ItemRepository;
 use Illuminate\Http\Request;
@@ -32,7 +33,8 @@ class ItemController extends Controller
     public function store(ItemStoreRequest $request)
     {
         $items = $this->ItemRepository->store($request);
-        return to_route('admin.items.index');
+        return redirect()->route('admin.items.index');
+//        TODO route dosent work
     }
 
 //    public function show($id)
@@ -44,14 +46,13 @@ class ItemController extends Controller
     {
         return view('admin.items.edit', compact('item'));
     }
-//
-//
-//    public function update(PostUpdateRequest $request, Item $item)
-//    {
-//        $items = $this->ItemRepository->update($request, $item);
-//        return redirect()->route('admin.items.index');
-//    }
-//
+
+    public function update(ItemUpdateRequest $request, Item $item)
+    {
+        $items = $this->ItemRepository->update($request,$item);
+        return redirect()->route('admin.items.index');
+    }
+
     public function destroy(Item $item)
     {
         $this->ItemRepository->destroy($item);
