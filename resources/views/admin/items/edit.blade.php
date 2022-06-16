@@ -17,39 +17,50 @@
                   method="POST">
                 @csrf
                 @method('put')
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label for="title">نام دسته بندی:</label>
-                        <input class="form-control" id="title" name="title" type="text"
-                               value="{{$item->title}}">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="slug">نام انگلیسی:</label>
-                        <input class="form-control" id="slug" name="slug" type="text"
-                               value="{{ $item->slug }}">
-                    </div>
-                    <div class="form-group col-md-12 mt-3">
-                        <label for="type" class="pr-3">انتخاب دسته:</label>
-                        <div class="form-group col-md-3" id="select_item">
-                            <label for="course">دوره های آموزشی</label>
-                            <input id="course" class="item_type" type="radio" value="1" name="cat_type"
-                                   @if($item->getRawOriginal('type') == \App\Enums\ECategoryType::COURSE) checked @endif>
-                            <label for="post" class="pr-5">مقالات</label>
-                            <input id="post" class="item_type" type="radio" value="2" name="cat_type"
-                                   @if($item->getRawOriginal('type') == \App\Enums\ECategoryType::POST) checked @endif>
+                @if($item->getRawOriginal('parent_id') == \App\Enums\EItemType::SEASON)
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            <label for="title">عنوان فصل</label>
+                            <input type="text" class="form-control" name="title" id="title" value="{{$item->title}}">
                         </div>
                     </div>
-
-                    <div class="form-group col-md-12 mt-3">
-                        <div class="form-group col-md-3">
-                            <label for="parent_id">نوع دسته</label>
-                            <select class="form-control item-select" id="parent_id" name="parent_id">
-
-                                <option value="0" selected>ابتدا نوع دسته بندی را مشخص کنید ...</option>
-                            </select>
-                        </div>
+                @else
+                <div class="form-row mb-3">
+                    <div class="col">
+                        <label for="season_title">عنوان فصل</label>
+                        <input type="text" class="form-control" name="season" id="season_title" value="{{$item->parent_id}}" disabled>
+                    </div>
+                    <div class="col">
+                        <label for="course"> دوره</label>
+                        <input class="form-control selectpicker" data-live-search="true" id="course" name="course" value="{{$item->course->title}}" disabled>
                     </div>
                 </div>
+                <div class="form-row py-2 mt-3">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="عنوان درس"
+                               id="title_1_cz" name="title" value="{{$item->title}}">
+                    </div>
+                    <div class="col">
+                        <div class="input-group" dir="ltr">
+                            <span class="input-group-btn">
+                                <a id="files" data-input="url_1_cz" data-preview="holder"
+                                   class="btn btn-dark text-light"><i class="fa fa-picture-o">
+                                    </i> آپلود فایل</a>
+                            </span>
+                            <input id="url_1_cz" class="form-control" type="text" name="url" value="{{$item->video->url}}">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="custom-select" id="is_free_1_cz" name="is_free" >
+                            <option value="1" {{ $item->getRawOriginal('is_free')==\App\Enums\EItemIsFree::PAID ? 'selected' : '' }}>غیر رایگان</option>
+                            <option value="2" {{ $item->getRawOriginal('is_free')==\App\Enums\EItemIsFree::FREE ? 'selected' : '' }}>رایگان</option>
+                        </select>
+                    </div>
+                </div>
+                <div class=" form-group">
+                    <textarea name="description" id="description">{{$item->description}}</textarea>
+                </div>
+                @endif
                 <button class="btn btn-success mt-5" type="submit">ویرایش</button>
                 <a href="{{ route('admin.items.index') }}" class="btn btn-dark mt-5 mr-3">بازگشت</a>
             </form>
@@ -60,35 +71,41 @@
 
 @section('script')
     <script>
-        $(document).ready(function () {
-            $('#select_item input').click(function () {
+        {{--$(document).ready(function () {--}}
+        {{--    $('#select_item input').click(function () {--}}
 
-                let val = $(this).val();
-                $('.item-select').empty();
-                $('.item-select').append('<option value="0" selected>دسته ی مادر</option>');
+        {{--        let val = $(this).val();--}}
+        {{--        $('.item-select').empty();--}}
+        {{--        $('.item-select').append('<option value="0" selected>دسته ی مادر</option>');--}}
 
-                $.ajaxSetup(
-                    {
-                        'headers': {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
+        {{--        $.ajaxSetup(--}}
+        {{--            {--}}
+        {{--                'headers': {--}}
+        {{--                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+        {{--                }--}}
+        {{--            });--}}
 
-                $.ajax({
-                    url: '{{ route('admin.items.ajax.item_type') }}',
-                    type: 'POST',
-                    data: {value: val},
-                    success: function (response) {
+        {{--        $.ajax({--}}
+        {{--            url: '{{ route('admin.items.ajax.item_type') }}',--}}
+        {{--            type: 'POST',--}}
+        {{--            data: {value: val},--}}
+        {{--            success: function (response) {--}}
 
-                        response.data.forEach(function (item, index) {
-                            let option = `<option value=${item.id}>${item.title}</option>`;
-                            $('.item-select').append(option);
-                        });
+        {{--                response.data.forEach(function (item, index) {--}}
+        {{--                    let option = `<option value=${item.id}>${item.title}</option>`;--}}
+        {{--                    $('.item-select').append(option);--}}
+        {{--                });--}}
 
-                    }
-                });
-            });
+        {{--            }--}}
+        {{--        });--}}
+        {{--    });--}}
+        {{--});--}}
+
+        $(function () {
+            $('.selectpicker').selectpicker();
         });
+        CKEDITOR.replace('description', options);
+
 
 
     </script>

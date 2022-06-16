@@ -12,6 +12,4 @@ class Item extends Model
         SoftDeletes,
         ItemModifiers,
         ItemRelationships;
-
-
 }

@@ -230,7 +230,10 @@
                 گرافیک
                 است. </div>
             <div class="modal-footer">
-                <a class="btn btn-primary" href="login.html"> خروج </a>
+                <form action="{{route('logout')}}" method="POST">
+                    @csrf
+                    <button class="btn btn-primary" type="submit" > خروج </button>
+                </form>
                 <button class="btn btn-secondary" type="button" data-dismiss="modal"> لغو </button>
             </div>
         </div>

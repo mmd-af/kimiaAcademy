@@ -24,12 +24,10 @@ class ItemUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'course_id' => ['required'],
             'title' => ['required'],
-            'description' => ['required'],
-            'is_free' => ['required', 'integer'],
-            'parent_id' => ['nullable', 'integer'],
-            'sort' => ['required'],
+            'description' => ['nullable'],
+            'is_free' => ['nullable', 'integer'],
+            'parent_id' => ['nullable'],
         ];
     }
 }

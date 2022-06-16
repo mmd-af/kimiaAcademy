@@ -23,8 +23,8 @@
                             <th>ردیف</th>
                             <th>نام درس</th>
                             <th>نام دوره</th>
-                            <th>نوع</th>
-                            <th>وضعیت</th>
+                            <th>آیتم مادر</th>
+                             <th>وضعیت</th>
                             <th>عملیات</th>
                         </tr>
                         </thead>
@@ -54,8 +54,8 @@
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'title', name: 'title'},
-                    {data: 'course_type', name: 'course_type'},
-                    {data: 'ParentId', name: 'ParentId'},
+                    {data: 'course.title', name: 'course_title'},
+                    {data: 'parent_id', name: 'parent_id'},
                     {data: 'is_free', name: 'is_free'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]

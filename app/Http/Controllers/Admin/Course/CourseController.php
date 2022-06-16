@@ -22,29 +22,23 @@ class CourseController extends Controller
         return view('admin.courses.index');
     }
 
-
     public function create()
     {
         $categories = $this->CourseRepository->getCategory();
         return view('admin.courses.create', compact('categories'));
-
     }
-
 
     public function store(CourseStoreRequest $request)
     {
         $this->CourseRepository->store($request);
         alert()->success("با تشکر", 'دوره ی مورد نظر با موفقیت ثبت شد');
         return redirect()->route('admin.courses.index');
-
     }
 
-
-    public function show($id)
+    public function show(Course $course)
     {
-        //
+        return view('admin.courses.show',compact('course'));
     }
-
 
     public function edit(Course $course)
     {
@@ -53,7 +47,6 @@ class CourseController extends Controller
         $categories = $this->CourseRepository->getCategory();
         return view('admin.courses.edit', compact('course', 'categories', 'courseCatgory', 'courseVideo'));
     }
-
 
     public function update(PostUpdateRequest $request, Course $course)
     {
