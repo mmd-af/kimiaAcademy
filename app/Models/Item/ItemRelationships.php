@@ -9,7 +9,7 @@ trait ItemRelationships
 {
     public function children()
     {
-        return $this->hasOne(Item::class, 'id', 'parent_id');
+        return $this->hasMany(Item::class,  'parent_id');
     }
 
     public function parent()
@@ -22,7 +22,7 @@ trait ItemRelationships
         return $this->belongsTo(Course::class, 'course_id');
     }
 
-    public function videos()
+    public function video()
     {
         return $this->morphOne(Video::class, 'videoable');
     }
