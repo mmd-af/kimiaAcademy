@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Admin;
 
+use App\Enums\EItemType;
 use App\Models\Course\Course;
 use App\Models\Item\Item;
 use App\Models\Video\Video;
@@ -91,8 +92,8 @@ class ItemRepository extends BaseRepository
                     $lesson->sort = $i + 1;
                     $lesson->save();
                     $video = new Video();
-                    $video->url =$items['url'][$i];
-                    $lesson->videos()->save($video);
+                    $video->url = $items['url'][$i];
+                    $lesson->video()->save($video);
                 }
                 DB::commit();
             }
@@ -100,11 +101,6 @@ class ItemRepository extends BaseRepository
             DB::rollback();
             return $error;
         }
-    }
-
-    public function update($item, $request)
-    {
-
     }
 
     public function getDatatableData($request)
@@ -135,8 +131,38 @@ class ItemRepository extends BaseRepository
         }
     }
 
+
+    public function update($request, $item)
+    {
+        if ($item->getRawOriginal('parent_id') == EItemType::SEASON) {
+            $item->title = $request->input('title');
+            $item->save();
+            return $item;
+        }
+        DB::beginTransaction();
+        try {
+            $item->title = $request->input('title');
+            $item->description = $request->input('description');
+            $item->is_free = $request->input('is_free');
+            $item->save();
+            $item->video()->update(['url' => $request->input('url')]);
+            DB::commit();
+            return $item;
+        } catch (\Exception $error) {
+            DB::rollback();
+            return $error;
+        }
+    }
+
     public function destroy($item)
     {
+        if ($item->video())
+            $item->video()->delete();
+        if ($item->getRawOriginal('parent_id') ==EItemType::SEASON){
+            $item->children()->delete();
+        }
+        $item->delete();
         return $item;
+
     }
 }
