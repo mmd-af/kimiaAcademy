@@ -11,10 +11,10 @@
             <div class="card shadow-lg mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between ">
                     <h5 class="mb-3 mb-md-0">لیست درس ها</h5>
-                    <a class="btn btn-sm btn-outline-primary" href="{{ route('admin.items.create') }}">
-                        <i class="fa fa-plus"></i>
-                        <span>ایجاد درس</span>
-                    </a>
+{{--                    <a class="btn btn-sm btn-outline-primary" href="{{ route('admin.items.create') }}">--}}
+{{--                        <i class="fa fa-plus"></i>--}}
+{{--                        <span>ایجاد درس</span>--}}
+{{--                    </a>--}}
                 </div>
                 <div class="table-responsive p-3">
                     <table class="table table-bordered table-striped text-center data-table">
