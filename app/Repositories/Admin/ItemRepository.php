@@ -31,20 +31,32 @@ class ItemRepository extends BaseRepository
             ])
             ->with('course')
             ->with('parent')
-            ->latest()
+//            ->latest()
             ->get();
     }
 
-    public function getCourse()
+    public function getParentItems($course)
     {
-        return Course::query()
+        return Item::query()
             ->select([
                 'id',
-                'title',
+                'title'
             ])
-            ->where('is_active', 1)
+            ->where('course_id', $course->id)
+            ->where('parent_id', 0)
             ->get();
     }
+
+//    public function getCourse()
+//    {
+//        return Course::query()
+//            ->select([
+//                'id',
+//                'title',
+//            ])
+//            ->where('is_active', 1)
+//            ->get();
+//    }
 
     public function storeSeason($request)
     {
@@ -88,7 +100,7 @@ class ItemRepository extends BaseRepository
                     $lesson->title = $items['title'][$i];
                     $lesson->description = $items['description'][$i];
                     $lesson->is_free = $items['is_free'][$i];
-                    $lesson->parent_id = $season->id;
+                    $lesson->parent_id = $request->parent_id;
                     $lesson->sort = $i + 1;
                     $lesson->save();
                     $video = new Video();
@@ -158,7 +170,7 @@ class ItemRepository extends BaseRepository
     {
         if ($item->video())
             $item->video()->delete();
-        if ($item->getRawOriginal('parent_id') ==EItemType::SEASON){
+        if ($item->getRawOriginal('parent_id') == EItemType::SEASON) {
             $item->children()->delete();
         }
         $item->delete();

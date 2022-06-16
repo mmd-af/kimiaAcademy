@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\Admin\Item\ItemStoreRequest;
 use App\Http\Requests\Admin\Item\ItemUpdateRequest;
+use App\Models\Course\Course;
 use App\Models\Item\Item;
 use App\Repositories\Admin\ItemRepository;
 use Illuminate\Http\Request;
@@ -24,10 +25,10 @@ class ItemController extends Controller
         return view('admin.items.index');
     }
 
-    public function create()
+    public function create(Course $course)
     {
-        $courses = $this->ItemRepository->getCourse();
-        return view('admin.items.create', compact('courses'));
+        $parentItems = $this->ItemRepository->getParentItems($course);
+        return view('admin.items.create', compact('course', 'parentItems'));
     }
 
     public function store(ItemStoreRequest $request)
@@ -49,7 +50,7 @@ class ItemController extends Controller
 
     public function update(ItemUpdateRequest $request, Item $item)
     {
-        $items = $this->ItemRepository->update($request,$item);
+        $items = $this->ItemRepository->update($request, $item);
         return redirect()->route('admin.items.index');
     }
 

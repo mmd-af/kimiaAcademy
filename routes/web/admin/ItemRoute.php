@@ -9,7 +9,7 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
                 'as' => 'index',
                 'uses' => 'ItemController@index'
             ]);
-            Route::get('/create', [
+            Route::get('/{course}/create', [
                 'as' => 'create',
                 'uses' => 'ItemController@create'
             ]);
