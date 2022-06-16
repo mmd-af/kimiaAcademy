@@ -54,10 +54,10 @@ class MessageRepository
                     return
                         "
                     <div class='d-flex justify-content-center'>
-                    <form action='{$destroy}' method='POST'>
+                    <form action='{$destroy}' method='POST' id='myForm'>
                     $c
                     $m
-                    <button type='submit' class='btn btn-sm btn-outline-danger'>حذف</button>
+                    <button type='submit' onclick='fireSweetAlert(form); return false' class='btn btn-sm btn-outline-danger'>حذف</button>
                     </form>
                     </div>
                     ";

@@ -57,10 +57,10 @@ class EducationalVideoRepository extends BaseRepository
                         "
                     <div class='d-flex justify-content-center'>
                     <a href='{$edit}' class='btn btn-outline-info btn-sm mx-2'>ویرایش</a>
-                    <form action='{$destroy}' method='POST'>
+                    <form action='{$destroy}' method='POST' id='myForm'>
                     $c
                     $m
-                    <button type='submit' class='btn btn-sm btn-outline-danger'>حذف</button>
+                    <button type='submit' onclick='fireSweetAlert(form); return false' class='btn btn-sm btn-outline-danger'>حذف</button>
                     </form>
                     </div>
                     ";
