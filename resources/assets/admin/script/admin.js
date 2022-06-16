@@ -74,3 +74,11 @@ require("datatables.net-bs4");
     });
 })(jQuery); // End of use strict
 
+$(document).ready(function () {
+    var url = window.location;
+    $('#accordionSidebar .nav-item a[href="'+ url +'"]').parent().addClass('active');
+    $('#accordionSidebar .nav-item a').filter(function() {
+        return $(this).attr('href') == url;
+    }).parent().addClass('active');
+    $('#accordionSidebar .collapse-inner a[href="'+ url +'"]').parents().addClass('active');
+});
