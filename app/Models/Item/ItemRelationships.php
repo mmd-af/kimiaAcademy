@@ -22,7 +22,7 @@ trait ItemRelationships
         return $this->belongsTo(Course::class, 'course_id');
     }
 
-    public function video()
+    public function videos()
     {
         return $this->morphOne(Video::class, 'videoable');
     }

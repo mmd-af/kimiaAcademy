@@ -25,13 +25,8 @@ class ItemStoreRequest extends FormRequest
     {
         //TODO add request persian translate
         return [
-            'season' => ['nullable'],
+            'creative' => ['required'],
             'course' => ['required'],
-            'title.*' => ['required'],
-            'description.*' => ['nullable'],
-            'is_free.*' => ['required', 'integer'],
-            'filepath.*' => ['required'],
-            'sort.*' => ['required'],
         ];
     }
 }

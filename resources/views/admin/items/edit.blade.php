@@ -47,7 +47,7 @@
                                    class="btn btn-dark text-light"><i class="fa fa-picture-o">
                                     </i> آپلود فایل</a>
                             </span>
-                            <input id="url_1_cz" class="form-control" type="text" name="url" value="{{$item->video->url}}">
+                            <input id="url_1_cz" class="form-control" type="text" name="url" value="{{$item->videos->url}}">
                         </div>
                     </div>
                     <div class="col-md-2">

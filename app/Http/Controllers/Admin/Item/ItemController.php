@@ -51,12 +51,14 @@ class ItemController extends Controller
     public function update(ItemUpdateRequest $request, Item $item)
     {
         $items = $this->ItemRepository->update($request, $item);
-        return redirect()->route('admin.items.index');
+        $course = $this->ItemRepository->getCourse($item);
+        return view('admin.courses.show', compact('course', 'item'));
     }
 
     public function destroy(Item $item)
     {
-        $this->ItemRepository->destroy($item);
-        return redirect()->route('admin.items.index');
+        $item = $this->ItemRepository->destroy($item);
+        $course = $this->ItemRepository->getCourse($item);
+        return view('admin.courses.show', compact('course', 'item'));
     }
 }

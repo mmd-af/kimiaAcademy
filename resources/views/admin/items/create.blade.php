@@ -66,8 +66,7 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <select class="custom-select" id="is_free_1_cz" name="is_free[]">
-                                                        <option selected>نوع دوره</option>
-                                                        <option value="1">غیر رایگان</option>
+                                                        <option value="1" selected>غیر رایگان</option>
                                                         <option value="2">رایگان</option>
                                                     </select>
                                                 </div>

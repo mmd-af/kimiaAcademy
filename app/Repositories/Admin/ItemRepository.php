@@ -93,14 +93,20 @@ class ItemRepository extends BaseRepository
             ->get();
     }
 
-
     public function store($request)
     {
         if ($request->creative == 1) {
             return $this->storeSeason($request);
         } elseif ($request->creative == 2) {
-            dd($request->all());
-
+//            dd($request->all());
+            $request->validate([
+                'title' => ['required'],
+                'title.*' => ['required'],
+                'url' => ['required'],
+                'url.*' => ['required'],
+                'is_free' => ['required'],
+                'is_free.*' => ['required', 'integer'],
+            ]);
             $course_id = $request->course;
             $count = $request->czContainer_czMore_txtCount;
             // return items in request that are arrays
@@ -109,21 +115,20 @@ class ItemRepository extends BaseRepository
             })->toArray();
             //then store lessons
             for ($i = 0; $i < $count; $i++) {
-                $lesson = new Item();
-                $lesson->course_id = $course_id;
-                $lesson->title = $items['title'][$i];
-                $lesson->description = $items['description'][$i];
-                $lesson->is_free = $items['is_free'][$i];
-                $lesson->parent_id = $request->parent_id;
-                $lesson->sort = $i + 1;
-                $lesson->save();
+                $item = new Item();
+                $item->course_id = $course_id;
+                $item->title = $items['title'][$i];
+                $item->description = $items['description'][$i];
+                $item->is_free = $items['is_free'][$i];
+                $item->parent_id = $request->parent_id;
+                $item->sort = $i + 1;
+                $item->save();
                 $video = new Video();
                 $video->url = $items['url'][$i];
-                $lesson->video()->save($video);
+                $item->videos()->save($video);
             }
-
+            return $item;
         }
-
     }
 
     public function getDatatableData($request)
@@ -154,7 +159,6 @@ class ItemRepository extends BaseRepository
         }
     }
 
-
     public function getItemDatatableData($request, $item)
     {
         if ($request->ajax()) {
@@ -184,7 +188,6 @@ class ItemRepository extends BaseRepository
         }
     }
 
-
     public function update($request, $item)
     {
         if ($item->getRawOriginal('parent_id') == EItemType::SEASON) {
@@ -198,7 +201,7 @@ class ItemRepository extends BaseRepository
             $item->description = $request->input('description');
             $item->is_free = $request->input('is_free');
             $item->save();
-            $item->video()->update(['url' => $request->input('url')]);
+            $item->videos()->update(['url' => $request->input('url')]);
             DB::commit();
             return $item;
         } catch (\Exception $error) {
@@ -209,13 +212,12 @@ class ItemRepository extends BaseRepository
 
     public function destroy($item)
     {
-        if ($item->video())
-            $item->video()->delete();
+        if ($item->videos())
+            $item->videos()->delete();
         if ($item->getRawOriginal('parent_id') == EItemType::SEASON) {
             $item->children()->delete();
         }
         $item->delete();
         return $item;
-
     }
 }
