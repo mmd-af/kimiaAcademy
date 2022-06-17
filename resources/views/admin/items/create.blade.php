@@ -18,32 +18,27 @@
                         @csrf
                         <input type="hidden" name="course" value="{{$course->id}}">
                         <div class="form-row mb-3">
-
                             <div class="form-group col-md-12">
                                 <div class="py-3 card shadow">
                                     <div class="p-3">
-                                        <label>ایجاد فصل</label>
-                                        <input id="seasonss" type="radio" name="items">
+                                        <label for="seasonss">ایجاد فصل</label>
+                                        <input id="seasonss" type="radio" name="creative" value="1">
                                     </div>
                                 </div>
 
                                 <div class="py-3 card shadow">
                                     <div class="p-3">
-                                        <label>ایجاد درس</label>
-                                        <input id="courses" type="radio" name="items">
+                                        <label for="courses">ایجاد درس</label>
+                                        <input id="courses" type="radio" name="creative" value="2">
                                     </div>
                                 </div>
                             </div>
-
                             <div class="form-group col-md-12">
                                 <div id="season" class="row">
                                 </div>
                             </div>
-
                         </div>
-
-
-                        <div class="form-row">
+                        <div class="form-row" id="courseCz">
                             <div id="czContainer">
                                 <div id="first">
                                     <div class="recordset  mt-3">
@@ -101,28 +96,33 @@
 @endsection
 
 @section('script')
-        <script>
-            $('#seasonss').change(function () {
+    <script>
+        $('#courseCz').hide();
+        $('#seasonss').change(function () {
+            $('#courseCz').hide();
             $('#season').find('div').remove();
-                let seasonformgroup = $('<div/>', {
-                    class: 'form-group col-md-4'
-                });
-                seasonformgroup.append($('<lable/>', {
-                    text: 'نام سر فصل'
-                }));
-                var sel = $('<input>', {
-                    name: 'season',
-                    class: 'form-control'
-                }).appendTo(seasonformgroup);
-                var hidd = $('<input/>', {
-                    type: 'hidden',
-                    name: 'parent_id',
-                    value: '0'
-                }).appendTo(seasonformgroup);
-                $('#season').append(seasonformgroup);
+            let seasonformgroup = $('<div/>', {
+                class: 'form-group col-md-4'
+            });
+            seasonformgroup.append($('<lable/>', {
+                text: 'نام سر فصل'
+            }));
+            var sel = $('<input>', {
+                name: 'season',
+                class: 'form-control',
+                required: 'true'
+            }).appendTo(seasonformgroup);
+            var hidd = $('<input/>', {
+                type: 'hidden',
+                name: 'parent_id',
+                value: '0'
+            }).appendTo(seasonformgroup);
+            $('#season').append(seasonformgroup);
         });
 
         $('#courses').change(function () {
+            $('#courseCz').show();
+
             $('#season').find('div').remove();
             let parentItems =  @json($parentItems);
             let seasonformgroup = $('<div/>', {

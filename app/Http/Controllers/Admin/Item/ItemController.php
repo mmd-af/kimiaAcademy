@@ -33,15 +33,14 @@ class ItemController extends Controller
 
     public function store(ItemStoreRequest $request)
     {
-        dd($request->all());
-        $this->ItemRepository->store($request);
-        return redirect()->route('admin.items.index');
-//        TODO route dosent work
+        $item = $this->ItemRepository->store($request);
+        $course = $this->ItemRepository->getCourse($item);
+        return view('admin.courses.show', compact('course', 'item'));
     }
 
     public function show(Course $course, Item $item)
     {
-        return view('admin.courses.show', compact('course','item'));
+        return view('admin.courses.show', compact('course', 'item'));
     }
 
     public function edit(Item $item)

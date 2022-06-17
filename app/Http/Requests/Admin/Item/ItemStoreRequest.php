@@ -23,15 +23,14 @@ class ItemStoreRequest extends FormRequest
      */
     public function rules()
     {
+        //TODO add request persian translate
         return [
-            'items' => ['required'],
-            'season' => ['required'],
+            'season' => ['nullable'],
             'course' => ['required'],
             'title.*' => ['required'],
             'description.*' => ['nullable'],
             'is_free.*' => ['required', 'integer'],
             'filepath.*' => ['required'],
-//TODO add request persian translate
             'sort.*' => ['required'],
         ];
     }

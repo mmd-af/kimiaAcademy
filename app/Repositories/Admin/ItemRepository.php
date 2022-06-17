@@ -6,7 +6,6 @@ use App\Enums\EItemType;
 use App\Models\Course\Course;
 use App\Models\Item\Item;
 use App\Models\Video\Video;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -60,27 +59,29 @@ class ItemRepository extends BaseRepository
             ->get();
     }
 
-//    public function getCourse()
-//    {
-//        return Course::query()
-//            ->select([
-//                'id',
-//                'title',
-//            ])
-//            ->where('is_active', 1)
-//            ->get();
-//    }
+    public function getCourse($item)
+    {
+        return Course::query()
+            ->select([
+                'id',
+                'title',
+            ])
+            ->where('is_active', 1)
+            ->where('id', $item->course_id)
+            ->first();
+    }
 
     public function storeSeason($request)
     {
         $course_id = $request->course;
         $latestSeason = count($this->getLatesSeason($course_id));
-        $season = new Item();
-        $season->title = $request->season;
-        $season->course_id = $course_id;
-        $season->sort = $latestSeason + 1;
-        $season->save();
-        return $season;
+        $item = new Item();
+        $item->course_id = $course_id;
+        $item->title = $request->season;
+        $item->parent_id = $request->parent_id;
+        $item->sort = $latestSeason + 1;
+        $item->save();
+        return $item;
     }
 
     public function getLatesSeason($course)
@@ -95,37 +96,34 @@ class ItemRepository extends BaseRepository
 
     public function store($request)
     {
-        DB::beginTransaction();
-        try {
+        if ($request->creative == 1) {
+            return $this->storeSeason($request);
+        } elseif ($request->creative == 2) {
+            dd($request->all());
+
             $course_id = $request->course;
             $count = $request->czContainer_czMore_txtCount;
             // return items in request that are arrays
             $items = collect($request->all())->filter(function ($value) {
                 return is_array($value);
             })->toArray();
-            // first store season
-            $season = $this->storeSeason($request);
             //then store lessons
-            if (isset($season)) {
-                for ($i = 0; $i < $count; $i++) {
-                    $lesson = new Item();
-                    $lesson->course_id = $course_id;
-                    $lesson->title = $items['title'][$i];
-                    $lesson->description = $items['description'][$i];
-                    $lesson->is_free = $items['is_free'][$i];
-                    $lesson->parent_id = $request->parent_id;
-                    $lesson->sort = $i + 1;
-                    $lesson->save();
-                    $video = new Video();
-                    $video->url = $items['url'][$i];
-                    $lesson->video()->save($video);
-                }
-                DB::commit();
+            for ($i = 0; $i < $count; $i++) {
+                $lesson = new Item();
+                $lesson->course_id = $course_id;
+                $lesson->title = $items['title'][$i];
+                $lesson->description = $items['description'][$i];
+                $lesson->is_free = $items['is_free'][$i];
+                $lesson->parent_id = $request->parent_id;
+                $lesson->sort = $i + 1;
+                $lesson->save();
+                $video = new Video();
+                $video->url = $items['url'][$i];
+                $lesson->video()->save($video);
             }
-        } catch (\Exception $error) {
-            DB::rollback();
-            return $error;
+
         }
+
     }
 
     public function getDatatableData($request)
@@ -163,7 +161,7 @@ class ItemRepository extends BaseRepository
             $data = $this->getItems($item);
             return Datatables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', function ($row){
+                ->addColumn('action', function ($row) {
 
                     $edit = route('admin.items.edit', $row->id);
                     $destroy = route('admin.items.destroy', $row->id);
