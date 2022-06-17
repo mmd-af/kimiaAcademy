@@ -24,6 +24,7 @@ class ItemStoreRequest extends FormRequest
     public function rules()
     {
         return [
+            'items' => ['required'],
             'season' => ['required'],
             'course' => ['required'],
             'title.*' => ['required'],

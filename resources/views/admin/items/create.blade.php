@@ -22,41 +22,23 @@
                             <div class="form-group col-md-12">
                                 <div class="py-3 card shadow">
                                     <div class="p-3">
-                                        <label for="season">ایجاد فصل</label>
+                                        <label>ایجاد فصل</label>
                                         <input id="seasonss" type="radio" name="items">
                                     </div>
                                 </div>
 
                                 <div class="py-3 card shadow">
                                     <div class="p-3">
-                                        <label for="course">ایجاد درس</label>
+                                        <label>ایجاد درس</label>
                                         <input id="courses" type="radio" name="items">
                                     </div>
                                 </div>
                             </div>
 
-
-                            <div class="form-group col-md-3">
-                                <label for="season_title">عنوان</label>
-                                <input type="text" class="form-control" name="season" id="season_title">
-                            </div>
-
-
-                            {{--                            <div class="form-row mb-3">--}}
-                            {{--                                <label for="course">انتخاب فصل</label>--}}
-                            {{--                                <select class="form-control selectpicker" data-live-search="true" id="course"--}}
-                            {{--                                        name="parent_id">--}}
-                            {{--                                    @foreach($parentItems as $item)--}}
-                            {{--                                        <option value="{{$item->id}}">{{$item->title}}</option>--}}
-                            {{--                                    @endforeach--}}
-                            {{--                                </select>--}}
-                            {{--                            </div>--}}
-
-                            <div class="form-group col-md-9">
+                            <div class="form-group col-md-12">
                                 <div id="season" class="row">
                                 </div>
                             </div>
-
 
                         </div>
 
@@ -119,43 +101,44 @@
 @endsection
 
 @section('script')
-    <script>
-
-        $('#seasonss').change(function () {
+        <script>
+            $('#seasonss').change(function () {
             $('#season').find('div').remove();
-            var sel = $('<input/>', {
-                name: 'parent_id',
-                value: '0'
-            })
+                let seasonformgroup = $('<div/>', {
+                    class: 'form-group col-md-4'
+                });
+                seasonformgroup.append($('<lable/>', {
+                    text: 'نام سر فصل'
+                }));
+                var sel = $('<input>', {
+                    name: 'season',
+                    class: 'form-control'
+                }).appendTo(seasonformgroup);
+                var hidd = $('<input/>', {
+                    type: 'hidden',
+                    name: 'parent_id',
+                    value: '0'
+                }).appendTo(seasonformgroup);
+                $('#season').append(seasonformgroup);
         });
 
         $('#courses').change(function () {
-
+            $('#season').find('div').remove();
             let parentItems =  @json($parentItems);
-
-            // $('#season').find('div').remove();
-
             let seasonformgroup = $('<div/>', {
                 class: 'form-group col-md-4'
             });
-
             seasonformgroup.append($('<lable/>', {
                 text: 'انتخاب فصل'
             }));
-
-
             var sel = $('<select>', {
                 name: 'parent_id',
                 class: 'form-control'
             }).appendTo(seasonformgroup);
-
-
             parentItems.forEach(function (item) {
                 sel.append($("<option>").attr('value', item.id).text(item.title));
             });
-
             $('#season').append(seasonformgroup);
-
         });
 
         $("#czContainer").czMore({

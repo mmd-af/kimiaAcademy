@@ -33,7 +33,8 @@ class ItemController extends Controller
 
     public function store(ItemStoreRequest $request)
     {
-        $items = $this->ItemRepository->store($request);
+        dd($request->all());
+        $this->ItemRepository->store($request);
         return redirect()->route('admin.items.index');
 //        TODO route dosent work
     }
