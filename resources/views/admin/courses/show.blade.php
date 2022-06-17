@@ -20,12 +20,11 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="table-responsive p-3">
-                            <table class="table table-bordered table-striped text-center data-table">
+                            <table class="table table-bordered table-striped table-secondary text-primary text-center data-table">
                                 <thead>
                                 <tr>
                                     <th>ردیف</th>
-                                    <th>نام درس</th>
-                                    <th>آیتم مادر</th>
+                                    <th>نام سرفصل</th>
                                     <th>وضعیت</th>
                                     <th>عملیات</th>
                                 </tr>
@@ -44,7 +43,6 @@
                                 <tr>
                                     <th>ردیف</th>
                                     <th>نام درس</th>
-                                    <th>آیتم مادر</th>
                                     <th>وضعیت</th>
                                     <th>عملیات</th>
                                 </tr>
@@ -81,7 +79,6 @@
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'title', name: 'title'},
-                    {data: 'parent_id', name: 'parent_id'},
                     {data: 'is_free', name: 'is_free'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
@@ -107,7 +104,6 @@
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'title', name: 'title'},
-                    {data: 'parent_id', name: 'parent_id'},
                     {data: 'is_free', name: 'is_free'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
