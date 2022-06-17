@@ -20,11 +20,6 @@ class ItemController extends Controller
         $this->ItemRepository = $ItemRepository;
     }
 
-    public function index()
-    {
-        return view('admin.items.index');
-    }
-
     public function create(Course $course)
     {
         $parentItems = $this->ItemRepository->getParentItems($course);

@@ -5,10 +5,6 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controllers\Admin\Item'], function () {
     Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::group(['prefix' => 'items', 'as' => 'items.'], function () {
-            Route::get('/', [
-                'as' => 'index',
-                'uses' => 'ItemController@index'
-            ]);
             Route::get('/{course}/create', [
                 'as' => 'create',
                 'uses' => 'ItemController@create'
