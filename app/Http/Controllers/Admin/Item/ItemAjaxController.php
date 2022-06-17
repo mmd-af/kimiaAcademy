@@ -14,10 +14,15 @@ class ItemAjaxController extends Controller
     {
         $this->itemRepository = $itemRepository;
     }
+
     public function getDatatableData(Request $request)
     {
         return $this->itemRepository->getDatatableData($request);
     }
 
+    public function getItemDatatableData(Request $request, $item)
+    {
+        return $this->itemRepository->getItemDatatableData($request, $item);
+    }
 
 }

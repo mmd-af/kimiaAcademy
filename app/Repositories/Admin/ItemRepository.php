@@ -35,6 +35,19 @@ class ItemRepository extends BaseRepository
             ->get();
     }
 
+    public function getItems($item)
+    {
+        return Item::query()
+            ->select([
+                'id',
+                'title',
+                'is_free',
+                'parent_id',
+            ])
+            ->where('parent_id', $item)
+            ->get();
+    }
+
     public function getParentItems($course)
     {
         return Item::query()
@@ -134,6 +147,36 @@ class ItemRepository extends BaseRepository
                     $c
                     $m
                     <button type='submit' class='btn btn-sm btn-outline-danger'>حذف</button>
+                    </form>
+                    </div>
+                    ";
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
+
+
+    public function getItemDatatableData($request, $item)
+    {
+        if ($request->ajax()) {
+            $data = $this->getItems($item);
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row){
+
+                    $edit = route('admin.items.edit', $row->id);
+                    $destroy = route('admin.items.destroy', $row->id);
+                    $c = csrf_field();
+                    $m = method_field('DELETE');
+                    return
+                        "
+                    <div class='d-flex justify-content-center'>
+                    <a href='{$edit}' class='btn btn-outline-info btn-sm mx-2'>ویرایش</a>
+                    <form action='{$destroy}' method='POST' id='myForm'>
+                    $c
+                    $m
+                    <button type='submit' onclick='fireSweetAlert(form); return false' class='btn btn-sm btn-outline-danger'>حذف</button>
                     </form>
                     </div>
                     ";

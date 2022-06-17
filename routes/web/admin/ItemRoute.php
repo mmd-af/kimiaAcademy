@@ -43,6 +43,11 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
                 'as' => 'getDatatableData',
                 'uses' => 'ItemAjaxController@getDatatableData'
             ]);
+
+            Route::get('/{item}/getItemDatatableData', [
+                'as' => 'getItemDatatableData',
+                'uses' => 'ItemAjaxController@getItemDatatableData'
+            ]);
         });
     });
 });

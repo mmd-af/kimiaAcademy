@@ -17,21 +17,46 @@
                         <span>ایجاد درس</span>
                     </a>
                 </div>
-                <div class="table-responsive p-3">
-                    <table class="table table-bordered table-striped text-center data-table">
-                        <thead>
-                        <tr>
-                            <th>ردیف</th>
-                            <th>نام درس</th>
-                            <th>آیتم مادر</th>
-                            <th>وضعیت</th>
-                            <th>عملیات</th>
-                        </tr>
-                        </thead>
-                        <tbody class="ml-5">
-                        </tbody>
-                    </table>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="table-responsive p-3">
+                            <table class="table table-bordered table-striped text-center data-table">
+                                <thead>
+                                <tr>
+                                    <th>ردیف</th>
+                                    <th>نام درس</th>
+                                    <th>آیتم مادر</th>
+                                    <th>وضعیت</th>
+                                    <th>عملیات</th>
+                                </tr>
+                                </thead>
+                                <tbody class="ml-5">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <div class="col-6">
+                        <div class="table-responsive p-3">
+                            <table class="table table-bordered table-striped text-center data-table2">
+                                <thead>
+                                <tr>
+                                    <th>ردیف</th>
+                                    <th>نام درس</th>
+                                    <th>آیتم مادر</th>
+                                    <th>وضعیت</th>
+                                    <th>عملیات</th>
+                                </tr>
+                                </thead>
+                                <tbody class="ml-5">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
+
+
             </div>
         </div>
     </div>
@@ -46,6 +71,32 @@
                 'fa': "{{url('assets/admin/script/datatables-translates/fa.json')}}"
             };
             var table = $('.data-table').DataTable({
+                processing: true,
+                serverSide: true,
+                pagingType: "simple",
+                language: {
+                    url: languages['{{ app()->getLocale() }}']
+                },
+                ajax: url,
+                columns: [
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                    {data: 'title', name: 'title'},
+                    {data: 'parent_id', name: 'parent_id'},
+                    {data: 'is_free', name: 'is_free'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false},
+                ]
+            });
+        });
+    </script>
+
+    <script>
+        $(function () {
+            let url = '{{ route("admin.items.ajax.getItemDatatableData", ":id") }}';
+            url = url.replace(':id', {{$item->id}});
+            let languages = {
+                'fa': "{{url('assets/admin/script/datatables-translates/fa.json')}}"
+            };
+            var table = $('.data-table2').DataTable({
                 processing: true,
                 serverSide: true,
                 pagingType: "simple",

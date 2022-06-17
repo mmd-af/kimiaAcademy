@@ -39,10 +39,10 @@ class ItemController extends Controller
 //        TODO route dosent work
     }
 
-//    public function show($id)
-//    {
-//        //
-//    }
+    public function show(Course $course, Item $item)
+    {
+        return view('admin.courses.show', compact('course','item'));
+    }
 
     public function edit(Item $item)
     {
