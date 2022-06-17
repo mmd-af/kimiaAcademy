@@ -20,7 +20,8 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="table-responsive p-3">
-                            <table class="table table-bordered table-striped table-secondary text-primary text-center data-table">
+                            <table
+                                class="table table-bordered table-striped table-secondary text-primary text-center data-table">
                                 <thead>
                                 <tr>
                                     <th>ردیف</th>
@@ -110,4 +111,5 @@
             });
         });
     </script>
+
 @endsection

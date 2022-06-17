@@ -1,5 +1,3 @@
-
-
 <!-- Scroll to Top Button-->
 @include('admin.layouts.partials.scroll_top')
 
@@ -27,6 +25,23 @@
 
 @yield('script')
 
+<script>
+    function fireSweetAlert(form) {
+        swal({
+            title: "آیا از پاک کردن این اطلاعات مطمئن هستید؟",
+            text: "در صورت تایید برای همیشه پاک می شود",
+            icon: "error",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then(function (isOkay) {
+                if (isOkay) {
+                    form.submit();
+                }
+            });
+        return false;
+    }
+</script>
 </body>
 
 </html>
