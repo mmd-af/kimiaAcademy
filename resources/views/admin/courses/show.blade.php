@@ -19,7 +19,7 @@
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <div class="table-responsive p-3">
+                        <div class="card shadow-lg table-responsive p-3">
                             <table
                                 class="table table-bordered table-striped table-secondary text-primary text-center data-table">
                                 <thead>
@@ -38,7 +38,7 @@
 
 
                     <div class="col-6">
-                        <div class="table-responsive p-3">
+                        <div class="card shadow-lg table-responsive p-3">
                             <table class="table table-bordered table-striped text-center data-table2">
                                 <thead>
                                 <tr>
