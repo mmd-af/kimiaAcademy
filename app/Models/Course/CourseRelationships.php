@@ -3,6 +3,7 @@
 namespace App\Models\Course;
 
 use App\Models\Category\Category;
+use App\Models\Comment\Comment;
 use App\Models\Item\Item;
 use App\Models\Video\Video;
 
@@ -12,6 +13,7 @@ trait CourseRelationships
     {
         return $this->morphToMany(Category::class, 'categorizable');
     }
+
 //TODO Edit videos to video
     public function videos()
     {
@@ -22,4 +24,10 @@ trait CourseRelationships
     {
         return $this->hasMany(Item::class);
     }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+
 }
