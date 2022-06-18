@@ -108,8 +108,7 @@
             }));
             var sel = $('<input>', {
                 name: 'season',
-                class: 'form-control',
-                required: 'true'
+                class: 'form-control'
             }).appendTo(seasonformgroup);
             var hidd = $('<input/>', {
                 type: 'hidden',

@@ -99,16 +99,6 @@ class ItemRepository extends BaseRepository
         if ($request->creative == 1) {
             return $this->storeSeason($request);
         } elseif ($request->creative == 2) {
-//            dd($request->all());
-            $request->validate([
-                'parent_id' => ['required'],
-                'title' => ['required'],
-                'title.*' => ['required'],
-                'url' => ['required'],
-                'url.*' => ['required'],
-                'is_free' => ['required'],
-                'is_free.*' => ['required', 'integer'],
-            ]);
             $course_id = $request->course;
             $count = $request->czContainer_czMore_txtCount;
             // return items in request that are arrays
