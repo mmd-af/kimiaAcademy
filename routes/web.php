@@ -4,10 +4,6 @@ use App\Models\Image\Image;
 use App\Models\Video\Video;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/videos', function () {
-    return view('site.video.video');
-})->name('video');
-
 Route::get('/contact-us', function () {
     return view('site.contact-us.contact-us');
 })->name('contact-us');

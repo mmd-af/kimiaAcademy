@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto " id="topNavbar">
                 <li class="nav-item">
-                    <a class="nav-link ml-5" href="{{route('video')}}">دوره های آموزشی<span
+                    <a class="nav-link ml-5" href="{{route('site.courses.index')}}">دوره های آموزشی<span
                             class="sr-only">(current)</span></a>
                 </li>
                 {{--                <li class="nav-item ">--}}

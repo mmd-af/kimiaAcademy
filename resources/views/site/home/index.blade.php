@@ -3,12 +3,12 @@
 
 @section('content')
     @include('site.layouts.partials.header')
-    <div class="container mb-5 mt-5 ">
+    <div class="container mb-5 mt-5">
         {{--TODO admin dashbord--}}
         <div class="text-center mb-2 pt-md-2">
             <h4 class="font-weight-bold">دوره آموزشی داروسازی گیاهی کیمیاگر</h4>
         </div>
-        <div class="row  justify-content-center ">
+        <div class="row justify-content-center ">
             <div class=" slick-carousel">
                 <div class="col-md-12 col-sm-6 py-4">
                     <div class="card mt-3 shadow ">
@@ -25,7 +25,7 @@
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="{{route('video')}}">خرید</a>
+                           href="{{route('site.courses.index')}}">خرید</a>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-6 py-4">
@@ -43,7 +43,7 @@
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="{{route('video')}}">خرید</a>
+                           href="{{route('site.courses.index')}}">خرید</a>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-6 py-4">
@@ -61,7 +61,7 @@
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="{{route('video')}}">خرید</a>
+                           href="{{route('site.courses.index')}}">خرید</a>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-6 py-4">
@@ -79,7 +79,7 @@
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="{{route('video')}}">خرید</a>
+                           href="{{route('site.courses.index')}}">خرید</a>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-6 py-4">
@@ -97,7 +97,7 @@
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="{{route('video')}}">خرید</a>
+                           href="{{route('site.courses.index')}}">خرید</a>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-6 py-4">
@@ -115,7 +115,7 @@
                         </div>
                         {{--TODO btn hover--}}
                         <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="{{route('video')}}">خرید</a>
+                           href="{{route('site.courses.index')}}">خرید</a>
                     </div>
                 </div>
             </div>
