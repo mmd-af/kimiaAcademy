@@ -3,6 +3,7 @@
 namespace App\Models\Post;
 
 use App\Models\Category\Category;
+use App\Models\Comment\Comment;
 use App\Models\Image\Image;
 use App\Models\User;
 
@@ -21,6 +22,11 @@ trait PostRelationships
 
     public function users()
     {
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
     }
 }
