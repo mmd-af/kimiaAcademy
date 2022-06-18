@@ -5,28 +5,15 @@
         <h4 class="mt-5 mx-3 pt-2">دوره آموزشی داروسازی گیاهی کیمیاگر</h4>
         <div class="row">
             <div class="col-md-7 ml-md-5">
-                {{--                {{TODO Admin}}--}}
                 <div class="image-container mt-5 ">
-
-                    {{--                    <img class="d-block img-fluid card-img" src="holder.js/300x150?auto=yes&bg=666&fg=444&text=Video"--}}
-                    {{--                         alt="Second slide">--}}
                     <video controls width="100%" height="380px">
                         <source src="{{asset($course->videos->url)}}" type="video/mp4">
                     </video>
                 </div>
-
                 <div class="py-5">
                     {!! $course->description !!}
                 </div>
-                {{--                <h6 class="mt-5">این دوره مناسب چه کسانی است</h6>--}}
-                {{--                <div>--}}
-                {{--                    <div class="alert alert-video small mt-5">استراتژی درمانی</div>--}}
-                {{--                    <div class="alert alert-video small">استراتژی درمانی</div>--}}
-                {{--                    <div class="alert alert-video small">استراتژی درمانی</div>--}}
-                {{--                </div>--}}
-
                 <h6 class="mt-5 mb-5">سر فصل های این دوره</h6>
-
                 <div class="mb-5 border">
                     <div id="accordion">
                         @foreach($courseSeason as $season)
@@ -42,7 +29,6 @@
                                         </button>
                                     </h5>
                                 </div>
-
                                 <div id="collapse-{{$season->id}}" class="collapse"
                                      aria-labelledby="heading-{{$season->id}}"
                                      data-parent="#accordion">
@@ -60,19 +46,16 @@
                             </div>
                         @endforeach
                     </div>
-
-
                 </div>
-
-
             </div>
-
             <div class="col-md-4 mr-md-3 mx-sm-2">
-                <div class="card border  mt-5 ">
+                <div class="card border mt-5">
                     <div class="pt-4">
                         <strong class="m-3">قیمت : </strong>
-                        <strong class="pl-3 float-left text-success ">800000 تومان</strong>
-                        <del class="float-left pl-2 text-danger ">10000000 تومان</del>
+                        <strong class="pl-3 float-left text-success ">{{number_format($course->actual_price)}}
+                            تومان </strong>
+                        {{--                        TODO inja ye if biad ke age discount dash ba takhfifesh neshun bede--}}
+                        {{--                        <del class="float-left pl-2 text-danger ">10000000 تومان</del>--}}
                     </div>
                     <div class="align-content-center col-12 mt-5">
                         <button class="btn btn-product text-light col-12">خرید دوره</button>
@@ -82,25 +65,25 @@
                             <div class="mx-3">
                                 <img class="svg-icon ml-3 " src="{{asset('assets/site/images/icons/student.svg')}}"
                                      alt="">
-                                <strong>228</strong><span class="mr-2">دانشجو</span>
+                                <strong>{{$course->subscriber_count}}</strong><span class="mr-2">دانشجو</span>
                                 <hr>
                             </div>
                             <div class="mx-3">
                                 <img class="svg-icon ml-3 " src="{{asset('assets/site/images/icons/language.svg')}}"
                                      alt="">
-                                زبان فارسی
+                                زبان:  {{ $course->course_lang }}
                                 <hr>
                             </div>
                             <div class="mx-3">
                                 <img class="svg-icon ml-3 " src="{{asset('assets/site/images/icons/clock.svg')}}"
                                      alt="">
-                                دوره کامل پروژه محور
+                                مدت زمان:  {{ $course->course_time }}
                                 <hr>
                             </div>
                             <div class="mx-3">
                                 <img class="svg-icon ml-3 " src="{{asset('assets/site/images/icons/classes.svg')}}"
                                      alt="">
-                                غیر حضوری
+                                نوع دوره: {{ $course->course_kind }}
                                 <hr>
                             </div>
                             <div class="mx-3">
@@ -113,7 +96,7 @@
                                 <img class="svg-icon ml-3 mb-3 "
                                      src="{{asset('assets/site/images/icons/file-size.svg')}}"
                                      alt="">
-                                حجم فایل
+                                حجم فایل: {{$course->course_size}}
                             </div>
 
                         </div>
@@ -129,7 +112,7 @@
                     <div class="mx-3">
                         <img class="svg-icon ml-3 " src="{{asset('assets/site/images/icons/view.svg')}}"
                              alt="">
-                        <strong>5</strong><span class="mr-2">بازدید</span>
+                        <strong>{{$course->view_count}}</strong><span class="mr-2">بازدید</span>
                     </div>
                 </div>
                 <div class="mt-5 row justify-content-center border p-4 about-teacher">
