@@ -3,19 +3,27 @@
 namespace App\Http\Controllers\Site\Course;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course\Course;
+use App\Repositories\Site\CourseRepository;
 
 class CourseController extends Controller
 {
-//    protected $homeRepository;
-//
-//    public function __construct(HomeRepository $homeRepository)
-//    {
-//        $this->homeRepository = $homeRepository;
-//    }
+    protected $courseRepository;
+
+    public function __construct(CourseRepository $courseRepository)
+    {
+        $this->courseRepository = $courseRepository;
+    }
 
     public function index()
     {
-//        $educationalvideos = $this->homeRepository->getEducatinalVideo();
-        return view('site.courses.index');
+        $courses = $this->courseRepository->getAll();
+        return view('site.courses.index', compact('courses'));
+    }
+
+    public function show(Course $course)
+    {
+        return view('site.courses.show', compact('course'));
+
     }
 }

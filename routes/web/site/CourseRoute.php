@@ -9,6 +9,11 @@ Route::group(['middleware' => ['web'], 'namespace' => 'App\Http\Controllers\Site
                 'as' => 'index',
                 'uses' => 'CourseController@index'
             ]);
+            Route::get('/{course:slug}', [
+                'as' => 'show',
+                'uses' => 'CourseController@show'
+            ]);
+
         });
     });
 });
