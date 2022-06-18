@@ -12,4 +12,6 @@ class Item extends Model
         SoftDeletes,
         ItemModifiers,
         ItemRelationships;
+
+    protected $table = 'items';
 }
