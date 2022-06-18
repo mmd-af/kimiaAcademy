@@ -23,7 +23,9 @@ class CourseController extends Controller
 
     public function show(Course $course)
     {
-        return view('site.courses.show', compact('course'));
+
+        $courseSeason = $this->courseRepository->getCourseSeason($course);
+        return view('site.courses.show', compact('course', 'courseSeason'));
 
     }
 }

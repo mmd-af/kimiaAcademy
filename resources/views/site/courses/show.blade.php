@@ -16,36 +16,53 @@
                 </div>
 
                 <div class="py-5">
-                {!! $course->description !!}
+                    {!! $course->description !!}
                 </div>
-{{--                <h6 class="mt-5">این دوره مناسب چه کسانی است</h6>--}}
-{{--                <div>--}}
-{{--                    <div class="alert alert-video small mt-5">استراتژی درمانی</div>--}}
-{{--                    <div class="alert alert-video small">استراتژی درمانی</div>--}}
-{{--                    <div class="alert alert-video small">استراتژی درمانی</div>--}}
-{{--                </div>--}}
+                {{--                <h6 class="mt-5">این دوره مناسب چه کسانی است</h6>--}}
+                {{--                <div>--}}
+                {{--                    <div class="alert alert-video small mt-5">استراتژی درمانی</div>--}}
+                {{--                    <div class="alert alert-video small">استراتژی درمانی</div>--}}
+                {{--                    <div class="alert alert-video small">استراتژی درمانی</div>--}}
+                {{--                </div>--}}
 
                 <h6 class="mt-5 mb-5">سر فصل های این دوره</h6>
 
                 <div class="mb-5 border">
+                    <div id="accordion">
+                        @foreach($courseSeason as $season)
+                            <div class="card">
+                                <div class="card-header" id="heading-{{$season->id}}">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse"
+                                                data-target="#collapse-{{$season->id}}"
+                                                aria-expanded="true" aria-controls="collapse-{{$season->id}}">
+                                            <img class="svg-icon ml-3 check-mark"
+                                                 src="{{asset('assets/site/images/icons/check-mark.svg')}}"
+                                                 alt=""> {{$season->title}}
+                                        </button>
+                                    </h5>
+                                </div>
 
-                    @foreach($course->items as $item)
-
-                    <div class="small mx-5 p-2 pt-4">
-                        <img class="svg-icon ml-3 check-mark "
-                             src="{{asset('assets/site/images/icons/check-mark.svg')}}"
-                             alt="">دانشجو
-                        استراتژی درمانی
-                        <hr>
+                                <div id="collapse-{{$season->id}}" class="collapse"
+                                     aria-labelledby="heading-{{$season->id}}"
+                                     data-parent="#accordion">
+                                    <div class="card-body">
+                                        @foreach($season->children as $item)
+                                            <div class="card-header my-3">
+                                                <div class="d-flex justify-content-between">
+                                                    <div><a href="">{{$item->title}}</a></div>
+                                                    <div>{{$item->is_free}}</div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-
-                    @endforeach
-
 
 
                 </div>
-
-
 
 
             </div>
@@ -142,7 +159,7 @@
                     <div class="row  ">
                         <div class="col-md-12 ">
 
-                            <form action="" method="POST" >
+                            <form action="" method="POST">
                                 <div class="form-group">
                                     <label for="comment">
                                         دیدگاه شما
@@ -180,7 +197,8 @@
                                                      height="65"/>
                                                 <div class="flex-grow-1 flex-shrink-1">
                                                     <div>
-                                                        <div class="d-flex justify-content-between align-items-center mr-2">
+                                                        <div
+                                                            class="d-flex justify-content-between align-items-center mr-2">
                                                             <p class="mb-1">
                                                                 مریم گلاب پاش<span class="small"> - 2 ساعت پیش </span>
                                                             </p>
@@ -188,7 +206,8 @@
                                                                     class="small"> پاسخ </span></a>
                                                         </div>
                                                         <p class="small mb-0 mr-2">
-                                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
+                                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                                                            با استفاده از طراحان گرافیک است
                                                         </p>
                                                     </div>
 
@@ -201,14 +220,17 @@
                                                         </a>
                                                         <div class="flex-grow-1 flex-shrink-1">
                                                             <div>
-                                                                <div class="d-flex justify-content-between align-items-center mr-2">
+                                                                <div
+                                                                    class="d-flex justify-content-between align-items-center mr-2">
                                                                     <p class="mb-1">
-                                                                        ساجده مهلا<span class="small"> - 1 ساعت پیش </span>
+                                                                        ساجده مهلا<span
+                                                                            class="small"> - 1 ساعت پیش </span>
                                                                     </p>
 
                                                                 </div>
                                                                 <p class="small mb-0 mr-2">
-                                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
+                                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                                                    صنعت چاپ و با استفاده از طراحان گرافیک است
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -225,7 +247,8 @@
                                                      height="65"/>
                                                 <div class="flex-grow-1 flex-shrink-1">
                                                     <div>
-                                                        <div class="d-flex justify-content-between align-items-center mr-2">
+                                                        <div
+                                                            class="d-flex justify-content-between align-items-center mr-2">
                                                             <p class="mb-1">
                                                                 مرضیه قیثی<span class="small"> - 2 ساعت پیش </span>
                                                             </p>
@@ -233,7 +256,8 @@
                                                                     class="small"> پاسخ </span></a>
                                                         </div>
                                                         <p class="small mb-0 mr-2">
-                                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
+                                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                                                            با استفاده از طراحان گرافیک است
                                                         </p>
                                                     </div>
 
@@ -246,14 +270,17 @@
                                                         </a>
                                                         <div class="flex-grow-1 flex-shrink-1">
                                                             <div>
-                                                                <div class="d-flex justify-content-between align-items-center mr-2">
+                                                                <div
+                                                                    class="d-flex justify-content-between align-items-center mr-2">
                                                                     <p class="mb-1">
-                                                                        هانیه طهماسبی<span class="small"> - 1 ساعت پیش </span>
+                                                                        هانیه طهماسبی<span
+                                                                            class="small"> - 1 ساعت پیش </span>
                                                                     </p>
 
                                                                 </div>
                                                                 <p class="small mb-0 mr-2">
-                                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
+                                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                                                    صنعت چاپ و با استفاده از طراحان گرافیک است
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -268,14 +295,17 @@
                                                         </a>
                                                         <div class="flex-grow-1 flex-shrink-1">
                                                             <div>
-                                                                <div class="d-flex justify-content-between align-items-center mr-2">
+                                                                <div
+                                                                    class="d-flex justify-content-between align-items-center mr-2">
                                                                     <p class="mb-1">
-                                                                        محیوبه امیدی<span class="small"> - 1 ساعت پیش </span>
+                                                                        محیوبه امیدی<span
+                                                                            class="small"> - 1 ساعت پیش </span>
                                                                     </p>
 
                                                                 </div>
                                                                 <p class="small mb-0 mr-2">
-                                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
+                                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                                                    صنعت چاپ و با استفاده از طراحان گرافیک است
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -290,14 +320,17 @@
                                                         </a>
                                                         <div class="flex-grow-1 flex-shrink-1">
                                                             <div>
-                                                                <div class="d-flex justify-content-between align-items-center mr-2">
+                                                                <div
+                                                                    class="d-flex justify-content-between align-items-center mr-2">
                                                                     <p class="mb-1">
-                                                                        امین کریمی<span class="small"> - 1 ساعت پیش </span>
+                                                                        امین کریمی<span
+                                                                            class="small"> - 1 ساعت پیش </span>
                                                                     </p>
 
                                                                 </div>
                                                                 <p class="small mb-0 mr-2">
-                                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
+                                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                                                    صنعت چاپ و با استفاده از طراحان گرافیک است
                                                                 </p>
                                                             </div>
                                                         </div>

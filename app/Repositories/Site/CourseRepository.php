@@ -2,9 +2,9 @@
 
 namespace App\Repositories\Site;
 
-use App\Enums\ECategoryType;
-use App\Models\Category\Category;
 use App\Models\Course\Course;
+use App\Models\Item\Item;
+use Illuminate\Database\Eloquent\Builder;
 
 class CourseRepository
 //    extends BaseRepository
@@ -32,8 +32,21 @@ class CourseRepository
                 'course_kind',
                 'is_active'
             ])
-//            ->with('videos')
             ->where('is_active',1)
+            ->with('videos','items')
+            ->get();
+    }
+    public function getCourseSeason($course)
+    {
+        return Item::query()
+            ->select([
+                'id',
+                'title',
+                'is_free',
+                'parent_id',
+            ])
+            ->where('course_id', $course->id)
+            ->where('parent_id', 0)
             ->get();
     }
 

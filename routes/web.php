@@ -57,5 +57,15 @@ Route::get('/query3', function () {
     return "query is finished3";
 });
 
+Route::get('/query4', function () {
+    $posts = App\Models\Item\Item::all();
+    foreach ($posts as $post) {
+        $post->course_id = rand(1,20);
+        $post->parent_id = rand(0,5);
+        $post->save();
+    }
+    return "query is finished4";
+});
+
 
 require __DIR__ . '/auth.php';

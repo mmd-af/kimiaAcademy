@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
             PostSeeder::class,
             EducationalVideoSeeder::class,
             CourseSeeder::class,
+            ItemSeeder::class,
         ]);
     }
 }
