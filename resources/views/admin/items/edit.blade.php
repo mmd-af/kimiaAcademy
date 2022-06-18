@@ -47,7 +47,7 @@
                                    class="btn btn-dark text-light"><i class="fa fa-picture-o">
                                     </i> آپلود فایل</a>
                             </span>
-                            <input id="url_1_cz" class="form-control" type="text" name="url" value="{{$item->video->url}}">
+                            <input id="url_1_cz" class="form-control" type="text" name="url" value="{{$item->videos->url}}">
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -62,7 +62,7 @@
                 </div>
                 @endif
                 <button class="btn btn-success mt-5" type="submit">ویرایش</button>
-                <a href="{{ route('admin.items.index') }}" class="btn btn-dark mt-5 mr-3">بازگشت</a>
+                <a href="{{ route('admin.courses.show',$item->course->id) }}" class="btn btn-dark mt-5 mr-3">بازگشت</a>
             </form>
         </div>
     </div>

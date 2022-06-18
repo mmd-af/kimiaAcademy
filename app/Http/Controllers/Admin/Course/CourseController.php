@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Course\CourseStoreRequest;
 use App\Http\Requests\Admin\Post\PostUpdateRequest;
 use App\Models\Course\Course;
+use App\Models\Item\Item;
 use App\Repositories\Admin\CourseRepository;
 
 class CourseController extends Controller
@@ -35,9 +36,9 @@ class CourseController extends Controller
         return redirect()->route('admin.courses.index');
     }
 
-    public function show(Course $course)
+    public function show(Course $course, Item $item)
     {
-        return view('admin.courses.show',compact('course'));
+        return view('admin.courses.show', compact('course','item'));
     }
 
     public function edit(Course $course)

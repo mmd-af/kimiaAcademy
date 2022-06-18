@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\Admin\Item\ItemStoreRequest;
 use App\Http\Requests\Admin\Item\ItemUpdateRequest;
+use App\Models\Course\Course;
 use App\Models\Item\Item;
 use App\Repositories\Admin\ItemRepository;
 use Illuminate\Http\Request;
@@ -19,28 +20,23 @@ class ItemController extends Controller
         $this->ItemRepository = $ItemRepository;
     }
 
-    public function index()
+    public function create(Course $course)
     {
-        return view('admin.items.index');
-    }
-
-    public function create()
-    {
-        $courses = $this->ItemRepository->getCourse();
-        return view('admin.items.create', compact('courses'));
+        $parentItems = $this->ItemRepository->getParentItems($course);
+        return view('admin.items.create', compact('course', 'parentItems'));
     }
 
     public function store(ItemStoreRequest $request)
     {
-        $items = $this->ItemRepository->store($request);
-        return redirect()->route('admin.items.index');
-//        TODO route dosent work
+        $item = $this->ItemRepository->store($request);
+        $course = $this->ItemRepository->getCourse($item);
+        return view('admin.courses.show', compact('course', 'item'));
     }
 
-//    public function show($id)
-//    {
-//        //
-//    }
+    public function show(Course $course, Item $item)
+    {
+        return view('admin.courses.show', compact('course', 'item'));
+    }
 
     public function edit(Item $item)
     {
@@ -49,13 +45,15 @@ class ItemController extends Controller
 
     public function update(ItemUpdateRequest $request, Item $item)
     {
-        $items = $this->ItemRepository->update($request,$item);
-        return redirect()->route('admin.items.index');
+        $items = $this->ItemRepository->update($request, $item);
+        $course = $this->ItemRepository->getCourse($item);
+        return view('admin.courses.show', compact('course', 'item'));
     }
 
     public function destroy(Item $item)
     {
-        $this->ItemRepository->destroy($item);
-        return redirect()->route('admin.items.index');
+        $item = $this->ItemRepository->destroy($item);
+        $course = $this->ItemRepository->getCourse($item);
+        return view('admin.courses.show', compact('course', 'item'));
     }
 }

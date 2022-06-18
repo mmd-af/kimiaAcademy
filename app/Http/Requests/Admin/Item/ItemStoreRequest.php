@@ -6,32 +6,32 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ItemStoreRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
+
     public function authorize()
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, mixed>
-     */
     public function rules()
     {
-        return [
-            'season' => ['required'],
+        //TODO add request persian translate
+        $roles = [
+            'creative' => ['required'],
             'course' => ['required'],
-            'title.*' => ['required'],
-            'description.*' => ['nullable'],
-            'is_free.*' => ['required', 'integer'],
-            'filepath.*' => ['required'],
-//TODO add request persian translate
-            'sort.*' => ['required'],
         ];
+        $creative = $this->request->get('creative');
+        if ($creative == 1) {
+            $roles['season'] = ['required'];
+        }
+        if ($creative == 2) {
+            $roles['parent_id'] = ['required'];
+            $roles['title'] = ['required'];
+            $roles['title.*'] = ['required'];
+            $roles['url'] = ['required'];
+            $roles['url.*'] = ['required'];
+            $roles['is_free'] = ['required'];
+            $roles['is_free.*'] = ['required', 'integer'];
+        }
+        return $roles;
     }
 }

@@ -42,6 +42,7 @@ class CourseRepository extends BaseRepository
                 'parent_id',
             ])
             ->where('course_id', $course)
+            ->where('parent_id', 0)
             ->get();
     }
 
@@ -74,10 +75,10 @@ class CourseRepository extends BaseRepository
                     <div class='d-flex justify-content-center'>
                     <a href='{$show}' class='btn btn-outline-primary btn-sm'>سر فصل ها</a>
                     <a href='{$edit}' class='btn btn-outline-info btn-sm mx-2'>ویرایش</a>
-                    <form action='{$destroy}' method='POST'>
+                    <form action='{$destroy}' method='POST' id='myForm'>
                     $c
                     $m
-                    <button type='submit' class='btn btn-sm btn-outline-danger'>حذف</button>
+                    <button type='submit' onclick='fireSweetAlert(form); return false' class='btn btn-sm btn-outline-danger'>حذف</button>
                     </form>
                     </div>
                     ";
@@ -87,13 +88,14 @@ class CourseRepository extends BaseRepository
         }
     }
 
-    public function getItemDatatableData($request,$course)
+    public function getItemDatatableData($request, $course)
     {
         if ($request->ajax()) {
             $data = $this->getItems($course);
             return Datatables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', function ($row) {
+                ->addColumn('action', function ($row) use ($course) {
+                    $show = route('admin.courses.show', ['course' => $course, 'item' => $row->id]);
                     $edit = route('admin.items.edit', $row->id);
                     $destroy = route('admin.items.destroy', $row->id);
                     $c = csrf_field();
@@ -101,6 +103,7 @@ class CourseRepository extends BaseRepository
                     return
                         "
                     <div class='d-flex justify-content-center'>
+                    <a href='{$show}' class='btn btn-outline-primary btn-sm mx-2'>درس ها</a>
                     <a href='{$edit}' class='btn btn-outline-info btn-sm mx-2'>ویرایش</a>
                     <form action='{$destroy}' method='POST' id='myForm'>
                     $c

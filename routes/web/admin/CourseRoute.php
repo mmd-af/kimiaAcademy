@@ -17,7 +17,7 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
                 'as' => 'store',
                 'uses' => 'CourseController@store'
             ]);
-            Route::get('{course}/show', [
+            Route::get('/show/{course}/item/{item?}', [
                 'as' => 'show',
                 'uses' => 'CourseController@show'
             ]);

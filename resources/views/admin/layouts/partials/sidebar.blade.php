@@ -35,19 +35,26 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseProducts"
-           aria-expanded="true"
-           aria-controls="collapsePages">
-            <i class="fas fa-fw fa-cart-plus"></i>
+        <a class="nav-link" href="{{route('admin.courses.index')}}">
+            <i class="fas fa-store"></i>
             <span>دوره های آموزشی</span>
         </a>
-        <div id="collapseProducts" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{route('admin.courses.index')}}">دوره ها</a>
-                <a class="collapse-item" href="{{route('admin.items.index')}}">سر فصل ها</a>
-            </div>
-        </div>
     </li>
+
+    {{--    <li class="nav-item">--}}
+    {{--        <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseProducts"--}}
+    {{--           aria-expanded="true"--}}
+    {{--           aria-controls="collapsePages">--}}
+    {{--            <i class="fas fa-fw fa-cart-plus"></i>--}}
+    {{--            <span>دوره های آموزشی</span>--}}
+    {{--        </a>--}}
+    {{--        <div id="collapseProducts" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">--}}
+    {{--            <div class="bg-white py-2 collapse-inner rounded">--}}
+    {{--                <a class="collapse-item" href="{{route('admin.courses.index')}}">دوره ها</a>--}}
+    {{--                <a class="collapse-item" href="{{route('admin.items.index')}}">سر فصل ها</a>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </li>--}}
 
     <li class="nav-item">
         <a class="nav-link" href="{{route('admin.posts.index')}}">

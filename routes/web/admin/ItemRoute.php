@@ -5,11 +5,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controllers\Admin\Item'], function () {
     Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::group(['prefix' => 'items', 'as' => 'items.'], function () {
-            Route::get('/', [
-                'as' => 'index',
-                'uses' => 'ItemController@index'
-            ]);
-            Route::get('/create', [
+            Route::get('/{course}/create', [
                 'as' => 'create',
                 'uses' => 'ItemController@create'
             ]);
@@ -42,6 +38,11 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
             Route::get('/getDatatableData', [
                 'as' => 'getDatatableData',
                 'uses' => 'ItemAjaxController@getDatatableData'
+            ]);
+
+            Route::get('/{item}/getItemDatatableData', [
+                'as' => 'getItemDatatableData',
+                'uses' => 'ItemAjaxController@getItemDatatableData'
             ]);
         });
     });
