@@ -43,6 +43,7 @@ class ItemRepository extends BaseRepository
                 'is_free',
                 'parent_id',
             ])
+            ->where('parent_id', '<>', 0)
             ->where('parent_id', $item)
             ->get();
     }
