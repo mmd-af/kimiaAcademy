@@ -51,5 +51,15 @@ Route::get('/query2', function () {
     return "query is finished2";
 });
 
+Route::get('/query3', function () {
+    $posts = App\Models\Course\Course::all();
+    foreach ($posts as $post) {
+        $image = new Video();
+        $image->url = "/storage/files/51/asli.mp4";
+        $post->videos()->save($image);
+    }
+    return "query is finished3";
+});
+
 
 require __DIR__ . '/auth.php';
