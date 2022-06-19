@@ -45,6 +45,7 @@ class CourseRepository
                 'is_free',
                 'parent_id',
             ])
+            ->with('videos')
             ->where('course_id', $course->id)
             ->where('parent_id', 0)
             ->get();
