@@ -7,7 +7,7 @@
         {{--        </div>--}}
         <div class="sidebar-brand-text">kimyagaracademy.com</div>
     </a>
-
+{{--TODO change Icons--}}
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 

@@ -5,13 +5,17 @@
         <h4 class="mt-5 mx-3 pt-2">دوره آموزشی داروسازی گیاهی کیمیاگر</h4>
         <div class="row">
             <div class="col-md-7 ml-md-5">
-                <div class="image-container mt-5 ">
+                <div class="image-container mt-5" id="divVideo">
                     <video controls width="100%" height="380px">
                         <source src="{{asset($course->videos->url)}}" type="video/mp4">
                     </video>
                 </div>
-                <div class="py-5">
-                    {!! $course->description !!}
+                <div class="py-5" id="descript">
+                    <p>
+                        {!! $course->description !!}
+                    </p>
+                </div>
+                <div class="py-5" id="itemDescript">
                 </div>
                 <h6 class="mt-5 mb-5">سر فصل های این دوره</h6>
                 <div class="mb-5 border">
@@ -20,12 +24,12 @@
                             <div class="card">
                                 <div class="card-header" id="heading-{{$season->id}}">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse"
+                                        <button class="btn btn-outline" data-toggle="collapse"
                                                 data-target="#collapse-{{$season->id}}"
                                                 aria-expanded="true" aria-controls="collapse-{{$season->id}}">
                                             <img class="svg-icon ml-3 check-mark"
                                                  src="{{asset('assets/site/images/icons/check-mark.svg')}}"
-                                                 alt=""> {{$season->title}}
+                                                 alt=""><b>{{$season->title}}</b>
                                         </button>
                                     </h5>
                                 </div>
@@ -36,8 +40,22 @@
                                         @foreach($season->children as $item)
                                             <div class="card-header my-3">
                                                 <div class="d-flex justify-content-between">
-                                                    <div><a href="">{{$item->title}}</a></div>
-                                                    <div>{{$item->is_free}}</div>
+                                                    <div class="mt-2">
+                                                        <input id="itemUrl-{{$item->id}}" name="url" type="hidden"
+                                                               value="{{$item->videos->url}}">
+                                                        <input id="itemDescription-{{$item->id}}" name="url"
+                                                               type="hidden"
+                                                               value="{{$item->description}}">
+                                                        <p class="btn btn-outline"
+                                                           onclick="showVideo({{$item->id}})">{{$item->title}}</p>
+                                                    </div>
+                                                    <div class="mt-3">
+                                                        @if($item->getRawOriginal('is_free')==1)
+                                                            <i class="fa fa-lock"></i>
+                                                        @else
+                                                            {{$item->is_free}}
+                                                        @endif
+                                                    </div>
                                                 </div>
                                             </div>
                                         @endforeach
@@ -71,13 +89,13 @@
                             <div class="mx-3">
                                 <img class="svg-icon ml-3 " src="{{asset('assets/site/images/icons/language.svg')}}"
                                      alt="">
-                                زبان:  {{ $course->course_lang }}
+                                زبان: {{ $course->course_lang }}
                                 <hr>
                             </div>
                             <div class="mx-3">
                                 <img class="svg-icon ml-3 " src="{{asset('assets/site/images/icons/clock.svg')}}"
                                      alt="">
-                                مدت زمان:  {{ $course->course_time }}
+                                مدت زمان: {{ $course->course_time }}
                                 <hr>
                             </div>
                             <div class="mx-3">
@@ -332,9 +350,23 @@
             </div>
         </div>
     </div>
-
-
-
 @endsection
 
+@section('script')
+    <script>
+        {{--TODO in maghadir az input haye hidden gerefte mishavad - TASHIH SHAVAD--}}
+        function showVideo(id) {
+            var url = $("#itemUrl-" + id).val();
+            var description = $("#itemDescription-" + id).val();
+
+            $('#descript p').html(description);
+            $('#divVideo video source').attr('src', url);
+            $("#divVideo video")[0].load();
+            $("#divVideo video")[0].play();
+
+        }
+
+
+    </script>
+@endsection
 

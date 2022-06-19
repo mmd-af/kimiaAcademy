@@ -13,7 +13,7 @@
                                 <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
                                      alt="Second slide"></div>
                             <div class="product-description py-2">
-                                <h4>{{Str::limit($course->title ,30)}}</h4>
+                                <h4>{{Str::limit($course->title ,25)}}</h4>
                                 <div class="mt-3 info"><span
                                         class="text1 d-block">{{Str::limit($course->description ,75)}}</span></div>
                                 <div class=" cost mt-3 text-dark">

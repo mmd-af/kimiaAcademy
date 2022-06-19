@@ -67,5 +67,17 @@ Route::get('/query4', function () {
     return "query is finished4";
 });
 
+Route::get('/query5', function () {
+    $posts = App\Models\Item\Item::all();
+    $id=0;
+    foreach ($posts as $post) {
+        $image = new Video();
+        $image->url = "/storage/files/51/".$id.".mp4";
+        $post->videos()->save($image);
+        $id++;
+    }
+    return "query is finished5";
+});
+
 
 require __DIR__ . '/auth.php';
