@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Course;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Course\CourseStoreRequest;
+use App\Http\Requests\Admin\Course\CourseUpdateRequest;
 use App\Http\Requests\Admin\Post\PostUpdateRequest;
 use App\Models\Course\Course;
 use App\Models\Item\Item;
@@ -49,7 +50,7 @@ class CourseController extends Controller
         return view('admin.courses.edit', compact('course', 'categories', 'courseCatgory', 'courseVideo'));
     }
 
-    public function update(PostUpdateRequest $request, Course $course)
+    public function update(CourseUpdateRequest $request, Course $course)
     {
         $this->CourseRepository->update($request, $course);
         alert()->success("با تشکر", 'دوره ی مورد نظر با موفقیت ویرایش شد');

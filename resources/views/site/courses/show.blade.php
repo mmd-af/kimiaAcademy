@@ -70,10 +70,17 @@
                 <div class="card border mt-5">
                     <div class="pt-4">
                         <strong class="m-3">قیمت : </strong>
-                        <strong class="pl-3 float-left text-success ">{{number_format($course->actual_price)}}
-                            تومان </strong>
-                        {{--                        TODO inja ye if biad ke age discount dash ba takhfifesh neshun bede--}}
-                        {{--                        <del class="float-left pl-2 text-danger ">10000000 تومان</del>--}}
+                        @if($course->discount_price==0 or $course->discount_price ==null)
+                            <strong class="pl-3 float-left text-success">
+                                {{number_format($course->actual_price)}}
+                                تومان </strong>
+                        @else
+                            <strong class="pl-3 float-left text-success">
+                                {{number_format($course->discount_price)}}
+                                تومان </strong>
+                            <del class="float-left pl-2 text-danger ">{{number_format($course->actual_price)}}تومان
+                            </del>
+                        @endif
                     </div>
                     <div class="align-content-center col-12 mt-5">
                         <button class="btn btn-product text-light col-12">خرید دوره</button>

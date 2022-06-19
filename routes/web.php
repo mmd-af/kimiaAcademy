@@ -53,6 +53,7 @@ Route::get('/query3', function () {
         $image = new Video();
         $image->url = "/storage/files/51/asli.mp4";
         $post->videos()->save($image);
+        $post->categories()->attach(rand(1, 15));
     }
     return "query is finished3";
 });
