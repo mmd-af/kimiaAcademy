@@ -42,7 +42,7 @@ class CommentRepository extends BaseRepository
                     return $row->commentable->title;
                 })
                 ->editColumn('created_at', function ($row) {
-                    return verta::instance($row->created_at);
+                    return verta::instance($row->created_at)->format('Y/n/j');
                 })
                 ->editColumn('is_active', function ($row) {
                     $c = csrf_field();
@@ -71,7 +71,9 @@ class CommentRepository extends BaseRepository
                     return
                         "
                     <div class='d-flex justify-content-center'>
-                    <a class='btn btn-outline-info btn-sm mx-2' data-toggle='modal' data-target='.bd-example-modal-lg' >نمایش</a>
+                    <button type='button' class='btn btn-outline-info btn-sm mx-2' data-toggle='modal' data-target='#exampleModalCenter'>
+                        نمایش
+                    </button>
                     <form action='{$destroy}' method='POST' id='myForm'>
                     $c
                     $m
@@ -85,29 +87,6 @@ class CommentRepository extends BaseRepository
         }
     }
 
-//
-//    public function store($request)
-//    {
-//
-//        $id = Auth::id();
-//        $item = new Comment();
-//        $item->user_id = $id;
-//        $item->title = $request->input('title');
-//        $item->slug = SlugService::createSlug(Comment::class, 'slug', $request->input('slug'));
-//        $item->description = $request->input('description');
-//        $item->view_count = $request->input('view_count');
-//        $item->is_active = $request->input('is_active');
-//        $item->save();
-//
-//        $item->categories()->attach($request->input('category_id'));
-//
-//        $image = new Image();
-//        $image->url = $request->input('url');
-//        $item->images()->save($image);
-//
-//
-//    }
-//
     public function update($request,$comment)
     {
         $comment->is_active = $comment->is_active == EActive::YES ? EActive::NO : EActive::YES;
