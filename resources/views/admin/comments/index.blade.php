@@ -28,13 +28,27 @@
             </div>
         </div>
     </div>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <p>{{$comments->id}}</p>
+    @foreach($comments as $comment)
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title float-right" id="exampleModalLongTitle">{{$comment->user_id}}</h5>
+                    </div>
+                    <div class="modal-body">
+                        <time> تاریخ : {{verta($comment->created_at)->format('H:i Y/n/j')}}</time>
+
+                    <div class="modal-body">
+                        {{$comment->body}}
+                    </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    @endforeach
 @endsection
 
 @section('script')
@@ -63,29 +77,5 @@
                 ]
             });
         });
-    </script>
-    <script>
-        // function showAlert(data){
-        //     const obj = JSON.parse(data);
-        //     // alert(obj['id']);
-        //     console.log(obj);
-            // swal({
-            //     title: '<strong>'+${row->id}+'</strong>',
-            //     icon: 'info',
-            //     html:
-            //         'You can use <b>bold text</b>, ' +
-            //         '<a href="//sweetalert2.github.io">links</a> ' +
-            //         'and other HTML tags',
-            //     showCloseButton: true,
-            //     showCancelButton: true,
-            //     focusConfirm: false,
-            //     confirmButtonText:
-            //         '<i class="fa fa-thumbs-up"></i> Great!',
-            //     confirmButtonAriaLabel: 'Thumbs up, great!',
-            //     cancelButtonText:
-            //         '<i class="fa fa-thumbs-down"></i>',
-            //     cancelButtonAriaLabel: 'Thumbs down'
-            // })
-        // };
     </script>
 @endsection
