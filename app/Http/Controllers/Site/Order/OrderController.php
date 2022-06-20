@@ -21,6 +21,7 @@ class OrderController extends Controller
 
     public function request(Request $request)
     {
+        $loginId = Auth::user()->id;
         $loginEmail = Auth::user()->email;
         $loginPhone = Auth::user()->mobile_number;
         $courseId = $request->course_id;
@@ -36,8 +37,11 @@ class OrderController extends Controller
         $invoice->detail(['mobile' => $loginPhone, 'email' => $loginEmail]);
         return Payment::purchase(
             $invoice,
-            function ($driver, $transactionId) use ($credit, $courseId) {
-                session()->put(['transactionId' => $transactionId, 'credit' => $credit, 'courseId' => $courseId]);
+            function ($driver, $transactionId) use ($loginId, $credit, $courseId) {
+//                session()->put(['transactionId' => $transactionId, 'credit' => $credit, 'courseId' => $courseId]);
+                $transaction = $this->orderRepository->transactionStore($loginId, $transactionId, $credit, $courseId);
+                session()->put(['transaction' => $transaction->id]);
+
             }
         )->pay()->render();
 
@@ -46,14 +50,18 @@ class OrderController extends Controller
 
     public function callback()
     {
-        $loginId = Auth::user()->id;
-        $transactionId = session()->get('transactionId');
-        $credit = session()->get('credit');
-        $courseId = session()->get('courseId');
+//        $loginId = Auth::user()->id;
+//        $transactionId = session()->get('transactionId');
+//        $credit = session()->get('credit');
+//        $courseId = session()->get('courseId');
+        $transId = session()->get('transaction');
+        $transaction = $this->orderRepository->getTransaction($transId);
+
         try {
-            $receipt = Payment::amount($credit)->transactionId($transactionId)->verify();
-            $this->orderRepository->saveOrder($loginId,$courseId);
-            // You can show payment referenceId to the user.
+            $receipt = Payment::amount($transaction->credit)->transactionId($transaction->transaction_id)->verify();
+            $this->orderRepository->saveOrder($transaction);
+            $transaction = $this->orderRepository->transactionUpdate($transaction, $receipt);
+
             echo $receipt->getReferenceId();
         } catch (InvalidPaymentException $exception) {
             echo $exception->getMessage();
