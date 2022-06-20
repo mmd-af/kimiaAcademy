@@ -83,7 +83,19 @@
                         @endif
                     </div>
                     <div class="align-content-center col-12 mt-5">
-                        <button class="btn btn-product text-light col-12">خرید دوره</button>
+                        @auth
+                            <form action="{{route('site.orders.request')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="course_id" value="{{$course->id}}">
+                                <button type="submit" class="btn btn-product text-light col-12">خرید دوره</button>
+                            </form>
+                        @else
+                            <div class="mx-3">
+                                <strong class="text-warning">برای خرید دوره ابتدا
+                                    <a href="{{route('login')}}">لاگین</a>
+                                    کنید</strong>
+                            </div>
+                        @endauth
                     </div>
                     <div>
                         <div class="mt-5">

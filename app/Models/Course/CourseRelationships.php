@@ -4,6 +4,7 @@ namespace App\Models\Course;
 
 use App\Models\Category\Category;
 use App\Models\Item\Item;
+use App\Models\Order\Order;
 use App\Models\Video\Video;
 
 trait CourseRelationships
@@ -21,5 +22,9 @@ trait CourseRelationships
     public function items()
     {
         return $this->hasMany(Item::class);
+    }
+    public function order()
+    {
+        return $this->morphOne(Order::class, 'orderable');
     }
 }
