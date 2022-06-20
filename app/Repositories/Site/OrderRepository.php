@@ -3,10 +3,11 @@
 namespace App\Repositories\Site;
 
 use App\Models\Course\Course;
+use App\Models\Order\Order;
 
 class OrderRepository
 {
-    public function getCourse($request)
+    public function getCourse($courseID)
     {
         return Course::query()
             ->select([
@@ -14,7 +15,16 @@ class OrderRepository
                 'actual_price',
                 'discount_price'
             ])
-            ->where('id', $request->course_id)
+            ->where('id', $courseID)
             ->first();
     }
+
+    public function saveOrder($loginId, $courseId)
+    {
+        $course = $this->getCourse($courseId);
+        $order = new Order();
+        $order->user_id = $loginId;
+        $course->order()->save($order);
+    }
+
 }
