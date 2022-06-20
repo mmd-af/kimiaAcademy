@@ -88,9 +88,8 @@
 @include('site.layouts.partials.scroll_top')
 
 @yield('script')
-<script>
 
-</script>
+@include('sweetalert::alert')
 
 </body>
 

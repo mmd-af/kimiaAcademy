@@ -375,17 +375,22 @@
     <script>
         {{--TODO in maghadir az input haye hidden gerefte mishavad - TASHIH SHAVAD--}}
         function showVideo(id) {
-            var url = $("#itemUrl-" + id).val();
-            var description = $("#itemDescription-" + id).val();
+            if ({!! json_encode(Auth::check()) !!}) {
+                var url = $("#itemUrl-" + id).val();
+                var description = $("#itemDescription-" + id).val();
+                $('#descript p').html(description);
+                $('#divVideo video source').attr('src', url);
+                $("#divVideo video")[0].load();
+                $("#divVideo video")[0].play();
 
-            $('#descript p').html(description);
-            $('#divVideo video source').attr('src', url);
-            $("#divVideo video")[0].load();
-            $("#divVideo video")[0].play();
-
+            } else {
+                swal({
+                    title: "برای دیدن ویدئو ها باید لاگین کنید",
+                    text: "متن ساختگی",
+                    icon: "warning",
+                });
+            }
         }
-
-
     </script>
 @endsection
 
