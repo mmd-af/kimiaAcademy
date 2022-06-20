@@ -5,9 +5,50 @@ namespace App\Repositories\Site;
 use App\Models\Course\Course;
 use App\Models\Order\Order;
 use App\Models\Transaction\Transaction;
+use Illuminate\Support\Facades\Auth;
+use Shetabit\Multipay\Exceptions\InvalidPaymentException;
+use Shetabit\Multipay\Invoice;
+use Shetabit\Payment\Facade\Payment;
 
 class OrderRepository
 {
+    public function request($request)
+    {
+        $loginId = Auth::user()->id;
+        $loginEmail = Auth::user()->email;
+        $loginPhone = Auth::user()->mobile_number;
+        $courseId = $request->course_id;
+        $course = $this->getCourse($courseId);
+        if ($course->discount_price == 0 or $course->discount_price == null) {
+            $credit = (int)$course->actual_price;
+        } else {
+            $credit = (int)$course->discount_price;
+        }
+        $invoice = new Invoice;
+        $invoice->amount($credit);
+        $invoice->detail(['mobile' => $loginPhone, 'email' => $loginEmail]);
+       return Payment::purchase($invoice, function ($driver, $transactionId) use ($loginId, $credit, $courseId) {
+            $transaction = $this->transactionStore($loginId, $transactionId, $credit, $courseId);
+            session()->put(['transaction' => $transaction->id]);
+        }
+        );
+    }
+
+    public function callBack($transaction)
+    {
+        try {
+            $receipt = Payment::amount($transaction->credit)->transactionId($transaction->transaction_id)->verify();
+            $this->saveOrder($transaction);
+            $this->transactionUpdate($transaction, $receipt);
+//            TODO hedayate Karbar...
+            echo "هدایت کاربر به کنترل پنل";
+        } catch (InvalidPaymentException $exception) {
+            //            TODO hedayate Karbar...
+            echo $exception->getMessage();
+        }
+    }
+
+
     public function getCourse($courseID)
     {
         return Course::query()
