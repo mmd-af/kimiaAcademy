@@ -31,39 +31,29 @@ class OrderController extends Controller
         } else {
             $credit = (int)$course->discount_price;
         }
-
         $invoice = new Invoice;
         $invoice->amount($credit);
         $invoice->detail(['mobile' => $loginPhone, 'email' => $loginEmail]);
-        return Payment::purchase(
-            $invoice,
-            function ($driver, $transactionId) use ($loginId, $credit, $courseId) {
-//                session()->put(['transactionId' => $transactionId, 'credit' => $credit, 'courseId' => $courseId]);
-                $transaction = $this->orderRepository->transactionStore($loginId, $transactionId, $credit, $courseId);
-                session()->put(['transaction' => $transaction->id]);
-
-            }
+        return Payment::purchase($invoice, function ($driver, $transactionId) use ($loginId, $credit, $courseId) {
+            $transaction = $this->orderRepository->transactionStore($loginId, $transactionId, $credit, $courseId);
+            session()->put(['transaction' => $transaction->id]);
+        }
         )->pay()->render();
-
-
     }
 
     public function callback()
     {
-//        $loginId = Auth::user()->id;
-//        $transactionId = session()->get('transactionId');
-//        $credit = session()->get('credit');
-//        $courseId = session()->get('courseId');
         $transId = session()->get('transaction');
+        session()->forget(['transaction']);
         $transaction = $this->orderRepository->getTransaction($transId);
-
         try {
             $receipt = Payment::amount($transaction->credit)->transactionId($transaction->transaction_id)->verify();
             $this->orderRepository->saveOrder($transaction);
-            $transaction = $this->orderRepository->transactionUpdate($transaction, $receipt);
-
-            echo $receipt->getReferenceId();
+            $this->orderRepository->transactionUpdate($transaction, $receipt);
+//            TODO hedayate Karbar...
+            echo "هدایت کاربر به کنترل پنل";
         } catch (InvalidPaymentException $exception) {
+            //            TODO hedayate Karbar...
             echo $exception->getMessage();
         }
     }
