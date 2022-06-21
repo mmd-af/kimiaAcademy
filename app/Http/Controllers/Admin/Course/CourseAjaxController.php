@@ -3,26 +3,25 @@
 namespace App\Http\Controllers\Admin\Course;
 
 use App\Http\Controllers\Controller;
-use App\Models\Course\Course;
 use App\Repositories\Admin\CourseRepository;
 use Illuminate\Http\Request;
 
 class CourseAjaxController extends Controller
 {
-    protected $categoryRepository;
+    protected $courseRepository;
 
-    public function __construct(CourseRepository $categoryRepository)
+    public function __construct(CourseRepository $courseRepository)
     {
-        $this->categoryRepository = $categoryRepository;
+        $this->courseRepository = $courseRepository;
     }
 
     public function getDatatableData(Request $request)
     {
-        return $this->categoryRepository->getDatatableData($request);
+        return $this->courseRepository->getDatatableData($request);
     }
 
     public function getItemDatatableData(Request $request, $course)
     {
-        return $this->categoryRepository->getItemDatatableData($request, $course);
+        return $this->courseRepository->getItemDatatableData($request, $course);
     }
 }
