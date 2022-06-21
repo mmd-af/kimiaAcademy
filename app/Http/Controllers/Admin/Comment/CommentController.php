@@ -21,18 +21,18 @@ class CommentController extends Controller
     public function index()
     {
         $comments = $this->commentRepository->getAll();
-        return view('admin.comments.index',compact('comments'));
+        return view('admin.comments.index', compact('comments'));
     }
 
-    public function update(Request $request,Comment $comment)
+    public function update(Request $request, Comment $comment)
     {
-        $courses = $this->commentRepository->update($request,$comment);
+        $comment = $this->commentRepository->update($request, $comment);
         return redirect()->route('admin.comments.index');
     }
 
     public function destroy(Comment $comment)
     {
-        $this->commentRepository->destroy($comment);
+        $comment = $this->commentRepository->destroy($comment);
         return redirect()->route('admin.comments.index');
     }
 }
