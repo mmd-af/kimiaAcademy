@@ -29,37 +29,37 @@
     <!-- Nav Item - categories -->
     <li class="nav-item">
         <a class="nav-link" href="{{route('admin.categories.index')}}">
-            <i class="fas fa-store"></i>
+            <i class="fas fa-window-restore"></i>
             <span>دسته بندی ها </span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{route('admin.courses.index')}}">
-            <i class="fas fa-store"></i>
+            <i class="fas fa-film"></i>
             <span>دوره های آموزشی</span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{route('admin.posts.index')}}">
-            <i class="fas fa-store"></i>
+            <i class="fas fa-file"></i>
             <span> مقالات </span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{route('admin.educationalvideos.index')}}">
-            <i class="fas fa-store"></i>
+            <i class="fas fa-video"></i>
             <span> ویدئو های آموزشی </span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{route('admin.comments.index')}}">
-            <i class="fas fa-store"></i>
+            <i class="fas fa-comment"></i>
             <span> نظرات </span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{route('admin.messages.index')}}">
-            <i class="fas fa-store"></i>
+            <i class="fas fa-object-ungroup"></i>
             <span> پیام ها </span>
         </a>
     </li>
