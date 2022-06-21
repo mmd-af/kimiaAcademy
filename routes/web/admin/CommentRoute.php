@@ -21,7 +21,7 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
                 'as' => 'update',
                 'uses' => 'CommentController@update'
             ]);
-            Route::delete('/destroy', [
+            Route::delete('{comment}/destroy', [
                 'as' => 'destroy',
                 'uses' => 'CommentController@destroy'
             ]);
