@@ -32,7 +32,7 @@
                         <label for="category_id">نوع دسته</label>
                         <select class="form-control selectpicker" data-live-search="true" id="category_id"
                                 name="category_id">
-                            <option value="{{$courseCatgory->id}}">{{$courseCatgory->title}}</option>
+                            <option value="{{$courseCategory->id}}">{{$courseCategory->title}}</option>
                             @foreach($categories as $category)
                                 <option value="{{$category->id}}">{{$category->title}}</option>
                             @endforeach
