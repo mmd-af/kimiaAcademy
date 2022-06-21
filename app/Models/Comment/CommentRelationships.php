@@ -11,6 +11,7 @@ trait CommentRelationships
     {
         return $this->morphTo();
     }
+//    TODO delete comment's parent
     public function children()
     {
         return $this->hasMany(Comment::class,  'parent_id');
