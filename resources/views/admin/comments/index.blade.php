@@ -23,31 +23,34 @@
                         </thead>
                         <tbody class="ml-5">
                         </tbody>
+                        @foreach($comments as $comment)
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title float-right"
+                                                id="exampleModalLongTitle">{{$comment->user_id}}</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <time> تاریخ : {{verta($comment->created_at)->format('H:i Y/n/j')}}</time>
+
+                                            <div class="modal-body">
+                                                {{$comment->body}}
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-    @foreach($comments as $comment)
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title float-right" id="exampleModalLongTitle">{{$comment->user_id}}</h5>
-                    </div>
-                    <div class="modal-body">
-                        <time> تاریخ : {{verta($comment->created_at)->format('H:i Y/n/j')}}</time>
-
-                    <div class="modal-body">
-                        {{$comment->body}}
-                    </div>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     @endforeach
 @endsection
 
