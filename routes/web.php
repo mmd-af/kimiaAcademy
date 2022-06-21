@@ -4,10 +4,6 @@ use App\Models\Image\Image;
 use App\Models\Video\Video;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/videos', function () {
-    return view('site.video.video');
-})->name('video');
-
 Route::get('/contact-us', function () {
     return view('site.contact-us.contact-us');
 })->name('contact-us');
@@ -49,6 +45,39 @@ Route::get('/query2', function () {
         $post->images()->save($image);
     }
     return "query is finished2";
+});
+
+Route::get('/query3', function () {
+    $posts = App\Models\Course\Course::all();
+    foreach ($posts as $post) {
+        $image = new Video();
+        $image->url = "/storage/files/51/asli.mp4";
+        $post->videos()->save($image);
+        $post->categories()->attach(rand(1, 15));
+    }
+    return "query is finished3";
+});
+
+Route::get('/query4', function () {
+    $posts = App\Models\Item\Item::all();
+    foreach ($posts as $post) {
+        $post->course_id = rand(1,20);
+        $post->parent_id = rand(0,5);
+        $post->save();
+    }
+    return "query is finished4";
+});
+
+Route::get('/query5', function () {
+    $posts = App\Models\Item\Item::all();
+    $id=0;
+    foreach ($posts as $post) {
+        $image = new Video();
+        $image->url = "/storage/files/51/".$id.".mp4";
+        $post->videos()->save($image);
+        $id++;
+    }
+    return "query is finished5";
 });
 
 

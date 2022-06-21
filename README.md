@@ -96,7 +96,21 @@ Ref_id
 Pay_type
 timestamps
 
-# **Home Video**
+# **test order**
+user_id
+orderable_id
+orderable_type
+
+# **transaciton**
+user_id
+price
+Payment_status
+Ref_id
+Pay_type
+
+
+
+# **Home Video** -> done
 Id
 Title
 youtube_link

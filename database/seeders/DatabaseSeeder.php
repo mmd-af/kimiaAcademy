@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             PostSeeder::class,
             EducationalVideoSeeder::class,
+            CourseSeeder::class,
+            ItemSeeder::class,
         ]);
     }
 }
