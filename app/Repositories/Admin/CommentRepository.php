@@ -49,7 +49,7 @@ class CommentRepository extends BaseRepository
                     $m = method_field('PUT');
                     $update = route('admin.comments.update', $row->id);
                     $is_active = $row->is_active;
-                    $status=$is_active == EActive::YES ? 'checked' : '';
+                    $status = $is_active == EActive::YES ? 'checked' : '';
                     return
                         "
                     <form action='{$update}' method='POST'>
@@ -60,11 +60,9 @@ class CommentRepository extends BaseRepository
                     <label class='custom-control-label' for='customSwitches[$row->id]'></label>
                     </div>
                     </form>
-
                     ";
                 })
                 ->addColumn('action', function ($row) {
-                    $show = route('admin.comments.show', $row->id);
                     $destroy = route('admin.comments.destroy', $row->id);
                     $c = csrf_field();
                     $m = method_field('DELETE');
@@ -82,21 +80,21 @@ class CommentRepository extends BaseRepository
                     </div>
                     ";
                 })
-                ->rawColumns(['action','is_active'])
+                ->rawColumns(['action', 'is_active'])
                 ->make(true);
         }
     }
 
-    public function update($request,$comment)
+    public function update($request, $comment)
     {
         $comment->is_active = $comment->is_active == EActive::YES ? EActive::NO : EActive::YES;
         $comment->save();
         return $comment;
     }
-//
-//    public function destroy($category)
-//    {
-//        $category->delete();
-//    }
+
+    public function destroy($comment)
+    {
+        $comment->delete();
+    }
 
 }
