@@ -3,6 +3,8 @@
 namespace App\Models\Course;
 
 use App\Models\Category\Category;
+use App\Models\Comment\Comment;
+use App\Models\Image\Image;
 use App\Models\Item\Item;
 use App\Models\Order\Order;
 use App\Models\Video\Video;
