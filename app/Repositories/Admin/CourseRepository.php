@@ -166,6 +166,7 @@ class CourseRepository extends BaseRepository
             $course->save();
             $course->categories()->sync($request->input('category_id'));
             $course->videos()->update(['url' => $request->input('url')]);
+            $course->images()->update(['url' => $request->input('image_url')]);
             DB::commit();
             return $course;
         } catch (\Exception $error) {

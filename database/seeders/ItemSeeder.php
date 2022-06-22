@@ -9,7 +9,7 @@ class ItemSeeder extends Seeder
 {
     public function run()
     {
-        Item::factory()->count(100)->create();
+        Item::factory()->count(500)->create();
 
     }
 }

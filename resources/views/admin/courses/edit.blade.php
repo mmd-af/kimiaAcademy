@@ -41,11 +41,25 @@
 
                     <div class="form-group col-md-12 mt-5">
                         <div class="form-group col-md-3">
+                            <label for="image_url">تصویر دوره:</label>
+                            <div class="input-group">
+                                <input id="thumbnail" class="form-control" type="text" name="image_url"
+                                       value="{{$course->images->url}}">
+                                <a id="images" data-input="thumbnail" data-preview="holder"
+                                   class="btn btn-primary text-light">
+                                    انتخاب
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-12 mt-5">
+                        <div class="form-group col-md-3">
                             <label for="url">ویدئو دوره:</label>
                             <div class="input-group">
-                                <input id="thumbnail" class="form-control" type="text" name="url"
+                                <input id="thumbnail2" class="form-control" type="text" name="url"
                                        value="{{$course->videos->url}}">
-                                <a id="files" data-input="thumbnail" data-preview="holder"
+                                <a id="files" data-input="thumbnail2" data-preview="holder2"
                                    class="btn btn-primary text-light">
                                     انتخاب
                                 </a>
