@@ -4,6 +4,7 @@ namespace App\Models\Course;
 
 use App\Models\Category\Category;
 use App\Models\Comment\Comment;
+use App\Models\Image\Image;
 use App\Models\Item\Item;
 use App\Models\Order\Order;
 use App\Models\Video\Video;
@@ -13,6 +14,11 @@ trait CourseRelationships
     public function categories()
     {
         return $this->morphToMany(Category::class, 'categorizable');
+    }
+
+    public function images()
+    {
+        return $this->morphOne(Image::class, 'imageable');
     }
 
 //TODO Edit videos to video
@@ -26,13 +32,13 @@ trait CourseRelationships
         return $this->hasMany(Item::class);
     }
 
-    public function orders()
-    {
-        return $this->morphOne(Order::class, 'orderable');
-    }
-
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    public function orders()
+    {
+        return $this->morphOne(Order::class, 'orderable');
     }
 }
