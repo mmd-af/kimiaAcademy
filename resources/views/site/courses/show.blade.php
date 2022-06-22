@@ -37,23 +37,40 @@
                                      aria-labelledby="heading-{{$season->id}}"
                                      data-parent="#accordion">
                                     <div class="card-body">
+                                        {{--                                        TODO inja query N+1 darim --}}
                                         @foreach($season->children as $item)
                                             <div class="card-header my-3">
                                                 <div class="d-flex justify-content-between">
                                                     <div class="mt-2">
-                                                        <input id="itemUrl-{{$item->id}}" name="url" type="hidden"
-                                                               value="{{$item->videos->url}}">
-                                                        <input id="itemDescription-{{$item->id}}" name="url"
-                                                               type="hidden"
-                                                               value="{{$item->description}}">
+                                                        @auth
+                                                            @if($item->getRawOriginal('is_free')==0)
+                                                                @if($checkOrder)
+                                                                    <input id="itemUrl-{{$item->id}}" name="url"
+                                                                           type="hidden"
+                                                                           value="{{$item->videos->url}}">
+                                                                    <input id="itemDescription-{{$item->id}}" name="url"
+                                                                           type="hidden"
+                                                                           value="{{$item->description}}">
+                                                                @endif
+                                                            @else
+                                                                <input id="itemUrl-{{$item->id}}" name="url"
+                                                                       type="hidden"
+                                                                       value="{{$item->videos->url}}">
+                                                                <input id="itemDescription-{{$item->id}}" name="url"
+                                                                       type="hidden"
+                                                                       value="{{$item->description}}">
+                                                            @endif
+                                                        @endauth
                                                         <p class="btn btn-outline"
                                                            onclick="showVideo({{$item->id}})">{{$item->title}}</p>
                                                     </div>
                                                     <div class="mt-3">
-                                                        @if($item->getRawOriginal('is_free')==1)
-                                                            <i class="fa fa-lock"></i>
-                                                        @else
-                                                            {{$item->is_free}}
+                                                        @if(empty($checkOrder))
+                                                            @if($item->getRawOriginal('is_free')==0)
+                                                                <i class="fa fa-lock"></i>
+                                                            @else
+                                                                {{$item->is_free}}
+                                                            @endif
                                                         @endif
                                                     </div>
                                                 </div>
@@ -68,27 +85,35 @@
             </div>
             <div class="col-md-4 mr-md-3 mx-sm-2">
                 <div class="card border mt-5">
-                    <div class="pt-4">
-                        <strong class="m-3">قیمت : </strong>
-                        @if($course->discount_price==0 or $course->discount_price ==null)
-                            <strong class="pl-3 float-left text-success">
-                                {{number_format($course->actual_price)}}
-                                تومان </strong>
-                        @else
-                            <strong class="pl-3 float-left text-success">
-                                {{number_format($course->discount_price)}}
-                                تومان </strong>
-                            <del class="float-left pl-2 text-danger ">{{number_format($course->actual_price)}}تومان
-                            </del>
-                        @endif
-                    </div>
+                    @if(empty($checkOrder))
+                        <div class="pt-4">
+                            <strong class="m-3">قیمت : </strong>
+                            @if($course->discount_price==0 or $course->discount_price ==null)
+                                <strong class="pl-3 float-left text-success">
+                                    {{number_format($course->actual_price)}}
+                                    تومان </strong>
+                            @else
+                                <strong class="pl-3 float-left text-success">
+                                    {{number_format($course->discount_price)}}
+                                    تومان </strong>
+                                <del class="float-left pl-2 text-danger ">{{number_format($course->actual_price)}}تومان
+                                </del>
+                            @endif
+                        </div>
+                    @endif
                     <div class="align-content-center col-12 mt-5">
                         @auth
-                            <form action="{{route('site.orders.request')}}" method="post">
-                                @csrf
-                                <input type="hidden" name="course_id" value="{{$course->id}}">
-                                <button type="submit" class="btn btn-product text-light col-12">خرید دوره</button>
-                            </form>
+                            @if(empty($checkOrder))
+                                <form action="{{route('site.orders.request')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="course_id" value="{{$course->id}}">
+                                    <button type="submit" class="btn btn-product text-light col-12">خرید دوره</button>
+                                </form>
+                            @else
+                                <div class="d-flex justify-content-center">
+                                    <span class="text-success">این دوره برای شما فعال است</span>
+                                </div>
+                            @endif
                         @else
                             <div class="mx-3">
                                 <strong class="text-warning">برای خرید دوره ابتدا

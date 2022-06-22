@@ -4,7 +4,7 @@ namespace App\Models\Order;
 
 trait OrderRelationships
 {
-    public function imageable()
+    public function orderable()
     {
         return $this->morphTo();
     }

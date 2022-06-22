@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Site\Course;
 
 use App\Http\Controllers\Controller;
-use App\Models\Course\Course;
 use App\Repositories\Site\CourseRepository;
 
 class CourseController extends Controller
@@ -21,11 +20,11 @@ class CourseController extends Controller
         return view('site.courses.index', compact('courses'));
     }
 
-    public function show(Course $course)
+    public function show($course)
     {
-
+        $course = $this->courseRepository->getCourse($course);
+        $checkOrder = $this->courseRepository->checkOrder($course);
         $courseSeason = $this->courseRepository->getCourseSeason($course);
-        return view('site.courses.show', compact('course', 'courseSeason'));
-
+        return view('site.courses.show', compact('course', 'courseSeason', 'checkOrder'));
     }
 }

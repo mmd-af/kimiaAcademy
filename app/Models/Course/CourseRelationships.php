@@ -13,6 +13,7 @@ trait CourseRelationships
     {
         return $this->morphToMany(Category::class, 'categorizable');
     }
+
 //TODO Edit videos to video
     public function videos()
     {
@@ -23,7 +24,8 @@ trait CourseRelationships
     {
         return $this->hasMany(Item::class);
     }
-    public function order()
+
+    public function orders()
     {
         return $this->morphOne(Order::class, 'orderable');
     }
