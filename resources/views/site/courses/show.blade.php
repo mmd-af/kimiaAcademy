@@ -22,14 +22,19 @@
                     <div id="accordion">
                         @foreach($courseSeason as $season)
                             <div class="card">
-                                <div class="card-header" id="heading-{{$season->id}}">
+                                <div class="card-header" data-toggle="collapse"
+                                     data-target="#collapse-{{$season->id}}"
+                                     aria-expanded="true" aria-controls="collapse-{{$season->id}}" id="heading-{{$season->id}}">
                                     <h5 class="mb-0">
                                         <button class="btn btn-outline" data-toggle="collapse"
                                                 data-target="#collapse-{{$season->id}}"
                                                 aria-expanded="true" aria-controls="collapse-{{$season->id}}">
                                             <img class="svg-icon ml-3 check-mark"
                                                  src="{{asset('assets/site/images/icons/check-mark.svg')}}"
-                                                 alt=""><b>{{$season->title}}</b>
+                                                 alt="">
+                                            <b>
+                                                {{$season->title}}
+                                            </b>
                                         </button>
                                     </h5>
                                 </div>
@@ -37,7 +42,7 @@
                                      aria-labelledby="heading-{{$season->id}}"
                                      data-parent="#accordion">
                                     <div class="card-body">
-                                        {{--                                        TODO inja query N+1 darim --}}
+{{--                                        TODO inja query N+1 darim --}}
                                         @foreach($season->children as $item)
                                             <div class="card-header my-3">
                                                 <div class="d-flex justify-content-between">

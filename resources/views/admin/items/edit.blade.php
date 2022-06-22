@@ -52,8 +52,8 @@
                     </div>
                     <div class="col-md-2">
                         <select class="custom-select" id="is_free_1_cz" name="is_free" >
-                            <option value="1" {{ $item->getRawOriginal('is_free')==\App\Enums\EItemIsFree::PAID ? 'selected' : '' }}>غیر رایگان</option>
-                            <option value="2" {{ $item->getRawOriginal('is_free')==\App\Enums\EItemIsFree::FREE ? 'selected' : '' }}>رایگان</option>
+                            <option value="0" {{ $item->getRawOriginal('is_free')==\App\Enums\EItemIsFree::PAID ? 'selected' : '' }}>غیر رایگان</option>
+                            <option value="1" {{ $item->getRawOriginal('is_free')==\App\Enums\EItemIsFree::FREE ? 'selected' : '' }}>رایگان</option>
                         </select>
                     </div>
                 </div>
