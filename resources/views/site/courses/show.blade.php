@@ -165,7 +165,6 @@
                                      alt="">
                                 حجم فایل: {{$course->course_size}}
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -194,16 +193,12 @@
                         <div class=" text-center">
                             <small>دکترای دارو سازی از دانشگاه پادوا ایتالیا</small>
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-7 ml-md-5">
-
-
                 {{--    comments component    --}}
                 <div class="container  py-5 ">
                     <div class="row  ">
@@ -237,7 +232,6 @@
                         <div class="col-md-12  ">
                             <div class="card shadow-sm">
                                 <div class="card-body ">
-
                                     <div class="row">
                                         <div class="col">
                                             <div class="d-flex flex-start">
@@ -285,11 +279,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-
-
                                                 </div>
                                             </div>
-
                                             <div class="d-flex flex-start mt-4">
                                                 <img class="rounded-circle shadow-1-strong me-3"
                                                      src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(12).webp"
@@ -394,8 +385,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -411,7 +400,7 @@
                 $('#descript p').html(description);
                 $('#divVideo video source').attr('src', url);
                 $("#divVideo video")[0].load();
-                $("#divVideo video")[0].play();
+                // $("#divVideo video")[0].play();
 
             } else {
                 swal({
