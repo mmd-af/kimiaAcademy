@@ -15,7 +15,8 @@
                             <div class="product-description py-2">
                                 <h4>{{Str::limit($course->title ,25)}}</h4>
                                 <div class="mt-3 info"><span
-                                        class="text1 d-block">{{Str::limit($course->description ,75)}}</span></div>
+                                        class="text1 d-block">{!! Str::limit($course->description ,75) !!}
+                                    </span></div>
                                 <div class=" cost mt-3 text-dark">
                                     <span>{{number_format($course->actual_price)}} تومان </span>
                                 </div>
