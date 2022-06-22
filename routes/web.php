@@ -50,10 +50,14 @@ Route::get('/query2', function () {
 Route::get('/query3', function () {
     $posts = App\Models\Course\Course::all();
     foreach ($posts as $post) {
-        $image = new Video();
-        $image->url = "/storage/files/51/asli.mp4";
-        $post->videos()->save($image);
+        $video = new Video();
+        $video->url = "/storage/files/51/asli.mp4";
+        $post->videos()->save($video);
         $post->categories()->attach(rand(1, 15));
+
+        $image = new Image();
+        $image->url = "/storage/photos/51/111111 (1).jpg";
+        $post->images()->save($image);
     }
     return "query is finished3";
 });
@@ -61,8 +65,8 @@ Route::get('/query3', function () {
 Route::get('/query4', function () {
     $posts = App\Models\Item\Item::all();
     foreach ($posts as $post) {
-        $post->course_id = rand(1,20);
-        $post->parent_id = rand(0,5);
+        $post->course_id = rand(1, 20);
+        $post->parent_id = rand(0, 5);
         $post->save();
     }
     return "query is finished4";
@@ -70,11 +74,11 @@ Route::get('/query4', function () {
 
 Route::get('/query5', function () {
     $posts = App\Models\Item\Item::all();
-    $id=0;
+    $id = 0;
     foreach ($posts as $post) {
-        $image = new Video();
-        $image->url = "/storage/files/51/".$id.".mp4";
-        $post->videos()->save($image);
+        $video = new Video();
+        $video->url = "/storage/files/51/" . $id . ".mp4";
+        $post->videos()->save($video);
         $id++;
     }
     return "query is finished5";

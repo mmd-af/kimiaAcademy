@@ -27,6 +27,8 @@ class CourseUpdateRequest extends FormRequest
             'category_id' => 'required',
             'title' => 'required',
             'slug' => 'required',
+            'image_url' => 'required',
+            'url' => 'required',
             'description' => 'required',
             'actual_price' => 'required|integer|min:1000|max:50000000',
             'discount_price' => 'nullable|integer|min:1000|max:50000000',

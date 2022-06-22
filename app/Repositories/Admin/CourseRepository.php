@@ -4,6 +4,7 @@ namespace App\Repositories\Admin;
 
 use App\Models\Category\Category;
 use App\Models\Course\Course;
+use App\Models\Image\Image;
 use App\Models\Item\Item;
 use App\Models\Video\Video;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -135,6 +136,9 @@ class CourseRepository extends BaseRepository
             $item->course_kind = $request->input('course_kind');
             $item->save();
             $item->categories()->attach($request->input('category_id'));
+            $image = new Image();
+            $image->url = $request->input('image_url');
+            $item->images()->save($image);
             $video = new Video();
             $video->url = $request->input('url');
             $item->videos()->save($video);

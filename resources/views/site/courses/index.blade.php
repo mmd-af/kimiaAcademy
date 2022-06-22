@@ -10,7 +10,7 @@
                     <div class="card mt-3 shadow ">
                         <div class="card-body product-1 align-items-center p-2 text-center">
                             <div class="image-container">
-                                <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
+                                <img class="d-block w-100" src="{{asset($course->images->url)}}"
                                      alt="Second slide"></div>
                             <div class="product-description py-2">
                                 <h4>{{Str::limit($course->title ,25)}}</h4>
