@@ -26,13 +26,13 @@ trait CourseRelationships
         return $this->hasMany(Item::class);
     }
 
+    public function orders()
+    {
+        return $this->morphOne(Order::class, 'orderable');
+    }
+
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');
-    }
-
-    public function order()
-    {
-        return $this->morphOne(Order::class, 'orderable');
     }
 }

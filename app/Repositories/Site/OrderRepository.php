@@ -94,7 +94,7 @@ class OrderRepository
         $course = $this->getCourse($courseId);
         $order = new Order();
         $order->user_id = $transaction->user_id;
-        $course->order()->save($order);
+        $course->orders()->save($order);
     }
 
     public function transactionUpdate($transaction, $receipt)
