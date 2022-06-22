@@ -393,6 +393,7 @@
 @section('script')
     <script>
         {{--TODO in maghadir az input haye hidden gerefte mishavad - TASHIH SHAVAD--}}
+{{--        TODO ye morede dg ham ke dare ine ke tozihate itemha chand bar tekrar mishe --}}
         function showVideo(id) {
             if ({!! json_encode(Auth::check()) !!}) {
                 var url = $("#itemUrl-" + id).val();

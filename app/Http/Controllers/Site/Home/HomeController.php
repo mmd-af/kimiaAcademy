@@ -16,9 +16,10 @@ class HomeController extends Controller
 
     public function index()
     {
+        $courses = $this->homeRepository->getCourses();
         $educationalvideos = $this->homeRepository->getEducatinalVideo();
         $pharmacologyPost = $this->homeRepository->getPharmacologyPost();
         $medicinalPost = $this->homeRepository->getMedicinalPost();
-        return view('site.home.index', compact('educationalvideos', 'pharmacologyPost', 'medicinalPost'));
+        return view('site.home.index', compact('courses', 'educationalvideos', 'pharmacologyPost', 'medicinalPost'));
     }
 }

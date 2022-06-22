@@ -10,114 +10,29 @@
         </div>
         <div class="row justify-content-center ">
             <div class=" slick-carousel">
-                <div class="col-md-12 col-sm-6 py-4">
-                    <div class="card mt-3 shadow ">
-                        <div class="card-body product-1 align-items-center p-2 text-center">
-                            <div class="image-container">
-                                <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
-                                     alt="Second slide"></div>
-                            <div class="product-description py-2">
-                                <h5>عنوان اصلی</h5>
-                                <div class="mt-3 info"><span class="text1 d-block">توضیحات کوتاه</span></div>
-                                <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
+                @foreach($courses as $course)
+                    <div class="col-md-12 col-sm-6 py-4">
+                        <div class="card mt-3 shadow ">
+                            <div class="card-body product-1 align-items-center p-2 text-center">
+                                <div class="image-container">
+                                    <img class="d-block w-100 fix-edu-img" src="{{asset($course->images->url)}}"
+                                         alt="Second slide"></div>
+                                <div class="product-description py-2">
+                                    <h4>{{Str::limit($course->title ,25)}}</h4>
+                                    <div class="mt-3 info"><span
+                                            class="text1 d-block">{!! Str::limit($course->description ,75) !!}
+                                    </span></div>
+                                    <div class=" cost mt-3 text-dark">
+                                        <span>{{number_format($course->actual_price)}} تومان </span>
+                                    </div>
                                 </div>
                             </div>
+                            {{--TODO btn hover--}}
+                            <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
+                               href="{{route('site.courses.show', ['course' => $course->slug])}}">جزئیات بیشتر</a>
                         </div>
-                        {{--TODO btn hover--}}
-                        <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="{{route('site.courses.index')}}">خرید</a>
                     </div>
-                </div>
-                <div class="col-md-12 col-sm-6 py-4">
-                    <div class="card mt-3 shadow ">
-                        <div class="card-body product-1 align-items-center p-2 text-center">
-                            <div class="image-container">
-                                <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
-                                     alt="Second slide"></div>
-                            <div class="product-description py-2">
-                                <h5>عنوان اصلی</h5>
-                                <div class="mt-3 info"><span class="text1 d-block">توضیحات کوتاه</span></div>
-                                <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                        {{--TODO btn hover--}}
-                        <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="{{route('site.courses.index')}}">خرید</a>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-6 py-4">
-                    <div class="card mt-3 shadow ">
-                        <div class="card-body product-1 align-items-center p-2 text-center">
-                            <div class="image-container">
-                                <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
-                                     alt="Second slide"></div>
-                            <div class="product-description py-2">
-                                <h5>عنوان اصلی</h5>
-                                <div class="mt-3 info"><span class="text1 d-block">توضیحات کوتاه</span></div>
-                                <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                        {{--TODO btn hover--}}
-                        <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="{{route('site.courses.index')}}">خرید</a>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-6 py-4">
-                    <div class="card mt-3 shadow ">
-                        <div class="card-body product-1 align-items-center p-2 text-center">
-                            <div class="image-container">
-                                <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
-                                     alt="Second slide"></div>
-                            <div class="product-description py-2">
-                                <h5>عنوان اصلی</h5>
-                                <div class="mt-3 info"><span class="text1 d-block">توضیحات کوتاه</span></div>
-                                <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                        {{--TODO btn hover--}}
-                        <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="{{route('site.courses.index')}}">خرید</a>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-6 py-4">
-                    <div class="card mt-3 shadow ">
-                        <div class="card-body product-1 align-items-center p-2 text-center">
-                            <div class="image-container">
-                                <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
-                                     alt="Second slide"></div>
-                            <div class="product-description py-2">
-                                <h5>عنوان اصلی</h5>
-                                <div class="mt-3 info"><span class="text1 d-block">توضیحات کوتاه</span></div>
-                                <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                        {{--TODO btn hover--}}
-                        <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="{{route('site.courses.index')}}">خرید</a>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-6 py-4">
-                    <div class="card mt-3 shadow ">
-                        <div class="card-body product-1 align-items-center p-2 text-center">
-                            <div class="image-container">
-                                <img class="d-block w-100" src="holder.js/50x50?auto=yes&bg=666&fg=444&text=picture"
-                                     alt="Second slide"></div>
-                            <div class="product-description py-2">
-                                <h5>عنوان اصلی</h5>
-                                <div class="mt-3 info"><span class="text1 d-block">توضیحات کوتاه</span></div>
-                                <div class=" cost mt-3 text-dark"><span>14000 تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                        {{--TODO btn hover--}}
-                        <a type="button" class="btn text-light btn-product btn-lg btn-block stretched-link"
-                           href="{{route('site.courses.index')}}">خرید</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -219,7 +134,8 @@
                                     {{ Str::limit($post->description, 250)}}
                                 </p>
                                 <div class="align-self-end mt-2">
-                                    <a href="{{route('site.posts.show', ['post' => $post->slug])}}" class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
+                                    <a href="{{route('site.posts.show', ['post' => $post->slug])}}"
+                                       class="btn btn-article float-left align-bottom">مطالعه بیشتر</a>
                                 </div>
                             </div>
                         </div>
