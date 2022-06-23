@@ -19,38 +19,43 @@
                     <table class="table table-bordered table-striped text-center data-table">
                         <thead>
                         <tr>
-                            <th>#</th>
-                            <th>نام نمایشی</th>
+                            <th>ردیف</th>
                             <th>نام</th>
+                            <th>نام انگلیسی</th>
                             <th>عملیات</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        @foreach ($permissions as $key => $permission)
-                            <tr>
-                                <th>
-                                    {{ $permissions->firstItem() + $key }}
-                                </th>
-                                <th>
-                                    {{ $permission->display_name }}
-                                </th>
-                                <th>
-                                    {{ $permission->name }}
-                                </th>
-                                <th>
-                                    <a class="btn btn-sm btn-outline-info mr-3"
-                                       href="{{ route('admin.permissions.edit', ['permission' => $permission->id]) }}">ویرایش</a>
-                                </th>
-                            </tr>
-                        @endforeach
+                        <tbody class="ml-5">
                         </tbody>
                     </table>
                 </div>
-            </div>
-            <div class="d-flex justify-content-center mt-5">
-                {{ $permissions->render() }}
-            </div>
 
+            </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        $(function () {
+            let languages = {
+                'fa': "{{url('assets/admin/script/datatables-translates/fa.json')}}"
+            };
+            var table = $('.data-table').DataTable({
+                processing: true,
+                serverSide: true,
+                pagingType: "simple",
+                language: {
+                    url: languages['{{ app()->getLocale() }}']
+                },
+                ajax: "{{ route('admin.permissions.ajax.getDatatableData') }}",
+                columns: [
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                    {data: 'display_name', name: 'display_name'},
+                    {data: 'name', name: 'name'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false},
+                ]
+            });
+        });
+    </script>
 @endsection
