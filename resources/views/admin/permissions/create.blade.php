@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-xl-12 col-md-12 mb-4 p-4 bg-white">
             <div class="mb-4 text-center text-md-right">
-                <h5 class="font-weight-bold">ایجاد پرمیژن</h5>
+                <h5 class="font-weight-bold">ایجاد سطح دسترسی</h5>
             </div>
             <hr>
             @include('admin.layouts.partials.errors')
