@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    {{ auth()->user()->roles}}
     <div class="row">
         <div class="col-xl-12 col-md-12 p-4">
             <div class="card shadow-lg mb-4">
