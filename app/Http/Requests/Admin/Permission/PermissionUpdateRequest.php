@@ -13,8 +13,8 @@ class PermissionUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required'],
-            'display_name' => ['required'],
+            'name' => 'required|unique:permissions,name,NULL,id|string|max:255',
+            'display_name' => 'required|unique:permissions,display_name,NULL,id|string|max:255',
         ];
     }
 }
