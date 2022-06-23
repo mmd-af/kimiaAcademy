@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin\Permission;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Permission\PermissionStoreRequest;
+use App\Http\Requests\Admin\Permission\PermissionUpdateRequest;
 use App\Repositories\Admin\PermissionRepository;
+use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
 {
@@ -33,29 +35,21 @@ class PermissionController extends Controller
         return redirect()->route('admin.permissions.index');
     }
 
-//    public function show(Permission $Permission, Item $item)
-//    {
-//        return view('admin.permissions.show', compact('Permission', 'item'));
-//    }
-//
-//    public function edit(Permission $Permission)
-//    {
-//        $PermissionCategory = $Permission->categories->first();
-//        $PermissionVideo = $Permission->videos();
-//        $categories = $this->permissionRepository->getCategory();
-//        return view('admin.permissions.edit', compact('Permission', 'categories', 'PermissionCategory', 'PermissionVideo'));
-//    }
-//
-//    public function update(PostUpdateRequest $request, Permission $Permission)
-//    {
-//        $this->permissionRepository->update($request, $Permission);
-//        alert()->success("با تشکر", 'دوره ی مورد نظر با موفقیت ویرایش شد');
-//        return redirect()->route('admin.permissions.index');
-//    }
-//
-//    public function destroy(Permission $Permission)
-//    {
-//        $this->permissionRepository->destroy($Permission);
-//        return redirect()->route('admin.permissions.index');
-//    }
+    public function edit(Permission $permission)
+    {
+        return view('admin.permissions.edit',compact('permission'));
+    }
+
+    public function update(permissionUpdateRequest $request, Permission $permission)
+    {
+        $this->permissionRepository->update($request, $permission);
+        alert()->success("با تشکر", 'دسترسی مورد نظر با موفقیت ویرایش شد');
+        return redirect()->route('admin.permissions.index');
+    }
+
+    public function destroy(Permission $Permission)
+    {
+        $this->permissionRepository->destroy($Permission);
+        return redirect()->route('admin.permissions.index');
+    }
 }
