@@ -22,8 +22,21 @@
                                     <div class="mt-3 info"><span
                                             class="text1 d-block">{!! Str::limit($course->description ,75) !!}
                                     </span></div>
-                                    <div class=" cost mt-3 text-dark">
-                                        <span>{{number_format($course->actual_price)}} تومان </span>
+                                    <div class="cost mt-3">
+                                        <div class="pt-4">
+{{--                                            <strong class="m-3">قیمت : </strong>--}}
+                                            @if($course->discount_price==0 or $course->discount_price ==null)
+                                                <strong class="pl-3 text-success">
+                                                    {{number_format($course->actual_price)}}
+                                                    تومان </strong>
+                                            @else
+                                                <strong class="pl-3 text-success">
+                                                    {{number_format($course->discount_price)}}
+                                                    تومان </strong>
+                                                <del class="pl-2 text-danger ">{{number_format($course->actual_price)}}تومان
+                                                </del>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
