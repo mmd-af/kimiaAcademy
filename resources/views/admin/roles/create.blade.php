@@ -5,19 +5,15 @@
 @endsection
 
 @section('content')
-
     <!-- Content Row -->
     <div class="row">
-
         <div class="col-xl-12 col-md-12 mb-4 p-4 bg-white">
             <div class="mb-4 text-center text-md-right">
                 <h5 class="font-weight-bold">ایحاد نقش</h5>
             </div>
             <hr>
-
-            @include('admin.sections.errors')
-
-            <form action="{{ route('roles.store') }}" method="POST">
+            @include('admin.layouts.partials.errors')
+            <form action="{{ route('admin.roles.store') }}" method="POST">
                 @csrf
             <div class="form-row">
                 <div class="form-group col-md-3">
@@ -28,20 +24,16 @@
                     <label for="name">نام</label>
                     <input class="form-control" name="name" type="text" value="{{ old('name') }}">
                 </div>
-
                 <div class="accordion col-md-12 mt-3" id="accordionPermission">
                     <div class="card">
                         <div class="card-header p-1" id="headingOne">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-right" type="button" data-toggle="collapse"
-                                    data-target="#collapsePermission" aria-expanded="true" aria-controls="collapseOne">
+                            <label class="mb-0">
+                                <div>
                                     مجوز های دسترسی
-                                </button>
-                            </h2>
+                                </div>
+                            </label>
                         </div>
-
-                        <div id="collapsePermission" class="collapse" aria-labelledby="headingOne"
-                            data-parent="#accordionPermission">
+                        <div>
                             <div class="card-body row">
                                 @foreach ($permissions as $permission)
                                     <div class="form-group form-check col-md-3">
@@ -58,7 +50,7 @@
                 </div>
             </div>
             <button class="btn btn-outline-primary mt-5" type="submit">ثبت</button>
-            <a href="{{ route('roles.index') }}" class="btn btn-dark mt-5 mr-3">بازگشت</a>
+            <a href="{{ route('admin.roles.index') }}" class="btn btn-dark mt-5 mr-3">بازگشت</a>
         </form>
         </div>
 

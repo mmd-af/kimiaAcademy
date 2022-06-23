@@ -19,45 +19,43 @@
                     <table class="table table-bordered table-striped text-center data-table">
                         <thead>
                         <tr>
-                            <th>#</th>
-                            <th>نام نمایشی</th>
+                            <th>ردیف</th>
                             <th>نام</th>
+                            <th>نام انگلیسی</th>
                             <th>عملیات</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($roles as $key => $role)
-                            <tr>
-                                <th>
-                                    {{ $roles->firstItem() + $key }}
-                                </th>
-                                <th>
-                                    {{ $role->display_name }}
-                                </th>
-                                <th>
-                                    {{ $role->name }}
-                                </th>
-                                <th>
-{{--                                    <a class="btn btn-sm btn-outline-success"--}}
-{{--                                        href="{{ route('admin.roles.show', ['role' => $role->id]) }}">--}}
-{{--                                        نمایش--}}
-{{--                                    </a>--}}
-                                    <a class="btn btn-sm btn-outline-info mr-3"
-                                        href="{{ route('admin.roles.edit', ['role' => $role->id]) }}">
-                                        ویرایش
-                                    </a>
-                                </th>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody class="ml-5">
+                        </tbody>
+                    </table>
+                </div>
 
-            <div class="d-flex justify-content-center mt-5">
-                {{ $roles->render() }}
             </div>
-
         </div>
-
     </div>
+@endsection
+
+@section('script')
+    <script>
+        $(function () {
+            let languages = {
+                'fa': "{{url('assets/admin/script/datatables-translates/fa.json')}}"
+            };
+            var table = $('.data-table').DataTable({
+                processing: true,
+                serverSide: true,
+                pagingType: "simple",
+                language: {
+                    url: languages['{{ app()->getLocale() }}']
+                },
+                ajax: "{{ route('admin.roles.ajax.getDatatableData') }}",
+                columns: [
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                    {data: 'display_name', name: 'display_name'},
+                    {data: 'name', name: 'name'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false},
+                ]
+            });
+        });
+    </script>
 @endsection
