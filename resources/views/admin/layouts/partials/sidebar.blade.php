@@ -7,8 +7,7 @@
         {{--        </div>--}}
         <div class="sidebar-brand-text">kimyagaracademy.com</div>
     </a>
-{{--TODO change Icons--}}
-    <!-- Divider -->
+<!-- Divider -->
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
@@ -64,11 +63,37 @@
         </a>
     </li>
 
-
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
-    <!-- Sidebar Toggler (Sidebar) -->
+    @if (auth()->user()->rolles == 'admin')
+        <div class="sidebar-heading">
+            مدیریت
+        </div>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers"
+               aria-expanded="true"
+               aria-controls="collapsePages">
+                <i class="fas fa-fw fa-users"></i>
+                <span> کاربران </span>
+            </a>
+            <div id="collapseUsers" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{route('admin.users.index')}}">لیست کاربران</a>
+                    <a class="collapse-item" href="{{route('admin.roles.index')}}">گروه های کاربری</a>
+                    <a class="collapse-item" href="{{route('admin.permissions.index')}}">سطح دسترسی ها</a>
+                </div>
+            </div>
+        </li>
+
+
+        <hr class="sidebar-divider">
+@endif
+
+
+
+<!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
