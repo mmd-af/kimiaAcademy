@@ -21,17 +21,20 @@ Route::group(['middleware' => ['web', 'auth', 'admin'], 'namespace' => 'App\Http
                 'as' => 'edit',
                 'uses' => 'PermissionController@edit'
             ]);
-//            Route::put('{course}/update', [
-//                'as' => 'update',
-//                'uses' => 'PermissionController@update'
-//            ]);
-//            Route::delete('{course}/destroy', [
-//                'as' => 'destroy',
-//                'uses' => 'PermissionController@destroy'
-//            ]);
+            Route::put('{permission}/update', [
+                'as' => 'update',
+                'uses' => 'PermissionController@update'
+            ]);
+            Route::delete('{permission}/destroy', [
+                'as' => 'destroy',
+                'uses' => 'PermissionController@destroy'
+            ]);
         });
             Route::group(['middleware' => ['is.ajax'], 'prefix' => 'permissions-ajax', 'as' => 'permissions.ajax.'], function () {
-
+                Route::get('/getDatatableData', [
+                    'as' => 'getDatatableData',
+                    'uses' => 'PermissionAjaxController@getDatatableData'
+                ]);
             });
         });
     });
