@@ -1,21 +1,9 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css";
-
 // Import Custom SB Admin 2 Variables (Overrides Default Bootstrap Variables)
 @import "variables";
-
 // Import Bootstrap
 @import "../../../../node_modules/bootstrap/scss/bootstrap";
-
-// Import Bootstrap Select
-//@import "../../../../node_modules/bootstrap-select/sass/bootstrap-select";
-
 @import "~bootstrap-select/sass/bootstrap-select";
-
-// Import md.bootstrappersiandatetimepicker
-//@import "../../../../node_modules/md.bootstrappersiandatetimepicker/dist/jquery.md.bootstrap.datetimepicker.style.css";
-
-//@import "~sweetalert2/dist/sweetalert2.min.css";
-
 // Import Custom SB Admin 2 Mixins and Components
 @import "mixins";
 @import "global";
@@ -148,4 +136,8 @@ body {
 .btnPlus{
     margin: 20px !important;
     padding: 20px !important;
+}
+
+.adminSliderColor{
+    background-color: #1c294e;
 }
