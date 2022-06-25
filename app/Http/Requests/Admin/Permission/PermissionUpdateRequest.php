@@ -10,11 +10,13 @@ class PermissionUpdateRequest extends FormRequest
     {
         return true;
     }
+
+// TODO you should make unique field
     public function rules()
     {
         return [
-            'name' => 'required|unique:permissions,name,NULL,id|string|max:255',
-            'display_name' => 'required|unique:permissions,display_name,NULL,id|string|max:255',
+            'name' => 'required|string|max:255',
+            'display_name' => 'required|string|max:255',
         ];
     }
 }
