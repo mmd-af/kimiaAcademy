@@ -38,7 +38,7 @@
                 </li>
                 <li class="nav-item mt-sm-2">
                     <a class="btn btn-outline-light text-sm text-gray-700 dark:text-gray-500 underline "
-                            href="{{ route('admin.dashboard') }}"><i class="fa fa-user " aria-hidden="true"> </i> ناحیه
+                            href="{{ route('login') }}"><i class="fa fa-user " aria-hidden="true"> </i> ناحیه
                         کاربری
                     </a>
                 </li>
