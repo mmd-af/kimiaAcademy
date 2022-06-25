@@ -2,11 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controllers\Admin'], function () {
+Route::group(['middleware' => ['web', 'auth', 'check_login'], 'namespace' => 'App\Http\Controllers\Admin'], function () {
     Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
-        Route::get('/dashboard', [
-            'as' => 'dashboard',
-            'uses' => 'DashboardController@index'
-        ]);
+        Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function () {
+            Route::get('/', [
+                'as' => 'index',
+                'uses' => 'DashboardController@index'
+            ]);
+        });
     });
 });
