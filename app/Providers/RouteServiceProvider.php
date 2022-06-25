@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/admin/dashboard';
+    public const HOME = '/user/dashboard';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -38,6 +38,7 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         $this->mapWebAdminRoutes();
+        $this->mapWebUserRoutes();
         $this->mapWebSiteRoutes();
     }
 
@@ -56,6 +57,14 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebAdminRoutes()
     {
         $routeFiles = glob(base_path('routes/web/admin/*.php'));
+        foreach ($routeFiles as $routeFile) {
+            Route::middleware('web')
+                ->group($routeFile);
+        }
+    }
+    protected function mapWebUserRoutes()
+    {
+        $routeFiles = glob(base_path('routes/web/user/*.php'));
         foreach ($routeFiles as $routeFile) {
             Route::middleware('web')
                 ->group($routeFile);
