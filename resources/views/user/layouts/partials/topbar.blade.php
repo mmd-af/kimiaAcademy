@@ -221,14 +221,12 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"> لورم ایپسوم متن ساختگی </h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{auth()->user()->firstname}}</h5>
                 <button class="close ml-0" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                گرافیک
-                است. </div>
+            <div class="modal-body"> آیا برای خروج مطمئن هستید...؟ </div>
             <div class="modal-footer">
                 <form action="{{route('logout')}}" method="POST">
                     @csrf
