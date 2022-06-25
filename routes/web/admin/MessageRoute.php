@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controllers\Admin\Message'], function () {
+Route::group(['middleware' => ['web', 'auth', 'permission:messageControl'], 'namespace' => 'App\Http\Controllers\Admin\Message'], function () {
     Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::group(['prefix' => 'messages', 'as' => 'messages.'], function () {
             Route::get('/', [
@@ -13,7 +13,6 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
                 'as' => 'destroy',
                 'uses' => 'MessageController@destroy'
             ]);
-
         });
         Route::group(['middleware' => ['is.ajax'], 'prefix' => 'messages-ajax', 'as' => 'messages.ajax.'], function () {
             Route::get('/getDatatableData', [

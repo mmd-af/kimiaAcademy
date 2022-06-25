@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controllers\Admin\Comment'], function () {
+Route::group(['middleware' => ['web', 'auth', 'permission:commentControl'], 'namespace' => 'App\Http\Controllers\Admin\Comment'], function () {
     Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::group(['prefix' => 'comments', 'as' => 'comments.'], function () {
             Route::get('/', [

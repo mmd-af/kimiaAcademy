@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controllers\Admin\Item'], function () {
+Route::group(['middleware' => ['web', 'auth', 'permission:courseControl'], 'namespace' => 'App\Http\Controllers\Admin\Item'], function () {
     Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::group(['prefix' => 'items', 'as' => 'items.'], function () {
             Route::get('/{course}/create', [
@@ -26,9 +26,7 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'App\Http\Controll
                 'as' => 'destroy',
                 'uses' => 'ItemController@destroy'
             ]);
-
         });
-
         Route::group(['middleware' => ['is.ajax'], 'prefix' => 'items-ajax', 'as' => 'items.ajax.'], function () {
             Route::post('/item_type', [
                 'as' => 'item_type',
