@@ -6,6 +6,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use ShiftOneLabs\LaravelCascadeDeletes\CascadesDeletes;
 
 class Course extends Model
 {
@@ -13,7 +14,8 @@ class Course extends Model
         Sluggable,
         SoftDeletes,
         CourseRelationships,
-        CourseModifiers;
+        CourseModifiers,
+        CascadesDeletes;
 
     protected $table = 'courses';
 }

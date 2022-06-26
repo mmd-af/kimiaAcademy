@@ -7,9 +7,11 @@ use App\Models\Video\Video;
 
 trait ItemRelationships
 {
+    protected $cascadeDeletes = ['videos', 'children'];
+
     public function children()
     {
-        return $this->hasMany(Item::class,  'parent_id');
+        return $this->hasMany(Item::class, 'parent_id');
     }
 
     public function parent()

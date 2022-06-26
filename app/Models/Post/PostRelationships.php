@@ -9,6 +9,7 @@ use App\Models\User;
 
 trait PostRelationships
 {
+    protected $cascadeDeletes = ['images', 'comments'];
 
     public function categories()
     {

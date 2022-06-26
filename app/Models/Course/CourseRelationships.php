@@ -11,6 +11,8 @@ use App\Models\Video\Video;
 
 trait CourseRelationships
 {
+    protected $cascadeDeletes = ['images', 'videos', 'items', 'comments'];
+
     public function categories()
     {
         return $this->morphToMany(Category::class, 'categorizable');

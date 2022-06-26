@@ -2,11 +2,11 @@
 
 namespace App\Models\Category;
 
-use App\Enums\ECategoryType;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use ShiftOneLabs\LaravelCascadeDeletes\CascadesDeletes;
 
 class Category extends Model
 {
@@ -14,7 +14,8 @@ class Category extends Model
         SoftDeletes,
         CategoryRelationships,
         CategoryModifiers,
-        Sluggable;
+        Sluggable,
+        CascadesDeletes;
 
     protected $table = 'categories';
 

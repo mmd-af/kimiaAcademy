@@ -7,6 +7,7 @@ use App\Models\Post\Post;
 
 trait CategoryRelationships
 {
+    protected $cascadeDeletes = ['posts', 'courses'];
 
     public function parent()
     {

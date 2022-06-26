@@ -6,6 +6,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use ShiftOneLabs\LaravelCascadeDeletes\CascadesDeletes;
 
 class Post extends Model
 {
@@ -13,7 +14,8 @@ class Post extends Model
         SoftDeletes,
         PostRelationships,
         PostModifiers,
-        Sluggable;
+        Sluggable,
+        CascadesDeletes;
 
     protected $table = 'posts';
 }

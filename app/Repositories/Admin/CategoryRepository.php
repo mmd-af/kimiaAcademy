@@ -3,6 +3,7 @@
 namespace App\Repositories\Admin;
 
 use App\Models\Category\Category;
+use App\Models\Course\Course;
 use App\Models\Post\Post;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Database\Eloquent\Builder;
@@ -109,14 +110,20 @@ class CategoryRepository extends BaseRepository
 
     public function destroy($category)
     {
-        // TODO in ravesh eshtebah hast, be dalil inke baraye har CRUD bayad foreach zad
         $posts = Post::query()
             ->whereHas('categories', function (Builder $query) use ($category) {
                 $query->where('category_id', $category->id);
             })->get();
         foreach ($posts as $post) {
-            $post->images()->delete();
             $post->delete();
+        }
+        $courses = Course::query()
+            ->whereHas('categories', function (Builder $query) use ($category) {
+                $query->where('category_id', $category->id);
+            })->get();
+        foreach ($courses as $course) {
+//            $course->images()->delete();
+            $course->delete();
         }
         $category->delete();
     }
