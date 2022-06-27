@@ -232,3 +232,10 @@
 }
 
 
+.img-zoom img {
+    transition: .5s;
+}
+
+.img-zoom a:hover img {
+    transform: scale(1.1);
+}
