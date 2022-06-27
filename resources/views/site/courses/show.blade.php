@@ -24,7 +24,8 @@
                             <div class="card">
                                 <div class="card-header" data-toggle="collapse"
                                      data-target="#collapse-{{$season->id}}"
-                                     aria-expanded="true" aria-controls="collapse-{{$season->id}}" id="heading-{{$season->id}}">
+                                     aria-expanded="true" aria-controls="collapse-{{$season->id}}"
+                                     id="heading-{{$season->id}}">
                                     <h5 class="mb-0">
                                         <button class="btn btn-outline" data-toggle="collapse"
                                                 data-target="#collapse-{{$season->id}}"
@@ -42,7 +43,7 @@
                                      aria-labelledby="heading-{{$season->id}}"
                                      data-parent="#accordion">
                                     <div class="card-body">
-{{--                                        TODO inja query N+1 darim --}}
+                                        {{--                                        TODO inja query N+1 darim --}}
                                         @foreach($season->children as $item)
                                             <div class="card-header my-3">
                                                 <div class="d-flex justify-content-between">
@@ -95,13 +96,14 @@
                             <strong class="m-3">قیمت : </strong>
                             @if($course->discount_price==0 or $course->discount_price ==null)
                                 <strong class="pl-3 float-left text-success">
-                                    {{number_format($course->actual_price)}}
+                                    {{ctpn(number_format($course->actual_price))}}
                                     تومان </strong>
                             @else
                                 <strong class="pl-3 float-left text-success">
-                                    {{number_format($course->discount_price)}}
+                                    {{ctpn(number_format($course->discount_price))}}
                                     تومان </strong>
-                                <del class="float-left pl-2 text-danger ">{{number_format($course->actual_price)}}تومان
+                                <del class="float-left pl-2 text-danger ">{{ctpn(number_format($course->actual_price))}}
+                                    تومان
                                 </del>
                             @endif
                         </div>
@@ -172,13 +174,13 @@
                     <div class="mx-3">
                         <img class="svg-icon ml-3 " src="{{asset('assets/site/images/icons/comments.svg')}}"
                              alt="">
-                        <strong>5</strong><span class="mr-2">دیدگاه</span>
+                        <strong>{{ctpn(5)}}</strong><span class="mr-2">دیدگاه</span>
                     </div>
                     <div class="vr"></div>
                     <div class="mx-3">
                         <img class="svg-icon ml-3 " src="{{asset('assets/site/images/icons/view.svg')}}"
                              alt="">
-                        <strong>{{$course->view_count}}</strong><span class="mr-2">بازدید</span>
+                        <strong>{{ctpn($course->view_count)}}</strong><span class="mr-2">بازدید</span>
                     </div>
                 </div>
                 <div class="mt-5 row justify-content-center border p-4 about-teacher">
@@ -393,7 +395,7 @@
 @section('script')
     <script>
         {{--TODO in maghadir az input haye hidden gerefte mishavad - TASHIH SHAVAD--}}
-{{--        TODO ye morede dg ham ke dare ine ke tozihate itemha chand bar tekrar mishe --}}
+        {{--        TODO ye morede dg ham ke dare ine ke tozihate itemha chand bar tekrar mishe --}}
         function showVideo(id) {
             if ({!! json_encode(Auth::check()) !!}) {
                 var url = $("#itemUrl-" + id).val();

@@ -29,14 +29,14 @@
                                             {{--                                            <strong class="m-3">قیمت : </strong>--}}
                                             @if($course->discount_price==0 or $course->discount_price ==null)
                                                 <strong class="pl-3 text-success">
-                                                    {{number_format($course->actual_price)}}
+                                                    {{ctpn(number_format($course->actual_price))}}
                                                     تومان </strong>
                                             @else
-                                                <del class="pl-2 text-danger ">{{number_format($course->actual_price)}}
+                                                <del class="pl-2 text-danger ">{{ctpn(number_format($course->actual_price))}}
                                                     تومان
                                                 </del>
                                                 <strong class="pl-3 text-success">
-                                                    {{number_format($course->discount_price)}}
+                                                    {{ctpn(number_format($course->discount_price))}}
                                                     تومان </strong>
                                             @endif
                                         </div>
