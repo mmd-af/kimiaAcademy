@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\User;
+use App\Models\User\User;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Yajra\DataTables\Facades\DataTables;

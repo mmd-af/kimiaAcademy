@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\User\UserUpdateRequest;
-use App\Models\User;
+use App\Models\User\User;
 use App\Repositories\Admin\UserRepository;
 
 class UserController extends Controller

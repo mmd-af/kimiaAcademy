@@ -3,7 +3,7 @@
 namespace App\Models\Comment;
 
 
-use App\Models\User;
+use App\Models\User\User;
 
 trait CommentRelationships
 {
