@@ -1,8 +1,13 @@
 <?php
 
+use App\Models\Course\Course;
 use App\Models\Image\Image;
+use App\Models\Post\Post;
 use App\Models\Video\Video;
 use Illuminate\Support\Facades\Route;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\SitemapGenerator;
+use Spatie\Sitemap\Tags\Url;
 
 Route::get('/contact-us', function () {
     return view('site.contact-us.contact-us');
@@ -12,6 +17,26 @@ Route::group(['prefix' => 'filemanager', 'middleware' => ['web', 'auth']], funct
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
+Route::get('/generate-sitemap', function () {
+
+//    SitemapGenerator::create('http://127.0.0.1:8000/courses')
+//        ->writeToFile(public_path('sitemap.xml'));
+
+    $sitemap = Sitemap::create()
+        ->add(Url::create('/blog'))
+        ->add(Url::create('/courses'));
+
+    \App\Models\Post\Post::all()->each(function (Post $post) use ($sitemap) {
+        $sitemap->add(Url::create("/blog/{$post->slug}"));
+    });
+
+    \App\Models\Course\Course::all()->each(function (Course $course) use ($sitemap) {
+        $sitemap->add(Url::create("/courses/{$course->slug}"));
+    });
+
+    $sitemap->writeToFile(public_path('sitemap.xml'));
+
+});
 
 //  guery for attach category to fake posts
 
