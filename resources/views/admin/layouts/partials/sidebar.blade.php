@@ -24,14 +24,8 @@ messageControl
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span> داشبورد </span></a>
     </li>
-
     <!-- Divider -->
     <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        مدیریت
-    </div>
 @can('categoryControl')
     <!-- Nav Item - categories -->
         <li class="nav-item">
@@ -83,12 +77,10 @@ messageControl
     @endcan
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
-
     @if (auth()->user()->rolles == 'admin')
         <div class="sidebar-heading">
             مدیریت
         </div>
-
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers"
                aria-expanded="true"
@@ -104,12 +96,14 @@ messageControl
                 </div>
             </div>
         </li>
-
-
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.transactions.index')}}">
+                <i class="fas fa-object-ungroup"></i>
+                <span>تراکنش ها</span>
+            </a>
+        </li>
         <hr class="sidebar-divider">
 @endif
-
-
 
 <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

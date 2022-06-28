@@ -2,6 +2,8 @@
 
 namespace App\Models\Transaction;
 
+use App\Models\User\User;
+
 trait TransactionRelationships
 {
 
@@ -14,9 +16,9 @@ trait TransactionRelationships
 //    {
 //        return $this->morphOne(Image::class, 'imageable');
 //    }
-//
-//    public function users()
-//    {
-//        return $this->belongsTo(User::class,'user_id');
-//    }
+
+    public function users()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
 }
