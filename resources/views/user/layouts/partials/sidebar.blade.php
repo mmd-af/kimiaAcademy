@@ -20,14 +20,13 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-
+{{--TODO fix icons--}}
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{route('user.transactions.index')}}">
             <i class="fas fa-object-ungroup"></i>
-            <span> پیام ها </span>
+            <span>تراکنش ها</span>
         </a>
     </li>
-
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
