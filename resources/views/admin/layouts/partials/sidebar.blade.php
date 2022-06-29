@@ -7,6 +7,7 @@ postControl
 educationControl
 commentControl
 messageControl
+sitemapControl
 
 --}}
     <!-- Sidebar - Brand -->
@@ -70,6 +71,14 @@ messageControl
         <a class="nav-link" href="{{route('admin.messages.index')}}">
             <i class="fas fa-object-ungroup"></i>
             <span> پیام ها </span>
+        </a>
+    </li>
+    @endcan
+    @can('sitemapControl')
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.sitemaps.index')}}">
+            <i class="fas fa-object-ungroup"></i>
+            <span>نقشه ی سایت</span>
         </a>
     </li>
     @endcan
