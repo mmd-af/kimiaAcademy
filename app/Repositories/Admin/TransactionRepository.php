@@ -3,7 +3,6 @@
 namespace App\Repositories\Admin;
 
 use App\Models\Transaction\Transaction;
-use App\Models\User\User;
 use Yajra\DataTables\Facades\DataTables;
 
 class TransactionRepository extends BaseRepository
@@ -33,7 +32,10 @@ class TransactionRepository extends BaseRepository
             $data = $this->getAll();
             return Datatables::of($data)
                 ->addIndexColumn()
-                ->make(true);
+                ->addColumn('users', function (Transaction $transaction) {
+                    return $transaction->users->email;
+                })
+                ->toJson();
         }
     }
 }
