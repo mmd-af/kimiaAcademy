@@ -156,6 +156,12 @@ return [
         "course_size" => "حجم دوره",
         "course_kind" => "نوع دوره",
         "url" => "انتخاب فایل",
+        "firstname" => "نام",
+        "lastname" => "نام خانوادگی",
+        "mobile_number" => "شماره موبایل",
+        "email" => "ایمیل",
+        "password" => "رمز ورود",
+        "" => "",
         "" => ""
 
 

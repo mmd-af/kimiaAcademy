@@ -54,10 +54,14 @@
             <div class="col-md-5 col-sm-12 border-1 shadow m-4">
                 <form class="px-4 py-3" action="{{ route('login') }}" method="POST">
                     @csrf
-                    <div class="text-center pt-4">
+                    <div class="text-center p-4">
                         ورود به حساب کاربری
                     </div>
-                    <div class="form-group">
+
+                    <!-- Validation Errors -->
+                    <x-auth-validation-errors class="mb-4" :errors="$errors"/>
+
+                    <div class="form-group mt-2">
                         <small>
                             <label for="exampleDropdownFormEmail1">شماره موبایل یا ایمیل</label>
                         </small>
@@ -73,12 +77,12 @@
                         <input type="password" name="password" required autocomplete="current-password"
                                class="form-control mt-2" id="exampleDropdownFormPassword1">
                     </div>
-                    <div class="form-group">
-                        <div class="form-check pb-3">
-                            <a class="form-check-label small text-primary " href="">رمز عبور خود را فراموش کرده اید؟</a>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-light col-12">ورود</button>
+                    {{--                    <div class="form-group">--}}
+                    {{--                        <div class="form-check pb-3">--}}
+                    {{--                            <a class="form-check-label small text-primary " href="">رمز عبور خود را فراموش کرده اید؟</a>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+                    <button type="submit" class="btn btn-primary mt-5 col-12">ورود</button>
                 </form>
                 {{--    {{TODO بعد از تاییدیه اگر خواست با هزینه بیشتر اضاف میکنیم}}--}}
                 {{--    <div class="text-center">--}}
@@ -88,7 +92,8 @@
                 {{--        </button>--}}
                 {{--    </div>--}}
                 <div class="text-center pb-3">
-                    <span class="small">هنوز عضو نشده اید؟ </span><a class="small text-primary">ثبت نام کنید</a>
+                    <span class="small">هنوز عضو نشده اید؟ <a href="{{route('register')}}"
+                                                              class="small text-primary">ثبت نام </a>کنید </span>
                 </div>
             </div>
 
