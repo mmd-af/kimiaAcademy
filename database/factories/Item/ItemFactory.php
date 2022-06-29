@@ -12,8 +12,8 @@ class ItemFactory extends Factory
     {
         return [
             'course_id' => 1,
-            'title' => $this->faker->realTextBetween(5, 45),
-            'description' => $this->faker->realTextBetween(1, 400),
+            'title' => $this->faker->sentence,
+            'description' => $this->faker->text(),
             'is_free' => rand(0, 1),
             'parent_id' => rand(0, 25),
             'sort' => rand(0, 10),

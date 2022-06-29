@@ -23,7 +23,7 @@ class PostFactory extends Factory
             'user_id' => 1,
             'title' => $title,
             'slug' =>  $slug,
-            'description' => $this->faker->realTextBetween(500, 2000),
+            'description' => $this->faker->text(),
             'is_active' => 1,
         ];
     }
