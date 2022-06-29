@@ -13,6 +13,6 @@ class Admin
         if (Auth::check() && Auth::user()->rolles == 'admin') {
             return $next($request);
         }
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('user.dashboard.index');
     }
 }
