@@ -24,8 +24,6 @@ messageControl
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span> داشبورد </span></a>
     </li>
-    <!-- Divider -->
-    <hr class="sidebar-divider">
 @can('categoryControl')
     <!-- Nav Item - categories -->
         <li class="nav-item">
@@ -75,9 +73,10 @@ messageControl
         </a>
     </li>
     @endcan
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
+
     @if (auth()->user()->rolles == 'admin')
+        <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
         <div class="sidebar-heading">
             مدیریت
         </div>
@@ -95,6 +94,12 @@ messageControl
                     <a class="collapse-item" href="{{route('admin.permissions.index')}}">سطح دسترسی ها</a>
                 </div>
             </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.orders.index')}}">
+                <i class="fas fa-object-ungroup"></i>
+                <span>دوره های خریده شده</span>
+            </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{route('admin.transactions.index')}}">
