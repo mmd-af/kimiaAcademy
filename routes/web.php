@@ -91,7 +91,7 @@ Route::get('/query4', function () {
     $posts = App\Models\Item\Item::all();
     foreach ($posts as $post) {
         $post->course_id = rand(1, 20);
-        $post->parent_id = rand(0, 20);
+        $post->parent_id = rand(0, 3);
         $post->save();
     }
     return "query is finished4";

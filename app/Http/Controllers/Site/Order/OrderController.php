@@ -27,6 +27,8 @@ class OrderController extends Controller
         session()->forget(['transaction']);
         $transaction = $this->orderRepository->getTransaction($transId);
         $this->orderRepository->callBack($transaction);
+
+        return redirect()->route('user.orders.index');
     }
 
 }

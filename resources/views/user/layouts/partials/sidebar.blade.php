@@ -22,6 +22,12 @@
 
 {{--TODO fix icons--}}
     <li class="nav-item">
+        <a class="nav-link" href="{{route('user.orders.index')}}">
+            <i class="fas fa-object-ungroup"></i>
+            <span>دوره های ثبت شده</span>
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{{route('user.transactions.index')}}">
             <i class="fas fa-object-ungroup"></i>
             <span>تراکنش ها</span>

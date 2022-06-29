@@ -27,7 +27,7 @@ class OrderRepository
         $invoice = new Invoice;
         $invoice->amount($credit);
         $invoice->detail(['mobile' => $loginPhone, 'email' => $loginEmail]);
-       return Payment::purchase($invoice, function ($driver, $transactionId) use ($loginId, $credit, $courseId) {
+        return Payment::purchase($invoice, function ($driver, $transactionId) use ($loginId, $credit, $courseId) {
             $transaction = $this->transactionStore($loginId, $transactionId, $credit, $courseId);
             session()->put(['transaction' => $transaction->id]);
         }
@@ -40,11 +40,10 @@ class OrderRepository
             $receipt = Payment::amount($transaction->credit)->transactionId($transaction->transaction_id)->verify();
             $this->saveOrder($transaction);
             $this->transactionUpdate($transaction, $receipt);
-//            TODO hedayate Karbar...
-            echo "هدایت کاربر به کنترل پنل";
+            alert()->success('با تشکر', 'عملیات با موفقیت انجام شد');
         } catch (InvalidPaymentException $exception) {
-            //            TODO hedayate Karbar...
-            echo $exception->getMessage();
+            $message = $exception->getMessage();
+            alert()->error('خطا', $message);
         }
     }
 
