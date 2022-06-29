@@ -11,8 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreignId('categorizable_id');
-            $table->string('categorizable_type');
+            $table->morphs('categorizable');
             $table->timestamps();
         });
     }

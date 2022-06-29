@@ -13,8 +13,9 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('body');
-            $table->Integer('commentable_id');
-            $table->string('commentable_type');
+//            $table->Integer('commentable_id');
+//            $table->string('commentable_type');
+            $table->morphs('commentable');
             $table->Integer('parent_id')->default(0);
             $table->boolean('is_active')->default(0);
             $table->softDeletes();

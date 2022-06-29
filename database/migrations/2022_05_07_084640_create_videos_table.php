@@ -10,8 +10,7 @@ return new class extends Migration {
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
             $table->string('url');
-            $table->Integer('videoable_id');
-            $table->string('videoable_type');
+            $table->morphs('videoable');
             $table->softDeletes();
             $table->timestamps();
         });

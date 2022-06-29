@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->Integer('orderable_id');
-            $table->string('orderable_type');
+//            $table->Integer('orderable_id');
+//            $table->string('orderable_type');
+            $table->morphs('orderable');
             $table->timestamps();
         });
     }
