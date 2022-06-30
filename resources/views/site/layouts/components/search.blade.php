@@ -1,19 +1,14 @@
-<!-- Modal -->
-<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <input class="form-control" type="text" name="search" placeholder="Search">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">جستجو</button>
-            </div>
-        </div>
-    </div>
+<div class="container p-5" id="searchTable">
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>موضوع</th>
+        <th>توضیحات</th>
+        <th>قسمت</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+    <hr class="m-5">
 </div>

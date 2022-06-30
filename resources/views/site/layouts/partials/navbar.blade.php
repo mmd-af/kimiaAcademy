@@ -31,14 +31,16 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item mt-auto">
-                    <span class="searchbar"><input type="text" placeholder="جستجو..."></span>
+                    <span class="searchbar">
+                        <input type="text" id="search" name="search" placeholder="جستجو...">
+                    </span>
                     <span class="searchbar mx-md-3">
                         <i class="fas fa-search text-light"></i>
                     </span>
                 </li>
                 <li class="nav-item mt-sm-2">
                     <a class="btn btn-outline-light text-sm text-gray-700 dark:text-gray-500 underline "
-                            href="{{ route('login') }}"><i class="fa fa-user " aria-hidden="true"> </i> ناحیه
+                       href="{{ route('login') }}"><i class="fa fa-user " aria-hidden="true"> </i> ناحیه
                         کاربری
                     </a>
                 </li>

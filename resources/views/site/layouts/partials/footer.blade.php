@@ -91,6 +91,22 @@
 
 @include('sweetalert::alert')
 
+<script>
+    $('#searchTable').hide();
+    $('#search').on('keyup', function () {
+        $('#searchTable').show();
+        let value = $(this).val();
+        $.ajaxSetup({headers: {'csrftoken': '{{ csrf_token() }}'}});
+        $.ajax({
+            type: 'get',
+            url: "{{ route('site.searches.ajax.getData') }}",
+            data: {'search': value},
+            success: function (data) {
+                $('tbody').html(data);
+            }
+        });
+    })
+</script>
 </body>
 
 </html>
