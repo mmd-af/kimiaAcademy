@@ -11,9 +11,7 @@
                     </video>
                 </div>
                 <div class="py-5" id="descript">
-                    <p>
                         {!! $course->description !!}
-                    </p>
                 </div>
                 <div class="py-5" id="itemDescript">
                 </div>
@@ -394,8 +392,6 @@
 
 @section('script')
     <script>
-        {{--TODO in maghadir az input haye hidden gerefte mishavad - TASHIH SHAVAD--}}
-        {{--        TODO ye morede dg ham ke dare ine ke tozihate itemha chand bar tekrar mishe --}}
         function showVideo(id) {
             if ({!! json_encode(Auth::check()) !!}) {
                 var url = $("#itemUrl-" + id).val();
@@ -404,11 +400,9 @@
                 $('#divVideo video source').attr('src', url);
                 $("#divVideo video")[0].load();
                 // $("#divVideo video")[0].play();
-
             } else {
                 swal({
                     title: "برای دیدن ویدئو ها باید لاگین کنید",
-                    text: "متن ساختگی",
                     icon: "warning",
                 });
             }
