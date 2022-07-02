@@ -2,6 +2,7 @@
 
 use App\Models\Image\Image;
 use App\Models\Video\Video;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/contact-us', function () {
@@ -81,6 +82,15 @@ Route::get('/query5', function () {
         $id++;
     }
     return "query is finished5";
+});
+
+Route::get('/testt', function () {
+    $posts = App\Models\Post\Post::all();
+    foreach ($posts as $post) {
+        $post->updated_at = Carbon::today()->subDays(rand(0, 365));
+        $post->save();
+    }
+    return "query test finished";
 });
 
 
