@@ -33,6 +33,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         $postCategories = $this->postRepository->postCategories();
+        statistics("post", $post->id);
         return view('site.posts.single', compact('post', 'postCategories'));
     }
 }
