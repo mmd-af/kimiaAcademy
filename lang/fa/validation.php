@@ -161,7 +161,10 @@ return [
         "mobile_number" => "شماره موبایل",
         "email" => "ایمیل",
         "password" => "رمز ورود",
-        "" => "",
+        "name" => "نام",
+        "cat_type" => "نوع دسته",
+        "image_url" => "تصویر",
+        "display_name" => "نام نمایشی",
         "" => ""
 
 
