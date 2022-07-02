@@ -84,10 +84,19 @@ Route::get('/query5', function () {
     return "query is finished5";
 });
 
-Route::get('/testt', function () {
+Route::get('/test1', function () {
     $posts = App\Models\Post\Post::all();
     foreach ($posts as $post) {
-        $post->updated_at = Carbon::today()->subDays(rand(0, 365));
+        $post->created_at = Carbon::today()->subDays(rand(0, 365));
+        $post->save();
+    }
+    return "query test finished";
+});
+
+Route::get('/test2', function () {
+    $posts = App\Models\Course\Course::all();
+    foreach ($posts as $post) {
+        $post->created_at = Carbon::today()->subDays(rand(0, 365));
         $post->save();
     }
     return "query test finished";

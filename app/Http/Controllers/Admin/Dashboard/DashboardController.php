@@ -18,44 +18,14 @@ class DashboardController extends Controller
 
     public function index()
     {
-
-        $posts = Post::query()->select([
-            'id',
-            'view_count',
-            'updated_at'
-        ])
-            ->orderBy('created_at')
-            ->get();
-
-        $posts = collect($posts);
-        $updatedAt = $posts->map(function ($item) {
-//            return $item->updated_at;
-//            return Carbon::parse($item->updated_at)->format('Y-m-d');
-            return verta($item->updated_at)->format('Y/m/d');
-        });
-
-        $viewCount = $posts->map(function ($item) {
-            return $item->view_count;
-        });
-
-        $result = [];
-        foreach ($updatedAt as $i => $v) {
-            if (!isset($result[$v])) {
-                $result[$v] = 0;
-            }
-            $result[$v] += $viewCount[$i];
-        }
-
-//        dd(array_values($result), array_keys($result));
-//        return view('admin.dashboard.index');
-
+        $course = $this->dashboardRepository->getcoursesChart();
+        $post = $this->dashboardRepository->getPostsChart();
 
         return view('admin.dashboard.index', [
-            'viewCount' => array_values($result),
-            'updatedAt' => array_keys($result)
+            'postViewCount' => array_values($post),
+            'postCreatedAt' => array_keys($post),
+            'courseViewCount' => array_values($course),
+            'courseCreatedAt' => array_keys($course)
         ]);
-
-
-
     }
 }
