@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Post\Post;
+use App\Models\Order\Order;
 use App\Repositories\Admin\DashboardRepository;
-use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -18,10 +17,13 @@ class DashboardController extends Controller
 
     public function index()
     {
+        $order = $this->dashboardRepository->getChart("Transaction");
         $course = $this->dashboardRepository->getChart("Course");
         $post = $this->dashboardRepository->getChart("Post");
 
         return view('admin.dashboard.index', [
+            'orderViewCount' => array_values($order),
+            'orderCreatedAt' => array_keys($order),
             'postViewCount' => array_values($post),
             'postCreatedAt' => array_keys($post),
             'courseViewCount' => array_values($course),

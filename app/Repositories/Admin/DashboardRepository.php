@@ -4,27 +4,42 @@ namespace App\Repositories\Admin;
 
 use App\Models\Course\Course;
 use App\Models\Post\Post;
+use App\Models\Transaction\Transaction;
 
 class DashboardRepository extends BaseRepository
 {
+    public function getTransactions()
+    {
+        return Transaction::query()
+            ->select([
+                'id',
+                'credit',
+                'created_at'
+            ])
+            ->orderBy('created_at')
+            ->get();
+    }
+
     public function getCourses()
     {
-        return Course::query()->select([
-            'id',
-            'view_count',
-            'created_at'
-        ])
+        return Course::query()
+            ->select([
+                'id',
+                'view_count',
+                'created_at'
+            ])
             ->orderBy('created_at')
             ->get();
     }
 
     public function getPosts()
     {
-        return Post::query()->select([
-            'id',
-            'view_count',
-            'created_at'
-        ])
+        return Post::query()
+            ->select([
+                'id',
+                'view_count',
+                'created_at'
+            ])
             ->orderBy('created_at')
             ->get();
     }
@@ -33,20 +48,23 @@ class DashboardRepository extends BaseRepository
     {
         if ($type == "Course") {
             $item = $this->getCourses();
+            $viewCount = $item->map(function ($item) {
+                return $item->view_count;
+            });
         } elseif ($type == "Post") {
             $item = $this->getPosts();
+            $viewCount = $item->map(function ($item) {
+                return $item->view_count;
+            });
+        } elseif ($type == "Transaction") {
+            $item = $this->getTransactions();
+            $viewCount = $item->map(function ($item) {
+                return $item->credit;
+            });
         }
-
-
-
         $updatedAt = $item->map(function ($item) {
             return verta($item->created_at)->format('Y/m/d');
         });
-
-        $viewCount = $item->map(function ($item) {
-            return $item->view_count;
-        });
-
         $result = [];
         foreach ($updatedAt as $i => $v) {
             if (!isset($result[$v])) {
