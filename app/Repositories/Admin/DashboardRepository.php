@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Admin;
 
+use App\Models\Comment\Comment;
 use App\Models\Course\Course;
 use App\Models\Post\Post;
 use App\Models\Transaction\Transaction;
@@ -44,6 +45,15 @@ class DashboardRepository extends BaseRepository
             ->get();
     }
 
+    public function getComments()
+    {
+        return Comment::query()
+            ->select([
+                'id'
+            ])
+            ->get();
+    }
+
     public function getChart($type)
     {
         if ($type == "Course") {
@@ -73,5 +83,19 @@ class DashboardRepository extends BaseRepository
             $result[$v] += $viewCount[$i];
         }
         return $result;
+    }
+
+    public function getSums($type)
+    {
+        if ($type == "Course") {
+            $item = count($this->getCourses());
+        } elseif ($type == "Post") {
+            $item = count($this->getPosts());
+        } elseif ($type == "Transaction") {
+            $item = count($this->getTransactions());
+        }elseif ($type == "Comment") {
+            $item = count($this->getComments());
+        }
+        return $item;
     }
 }
