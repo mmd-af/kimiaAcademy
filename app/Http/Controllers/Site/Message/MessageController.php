@@ -18,6 +18,7 @@ class MessageController extends Controller
     public function store(StoreMessageRequest $request)
     {
         $this->MessageRepository->store($request);
+        alert()->success("با تشکر", 'پیام شما با موفقیت ارسال شد');
         return redirect()->back();
     }
 

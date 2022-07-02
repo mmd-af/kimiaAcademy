@@ -54,7 +54,8 @@
         </div>
         <div class="row justify-content-center my-2 my-sm-5">
             <div class="container mt-0 mt-sm-5">
-                <div class="col-10 col-sm-4 border mx-auto  p-3 rounded ">
+                <div class="col-10 col-sm-4 border mx-auto  p-3 rounded">
+                    @include('site.layouts.partials.errors')
                     <form action="{{route('site.messages.store')}}" method="post">
                         @csrf
                         <div class="form-group pt-4 ">
