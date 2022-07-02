@@ -18,8 +18,8 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $course = $this->dashboardRepository->getcoursesChart();
-        $post = $this->dashboardRepository->getPostsChart();
+        $course = $this->dashboardRepository->getChart("Course");
+        $post = $this->dashboardRepository->getChart("Post");
 
         return view('admin.dashboard.index', [
             'postViewCount' => array_values($post),

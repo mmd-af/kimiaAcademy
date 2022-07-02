@@ -29,14 +29,21 @@ class DashboardRepository extends BaseRepository
             ->get();
     }
 
-    public function getcoursesChart()
+    public function getChart($type)
     {
-        $posts = $this->getCourses();
-        $updatedAt = $posts->map(function ($item) {
+        if ($type == "Course") {
+            $item = $this->getCourses();
+        } elseif ($type == "Post") {
+            $item = $this->getPosts();
+        }
+
+
+
+        $updatedAt = $item->map(function ($item) {
             return verta($item->created_at)->format('Y/m/d');
         });
 
-        $viewCount = $posts->map(function ($item) {
+        $viewCount = $item->map(function ($item) {
             return $item->view_count;
         });
 
@@ -49,26 +56,4 @@ class DashboardRepository extends BaseRepository
         }
         return $result;
     }
-
-    public function getPostsChart()
-    {
-        $posts = $this->getPosts();
-        $updatedAt = $posts->map(function ($item) {
-            return verta($item->created_at)->format('Y/m/d');
-        });
-
-        $viewCount = $posts->map(function ($item) {
-            return $item->view_count;
-        });
-
-        $result = [];
-        foreach ($updatedAt as $i => $v) {
-            if (!isset($result[$v])) {
-                $result[$v] = 0;
-            }
-            $result[$v] += $viewCount[$i];
-        }
-        return $result;
-    }
-
 }
