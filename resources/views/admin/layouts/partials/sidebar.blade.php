@@ -8,6 +8,7 @@ educationControl
 commentControl
 messageControl
 sitemapControl
+statisticsReports
 
 --}}
     <!-- Sidebar - Brand -->
