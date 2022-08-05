@@ -1,4 +1,4 @@
-@extends('Site.layouts.app')
+@extends('site.layouts.app')
 
 @section('content')
     {{--    @include('site.layouts.partials.header')--}}
