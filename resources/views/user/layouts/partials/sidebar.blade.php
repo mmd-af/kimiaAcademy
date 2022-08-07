@@ -23,7 +23,7 @@
 {{--TODO fix icons--}}
     <li class="nav-item">
         <a class="nav-link" href="{{route('user.orders.index')}}">
-            <i class="fas fa-object-ungroup"></i>
+            <i class="fas fa-film"></i>
             <span>دوره های ثبت شده</span>
         </a>
     </li>
