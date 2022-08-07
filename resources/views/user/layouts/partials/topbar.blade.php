@@ -184,7 +184,7 @@
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false">
-                <span class="ml-2 d-none d-lg-inline text-gray-600 small">محمد افشار</span>
+                <span class="ml-2 d-none d-lg-inline text-gray-600 small">{{auth()->user()->firstname}}</span>
                 {{--                <img class="img-profile rounded-circle" src="{{ asset('/images/user.jpg') }}">--}}
                 <i class="fas fa-user fa-sm fa-fw ml-2 text-gray-400"></i>
             </a>
