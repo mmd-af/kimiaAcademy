@@ -78,7 +78,7 @@ statisticsReports
     @can('sitemapControl')
     <li class="nav-item">
         <a class="nav-link" href="{{route('admin.sitemaps.index')}}">
-            <i class="fas fa-object-ungroup"></i>
+            <i class="fas fa-map"></i>
             <span>نقشه ی سایت</span>
         </a>
     </li>
@@ -107,13 +107,13 @@ statisticsReports
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{route('admin.orders.index')}}">
-                <i class="fas fa-object-ungroup"></i>
+                <i class="fas fa-shopping-cart"></i>
                 <span>دوره های خریده شده</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{route('admin.transactions.index')}}">
-                <i class="fas fa-object-ungroup"></i>
+                <i class="fas fa-file-invoice-dollar"></i>
                 <span>تراکنش ها</span>
             </a>
         </li>
