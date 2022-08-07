@@ -29,7 +29,7 @@
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{route('user.transactions.index')}}">
-            <i class="fas fa-object-ungroup"></i>
+            <i class="fas fa-file-invoice-dollar"></i>
             <span>تراکنش ها</span>
         </a>
     </li>
