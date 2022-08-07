@@ -125,9 +125,8 @@
                             </select>
                         </div>
                     </div>
-
-                    <div class="form-group col-md-12 mt-3">
-                        <button class="btn btn-success mt-5" type="submit">ثبت</button>
+                    <div class="form-group col-md-12 mt-3 mr-3">
+                        <button class="btn btn-primary mt-5" type="submit">ویرایش</button>
                         <a href="{{ route('admin.courses.index') }}" class="btn btn-dark mt-5 mr-3">بازگشت</a>
                     </div>
                 </div>

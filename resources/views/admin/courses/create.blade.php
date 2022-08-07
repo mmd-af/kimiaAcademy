@@ -123,10 +123,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-group col-md-12 mt-3">
-                        <button class="btn btn-success mt-5" type="submit">ثبت</button>
-                        <a href="{{ route('admin.courses.index') }}" class="btn btn-dark mt-5 mr-3">بازگشت</a>
+                    <div class="form-group col-md-12 mt-3 mr-3">
+                        <button class="btn btn-success px-4" type="submit">ثبت</button>
+                        <a href="{{ route('admin.courses.index') }}"
+                           class="btn btn-outline-dark mr-3">بازگشت</a>
                     </div>
                 </div>
             </form>

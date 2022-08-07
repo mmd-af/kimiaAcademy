@@ -25,44 +25,53 @@
                         </div>
                     </div>
                 @else
-                <div class="form-row mb-3">
-                    <div class="col">
-                        <label for="season_title">عنوان فصل</label>
-                        <input type="text" class="form-control" name="season" id="season_title" value="{{$item->parent_id}}" disabled>
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            <label for="season_title">عنوان فصل</label>
+                            <input type="text" class="form-control" name="season" id="season_title"
+                                   value="{{$item->parent_id}}" disabled>
+                        </div>
+                        <div class="col">
+                            <label for="course"> دوره</label>
+                            <input class="form-control selectpicker" data-live-search="true" id="course" name="course"
+                                   value="{{$item->course->title}}" disabled>
+                        </div>
                     </div>
-                    <div class="col">
-                        <label for="course"> دوره</label>
-                        <input class="form-control selectpicker" data-live-search="true" id="course" name="course" value="{{$item->course->title}}" disabled>
-                    </div>
-                </div>
-                <div class="form-row py-2 mt-3">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="عنوان درس"
-                               id="title_1_cz" name="title" value="{{$item->title}}">
-                    </div>
-                    <div class="col">
-                        <div class="input-group" dir="ltr">
+                    <div class="form-row py-2 mt-3">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="عنوان درس"
+                                   id="title_1_cz" name="title" value="{{$item->title}}">
+                        </div>
+                        <div class="col">
+                            <div class="input-group" dir="ltr">
                             <span class="input-group-btn">
                                 <a id="files" data-input="url_1_cz" data-preview="holder"
                                    class="btn btn-dark text-light"><i class="fa fa-picture-o">
                                     </i> آپلود فایل</a>
                             </span>
-                            <input id="url_1_cz" class="form-control" type="text" name="url" value="{{$item->videos->url}}">
+                                <input id="url_1_cz" class="form-control" type="text" name="url"
+                                       value="{{$item->videos->url}}">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <select class="custom-select" id="is_free_1_cz" name="is_free">
+                                <option
+                                    value="0" {{ $item->getRawOriginal('is_free')==\App\Enums\EItemIsFree::PAID ? 'selected' : '' }}>
+                                    غیر رایگان
+                                </option>
+                                <option
+                                    value="1" {{ $item->getRawOriginal('is_free')==\App\Enums\EItemIsFree::FREE ? 'selected' : '' }}>
+                                    رایگان
+                                </option>
+                            </select>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <select class="custom-select" id="is_free_1_cz" name="is_free" >
-                            <option value="0" {{ $item->getRawOriginal('is_free')==\App\Enums\EItemIsFree::PAID ? 'selected' : '' }}>غیر رایگان</option>
-                            <option value="1" {{ $item->getRawOriginal('is_free')==\App\Enums\EItemIsFree::FREE ? 'selected' : '' }}>رایگان</option>
-                        </select>
+                    <div class=" form-group">
+                        <textarea name="description" id="description">{{$item->description}}</textarea>
                     </div>
-                </div>
-                <div class=" form-group">
-                    <textarea name="description" id="description">{{$item->description}}</textarea>
-                </div>
                 @endif
-                <button class="btn btn-success mt-5" type="submit">ویرایش</button>
-                <a href="{{ route('admin.courses.show',$item->course->id) }}" class="btn btn-dark mt-5 mr-3">بازگشت</a>
+                <button class="btn btn-primary mt-5" type="submit">ویرایش</button>
+                <a href="{{ route('admin.courses.index') }}" class="btn btn-dark mt-5 mr-3">بازگشت</a>
             </form>
         </div>
     </div>
@@ -105,7 +114,6 @@
             $('.selectpicker').selectpicker();
         });
         CKEDITOR.replace('description', options);
-
 
 
     </script>

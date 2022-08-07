@@ -69,8 +69,9 @@
                         </div>
                     </div>
                     <div class="form-group col-md-12 mt-3">
-                        <button class="btn btn-outline-primary mt-5" type="submit">ثبت</button>
-                        <a href="{{ route('admin.posts.index') }}" class="btn btn-dark mt-5 mr-3">بازگشت</a>
+                        <button class="btn btn-success px-4" type="submit">ثبت</button>
+                        <a href="{{ route('admin.posts.index') }}"
+                           class="btn btn-outline-dark mr-3">بازگشت</a>
                     </div>
                 </div>
             </form>
