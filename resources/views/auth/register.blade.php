@@ -50,7 +50,7 @@
 
         </div>
         <div class="col-md-6 mt-5 pt-5 text-center">
-            <img class="" src="{{asset('assets/site/images/login-page-image.jpg')}}" alt="">
+            <img class="img-fluid" src="{{asset('assets/site/images/login-page-image.jpg')}}" alt="">
         </div>
     </div>
 </div>
