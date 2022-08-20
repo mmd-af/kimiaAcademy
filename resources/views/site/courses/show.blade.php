@@ -11,7 +11,7 @@
                     </video>
                 </div>
                 <div class="py-5" id="descript">
-                        {!! $course->description !!}
+                    {!! $course->description !!}
                 </div>
                 <div class="py-5" id="itemDescript">
                 </div>
@@ -204,83 +204,96 @@
                     <div class="row  ">
                         <div class="col-md-12 ">
 
-                            <form action="" method="POST">
-                                <div class="form-group">
-                                    <label for="comment">
-                                        دیدگاه شما
-                                    </label>
-                                    <textarea class="form-control" name="comment" id="" cols="30" rows="5"
-                                              required></textarea>
-                                </div>
+                            @auth
+                                <form action="{{ route('site.comments.store') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
+                                    <input type="hidden" name="course_id" value="{{$course->id}}">
+                                    <div class="form-group">
+                                        <label for="comment">
+                                            دیدگاه شما
+                                        </label>
+                                        <textarea class="form-control" name="body" id="{{ $course->id }}" cols="30"
+                                                  rows="5" required></textarea>
+                                        {{--
+                                                                        </div>
 
-                                <div class="row form-group">
-                                    <div class="col">
-                                        <label for="name">نام </label>
-                                        <input type="text" name="name" class="form-control" required>
-                                    </div>
-                                    <div class="col">
-                                        <label for="email"> ایمیل </label>
-                                        <input type="text" name="email" class="form-control" required>
-                                    </div>
+                                        {{--                                <div class="row form-group">--}}
+                                        {{--                                    <div class="col">--}}
+                                        {{--                                        <label for="name">نام </label>--}}
+                                        {{--                                        <input type="text" name="name" class="form-control" required>--}}
+                                        {{--                                    </div>--}}
+                                        {{--                                    <div class="col">--}}
+                                        {{--                                        <label for="email"> ایمیل </label>--}}
+                                        {{--                                        <input type="text" name="email" class="form-control" required>--}}
+                                        {{--                                    </div>--}}
+                                        {{--                                </div>--}}
+                                        <div class="form-group mt-2">
+                                            <button type="submit" class="btn btn-product mb-2 px-3 text-light">ثبت
+                                            </button>
+                                        </div>
+                                </form>
+                            @else
+                                <div class="m-5 text-center">
+                                    <strong class="text-warning">برای ثبت دیدگاه ابتدا
+                                        <a href="{{route('login')}}">لاگین</a>
+                                        کنید</strong>
                                 </div>
-                                <div class="form-group mt-2">
-
-                                    <button type="submit" class="btn btn-product mb-2 px-3 text-light">ثبت</button>
-                                </div>
-                            </form>
+                            @endauth
                         </div>
-                        <div class="col-md-12  ">
+                        <div class="col-md-12">
                             <div class="card shadow-sm">
-                                <div class="card-body ">
+                                <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            <div class="d-flex flex-start">
-                                                <img class="rounded-circle shadow-1-strong me-3"
-                                                     src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
-                                                     alt="avatar" width="65"
-                                                     height="65"/>
-                                                <div class="flex-grow-1 flex-shrink-1">
-                                                    <div>
-                                                        <div
-                                                            class="d-flex justify-content-between align-items-center mr-2">
-                                                            <p class="mb-1">
-                                                                مریم گلاب پاش<span class="small"> - 2 ساعت پیش </span>
-                                                            </p>
-                                                            <a href="#!"><i class="fas fa-reply fa-xs"></i><span
-                                                                    class="small"> پاسخ </span></a>
-                                                        </div>
-                                                        <p class="small mb-0 mr-2">
-                                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                                                            با استفاده از طراحان گرافیک است
-                                                        </p>
-                                                    </div>
-
-                                                    <div class="d-flex flex-start mt-4">
-                                                        <a class="me-3" href="#">
-                                                            <img class="rounded-circle shadow-1-strong"
-                                                                 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(11).webp"
-                                                                 alt="avatar"
-                                                                 width="65" height="65"/>
-                                                        </a>
-                                                        <div class="flex-grow-1 flex-shrink-1">
-                                                            <div>
-                                                                <div
-                                                                    class="d-flex justify-content-between align-items-center mr-2">
-                                                                    <p class="mb-1">
-                                                                        ساجده مهلا<span
-                                                                            class="small"> - 1 ساعت پیش </span>
-                                                                    </p>
-
-                                                                </div>
-                                                                <p class="small mb-0 mr-2">
-                                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                                                                    صنعت چاپ و با استفاده از طراحان گرافیک است
+                                            @foreach($course->comments as $comment)
+                                                <div class="d-flex flex-start">
+                                                    <div class="flex-grow-1 flex-shrink-1">
+                                                        <div>
+                                                            <div
+                                                                class="d-flex justify-content-between align-items-center mr-2">
+                                                                <p class="mb-1">
+                                                                    {{$comment->user_id}}
                                                                 </p>
+                                                                <a href="{{ route('site.comments.reply') }}"><i
+                                                                        class="fas fa-reply fa-xs"></i>
+                                                                    <span class="small"> پاسخ </span></a>
+                                                            </div>
+                                                            <p class="small mb-0 mr-2">
+                                                                {{ $comment->body }}
+                                                            </p>
+                                                            <span
+                                                                class="small float-left"> {{verta($comment->created_at)->format('H:i Y/n/j')}} </span>
+                                                        </div>
+
+                                                        <div class="d-flex flex-start mt-4">
+                                                            <a class="me-3" href="#">
+                                                                <img class="rounded-circle shadow-1-strong"
+                                                                     src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(11).webp"
+                                                                     alt="avatar"
+                                                                     width="65" height="65"/>
+                                                            </a>
+                                                            <div class="flex-grow-1 flex-shrink-1">
+                                                                <div>
+                                                                    <div
+                                                                        class="d-flex justify-content-between align-items-center mr-2">
+                                                                        <p class="mb-1">
+                                                                            ساجده مهلا<span
+                                                                                class="small"> - 1 ساعت پیش </span>
+                                                                        </p>
+
+                                                                    </div>
+                                                                    <p class="small mb-0 mr-2">
+                                                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                                                        صنعت چاپ و با استفاده از طراحان گرافیک است
+                                                                    </p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            @endforeach
+
                                             <div class="d-flex flex-start mt-4">
                                                 <img class="rounded-circle shadow-1-strong me-3"
                                                      src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(12).webp"
