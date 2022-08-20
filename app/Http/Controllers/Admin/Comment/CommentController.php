@@ -7,8 +7,6 @@ use App\Models\Comment\Comment;
 use App\Repositories\Admin\CommentRepository;
 use Illuminate\Http\Request;
 
-;
-
 class CommentController extends Controller
 {
     protected $commentRepository;
