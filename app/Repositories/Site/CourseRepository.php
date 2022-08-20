@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Site;
 
+use App\Models\Comment\Comment;
 use App\Models\Course\Course;
 use App\Models\Item\Item;
 use App\Models\Order\Order;
@@ -10,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 class CourseRepository
 //    extends BaseRepository
 {
+//    TODO add BaseRepository to all repository
+
 //    public function __construct(Course $model)
 //    {
 //        $this->setModel($model);
@@ -55,10 +58,29 @@ class CourseRepository
                 'course_kind'
             ])
             ->where('slug', $course)
+//            ->with('comments')
             ->where('is_active', 1)
-//            ->with('videos')
             ->first();
     }
+
+//    public function getComments($course)
+//    {
+//        return Comment::query()
+//            ->select([
+//                'id',
+//                'user_id',
+//                'body',
+//                'commentable_id',
+//                'commentable_type',
+//                'is_active',
+//                'created_at'
+//            ])
+//            ->where('commentable_type', Course::class)
+//            ->where('commentable_id', $course->id)
+//            ->with('users')
+//            ->where('is_active', 1)
+//            ->get();
+//    }
 
     public function getCourseSeason($course)
     {
@@ -96,5 +118,4 @@ class CourseRepository
             ->where('orderable_id', $course->id)
             ->first();
     }
-
 }
