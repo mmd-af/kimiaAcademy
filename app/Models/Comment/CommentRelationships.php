@@ -2,7 +2,7 @@
 
 namespace App\Models\Comment;
 
-
+use App\Models\Course\Course;
 use App\Models\User\User;
 
 trait CommentRelationships
@@ -22,8 +22,13 @@ trait CommentRelationships
         return $this->belongsTo(Comment::class, 'parent_id', 'id');
     }
 
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function courses()
+    {
+        return $this->morphedByMany(Course::class, 'commentable');
     }
 }
