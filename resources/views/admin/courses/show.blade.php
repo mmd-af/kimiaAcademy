@@ -23,8 +23,7 @@
                                 <h6 class="mb-3 mb-md-0">   سر فصل ها</h6>
                             </div>
                         <div class="card shadow-lg table-responsive p-3">
-                            <table
-                                class="table table-bordered table-striped text-center data-table">
+                            <table class="table table-bordered table-striped text-center data-table">
                                 <thead>
                                 <tr>
                                     <th>ردیف</th>

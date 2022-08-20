@@ -21,8 +21,8 @@
                                 </div>
                                 <div class="product-description py-2">
                                     <h4>{{Str::limit($course->title ,25)}}</h4>
-                                    <div class="mt-3 info"><span
-                                            class="text1 d-block">{!! Str::limit($course->description ,75) !!}
+                                    <div class="mt-3 info">
+                                        <span class="text1 d-block">{!! Str::limit($course->description ,75) !!}
                                     </span></div>
                                     <div class="cost mt-3">
                                         <div class="pt-4">
