@@ -23,6 +23,8 @@ class CourseController extends Controller
     public function show($course)
     {
         $course = $this->courseRepository->getCourse($course);
+//        $comments = $this->courseRepository->getComments($course);
+//        dd($comments);
         $checkOrder = $this->courseRepository->checkOrder($course);
         $courseSeason = $this->courseRepository->getCourseSeason($course);
         statistics("course", $course->id);
