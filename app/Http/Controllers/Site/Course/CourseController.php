@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site\Course;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\Site\CourseRepository;
+use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
@@ -18,6 +19,13 @@ class CourseController extends Controller
     {
         $courses = $this->courseRepository->getAll();
         return view('site.courses.index', compact('courses'));
+    }
+
+    public function commentStore(Request $request)
+    {
+        $this->courseRepository->commentStore($request);
+        alert()->success('دیدگاه شما با موفقیت ثبت شد و بعد از تایید ادمین به نمایش گذاشته می شود.','با تشکر');
+        return redirect()->back();
     }
 
     public function show($course)
