@@ -8,15 +8,14 @@ use App\Models\Item\Item;
 use App\Models\Order\Order;
 use Illuminate\Support\Facades\Auth;
 
-class CourseRepository
-//    extends BaseRepository
+class CourseRepository extends BaseRepository
 {
 //    TODO add BaseRepository to all repository
 
-//    public function __construct(Course $model)
-//    {
-//        $this->setModel($model);
-//    }
+    public function __construct(Course $model)
+    {
+        $this->setModel($model);
+    }
 
     public function getAll()
     {
@@ -111,17 +110,6 @@ class CourseRepository
             ->get();
     }
 
-//    public function getVideos()
-//    {
-//        return Video::query()
-//            ->select([
-//                'url',
-//                'videoable_is',
-//                'videoable_tyoe'
-//            ])
-//            ->get();
-//    }
-
     public function checkOrder($course)
     {
         $userId = Auth::id();
@@ -132,5 +120,16 @@ class CourseRepository
             ->where('user_id', $userId)
             ->where('orderable_id', $course->id)
             ->first();
+    }
+
+    public function commentStore($request)
+    {
+        $course = $request->course_slug;
+        $comment = new Comment();
+        $comment->user_id = $request->input('user_id');
+        $comment->body = $request->input('body');
+        $course = $this->getCourse($course);
+        $course->comments()->save($comment);
+
     }
 }
