@@ -13,7 +13,10 @@ Route::group(['middleware' => ['web'], 'namespace' => 'App\Http\Controllers\Site
                 'as' => 'show',
                 'uses' => 'CourseController@show'
             ]);
-
+            Route::post('comments/store', [
+                'as' => 'comments.store',
+                'uses' => 'CourseController@commentStore'
+            ]);
         });
     });
 });
