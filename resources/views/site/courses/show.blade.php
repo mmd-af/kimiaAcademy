@@ -246,10 +246,9 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
-                                            @foreach($course->comments as $comment)
-                                                <div class="d-flex flex-start">
+                                            @foreach($comments as $comment)
+                                                <div class="d-flex flex-start p-3 m-3 shadow-lg">
                                                     <div class="flex-grow-1 flex-shrink-1">
-                                                        <div>
                                                             <div
                                                                 class="d-flex justify-content-between align-items-center mr-2">
                                                                 <p class="mb-1">
@@ -264,133 +263,34 @@
                                                             </p>
                                                             <span
                                                                 class="small float-left"> {{verta($comment->created_at)->format('H:i Y/n/j')}} </span>
-                                                        </div>
-
-                                                        <div class="d-flex flex-start mt-4">
-                                                            <a class="me-3" href="#">
-                                                                <img class="rounded-circle shadow-1-strong"
-                                                                     src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(11).webp"
-                                                                     alt="avatar"
-                                                                     width="65" height="65"/>
-                                                            </a>
-                                                            <div class="flex-grow-1 flex-shrink-1">
-                                                                <div>
-                                                                    <div
-                                                                        class="d-flex justify-content-between align-items-center mr-2">
-                                                                        <p class="mb-1">
-                                                                            ساجده مهلا<span
-                                                                                class="small"> - 1 ساعت پیش </span>
+                                                        @foreach($childComments->where('parent_id',$comment->id) as $childComment)
+                                                            <div class="d-flex flex-start mt-4 shadow">
+                                                                <a class="me-3" href="#">
+                                                                    <img class="rounded-circle shadow-1-strong"
+                                                                         src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(11).webp"
+                                                                         alt="avatar"
+                                                                         width="65" height="65"/>
+                                                                </a>
+                                                                <div class="flex-grow-1 flex-shrink-1">
+                                                                    <div>
+                                                                        <div
+                                                                            class="d-flex justify-content-between align-items-center mr-2">
+                                                                            <p class="mb-1">
+                                                                                {{$childComment->user_id}}
+                                                                                <span
+                                                                                    class="small">{{verta($childComment->created_at)->format('H:i Y/n/j')}}</span>
+                                                                            </p>
+                                                                        </div>
+                                                                        <p class="small mb-0 mr-2">
+                                                                            {{ $childComment->body }}
                                                                         </p>
-
                                                                     </div>
-                                                                    <p class="small mb-0 mr-2">
-                                                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                                                                        صنعت چاپ و با استفاده از طراحان گرافیک است
-                                                                    </p>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                             @endforeach
-
-                                            <div class="d-flex flex-start mt-4">
-                                                <img class="rounded-circle shadow-1-strong me-3"
-                                                     src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(12).webp"
-                                                     alt="avatar" width="65"
-                                                     height="65"/>
-                                                <div class="flex-grow-1 flex-shrink-1">
-                                                    <div>
-                                                        <div
-                                                            class="d-flex justify-content-between align-items-center mr-2">
-                                                            <p class="mb-1">
-                                                                مرضیه قیثی<span class="small"> - 2 ساعت پیش </span>
-                                                            </p>
-                                                            <a href="#!"><i class="fas fa-reply fa-xs"></i><span
-                                                                    class="small"> پاسخ </span></a>
-                                                        </div>
-                                                        <p class="small mb-0 mr-2">
-                                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                                                            با استفاده از طراحان گرافیک است
-                                                        </p>
-                                                    </div>
-
-                                                    <div class="d-flex flex-start mt-4">
-                                                        <a class="me-3" href="#">
-                                                            <img class="rounded-circle shadow-1-strong"
-                                                                 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp"
-                                                                 alt="avatar"
-                                                                 width="65" height="65"/>
-                                                        </a>
-                                                        <div class="flex-grow-1 flex-shrink-1">
-                                                            <div>
-                                                                <div
-                                                                    class="d-flex justify-content-between align-items-center mr-2">
-                                                                    <p class="mb-1">
-                                                                        هانیه طهماسبی<span
-                                                                            class="small"> - 1 ساعت پیش </span>
-                                                                    </p>
-
-                                                                </div>
-                                                                <p class="small mb-0 mr-2">
-                                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                                                                    صنعت چاپ و با استفاده از طراحان گرافیک است
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="d-flex flex-start mt-4">
-                                                        <a class="me-3" href="#">
-                                                            <img class="rounded-circle shadow-1-strong"
-                                                                 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(29).webp"
-                                                                 alt="avatar"
-                                                                 width="65" height="65"/>
-                                                        </a>
-                                                        <div class="flex-grow-1 flex-shrink-1">
-                                                            <div>
-                                                                <div
-                                                                    class="d-flex justify-content-between align-items-center mr-2">
-                                                                    <p class="mb-1">
-                                                                        محیوبه امیدی<span
-                                                                            class="small"> - 1 ساعت پیش </span>
-                                                                    </p>
-
-                                                                </div>
-                                                                <p class="small mb-0 mr-2">
-                                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                                                                    صنعت چاپ و با استفاده از طراحان گرافیک است
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="d-flex flex-start mt-4">
-                                                        <a class="me-3" href="#">
-                                                            <img class="rounded-circle shadow-1-strong"
-                                                                 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp"
-                                                                 alt="avatar"
-                                                                 width="65" height="65"/>
-                                                        </a>
-                                                        <div class="flex-grow-1 flex-shrink-1">
-                                                            <div>
-                                                                <div
-                                                                    class="d-flex justify-content-between align-items-center mr-2">
-                                                                    <p class="mb-1">
-                                                                        امین کریمی<span
-                                                                            class="small"> - 1 ساعت پیش </span>
-                                                                    </p>
-
-                                                                </div>
-                                                                <p class="small mb-0 mr-2">
-                                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                                                                    صنعت چاپ و با استفاده از طراحان گرافیک است
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
