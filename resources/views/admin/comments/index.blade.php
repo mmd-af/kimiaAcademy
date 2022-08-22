@@ -29,7 +29,7 @@
         </div>
     </div>
     @foreach($comments as $comment)
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        <div class="modal fade" id="exampleModalCenter_{{$comment->id}}" tabindex="-1" role="dialog"
              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -39,13 +39,32 @@
                     </div>
                     <div class="modal-body">
                         <time> تاریخ : {{verta($comment->created_at)->format('H:i Y/n/j')}}</time>
-
                         <div class="modal-body">
                             {{$comment->body}}
                         </div>
                     </div>
+                    @if($comment->parent_id ==0)
+                        <div class="container">
+                            <form action="{{ route('admin.comments.store') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="parent_id" value="{{$comment->id}}">
+                                <input type="hidden" name="commentable_type" value="{{$comment->commentable_type}}">
+                                <input type="hidden" name="commentable_id" value="{{$comment->commentable_id}}">
+                                {{--                            <input type="hidden" name="post_id" value="{{$comment->posts->id}}">--}}
+                                <div class="form-group">
+                                    <label>پاسخ به نظر</label>
+                                    <textarea class="form-control" name="body" cols="30" rows="3" required></textarea>
+                                    <button type="submit"
+                                            class="btn btn-primary mb-2 mt-2 px-3 text-light btn-sm float-left">
+                                        پاسخ
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    @endif
                     <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            بستن
                         </button>
                     </div>
                 </div>
@@ -55,7 +74,6 @@
 @endsection
 
 @section('script')
-
     <script>
         $(function () {
             let languages = {
