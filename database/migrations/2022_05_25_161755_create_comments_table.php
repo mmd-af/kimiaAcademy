@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('body');
+            $table->text('body');
             $table->morphs('commentable');
             $table->Integer('parent_id')->default(0);
             $table->boolean('is_active')->default(0);
