@@ -63,24 +63,39 @@ class CourseRepository
             ->first();
     }
 
-//    public function getComments($course)
-//    {
-//        return Comment::query()
-//            ->select([
-//                'id',
-//                'user_id',
-//                'body',
-//                'commentable_id',
-//                'commentable_type',
-//                'is_active',
-//                'created_at'
-//            ])
-//            ->where('commentable_type', Course::class)
-//            ->where('commentable_id', $course->id)
-//            ->with('users')
-//            ->where('is_active', 1)
-//            ->get();
-//    }
+    public function getComments($course)
+    {
+        return Comment::query()
+            ->select([
+                'id',
+                'user_id',
+                'body',
+                'created_at'
+            ])
+            ->where('commentable_type', Course::class)
+            ->where('commentable_id', $course->id)
+            ->where('parent_id', 0)
+            ->with('children')
+            ->where('is_active', 1)
+            ->get();
+    }
+
+    public function getChildComments($course)
+    {
+        return Comment::query()
+            ->select([
+                'id',
+                'user_id',
+                'body',
+                'parent_id',
+                'created_at'
+            ])
+            ->where('commentable_type', Course::class)
+            ->where('commentable_id', $course->id)
+            ->where('parent_id', '<>', 0)
+            ->where('is_active', 1)
+            ->get();
+    }
 
     public function getCourseSeason($course)
     {
