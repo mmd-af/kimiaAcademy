@@ -2,9 +2,9 @@
 @section('title','کیمیا آکادمی')
 @section('content')
     <div class="container">
-        <h4 class="mt-5 mx-3 pt-2">دوره آموزشی داروسازی گیاهی کیمیاگر</h4>
+        <h4 class="mt-5 mx-3 pt-2">{{$course->title}}</h4>
         <div class="row">
-            <div class="col-md-7 ml-md-5">
+            <div class="col-sm-12 col-md-7">
                 <div class="image-container mt-5" id="divVideo">
                     <video controls width="100%" height="380px">
                         <source src="{{asset($course->videos->url)}}" type="video/mp4">
@@ -86,8 +86,9 @@
                         @endforeach
                     </div>
                 </div>
+                @include('site.courses.comments')
             </div>
-            <div class="col-md-4 mr-md-3 mx-sm-2">
+            <div class="col-sm-12 col-md-4 mr-md-3 mx-sm-2">
                 <div class="card border mt-5">
                     @if(empty($checkOrder))
                         <div class="pt-4">
@@ -172,7 +173,8 @@
                     <div class="mx-3">
                         <img class="svg-icon ml-3 " src="{{asset('assets/site/images/icons/comments.svg')}}"
                              alt="">
-                        <strong>{{ctpn(5)}}</strong><span class="mr-2">دیدگاه</span>
+                        <strong>{{ctpn(count($comments)+count($childComments))}}</strong><span
+                            class="mr-2">دیدگاه</span>
                     </div>
                     <div class="vr"></div>
                     <div class="mx-3">
@@ -197,110 +199,8 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-7 ml-md-5">
-                {{--    comments component    --}}
-                <div class="container  py-5 ">
-                    <div class="row  ">
-                        <div class="col-md-12 ">
-
-                            @auth
-                                <form action="{{ route('site.comments.store') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
-                                    <input type="hidden" name="course_id" value="{{$course->id}}">
-                                    <div class="form-group">
-                                        <label for="comment">
-                                            دیدگاه شما
-                                        </label>
-                                        <textarea class="form-control" name="body" id="{{ $course->id }}" cols="30"
-                                                  rows="5" required></textarea>
-                                        {{--
-                                                                        </div>
-
-                                        {{--                                <div class="row form-group">--}}
-                                        {{--                                    <div class="col">--}}
-                                        {{--                                        <label for="name">نام </label>--}}
-                                        {{--                                        <input type="text" name="name" class="form-control" required>--}}
-                                        {{--                                    </div>--}}
-                                        {{--                                    <div class="col">--}}
-                                        {{--                                        <label for="email"> ایمیل </label>--}}
-                                        {{--                                        <input type="text" name="email" class="form-control" required>--}}
-                                        {{--                                    </div>--}}
-                                        {{--                                </div>--}}
-                                        <div class="form-group mt-2">
-                                            <button type="submit" class="btn btn-product mb-2 px-3 text-light">ثبت
-                                            </button>
-                                        </div>
-                                </form>
-                            @else
-                                <div class="m-5 text-center">
-                                    <strong class="text-warning">برای ثبت دیدگاه ابتدا
-                                        <a href="{{route('login')}}">لاگین</a>
-                                        کنید</strong>
-                                </div>
-                            @endauth
-                        </div>
-                        <div class="col-md-12">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            @foreach($comments as $comment)
-                                                <div class="d-flex flex-start p-3 m-3 shadow-lg">
-                                                    <div class="flex-grow-1 flex-shrink-1">
-                                                            <div
-                                                                class="d-flex justify-content-between align-items-center mr-2">
-                                                                <p class="mb-1">
-                                                                    {{$comment->user_id}}
-                                                                </p>
-                                                                <a href="{{ route('site.comments.reply') }}"><i
-                                                                        class="fas fa-reply fa-xs"></i>
-                                                                    <span class="small"> پاسخ </span></a>
-                                                            </div>
-                                                            <p class="small mb-0 mr-2">
-                                                                {{ $comment->body }}
-                                                            </p>
-                                                            <span
-                                                                class="small float-left"> {{verta($comment->created_at)->format('H:i Y/n/j')}} </span>
-                                                        @foreach($childComments->where('parent_id',$comment->id) as $childComment)
-                                                            <div class="d-flex flex-start mt-4 shadow">
-                                                                <a class="me-3" href="#">
-                                                                    <img class="rounded-circle shadow-1-strong"
-                                                                         src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(11).webp"
-                                                                         alt="avatar"
-                                                                         width="65" height="65"/>
-                                                                </a>
-                                                                <div class="flex-grow-1 flex-shrink-1">
-                                                                    <div>
-                                                                        <div
-                                                                            class="d-flex justify-content-between align-items-center mr-2">
-                                                                            <p class="mb-1">
-                                                                                {{$childComment->user_id}}
-                                                                                <span
-                                                                                    class="small">{{verta($childComment->created_at)->format('H:i Y/n/j')}}</span>
-                                                                            </p>
-                                                                        </div>
-                                                                        <p class="small mb-0 mr-2">
-                                                                            {{ $childComment->body }}
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+
 @endsection
 
 @section('script')
