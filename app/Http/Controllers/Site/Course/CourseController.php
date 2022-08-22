@@ -23,11 +23,12 @@ class CourseController extends Controller
     public function show($course)
     {
         $course = $this->courseRepository->getCourse($course);
-//        $comments = $this->courseRepository->getComments($course);
-//        dd($comments);
+        $comments = $this->courseRepository->getComments($course);
+        $childComments = $this->courseRepository->getChildComments($course);
+//        dd($childComments);
         $checkOrder = $this->courseRepository->checkOrder($course);
         $courseSeason = $this->courseRepository->getCourseSeason($course);
         statistics("course", $course->id);
-        return view('site.courses.show', compact('course', 'courseSeason', 'checkOrder'));
+        return view('site.courses.show', compact('course', 'courseSeason', 'checkOrder', 'comments', 'childComments'));
     }
 }
