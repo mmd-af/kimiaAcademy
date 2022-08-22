@@ -6,6 +6,7 @@ namespace App\Repositories\Admin;
 use App\Enums\EActive;
 use App\Models\Comment\Comment;
 use Hekmatinasser\Verta\Verta;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 
 class CommentRepository extends BaseRepository
@@ -24,6 +25,7 @@ class CommentRepository extends BaseRepository
                 'body',
                 'commentable_id',
                 'commentable_type',
+                'parent_id',
                 'is_active',
                 'created_at'
             ])
@@ -69,7 +71,7 @@ class CommentRepository extends BaseRepository
                     return
                         "
                     <div class='d-flex justify-content-center'>
-                    <button type='button' class='btn btn-outline-info btn-sm mx-2' data-toggle='modal' data-target='#exampleModalCenter'>
+                    <button type='button' class='btn btn-outline-info btn-sm mx-2' data-toggle='modal' data-target='#exampleModalCenter_" . $row->id . "'>
                         نمایش
                     </button>
                     <form action='{$destroy}' method='POST' id='myForm'>
@@ -83,6 +85,18 @@ class CommentRepository extends BaseRepository
                 ->rawColumns(['action', 'is_active'])
                 ->make(true);
         }
+    }
+
+    public function store($request)
+    {
+        $userId = Auth::id();
+        $comment = new Comment();
+        $comment->user_id = $userId;
+        $comment->body = $request->input('body');
+        $comment->parent_id = $request->input('parent_id');
+        $comment->commentable_type = $request->input('commentable_type');
+        $comment->commentable_id = $request->input('commentable_id');
+        $comment->save();
     }
 
     public function update($request, $comment)
