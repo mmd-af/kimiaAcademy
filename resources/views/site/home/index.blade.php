@@ -112,7 +112,7 @@
                                      alt="Responsive image">
                             </div>
                             <div class="col-8 col-md-9">
-                                <h5 class="card-title">{{$post->title}}</h5>
+                                <h4 class="card-title text-article-pharmacology">{{$post->title}}</h4>
                                 <p class="card-text">
                                     {!! Str::limit($post->description, 150) !!}
                                 </p>
@@ -143,7 +143,7 @@
                                      alt="Responsive image">
                             </div>
                             <div class="col-8 col-md-9">
-                                <h5 class="card-title">{{$post->title}}</h5>
+                                <h4 class="card-title text-success">{{$post->title}}</h4>
                                 <p class="card-text">
                                     {!! Str::limit($post->description, 150) !!}
                                 </p>
