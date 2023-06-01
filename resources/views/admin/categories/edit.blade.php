@@ -34,9 +34,12 @@
                             <label for="course">دوره های آموزشی</label>
                             <input id="course" class="category_type" type="radio" value="1" name="cat_type"
                                    @if($category->getRawOriginal('type') == \App\Enums\ECategoryType::COURSE) checked @endif>
-                            <label for="post" class="pr-5">مقالات</label>
+                            <label for="post" class="pr-5">مقالات داروشناسی</label>
                             <input id="post" class="category_type" type="radio" value="2" name="cat_type"
-                                   @if($category->getRawOriginal('type') == \App\Enums\ECategoryType::POST) checked @endif>
+                                   @if($category->getRawOriginal('type') == \App\Enums\ECategoryType::PHARMACOLOGY_POST) checked @endif>
+                            <label for="post" class="pr-5">مقالات گیاه شناسی</label>
+                            <input id="post" class="category_type" type="radio" value="2" name="cat_type"
+                                   @if($category->getRawOriginal('type') == \App\Enums\ECategoryType::MEDICINAL_PLANTS_POST) checked @endif>
                         </div>
                     </div>
 
